@@ -1,0 +1,31 @@
+
+commerce-budget-tab .pagination-quotes-commerce {
+  position: absolute;
+  top: 105%;
+  left: 25%;
+}
+
+.quote-content .tab-quote.active {
+  display: block;
+  visibility: visible;
+}
+.quote-content .tab-quote {
+  display: none;
+  visibility: hidden;
+}
+
+.ajax-loader {
+  width: 40px; 
+  height: 40px; 
+  display: block; 
+  margin: 50px auto;
+}
+
+@media (max-width: 992px) {
+  commerce-budget-tab .pagination-quotes-commerce {
+    top: 30px;
+    left: 27%;
+    width: 50%;
+    position: relative;
+  }
+}

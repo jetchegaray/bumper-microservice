@@ -1,0 +1,473 @@
+@media (max-width: 380px){
+  .slider.lubricantes.slick-initialized.slick-slider{
+    width: 230px;
+  }
+}
+@media (min-width: 1px) and (max-width: 370px){
+  .modal-dialog {
+    .modal-footer {
+      button{
+        // float: left;
+        font-size: 12px !important;
+      }
+      button:nth-child(2){
+        width: auto !important;
+      }
+      button:first-child{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+@media (min-width: 1px) and (max-width: 1024px) {
+  .modal-dialog {
+    width: 90% !important;
+    .modal-footer{
+      float: none;
+      button:first-child{
+        width: 30% !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 990px) {
+    .md-no-pad {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 991px) {
+    .md-hide {
+        display: none;
+    }
+}
+
+@media (max-width: 480px){
+    .mobile-left{
+        padding-left: 0px;
+    }
+
+    .mobile-right{
+        padding-right: 0px;
+    }
+
+    .mobile-no-pad{
+        padding: 0px;
+    }
+    .buscador{
+        background: none;
+        padding-left: 0px;
+    }
+    .modal-body h1 {
+        font-size: 40px;
+    }
+
+    .margin-small{
+        margin-bottom: 30px;
+    }
+
+    li.categoria a{
+        font-size: 14px;
+    }
+
+    .check{
+        opacity: 0.1;
+    }
+
+    .marcas{
+        margin-bottom: 30px;
+    }
+
+    .responsive{
+        padding: 0;
+    }
+
+    .phone,
+    .suscribite,
+    .mecanico,
+    .circle,
+    .phone-pasos,
+    .separado-hide,
+    .map-hide{
+        display: none;
+    }
+
+    .map-registro{
+        display: block;
+    }
+
+    .inicio{
+        min-height: 850px;
+    }
+
+    .nav-tabs a{
+        font-size: 17px;
+    }
+
+    .padding-res{
+        padding-top: 8px;
+    }
+    .padding-left-nav{
+    padding-left: 30px;
+    }
+
+    .footer h3{
+        margin: 0 0 20px 0;
+    }
+    .redes-icon{
+        margin-top: 20px;
+        padding-left: 80px;
+    }
+
+    .contenidos {
+        padding: 5px;
+        height: 580px;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .contenidos-inside{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .mecanico_button{
+        position: static;
+    }
+
+    .block,
+    .block2,
+    .block3,
+    .block4{
+        padding: 20px 0 120px 0px;
+    }
+
+    .bg-new{
+        height: 246px;
+        margin-bottom: 20px;
+    }
+    .bg-new-big{
+        margin-bottom: 15px;
+    }
+
+    .blog-content{
+        margin-bottom: 0;
+    }
+
+    .media-body-res{
+        width: 100%;
+        float: left;
+    }
+    .media-right{
+        padding: 10px 0;
+    }
+
+    .suscripcion{
+        border-radius: 30px;
+    }
+
+    .form-inline .form-group{
+        padding: 0;
+    }
+
+    .boton{
+        background: none;
+        margin-left: 0;
+    }
+
+    .blue{
+        margin-left:0;
+        width: 100%;
+        height: 56px;
+    }
+
+    h3.facil{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .navbar-default .navbar-brand {
+        font-size: 28px;
+    }
+
+
+    /* mejores calificados */
+    .padding-white{
+        padding: 0 0 8px 20px;
+    }
+
+    .bg-grey{
+        padding: 18px 0 8px 0;
+    }
+
+    /* Paso 2 */
+
+    .servicios {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    .servicios img {
+    margin-top: 15px;
+    }
+
+    .servicios-activo {
+        padding-top: 0px;
+    }
+    .titulo-pasos p {
+        width: 40%;
+    }
+    .servicios img.ok {
+    top: 0px;
+    left: 105px;
+    }
+
+    .documento{
+        margin-left: 35%;
+    }
+
+    .vista{
+        display: block;
+    }
+
+    .nav-pills.desktop{
+        display: none;
+    }
+
+    .table > tbody > tr > td{
+        float: left;
+        width: 100%;
+        border-left: 1px solid #ddd;
+    }
+
+    .text-table{
+        font-size: 13px;
+    }
+
+    .map-responsive{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .padding-map{
+        display: none;
+    }
+
+    .btn-map {
+        background: transparent;
+        border: 1px solid transparent;
+        padding-left: 0px;
+    }
+
+    .btn-map-inside{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-tabs > li.done > img {
+        float: left;
+        margin-top: 10px;
+        width: 20px;
+    }
+
+
+    .nav-tabs > li.done > a {
+        font-size: 13px;
+        padding-right: 0px;
+    }
+
+    /* REGISTRO */
+
+    .hide-li{
+        display: none !important;
+
+    }
+    .registro-responsive{
+        padding: 0px;
+    }
+
+    .conductor-text {
+        margin-left: 0px;
+        margin-top:20px;
+    }
+
+    .last {
+        margin-left: 30px;
+        margin-top: -20px;
+    }
+
+    .fotos-text{
+        text-align: left;
+    }
+
+    /* Busqueda Avanzada */
+    .selecciones-grey {
+        min-height: 60px;
+    }
+
+    /* Resultados */
+    .resultado{
+        display: table;
+    }
+    .oficial{
+        min-height: 50px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 0px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomleft: 0px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0px;
+    }
+    .oficial img {
+        -ms-transform: translate(-50%, -50%) rotate(90deg); /* IE 9 */
+        -webkit-transform: translate(-50%, -50%) rotate(90deg); /* Chrome, Safari, Opera */
+        transform: translate(-50%, -50%) rotate(90deg);
+        margin-top:0;
+    }
+
+    .vertical-bar-bottom, .vertical-bar-top {
+      display: none;
+    }
+
+    .oficial.grey img{
+        margin-top: 0px;
+    }
+
+    .centrado-mas {
+        margin-top: 25px;
+    }
+
+    .responsive-center{
+        text-align: center;
+    }
+
+    .text-servicio {
+        width: 100%;
+    }
+
+    .precio-servicio{
+        float: left;
+    }
+    .precio-servicio h3{
+        text-align: left;
+    }
+    .pedir-turno,
+    .porcentaje{
+        padding:0 0 0 0;
+        margin-top: 15px;
+    }
+
+    .border-filtro{
+        display: none;
+    }
+    .cercano{
+        padding: 0px;
+    }
+    .check-new{
+        width: 100%;
+    }
+    .margin-left-17 {
+        margin-left: 0px !important;
+        }
+    .orden-filtro{
+        margin: 15px 0;
+    }
+
+    .slider.lubricantes.slick-initialized.slick-slider{
+        width: 270px;
+        margin-top: 20px;
+    }
+
+    .map-resultados{
+        margin-top: 30px;
+        min-height: 300px;
+        width: 100%;
+    }
+
+}
+
+.news3 {
+    width: 32%;
+    margin-right: 12px;
+    margin-top: 20px;
+}
+@media (min-width: 1px) and (max-width: 767px){
+  .map-resultados{
+    display: none;
+  }
+}
+
+@media (max-width: 767px){
+  .redes-icon {
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 768px){
+    .modal-dialog {
+      margin: 0px auto;
+    }
+
+}
+
+@media (max-width: 768px){
+    .container-fluid .container {
+        width: 100%!important;
+    }
+    .responsive{
+        padding: 0;
+        margin-top: 20px;
+    }
+    .news3{
+        width: 100% !important;
+        margin-right: 0px;
+    }
+    .garantizado{
+        position: relative !important;
+        top:-5px !important;
+    }
+    .contenidos{
+        display: block;
+        overflow: hidden;
+        min-height: 300px;
+        height: auto !important;
+        .mecanico{
+            display: none;
+        }
+        .mecanico_button{
+            position: relative;
+            margin: 20px 0;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 990px){
+  .contenidos{
+    margin-top: 60px !important;
+    height: 355px !important;
+    text-align: center;
+    .mecanico{
+      display: none;
+    }
+    .mecanico_button{
+      position: initial;
+    }
+  }
+}
+
+@media (max-width: 1024px){
+    .container-fluid .container {
+        width: 100%!important;
+    }
+    .media-body-res{
+        width: 100%;
+            float: left;
+    }
+}
+

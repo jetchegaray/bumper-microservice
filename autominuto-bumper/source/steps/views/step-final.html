@@ -1,0 +1,50 @@
+<div id="paso4" class="tab-content col-md-10 col-md-offset-1 col-xs-12">
+  <h3 class="completo text-center"><strong>Resumen de la solicitud</strong></h3>
+  
+  <!-- <h4 class="text-center">Verificá que los datos a continuación estén correctos para avanzar</h4> -->
+  <h4 class="text-center margin-top-30 text-grey margin-bottom-50">
+    Estás pidiendo presupuestos cercanos para: <strong class="color-blue">{{ $ctrl.issue }}</strong>,
+    en la zona <strong class="color-blue">{{ $ctrl.location }}</strong>
+    <aux-element ng-if="$ctrl.isCarNeeded()">
+      ,&nbsp;para un <strong class="color-blue">{{ $ctrl.brand }}</strong>,
+      modelo <strong class="color-blue">{{ $ctrl.model }}</strong>,
+      año <strong class="color-blue">{{ $ctrl.year }}</strong><span ng-if="$ctrl.vin">, nº de chasis <strong class="color-blue">{{ $ctrl.vin }}</strong></span>
+    </aux-element>
+  </h4>
+
+  <!-- <h5 ng-if="!$ctrl.model" class="text-center text-grey">Si no encontraste el modelo de tu auto más arriba, por favor ingresalo ahora.</h5>
+  <h5 class="margin-bottom-10 text-center text-grey">¿Tenés más información o querés dejar un comentario adicional?</h5>   -->
+  <h3 class="margin-bottom-10 text-center text-grey">Comentarios adicionales</h3>
+  <textarea class="form-control" ng-model="$ctrl.comments" rows="5" placeholder="Ingresá información adicional que consideres necesaria."></textarea>
+
+  <div class="col-md-12 margin-top-50 paso4" ng-show="false">
+    <div class="row">
+      <div class="col-xs-5 col-sm-6 col-md-6 col-lg-6">
+        <button type="button" class="btn btn-primary back continuar-final button-dark-gray-negative center-block pull-right" ng-click="$ctrl.back()">VOLVER</button>
+      </div>
+      <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+        <button type="button" class="btn btn-primary continue continuar-final button-dark-gray center-block pull-left" ng-click="$ctrl.quote()">ENVIAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="action-buttons not-desktop">
+  <!-- STEP FINAL -->
+  <div class="row">
+    <div class="col-xs-6 padding-left-no">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6 padding-right-no">
+      <div class="continue" ng-click="$ctrl.quote()">
+        <span>Enviar</span>
+      </div>
+    </div>
+  </div>
+</div>

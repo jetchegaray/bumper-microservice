@@ -1,0 +1,46 @@
+.not-fount-container{ 
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  text-align: center;
+
+	h2{
+		font-weight: bold;
+		color: #27536d;
+		margin: 0 auto 10px auto;
+		font-size: 32px;
+	}
+	h2.light{
+		font-weight: normal;
+		font-size: 25px;
+	}
+
+	button{
+		font-size: 25px;
+		border: 3px solid #5c9bbf !important;
+		font-weight: bold;
+	    background-color: #5c9bbf !important;
+	    color: #fff !important;
+	    margin-top: 20px;
+	    &:hover{
+	    	background-color: #5c9bbf !important;
+	    	border-color: #5c9bbf !important;
+	    	color:#fff !important;
+	    }
+	}
+
+	p{
+		font-size: 25px;
+		margin-top: 20px;
+		a{
+			color: #27536d;
+		    font-weight: bold;
+		    text-decoration: underline;
+		}
+	}
+
+	img{
+		//margin-left: -35px;
+		max-width: 100%;
+	}
+}

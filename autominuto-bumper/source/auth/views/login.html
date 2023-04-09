@@ -1,0 +1,141 @@
+
+<!-- HEADER -->
+<header-notification></header-notification>
+
+<!-- INICIA SESION-->
+<div class="container-fluid pasos">
+  <div class="container margin-top-50 margin-bottom-80">
+    <div class="text-center text-grey bg-login">
+      <h2 class="login-title margin-top-no">INICIÁ SESIÓN</h2>
+      <div class="margin-top-40 padding-no"> 
+        <form id="loginForm" class="form-responsive" name="userForm" novalidate>
+
+          <!-- Usuario -->
+          <div class="form-group">
+            <label for="inputEmail" class="sr-only">Usuario</label>
+            <input
+              id="inputEmail"
+              class="form-control alto margin-bottom-20"
+              name="email"
+              type="email"
+              onfocusout="this.value = this.value.toLowerCase();"
+              onkeyup="this.value = this.value.toLowerCase();"
+              placeholder="Ingresa tu email"
+              ng-model="user.nickNameOrEmail"
+              ng-change="cleanErrorMessage()"
+              required
+              autofocus />
+          </div>
+
+          <!-- Tooltip when caps lock key is pressed -->
+          <div class="tootiop-caps-lock">
+            <tooltip-gen position="top" tittle-text="" image-rute="" text="Tenés activada la tecla mayúscula."></tooltip-gen>
+          </div>
+
+          <!-- Contraseña -->
+          <label for="inputPassword" class="sr-only">Contraseña</label>
+          <div class="input-group password-group">
+            <input
+              id="inputPassword"
+              class="form-control alto"
+              name="password"
+              type="{{ passwordType }}"
+              placeholder="Contraseña"
+              ng-model="user.password"
+              ng-change="cleanErrorMessage()"
+              ng-keypress="onKeydown($event)"
+              required>
+            <div class="input-group-addon alto color-blue u-mobileHidden">
+              <input type="checkbox" ng-click="togglePassword()"> Mostrar Contraseña
+            </div>
+          </div>
+
+
+          <!-- Flags -->
+          <div class="margin-top-20">
+            <div class="login-control margin-bottom-20">
+              <div class="text-grey margin-bottom-5">
+                <input type="checkbox" style="margin-right: 5px;">No cerrar sesión
+              </div>
+              <div class="margin-bottom-5">
+                <a ui-sref="recover_password" class="color-blue">¿Olvidaste tu contraseña?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Login buttons -->
+          <button class="btn btn-lg btn-primary btn-block" ng-click="signIn()">INGRESAR</button>
+
+          <div class="margin-top-20 redes-container">
+            <div class="social-section margin-bottom-20">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-primary icon icon-fb login-icon"><i class="fa fa-facebook-official" aria-hidden="true"></i></button>
+                  <button class="btn btn-warning redes-text fb" ng-click="authenticateFacebook()">INGRESAR CON FACEBOOK</button>
+                </div>
+              </div>
+
+            </div>
+            <div class="social-section">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-primary icon icon-gmail login-icon"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                  <button class="btn btn-warning redes-text gmail" ng-click="authenticate('google', {isLogin:true})">INGRESAR CON GMAIL</button>
+                </div>
+              </div>
+              <!-- <div class="input-group margin-top-20">
+                <div class="input-group-btn">
+                  <button class="btn btn-primary icon icon-tw"><i class="fa fa-twitter" aria-hidden="true"></i></button>
+                  <button class="btn btn-warning redes-text tw" ng-click="authenticate('twitter')">INGRESAR CON TWITTER</button>                </div>
+              </div> -->
+             <!-- <div class="input-group margin-top-20">
+                <div class="input-group-btn">
+                  <button class="btn btn-primary icon icon-hotmail"><i class="fa fa-windows" aria-hidden="true"></i></button>
+                  <button class="btn btn-warning redes-text hotmail"  ng-click="authenticate('live')">INGRESAR CON HOTMAIL</button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--<div class="clearfix"></div>-->
+      <div class="padding-lr-10">
+        <hr class="margin-top-20">
+        <div><h5 class="login">¿Todavía no tenés cuenta en Autominuto?</h5></div>
+        <div><button class="btn btn-lg btn-info" ng-click="goToRegister()">REGISTRATE AHORA</button></div>
+      </div>
+    </div>
+    <!-- /col-login -->
+  </div>
+  <!-- /col-md-10 -->
+</div>
+<!-- /container -->
+
+
+<!-- DESCARGA -->
+<div class="container-fluid descarga apagado">
+  <div class="container margin-top-20">
+    <div class="col-md-3 col-xs-12">
+      <img src="assets/images/phone.png" class="phone-pasos">
+    </div>
+    <!-- /col-4 -->
+    <div class="col-md-9 col-xs-12">
+      <div class="col-md-10 col-md-offset-1 margin-25">
+        <h2>DESCARGÁ AHORA AUTOMINUTO</h2>
+        <div class="col-md-4 col-xs-12 margin-top-20" style="margin-right: -20px;">
+          <img src="assets/images/app_store.png">
+        </div>
+        <!-- /col-4 -->
+        <div class="col-md-4 col-xs-12 margin-top-20" style="margin-right: -20px;">
+          <img src="assets/images/google_play.png">
+        </div>
+        <!-- /col-4 -->
+        <div class="col-md-4 col-xs-12 margin-top-20" style="margin-bottom: 30px;">
+          <img src="assets/images/tienda_windows.png">
+        </div>
+        <!-- /col-4 -->
+      </div>
+    </div>
+    <!-- /col-8 -->
+  </div>
+</div>

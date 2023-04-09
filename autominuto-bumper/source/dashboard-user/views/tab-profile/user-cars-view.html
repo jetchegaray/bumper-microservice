@@ -1,0 +1,91 @@
+
+  <div class="pull-right vehicles-perfil">
+    <button class="btn btn-primary margin-bottom-10" ng-disabled="!$ctrl.radioCars" ng-click="$ctrl.showModalVehiculos($ctrl.radioCars)">
+      <strong><span class="glyphicon glyphicon-pencil"></span> Editar datos</strong>
+    </button>
+    <button class="btn btn-primary margin-bottom-10" ng-click="$ctrl.showModalVehiculos()">
+      <strong><span class="fa fa-car"></span> Nuevo Vehiculo</strong>
+    </button>
+    <button class="btn btn-primary margin-bottom-10 only-desktop" ng-click="$ctrl.goTofastCarsLoad()">
+      <strong><span class="fa fa-car"></span> Flotas</strong>
+    </button>
+  </div>
+
+<h1>Mis autos</h1>
+
+<div class="row">
+  <!-- contenido mis vehiculos -->
+  <div class="col-md-12 col-sm-12 col-xs-12" id="mis-vehiculos">
+
+    <h6>Seleccione su vehiculo predeterminado:</h6>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-20 vehiculos-selected relative"
+         ng-repeat="car in $ctrl.userCars">
+      <label>
+        <span ng-click="$ctrl.deleteCar(car)"><i class="fa fa-times del-car"></i></span>
+        <span class="margin-wrapper">
+              <input type="radio" ng-model="$ctrl.radioCars" ng-value="car">
+            </span>
+        <div class="fixed-wrapper">
+          <div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Marca:</strong></h6>
+                    <span>{{car.brand.name}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail" ng-if="car.brand.subbrands.length">
+                    <h6><strong>Modelo:</strong></h6>
+                    <span>{{car.brand.subbrands[0].name}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Año</strong></h6>
+                    <span>{{car.year}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>N° de Chasis:</strong></h6>
+                    <span>{{car.chasisNumber}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Motor</strong></h6>
+                    <span>{{car.engineModel}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Kilómetros</strong></h6>
+                    <span>{{car.kilometers}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Combustible</strong></h6>
+                    <span>{{car.fuel}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                  <div class="vehicle-detail">
+                    <h6><strong>Tipo de seguro</strong></h6>
+                    <span>{{car.insurance.name}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </label>
+    </div>
+
+  </div>
+</div>

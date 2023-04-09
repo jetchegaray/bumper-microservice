@@ -1,0 +1,17 @@
+<div id="tabAutoparte1" class="tab-pane fade in active">
+  <div class="col-md-8 col-md-offset-2 extra slider">
+    <div class="autopartes text-center" ng-repeat="autoparte in $ctrl.autopartes">
+      <img ng-src="assets/images/categories/{{ autoparte.imageName }}" ng-click="$ctrl.goToResults(autoparte.slug)" class="center-block">
+      <h5 class="text-grey">{{ autoparte.name }}</h5>
+    </div>
+  </div><!-- /slider -->
+</div><!-- TAB 01 -->
+
+<div id="tabAutoparte2" class="tab-pane fade">
+  <div class="col-md-8 col-md-offset-2 extra slider">
+    <div class="autopartes text-center" ng-repeat="service in $ctrl.services">
+      <img ng-src="assets/images/categories/{{ service.imageName }}" ng-click="$ctrl.goToResults(service.slug)" class="center-block">
+      <h5 class="text-grey">{{ service.name }}</h5>
+    </div>
+  </div><!-- /slider -->
+</div><!-- TAB 02 -->

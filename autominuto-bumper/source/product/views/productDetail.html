@@ -1,0 +1,332 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="container-fluid margin-top-50" style="padding:0;">
+  <div class="expand-container">
+    <section>
+      <div id="productsDetail">
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-10">
+          <div class="row">
+            <!--producto nombre-->
+            <div class="col-md-12 col-sm-12 col-xs-12 margin-10">
+              <h1><strong>{{$ctrl.product.name}}</strong></h1>
+            </div>
+            <!--contenedor imagen nombre precio en 2 columnas-->
+            <div class="col-md-12 col-sm-12 col-xs-12 margin-10">
+              <div class="row">
+                <div class="col-md-7 col-sm-12 col-xs-12">
+                  <div class="detail-product-img-container">
+                    <img ng-src="{{$ctrl.imageProduct}}">
+                  </div>
+                  <hr>
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row destacado">
+                      <div>
+                        <outstanding-product 
+                          rating="($ctrl.product.ratingCommerceSummary.average + $ctrl.product.recomendationCommerceSummary.average) / 2"
+                          name="Calificaciones Totales"
+                          total="$ctrl.product.ratingCommerceSummary.total + $ctrl.product.recomendationCommerceSummary.total"
+                          type="Calificaciones"
+                          quality="$ctrl.product.typeCommerceQuality">
+                        </outstanding-product>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                  <div class="detail-product-text-container">
+                    <p><span class="gray-desc">PRECIO</span></p>
+                    <h1>${{$ctrl.product.price}}</h1>
+                    <p><span class="gray-desc">DESCRIPCIÓN DEL PRODUCTO</span></p>
+                    <div class="margin-bottom-50">
+                      <p><span class="text-grey">
+                            {{$ctrl.product.description}}
+                          </span>
+                      </p>
+                    </div>
+                    <div class="form-group form-content">
+                      <p><span class="gray-desc">CÓDIGO PROMOCIONAL</span></p>
+
+                      <promotional-code on-success="$ctrl.getProductAndItsRelated(discount, code)"></promotional-code>
+
+                      <div class="form-group">
+                        <div ng-if="!$ctrl.checkoutLink" tooltip-template="steps/views/tooltip-commerce-without-mp.html" class="relative">
+                          <a href="#" class="btn btn-primary button-lightblue webkit-block disabled">COMPRAR</a>
+                        </div>
+                        <a ng-if="$ctrl.checkoutLink" ng-click="$ctrl.clickBuyButton()"
+                                class="btn btn-primary button-lightblue webkit-block">COMPRAR</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--linea divisora-->
+            <div class="col-md-12 col-sm-12 col-xs-12 margin-10">
+              <hr>
+            </div>
+
+
+            <!--productos relacionados-->
+            <div class="col-md-12 col-sm-12 col-xs-12 margin-10" ng-show="$ctrl.productsRelated.length != 0">
+              <h3>Productos y servicios relacionados del comercio</h3>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 sugeridos-container margin-10"
+                 >
+              <div class="col-md-3 col-sm-6 col-xs-12 margin-10" ng-repeat="productRelated in $ctrl.productsRelated">
+                <div class="producto-imagen">
+                  <div class="price"><p>$<b>{{productRelated.price}}</b></p></div>
+                  <div>
+                    <img ng-src="{{productRelated.imageProduct}}" style="width: 130px; height: 130px; margin-bottom: 30px; margin-top: 30px;">
+                  </div>
+                </div>
+                <br>
+                <div class="light-blue-button">
+                  <a ng-href="/commerce/{{productRelated.commerceId}}/product/{{productRelated.id}}"
+                     class="btn btn-primary button-lightblue webkit-block">COMPRAR</a>
+                </div>
+                <div class="producto-title" style="width: 100%;">{{productRelated.name}}.</div>
+              </div>
+            </div>
+
+
+            <!--
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="hitos">
+                <div class="hitos-inner">
+                  <div class="hito-date">
+                    <div><img src="assets/images/icons/circle-hito.png">
+                      <div class="line-hito">
+                      </div>
+                      <div class="month"><p>SEPTIEMBRE 2016</p></div>
+                    </div>
+                  </div>
+                  <div class="hito-group">
+                      <div class="hito-item">
+                        <div class="col-md-12 no-padding no-flex">
+                          <div class="globito">
+                            <img src="assets/images/icons/positivas.png">
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                              tempor incididunt ut <br>labore et dolore magna aliqua."</p>
+                              <div class="triangulito">
+                                <img src="assets/images/icons/triangulito2.png">
+                              </div>
+                          </div>
+                          <div class="perfil-hito">
+                            <img src="assets/images/icons/perfil-calificacion.png">
+                            <p>LORENZO LAMAS</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="globito-date">
+                        <p>Noviembre 16, 2016</p>
+                      </div>
+                  </div>
+                  <div class="hito-group">
+                    <div class="hito-item">
+                      <div class="col-md-12 no-padding no-flex">
+                        <div class="globito">
+                          <img src="assets/images/icons/positivas.png">
+                          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            tempor incididunt ut <br>labore et dolore magna aliqua."</p>
+                            <div class="triangulito">
+                              <img src="assets/images/icons/triangulito2.png">
+                            </div>
+                        </div>
+                        <div class="perfil-hito">
+                          <img src="assets/images/icons/perfil-calificacion.png">
+                          <p>LORENZO LAMAS</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="globito-date">
+                      <p>Noviembre 16, 2016</p>
+                    </div>
+                  </div>
+                  <div class="hito-date">
+                    <div><img src="assets/images/icons/circle-hito.png">
+                      <div class="line-hito">
+                      </div>
+                      <div class="month"><p>OCTUBRE 2016</p></div>
+                    </div>
+                  </div>
+                  <div class="hito-group">
+                    <div class="hito-item">
+                      <div class="col-md-12 no-padding no-flex">
+                        <div class="globito">
+                          <div class="stars">
+                            <div class="star"><img src="assets/images/icons/star-on.png"></div>
+                            <div class="star"><img src="assets/images/icons/star-on.png"></div>
+                            <div class="star"><img src="assets/images/icons/star-on.png"></div>
+                            <div class="star"><img src="assets/images/icons/star-off-grey.png"></div>
+                            <div class="star"><img src="assets/images/icons/star-off-grey.png"></div>
+                          </div>
+                          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit."</p>
+                          <div class="triangulito">
+                            <img src="assets/images/icons/triangulito2.png">
+                          </div>
+                        </div>
+                        <div class="perfil-hito">
+                          <img src="assets/images/icons/perfil-hito.png">
+                          <span>
+                            <p>ANALISA C. QUINTEROS</p>
+                            <small>San Nicolas, Buenos Aires, Argentina</small>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="globito-date reply-comment">
+                    <div class="group">
+                      <div class="reply-icon">
+                        <img src="assets/images/icons/reply.jpg">
+                      </div>
+                      <div class="globito">
+                        <img src="assets/images/icons/logo-answer.png">
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        tempor incididunt ut <br>labore et dolore magna aliqua."</p>
+                        <div class="triangulito">
+                          <img src="assets/images/icons/triangulito2.png">
+                        </div>
+                      </div>
+                    </div>
+                    <p>Noviembre 16, 2016</p>
+                  </div>
+
+                 <div class="hito-group">
+                    <div class="hito-item">
+                      <div class="col-md-12 no-padding no-flex">
+                        <div class="globito">
+                          <img src="assets/images/icons/negativas.png">
+                          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            tempor incididunt ut <br>labore et dolore magna aliqua."</p>
+                          <div class="triangulito">
+                            <img src="assets/images/icons/triangulito2.png">
+                          </div>
+                        </div>
+                        <div class="perfil-hito">
+                          <img src="assets/images/icons/perfil-calificacion.png">
+                          <p>LORENZO LAMAS</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="globito-date">
+                      <p>Noviembre 16, 2016</p>
+                    </div>
+                  </div>
+
+
+                  <div class="ver-mas">
+                    <p>Ver más calificaciones you recomendaciones </p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>-->
+
+            <!-- preguntas al vendedor-->
+            <!-- <div class="col-md-12 col-sm-12 col-xs-12 margin-10">
+              <div class="row">
+                <product-comments
+                  product="$ctrl.product">
+                </product-comments>
+
+                <!--<div id="menu5" class="comments-container">
+                  <div class="col-md-12 comments">
+                    <div class="group-comment">
+                      <div class="comment">
+                        <div class="perfil"><img src="assets/images/icons/perfil-photo.png"></div>
+                        <div class="group">
+                          <div class="name">Julio Berthaud Carrizo</div>
+                          <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                          <div class="options-content">
+                            <div class="answer"><p>Responder</p></div>
+                            <span class="divider"><p>-</p></span>
+                            <div class="share"><p>Compartir</p></div>
+                            <span class="divider"><p>-</p></span>
+                            <div class="date">Hace 10 dias</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="group-comment">
+                      <div class="comment">
+                        <div class="perfil"><img src="assets/images/icons/perfil-photo2.png"></div>
+                          <div class="group">
+                            <div class="name">Gabriel Salvay</div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="options-content">
+                              <div class="answer"><p>Responder</p></div>
+                              <span class="divider"><p>-</p></span>
+                              <div class="share"><p>Compartir</p></div>
+                              <span class="divider"><p>-</p></span>
+                              <div class="date">Hace 10 dias</div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="reply-content">
+                            <div class="reply-icon"><img src="assets/images/icons/reply.jpg"></div>
+                            <div class="answer-logo"><img src="assets/images/icons/logo-answer.png"></div>
+                            <div class="group">
+                              <div class="name">DM Distribuidora</div>
+                              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                              tempor incididunt ut labore et dolore magna aliqua.</div>
+                              <div class="options-content">
+                                <div class="answer"><p>Responder</p></div>
+                                <span class="divider"><p>-</p></span>
+                                <div class="share"><p>Compartir</p></div>
+                                <span class="divider"><p>-</p></span>
+                                <div class="date">Hace 10 dias</div>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="group-comment">
+                      <div class="comment">
+                        <div class="perfil"><img src="assets/images/icons/perfil-photo.png"></div>
+                          <div class="group">
+                            <div class="name">Julio Berthaud Carrizo</div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="options-content">
+                              <div class="answer"><p>Responder</p></div>
+                              <span class="divider"><p>-</p></span>
+                              <div class="share"><p>Compartir</p></div>
+                              <span class="divider"><p>-</p></span>
+                              <div class="date">Hace 10 dias</div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button><b>CARGAR M&Aacute;S COMENTARIOS</b></button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>-->
+          </div>
+    </section>
+  </div>
+</div>
+
+<cookies-banner></cookies-banner>

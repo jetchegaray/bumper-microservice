@@ -1,0 +1,389 @@
+<div class="free-content inner-comerciante resumen" ng-if="$ctrl.commerce">
+  <div class="group">
+    <div class="about" style="float: none" ng-if="$ctrl.commerce.description">
+      <h2>Acerca de</h2>
+      <p>{{ $ctrl.commerce.description | cut:true:$ctrl.descLimit:' ...' }} <a style="cursor:pointer;" ng-click="$ctrl.changeLimit()" href="#" ng-if="$ctrl.commerce.description.length > 1000 && !$ctrl.descriptionExpanded">Ver más</a></p>
+    </div>
+  </div>
+  <!-- PLAN HIGHLINE -->
+  <div class="servicios-populares" style="overflow: hidden" ng-if="$ctrl.commerce.hasPlan === true">
+    <div class="col-xs-12 col-md-12 no-padding">
+      <div class="col-xs-12 col-md-5 no-padding left left-summary"
+           ng-style="$ctrl.getFrontImage() !== null && {'background-image': 'url({{ $ctrl.getFrontImage() }})'}">
+
+      </div>
+      <div class="col-xs-12 col-md-7 no-padding right tab-summary">
+        <div class="titulo-servicio-populares">
+          <b>Servicios y productos populares</b>
+        </div>
+        <span>
+          <!--
+          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incid.</h4>
+          -->
+          <div class="row row-summary">
+            <div class="col-xs-12 col-md-12 no-padding row-servicios summary-categories">
+              <div class="col-xs-6 col-sm-4 col-summary" ng-repeat="category in $ctrl.getPopularCategories() track by $index" ng-if="$index < 15">
+                <img src="assets/images/categories/{{ category.imageName }}" class="selectDisable" title="{{ category.imageName.split('.')[0].replace('-', ' ') }}" alt="{{ category.imageName.split('.')[0].replace('-', ' ') }}">
+                <p style="margin-left: 3px;" class="selectDisable">
+                  {{ category.name }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="clearfix"></div>
+
+  <div class="productos" ng-if="$ctrl.products.length > 0 || $ctrl.coupons.length > 0">
+    <h2>Productos destacados</h2>
+    <!-- PRODUCT ROW -->
+    <div class="productos-row col-xs-12">
+      <div class="col-md-3 producto-item selected" ng-repeat="product in $ctrl.products | limitTo:4:0">
+        <div class="producto-imagen">
+          <div class="overlay">
+            <div class="overlay-image" ng-click="$ctrl.goToProductDetails(product)">
+              <span class="margin-right-5">
+                <img src="assets/images/icons/sumar.png">
+              </span>
+              <div class="overlay-pieces" >
+                Ver detalles del producto
+              </div>
+            </div>
+          </div>
+          <div class="price"><p>$<b>{{ product.price }}</b></p></div>
+          <img ng-src="{{ product.mainImage}}" style="width: 130px; height: 130px; margin-bottom: 30px; margin-top: 30px;">
+        </div>
+        <div class="light-blue-button">
+          <button>
+            <p>COMPRAR</p>
+          </button>
+        </div>
+        <div class="producto-title name-image-product" style="width: 100%;">{{ product.name }}</div>
+      </div>
+    </div>
+    <!-- CUPON ROW -->
+    <div class="cupones-container" ng-if="$ctrl.coupons.length > 0">
+      <div class="row no-padding cupon-promo" ng-click="$ctrl.goToCoupons()">
+        <div class="col-md-12 no-padding cupon-promo-inner">
+          <div class="col-md-2 col-xs-3 no-padding left">
+            <span><p>{{ $ctrl.coupons[0].discount }} %</p></span>
+            <img src="assets/images/icons/cupon-stripe-2.png">
+          </div>
+
+          <div class="col-md-7 col-xs-6 middle">
+            <h4>{{ $ctrl.coupons[0].services[0].name }}, presentando este codigo : <b>{{$ctrl.coupons[0].code}}</b></h4>
+          </div>
+
+          <div class="col-md-3 col-xs-3 no-padding right"><h4 ng-show="$ctrl.coupons[0].expireToday == true"><b>SOLO POR HOY</b></h4></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <!-- PRODUCT ROW -->
+    <div class="productos-row col-xs-12">
+      <div class="col-md-3 producto-item selected" ng-repeat="product in $ctrl.products | limitTo:4:4">
+        <div class="producto-imagen">
+          <div class="overlay">
+            <div class="overlay-image">
+              <span class="margin-right-5">
+                <img src="assets/images/icons/sumar.png">
+              </span>
+              <div class="overlay-pieces" ng-click="$ctrl.goToProductDetails(product)">
+                Ver detalles del producto
+              </div>
+            </div>
+          </div>
+          <div class="price"><p>$<b>{{ product.price }}</b></p></div>
+          <img ng-src="{{ product.mainImage }}" style="width: 130px; height: 130px; margin-bottom: 30px; margin-top: 30px;">
+        </div>
+
+        <div class="light-blue-button">
+          <button>
+            <p>COMPRAR</p>
+          </button>
+        </div>
+        <div class="producto-title name-image-product" style="width: 100%;">{{ product.name }}</div>
+      </div>
+    </div>
+    <!-- CUPON ROW -->
+    <div class="cupones-container" ng-if="$ctrl.coupons.length > 1 && $ctrl.products.length > 4">
+      <div class="row no-padding cupon-promo">
+        <div class="col-md-12 no-padding cupon-promo-inner">
+          <div class="col-md-2 col-xs-3 no-padding left">
+            <span><p>{{ $ctrl.coupons[1].discount }} %</p></span>
+            <img src="assets/images/icons/cupon-stripe-2.png">
+          </div>
+
+          <div class="col-md-7 col-xs-6 middle">
+            <h4>{{ $ctrl.coupons[1].title }}, presentando este codigo : <b>{{$ctrl.coupons[1].code}}</b></h4>
+          </div>
+
+          <div class="col-md-3 col-xs-3 no-padding right"><h4 ng-show="$ctrl.coupons[1].expireToday == true"><b>SOLO POR HOY</b></h4></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+
+
+  <!-- PLAN FREE -->
+  <!-- now PLAN FREE & HIGHLINE -->
+  <div>
+    <div class="services-offered-commerce" ng-if="$ctrl.commerce.topServicesNoQuoteables.length > 0" >
+      <h4>Solicitar un turno</h4>
+    </div>
+    <div class="row" ng-if="$ctrl.commerce.topServicesNoQuoteables.length > 0">  
+      <div class="tab-content" style="margin-top: 0 !important;">
+        <div role="tabpanel" class="relative">
+          <div class="recomendate-container margin-bottom-50">
+            <!-- ng-if="$index < $ctrl.visibleProducts || $ctrl.showAllOnlyServices" -->
+            <div class="recomendate custom-recomendate custom-transition"
+                 ng-repeat="category in $ctrl.commerce.topServicesNoQuoteables | orderBy:'name' | limitTo: $ctrl.limitCategoryServices track by $index "
+                 ng-click="$ctrl.selectService(category)">
+              <img ng-src="assets/images/categories/{{ category.imageName }}" class="selectDisable" title="{{ category.imageName.split('.')[0].replace('-', ' ') }}" alt="{{ category.imageName.split('.')[0].replace('-', ' ') }}">
+              <span class="selectDisable">{{ category.name }}</span>
+            </div>  
+          </div>
+          <span class="show-more" ng-click="$ctrl.loadMoreCategoryService()" ng-if="$ctrl.limitCategoryServices <= $ctrl.commerce.topServicesNoQuoteables.length"> <i class="fa fa-angle-double-down"></i> </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- cuando no se muestran todos.. se redirijia a la solapa donde estan todos 
+    <div class="container-button-services-offered">
+      <button class="btn btn-primary"
+              ng-click="$ctrl.showAllOnlyServices = true"
+              ng-if="$ctrl.showAllOnlyServices === false && $ctrl.onlyServices.length > $ctrl.visibleProducts">
+        Pedir turno
+      </button>
+    </div>
+    -->
+    <div class="clearfix"></div>
+
+    <div class="services-offered-commerce margin-top-20" ng-if="$ctrl.commerce.topServicesQuoteables.length > 0 || $ctrl.commerce.topSpareParts.length > 0">
+      <h4>Solicitar un presupuesto</h4>
+    </div>
+
+    <div class="row" ng-if="$ctrl.commerce.topServicesQuoteables.length > 0 || $ctrl.commerce.topSpareParts.length > 0">
+      <div class="dual-checkbox text-center margin-top-20 margin-bottom-20 text-grey">
+        <label>SERVICIOS</label>
+        <label class="checkbox-switch">
+          <input type="checkbox" ng-model="$ctrl.serviceSparePartsCheckbox">
+          <span class="checkbox-slider round"></span>
+        </label>
+        <label style="vertical-align:bottom">AUTOPARTES</label>
+      </div>
+
+      <div class="tab-content" style="margin-top: 0 !important;">
+        <div role="tabpanel" class="tab-pane relative" ng-class="{'active': !$ctrl.serviceSparePartsCheckbox}">
+          <div class="recomendate-container margin-bottom-30">
+            <!-- ng-if="$index < $ctrl.visibleProducts || $ctrl.showAllProductsOrServicesOffered"-->
+            <div
+              class="recomendate custom-recomendate custom-transition"
+              ng-repeat="category in $ctrl.commerce.topServicesQuoteables | orderBy:'name' | limitTo: $ctrl.limitCategoryProductServices track by $index"
+              ng-click="$ctrl.selectService(category)">
+              <img ng-src="assets/images/categories/{{ category.imageName }}" class="selectDisable" title="{{ category.imageName.split('.')[0].replace('-', ' ') }}" alt="{{ category.imageName.split('.')[0].replace('-', ' ') }}">
+              <span class="selectDisable">{{ category.name }}</span>
+            </div>
+          </div>
+          <span class="show-more" ng-click="$ctrl.loadMoreCategoryProductService()" ng-if="$ctrl.limitCategoryProductServices <= $ctrl.commerce.topServicesQuoteables.length"> <i class="fa fa-angle-double-down"></i> </span>
+        </div>
+        <div role="tabpanel" class="tab-pane relative" ng-class="{'active': $ctrl.serviceSparePartsCheckbox}">
+          <div class="recomendate-container margin-bottom-30">
+            <!-- ng-if="$index < $ctrl.visibleProducts || $ctrl.showAllProductsOrServicesOffered" -->
+            <div
+              class="recomendate custom-recomendate custom-transition"
+              ng-repeat="category in $ctrl.commerce.topSpareParts | orderBy:'name' | limitTo: $ctrl.limitCategoryProductAutoparts track by $index"
+              ng-click="$ctrl.selectService(category)">
+              <img ng-src="assets/images/categories/{{ category.imageName }}" class="selectDisable" title="{{ category.imageName.split('.')[0].replace('-', ' ') }}" alt="{{ category.imageName.split('.')[0].replace('-', ' ') }}">
+              <span class="selectDisable">{{ category.name }}</span>
+            </div>
+            <span class="show-more" ng-click="$ctrl.loadMoreCategoryProductAutoparts()" ng-if="$ctrl.limitCategoryProductAutoparts <= $ctrl.commerce.topSpareParts.length"> <i class="fa fa-angle-double-down"></i> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PLAN HIGHLINE -->
+  <div ng-if="$ctrl.commerce.hasPlan === true && $ctrl.hasAnyAditionals()" class="adicionales tab-summary-adicionales">
+    <h2>Adicionales del comercio</h2>
+    <div class="col-xs-12 col-md-12 adicionales-inner">
+      <div class="row">
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasWifi">
+          <div>
+            <img src="assets/images/icons/hasWifi.png" title="Wifi" alt="Wifi">
+            <p>Wi Fi</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasAir">
+          <div>
+            <img src="assets/images/icons/hasAir.png" title="Aire Acondicionado" alt="Aire Acondicionado">
+            <p>Aire Acondicionado</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasWaitingArea">
+          <div>
+            <img src="assets/images/icons/hasWaitingArea.png" title="Sala de estar" alt="Sala de estar">
+            <p>Sala <br>de espera</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasPostSales" title="Post venta" alt="Post venta">
+          <div>
+            <img src="assets/images/icons/hasPostSales.png">
+            <p>Posventa</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasGaranty" title="Garantia" alt="Garantia">
+          <div>
+            <img src="assets/images/icons/hasGaranty.png">
+            <p>Garantia</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasTemporalCar" title="Auto mulo" alt="Auto mulo">
+          <div>
+            <img src="assets/images/icons/hasTemporalCar.png">
+            <p>Auto sustituto</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasComputerDiagnostics">
+          <div>
+            <img src="assets/images/icons/hasComputerDiagnostics.png" title="Scanner Computarizado" alt="Scanner Computarizado">
+            <p>Diagnosticos por computadora</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.hasSavingPlan">
+          <div>
+            <img src="assets/images/icons/hasSavingPlan.png" title="Plan de ahorro" alt="Plan de ahorro">
+            <p>Plan de Ahorro</p>
+          </div>
+        </div>
+
+
+        <div class="adicional-item" ng-if="false">
+          <div>
+            <img src="assets/images/icons/taller.png">
+            <p>Taller</p>
+          </div>
+        </div>
+        <div class="adicional-item" ng-if="$ctrl.commerce.distributor">
+          <div>
+            <img src="assets/images/icons/distribuidor.png" title="Distribuidor" alt="Distribuidor">
+            <p>Distribuidor</p>
+          </div>
+        </div>
+        <div class="adicional-item"  ng-if="$ctrl.commerce.manufacture">
+          <div>
+            <img src="assets/images/icons/fabricante.png" title="Fabricante" alt="Fabricante">
+            <p>Fabricante</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAN HIGHLINE -->
+  <div class="fotos" ng-if="$ctrl.commerce.hasPlan === true && $ctrl.commerce.images.length > 1">
+    <h2>Fotos del comercio</h2>
+    <div class="fotos-inner">
+      <div class="flex-box-5-photo" ng-if="$ctrl.getOtherImages().length > 3">
+
+        <div class="main-image">
+          <img ng-src="{{ $ctrl.getOtherImages()[0] }}" class="main_image_summary">
+        </div>
+        <div class="sub-images">
+          <div class="column-1-2" ng-repeat="image in $ctrl.getOtherImages() track by $index" ng-if="$index >= 1">
+            <img ng-src="{{ image }}" class="other_images_summary">
+          </div>
+        </div>
+      </div>
+      <div class="flex-box-3-photo" ng-if="$ctrl.getOtherImages().length == 3">
+
+        <div class="main-image">
+          <img ng-src="{{ $ctrl.getOtherImages()[0] }}" class="main_image_summary">
+        </div>
+        <div class="sub-images">
+          <div class="column-1-2" ng-repeat="image in $ctrl.getOtherImages() track by $index" ng-if="$index >= 1">
+            <img ng-src="{{ image }}" class="other_images_summary">
+          </div>
+        </div>
+
+      </div>
+      <div class="flex-box-1-2-photo" ng-if="$ctrl.getOtherImages().length < 3">
+
+        <div class="main-image" ng-repeat="image in $ctrl.getOtherImages() track by $index">
+          <img ng-src="{{ image }}" class="other_images_summary">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="calificacion-producto">
+    <h2>Actividad reciente</h2>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 tab-summary-calificacion">
+        <div>
+           <outstanding-product ng-if="$ctrl.commerce.ratingSummary && $ctrl.commerce.recomendationSummary" rating="$ctrl.commerce.ratingSummary.average" recommendation="$ctrl.commerce.recomendationSummary.average"  
+                               name="Calificaciones Totales"
+                               total="$ctrl.commerce.ratingSummary.total + $ctrl.commerce.recomendationSummary.total"
+                               type="Calificaciones"
+                               quality="$ctrl.commerce.typeCommerceQuality">
+          </outstanding-product>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hitos">
+    <div class="hitos-inner" style="padding-top: 35px;">
+   
+      <div class="hito-group" ng-repeat="item in $ctrl.recommendations" style="font-family: 'Montserrat', 'sans-serif'">
+        <div class="hito-item">
+          <div class="col-md-12 no-padding no-flex">
+            <div class="globito">
+              <img src="assets/images/icons/positivas.png" ng-if="false">
+              <img src="assets/images/icons/negativas.png"  ng-if="false">
+              <!--
+              <div class="stars" ng-if="item.isRecommendation === false">
+              -->
+              <div class="stars" ng-if="item.stars !== undefined">
+                <div star-show-rating rating=item.stars></div>
+              </div>
+              <p  class="family-summary">{{ item.comment }}</p>
+              <div class="triangulito">
+                <img src="assets/images/icons/triangulito2.png">
+              </div>
+            </div>
+            <div class="perfil-hito">
+              <img ng-src="{{item.user.pathImageSized}}">
+              <span class="perf-hito-name">
+                <p class="family-summary">{{ item.user.nickName || item.user.email || 'anónimo'}}</p>
+                <small ng-if="item.isRecommendation" class="family-summary">Recomendación</small>
+                <small ng-if="!item.isRecommendation" class="family-summary">Calificación</small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="globito-date">
+          <p>{{ item.creation }}</p>
+        </div>
+      </div>
+
+      <div class="ver-mas" ng-if="false">
+        <p>
+          Ver más calificaciones y/o recomendaciones
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

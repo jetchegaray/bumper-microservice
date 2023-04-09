@@ -1,0 +1,10 @@
+<div class="option-title">
+  {{$ctrl.component.title || 'Seleccioná una opción'}}
+</div>
+
+<div ng-repeat="option in $ctrl.component.options" class="option-element option-input">
+  <input type="radio" id="radio-{{$ctrl.component.order}}-{{$index}}" name="radio_{{$ctrl.component.order}}" ng-value="option.name" ng-model="$ctrl.component.selected"/>
+  <label for="radio-{{$ctrl.component.order}}-{{$index}}" class="label-input label-radio">
+    <span class="span-input">{{option.name}}</span>
+  </label>
+</div>

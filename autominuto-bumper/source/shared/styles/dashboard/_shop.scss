@@ -1,0 +1,235 @@
+
+.product-comerciante{
+  .filtro{
+    h1{
+      font-size: 1.6em;
+      color: black;
+      font-family: Montserrat, sans-serif;
+      margin: 10px 0;
+      font-weight: 500;
+    }
+    h3{
+      font-size: 18px;
+      color: #787b84;
+    }
+    p{
+      color: #6699cc;
+      span{
+        color: #787b84;
+      }
+    }
+    .tipo{
+
+      p {
+        cursor: pointer;
+      }
+
+      .ver-mas {
+        cursor: pointer;
+        p {
+          color: #5c9bbe;
+          margin: 20px 0;
+          text-align: left;
+        }
+
+        img {
+          .rotate-row {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .title_product {
+        font-weight: 500;
+      }
+
+      .filterActive {
+        font-weight: bold;
+      }
+
+    }
+  }
+  .productos-options{
+    display: flex;
+    justify-content: flex-end;
+    button{
+      margin: 0 10px;
+    }
+  }
+  .buscador{
+    margin: 40px 0;
+    float: left;
+
+    #custom-search-input{
+      padding: 3px;
+      border: solid 1px #E4E4E4;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    #custom-search-input input{
+      border: 0;
+      box-shadow: none;
+    }
+
+    #custom-search-input button{
+      margin: 2px 0 0 0;
+      background: none;
+      box-shadow: none;
+      border: 0;
+      color: #666666;
+      padding: 0 8px 0 10px;
+      border-left: solid 1px #ccc;
+    }
+
+    #custom-search-input button:hover{
+      border: 0;
+      box-shadow: none;
+      border-left: solid 1px #ccc;
+    }
+
+    #custom-search-input .glyphicon-search{
+      font-size: 23px;
+    }
+  }
+  .products{
+    .producto-item{
+      text-align: center;
+      .producto-imagen{
+        -webkit-box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.38);
+        border-radius: 2px;
+        position: relative;
+        margin-bottom: 10px;
+        display: block;
+        overflow: hidden;
+        .price{
+          font-size: 1.5em;
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          color: #6699cc;
+        }
+        .display-product{
+          max-width: 170px;
+          height: 130px;
+          margin-bottom: 30px;
+          margin-top: 30px;
+          margin: 30px auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img{
+            max-width: 100%;
+            max-height: 100%; 
+          }
+        }
+      }
+      .light-blue-button{
+        z-index: 30;
+        position: relative;
+        margin-bottom: 10px;
+      }
+    }
+    .cupon-row{
+      float: left;
+      width: 100%;
+      border-radius: 12px;
+      .product-cupon{
+        .product-cupon-stripe{
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .percent{
+            position: absolute;
+            color: white;
+            p{
+              font-size: 2.4em;
+            }
+          }
+        }
+        .col-md-9{
+          display: flex;
+          height: 62px;
+          align-items: center;
+          -webkit-box-shadow: -1px 2px 14px -3px rgba(0, 0, 0, 0.16);
+          -moz-box-shadow: -1px 2px 14px -3px rgba(0, 0, 0, 0.16);
+          box-shadow: -1px 2px 14px -3px rgba(0, 0, 0, 0.16);
+          margin-left: -13px;
+          .codigo{
+            margin-left: 15px;
+          }
+          .date{
+            text-align: center;
+            font-weight: bold;
+            color: #ffb030;
+          }
+        }
+      }
+    }
+    .cupon-row,.productos-row{
+      margin: 40px 0;
+      float: left;
+    }
+    .productos-row{
+      .selected{
+        position: relative;
+        .producto-imagen{
+          .overlay {
+            display: none;
+          }
+          &:hover {
+            .overlay{
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              background-image: url("/assets/images/icons/overlay-bg.png");
+              border-radius: 2px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .suscripto{
+                a{
+                  color: white;
+                  text-decoration:none;
+                }
+                a:hover{
+                  text-decoration:none;
+                }
+                p{
+                  color: white;
+                  font-weight: bold;
+                  font-size: 1.5em;
+                  line-height: 1em;
+                  margin: 10px 0;
+                }
+              }
+
+              .overlay-image {
+                text-align: center;
+
+                .margin-right-5 {
+                  margin-right: 5px;
+                  cursor: pointer;
+                }
+
+                .pointer {
+                  cursor:pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .paginator{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+}
+

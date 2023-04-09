@@ -1,0 +1,30 @@
+@media (max-width: 450px){
+  .u-mobileHidden{
+    display: none !important;
+  }
+}
+
+ .mini-description{
+ 	font-size: 13px !important;
+ 	margin: 0;
+ }
+
+@media (max-width: 1279px){
+	.u-tablet-hidden{
+      display: none !important;
+    }	
+
+    .u-onlyTablet{
+		display: block !important;
+	}
+}
+
+@media(max-width: 1024px){ 
+
+	.mobile-flex-column{
+		flex-direction: column;
+	}
+
+	
+}
+

@@ -1,0 +1,24 @@
+<div class="modal fade modal-autominuto">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header {{colorType}}">
+        <img ng-id="modalImageRoute" ng-src="{{modalImageRoute}}">
+        <div ng-show="dismissButton" ng-click="close(false)" class="dismissButton">
+          <i class="fa fa-times"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+        <h5 class="title {{titleColorType}}">{{title}}</h5>
+        <strong><p ng-bind-html="message"></p></strong> 
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" ng-click="close(true)" class="btn btn-success" data-dismiss="modal">
+          {{labelButtonOne}} 
+        </button>
+        <button  ng-show="secondButton" type="button" ng-click="close(false)" class="btn btn-danger" data-dismiss="modal">
+          {{labelButtonTwo}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

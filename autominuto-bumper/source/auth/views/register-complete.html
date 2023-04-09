@@ -1,0 +1,23 @@
+  <header-notification></header-notification>
+
+  <div class="container-fluid pasos">
+    <div class="container margin-top-80 margin-bottom-80 verificar-mail">
+      <h2 class="text-center text-grey margin-bottom-50">REGISTRO COMPLETO</h2>
+      <img src="assets/images/icons/mail-check.png" class="center-block margin-bottom-30">
+      <div class="col-md-12">
+        <p class="text-center"><strong>VERIFICÁ TU DIRECCIÓN DE EMAIL</strong></p>
+        <div class="clearfix margin-bottom-20"></div>
+        <h5 class=" text-center verificar">
+          ¡Te queda tan solo un paso más para ser parte! Necesitamos que verifiques tu dirección de correo electrónico.<br>
+          Te enviamos un mail a <strong class="color-blue">{{ $ctrl.email }}</strong> para que puedas verificarlo. Por favor haga click en el link del mail para continuar<br>
+          y recordá chequear tu casilla de SPAM o CORREO NO DESEADO en caso de no ver nuestro mail de validacion.
+        </h5>
+        <div class="text-center margin-top-20">
+          <a ng-click="$ctrl.sendEmail()" href="" class="link"> No recibí el mail. Click aquí para reenviar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'shared/views/tpl-promo-mobile.html'"></div>

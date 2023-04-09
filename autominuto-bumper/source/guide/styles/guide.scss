@@ -1,0 +1,173 @@
+.guides {
+
+    .container {
+        *zoom: 1;
+    }
+    .container:before, .container:after {
+        content: " ";
+        display: table;
+    }
+    .container:after {
+        clear: both;
+    }
+    .container {
+        padding: 20px;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-flex-flow: row wrap;
+        -moz-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-flex-basis: auto;
+        -moz-flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    }
+    @media screen and (min-width: 1280px) {
+        .container {
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 992px) {
+        .container {
+            width: 90%;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 95%;
+        }
+    }
+    @media screen and (max-width: 544px) {
+        .container, .card {
+            width: 100%;
+        }
+    }
+    .card {
+        margin-top: 40px;
+        padding: 20px;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+    .card:hover {
+        filter: invert(1);
+        background-color: #856647;
+    }
+    .text.sub-description {
+        font-style: italic;
+    }
+
+    .guide-video {
+        &.container {
+            justify-content: start;
+        }
+        .card {
+            margin-top: 0;
+        }
+        .text.bread-crumb {
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.18;
+        }
+        .video {
+            margin: 30px 0 40px;
+        }
+    }
+
+    .divider {
+        border-top: 2px solid #111;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .download-items {
+        width: 100%;
+
+        .description-pdf {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;            
+        }
+
+        .icon-pdf {
+            width: 32px; 
+            height: 34px;
+            margin-right: 10px;
+        }
+    }
+    
+    @media screen and (max-width: 1080px) {
+        .download-items .description-pdf {
+            font-size: 14px;
+        }
+    }
+    @media screen and (min-width: 993px) {
+        .mainTitle {
+            font-size: 2.3em;
+        }
+        .title {
+            font-size: 2em;
+        }            
+        .description {
+            font-size: 1.8rem;
+        }
+        .description-icon {
+            font-size: 1.5rem;
+        }
+    }
+    @media screen and (max-width: 992px) {
+        .mainTitle {
+            font-size: 2em;
+        }
+        .title {
+            font-size: 1.8em;
+        }
+        .description {
+            font-size: 1.2em;
+        }
+        .description-icon {
+            font-size: 1.1em;
+        }
+        .guide-video {
+            &.container {
+                justify-content: center;
+            }
+        }
+    }
+
+    img {
+        width: 97.2px;
+        height: 97.2px;
+    }
+    .text {
+        width: 100%;
+        font-family: Montserrat, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+    }
+    .mainTitle {
+        margin: 40px 0;
+    }
+    .description-icon {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .title {
+        font-weight: bold;
+        margin: 40px 0 10px;
+    }
+}

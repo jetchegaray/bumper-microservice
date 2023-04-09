@@ -1,0 +1,93 @@
+
+store-tab {
+  .name-image-product {
+    width: 200px;
+    font-size: 1.2em;
+  }
+
+  .overlay-pieces {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 0 20px;
+    line-height: 1em;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}
+
+.buttons-new-products {
+  display: flex;
+  justify-content: flex-end;
+
+  .button_nuevo_product_service {
+
+    button {
+      display: flex;
+      align-items: center;
+      background-color: #69c;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 22px;
+      border: none;
+      width: 190px;
+      span{
+        text-align: center;
+        width: 100%;
+        img{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  .button-carga-rapida {
+    button {
+      margin-right: 25px;
+      background-color: #263a4c;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 22px;
+      border: none;
+      width: 190px;
+      span{
+        text-align: center;
+        width: 100%;
+        i{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 980px){
+  store-tab > .product-comerciante > div.col-xs-3.col-md-3 {
+      width: 100%;
+  }
+
+  store-tab > .product-comerciante > div.col-xs-9.col-md-9 {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 480px){
+  .buttons-new-products {
+    display: block;
+    .button_nuevo_product_service, .button-carga-rapida {
+      margin-right: 0;
+      text-align: center;
+      margin-bottom: 10px;
+      button{
+        margin: 0 auto;
+      }
+    }
+  }
+
+}
+
+
+

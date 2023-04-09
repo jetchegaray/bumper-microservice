@@ -1,0 +1,98 @@
+<div id="user-inactive-banner" ng-if="$ctrl.userData.isActivate === false && $ctrl.validPath()">
+<!-- <div ng-if="$ctrl.userData.isActivate === false && $ctrl.validPath()"> -->
+    <style>
+        /* Styling the bar itself */
+        #user-inactive-banner #topbar {
+            display: flex;
+            align-items: center;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            top: -60px;
+            width: 100%;
+            /* z-index: 99999; */
+            box-sizing: border-box;
+            background-color: #c0392b;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 1px 10px rgba(0,0,0,.2);
+            transition: top 0.5s, height 0.5s, padding 0.5s;
+        }
+
+        /* Hiding the checkbox */
+        #user-inactive-banner #toggleTop {
+            display: none;
+        }
+        /* Styling the lables, to show and hide the bar */
+        #user-inactive-banner #showTop {
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            right: 30px;
+            display: block;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+        #user-inactive-banner #hideTop {
+          cursor: pointer;
+          margin-left: auto;
+          width: 100px;
+          height: 100%;
+          /* margin-bottom: 0; */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        /* Displaying the bar when the checkbox is checked */
+        #user-inactive-banner #toggleTop.visible + #showTop + #topbar {
+            transition: top 0.5s, height 1s, padding 0.5s;
+            padding: 18px;
+            top: 0px;
+            height: 85px;
+            margin-top: 15px;
+        }
+
+        @media only screen and (min-width: 700px) {
+            #user-inactive-banner #toggleTop.visible + #showTop + #topbar {
+                height: 60px;
+            }
+        }
+
+        #user-inactive-banner #toggleTop.visible + #showTop {
+            display: none;
+        }
+
+        #user-inactive-banner .redirection,
+        #user-inactive-banner .redirection:hover, 
+        #user-inactive-banner .redirection:focus {
+            cursor: pointer;
+            color: #fff;
+            flex:1 1 auto;
+        }
+
+        #user-inactive-banner .redirection-img {
+            width: 40px;
+            margin-bottom: 3px;
+        }
+    </style>
+
+    <!-- Label to Show Notification bar -->
+    <input type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" ng-class="{'visible' : $ctrl.getVisibility()}">
+    <label for="toggleTop" id="showTop"  ng-click="$ctrl.setVisibility(true)">
+        <img src="assets/images/icons/notificacion.png">
+    </label>
+    <!-- The checkbox -->
+    <!-- The Notification bar container -->
+    <div id="topbar">
+        <!-- You're content here -->
+        <a class="redirection" target="_blank" ng-click="$ctrl.goToRegisterComplete()">
+            Todavía no activaste tu cuenta. Hacelo en un paso con un click aquí.
+            <img class="redirection-img" src="assets/images/icons/mail-send.svg">
+        </a>
+        <!-- Label to Hide Notification bar -->
+        <label for="toggleTop" id="hideTop" ng-click="$ctrl.setVisibility(false)"><li class="fa fa-times"></li></label>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<span>
+  <div class="cupon-options">
+  </div>
+  <div class="cupon">
+    <div class="options-selected">
+      <span style="cursor: pointer" ng-show="!$ctrl.profile" ng-click="$ctrl.showDeleteCoupon($ctrl.coupon)"><img src="assets/images/icons/delete.png" ></span>
+      <span class="title-label" aria-label="Obtener" style="cursor: pointer" ng-show="$ctrl.profile" ng-click="$ctrl.showBuyCoupon($ctrl.coupon)"><img src="assets/images/icons/buy-coupon-white.png" ></span>
+      <span ng-show="!$ctrl.profile" ng-click="$ctrl.showEditCoupon($ctrl.coupon)" style="cursor: pointer"><img src="assets/images/icons/edit-2.png"></span>
+      <span class="title-label" aria-label="Ver" ng-click="$ctrl.showCoupon($ctrl.coupon)" style="cursor: pointer"><img src="assets/images/icons/view.png"></span>
+    </div>
+    <div>
+      <div class="col-md-5 porcentaje">
+        <span><div class="number"><p>%{{ $ctrl.coupon.discount }} <br><b ng-show="$ctrl.coupon.expireToday == true">SOLO POR HOY</b></p></div></span>
+      </div>
+      <div class="col-md-7 codigo">
+        <span><p>En {{ $ctrl.getServiceSummary() }} <br> codigo: <b>{{ $ctrl.coupon.code }}</b></p></span>
+      </div>
+    </div>
+  </div>
+</span>

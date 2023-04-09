@@ -1,0 +1,59 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="guides container">
+    <section class="container">
+        <h2 class="text mainTitle">Guías y tutoriales</h2>
+        <div class="text description">
+            En esta sección podrás encontrar todo lo necesario para disfrutar de toda la experiencia <b>Autominuto</b>.<br/>
+            Mirá los videos de ayuda y si todavía te quedan dudas sobre nuestra plataforma podés consultar nuestras <b>FAQs</b> o escribirnos a <b><a href="mailto:info@autominuto.com">info@autominuto.com</a></b> que a la brevedad un asesor se estará comunicando contigo.
+        </div>
+       
+        <h3 class="text title">Soy un Comercio Automotor</h3>        
+        <div class="text description sub-description">Aumentá tus ventas y genera nuevos clientes</div>
+        <a class="card" ng-repeat="(key, commerce) in $ctrl.commerceGuides" href="guias/{{key}}">
+            <div>
+                <img class="image" src="/assets/images/icons/{{key}}.svg">
+                <div class="text description-icon">{{commerce.title}}</div>
+            </div>
+        </a>
+
+        <h3 class="text title">Soy un Conductor</h3>        
+        <div class="text description sub-description">Todo lo que tu auto necesita, en un solo lugar</div>
+
+        <a class="card" ng-repeat="(key, driver) in $ctrl.driverGuides.static" href="guias/{{key}}">
+            <img class="image" src="/assets/images/icons/{{key}}.svg">
+            <div class="text description-icon">{{driver.title}}</div>            
+        </a>
+        <a class="card" ng-repeat="(key, driver) in $ctrl.driverGuides.interactive" href="{{driver.link}}" target="_blank" rel="noopener noreferrer nofollow">
+            <div>
+                <img class="image" src="/assets/images/icons/{{key}}.svg">
+                <div class="text description-icon">{{driver.title}}</div>
+            </div>  
+        </a>
+
+        <div class="divider">
+            <h3 class="text title">Descargas</h3>
+        </div>
+
+        <div class="download-items">
+            <a class="text description-pdf description" href="https://www.mercadopago.com.ar/ayuda/medios-de-pago-cuotas-promociones_264" target="_blank" rel="noopener noreferrer nofollow" ng-if="false">
+                <img class="icon-pdf" src="/assets/images/icons/pdf-icon.svg">
+                <div>Descargá nuestro&nbsp;<strong>Press Kit</strong></div>
+            </a>
+            <a class="text description-pdf description" href="download/guides/DigitalizacionIntegral-Autominuto.pdf" target="_blank" rel="noopener noreferrer nofollow" download>
+                <img class="icon-pdf" src="/assets/images/icons/pdf-icon.svg">
+                <div>Descargá nuestro plan de&nbsp;<strong>Digitalización Integral para Comercios Automotores</strong></div>
+            </a>
+            <a class="text description-pdf description" href="https://www.mercadopago.com.ar/ayuda/medios-de-pago-cuotas-promociones_264" target="_blank" rel="noopener noreferrer nofollow" ng-if="false">
+                <img class="icon-pdf" src="/assets/images/icons/pdf-icon.svg">
+                <div>Descargá&nbsp;<strong>beneficios para Usuarios Comerciantes</strong></div>
+            </a>
+            <a class="text description-pdf description" href="https://www.mercadopago.com.ar/ayuda/medios-de-pago-cuotas-promociones_264" target="_blank" rel="noopener noreferrer nofollow" ng-if="false">
+                <img class="icon-pdf" src="/assets/images/icons/pdf-icon.svg">
+                <div>Descargá&nbsp;<strong>beneficios para Usuarios Conductores</strong></div>
+            </a>
+        </div>
+    </section>
+</div>
+<cookies-banner></cookies-banner>

@@ -1,0 +1,253 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="container-fluid pasos" id="appointments-page" style="padding:0;">
+  <div class="background-image-fixed margin-bottom-15"></div>
+  <div class="container">
+    <form name="$ctrl.appointmentForm" class="form-horizontal" novalidate accessible-form>
+      <div id="paso2" class="appointment-container col-xs-12">
+
+        <h3 class="text-center margin-bottom-20">Pedí tu presupuesto</h3>
+
+        <div class="logo-container">
+          <div>
+            <div class="perfil-image">
+             <img ng-src="{{ $ctrl.commerceData && $ctrl.getMainImage() || 'assets/images/icons-default/commerce.png' }}" width="180" height="180" style="cursor: auto">
+            </div>
+          </div>
+          <div class="perfil-title-container">
+            <div class="perfil-title">
+              <div class="title-label" aria-label="{{$ctrl.commerceData.name}}">
+                <p class="name-commerce">{{$ctrl.commerceData.name}}</p>
+              </div>
+            </div>
+            <div class="perfil-subtitle" ng-show="$ctrl.commerceData.address.length > 0">
+              <div>
+                <span>
+                  <img src="assets/images/icons/location.png" class="margin-right-10">
+                  <p class="commerce-address"> {{$ctrl.commerceData.address}}</p>
+                </span>
+              </div>
+            </div>
+            <div class="perfil-link" ng-show="$ctrl.commerceData.commerceWeb.length > 0">
+              <div>
+                <span>
+                  <img src="assets/images/icons/link.png" class="margin-right-10">
+                  <p>{{$ctrl.commerceData.commerceWeb}}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="margin-top-20">
+            <h4><strong>Servicio a solicitar</strong></h4>
+            <service-type-unique-selector name="serviceTypeSelect"
+                                          data="$ctrl.allServices"
+                                          selected-data="$ctrl.selectedServiceType"
+                                          class="cus-modal"
+                                          style="width: 100%"
+                                          on-change="changeService(selectedServiceType)"
+                                          search-attribute="aliasUser"
+                                          placeholder="Ej: Cambio de pastillas de freno"
+                                          required
+                                          ng-class="{ 'has-error errorMessage' : $ctrl.appointmentForm.$submitted && ($ctrl.selectedServiceType == undefined || null) }"
+            >
+            </service-type-unique-selector>
+
+            <div ng-show="$ctrl.appointmentForm.$submitted && ($ctrl.selectedServiceType == undefined || null)" class="car-error">
+              <span class="field_required">El tipo de servicio / producto es obligatorio</span>
+            </div>
+
+          </div>
+
+          <div id="extra-fields" ng-show="$ctrl.selectedServiceType">
+            <div class="separator"></div>
+
+            <div class="main-title">
+              <h4>Detalles de la solicitud:</h4><div class="service-name">{{$ctrl.selectedServiceType.name}}</div>
+              <div class="service-description">{{ $ctrl.selectedServiceType.description | cut:true:$ctrl.descLimit:' ...' }} <a class="see-more" ng-click="$ctrl.changeLimit()" href="#" ng-if="$ctrl.selectedServiceType.description.length > $ctrl.descLimit && !$ctrl.descriptionExpanded">Ver más</a></div>
+            </div>
+
+            <extra-fields option="$ctrl.selectedServiceType" product-included-checked="$ctrl.isProductIncludedChecked" full-width="true" class="row"></extra-fields>
+            <div class="clearfix margin-bottom-10"></div>
+                          <div style="color:#d10542; font-size: 0.85em;">
+                            <span ng-show="appointmentForm.image0.$error.maxSize">
+                             La imagen no debe superar los 5MB.
+                            </span>
+            </div>
+          </div>
+
+          <div ng-show="$ctrl.selectedServiceType.carNeeded">
+            <div class="separator"></div>
+            <h4 style="font-weight: bold;">Datos del Vehículo</h4></div>
+
+            <div class="tab-content margin-bottom-50" ng-if="$ctrl.selectedServiceType.carNeeded">
+              <div id="paso1" class="car-item-container tab-pane fade in active text-grey">
+                <div class="form-horizontal" novalidate>
+
+                  <!-- Car item -->
+                  <car-item
+                    ng-repeat="car in $ctrl.cars"
+                    car="car"
+                    user-cars="$ctrl.userCars"
+                    brands="$ctrl.brands"
+                    insurance-companies="$ctrl.insuranceCompanies"
+                    parent-form="$ctrl.appointmentForm"
+                    on-remove="$ctrl.removeCar(car)"
+                    brand-selected="$ctrl.brandSelected"
+                    on-remove="$ctrl.removeCar(car)"
+                    on-select-user-car="$ctrl.selectUserCar(car, selectedUserCar)"
+                    on-select-car-brand="$ctrl.saveCarBrand(car, brandName)"
+                    on-select-car-sub-brand="$ctrl.saveCarSubBrand(car, subBrandName)"
+                    on-select-car-insurance="$ctrl.saveCarInsurance(car, insuranceName)"  
+                    on-is-product-category="!$ctrl.selectedServiceType.service"
+                    on-show-chasis="!$ctrl.selectedServiceType.chasisNeeded">
+                  </car-item>
+
+                <!-- Add car -->
+                 <!-- <div class="row">
+                    <a href="" role="button" class="mas-auto" ng-click="$ctrl.addCar()">
+                      <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otro auto
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+          </div>
+
+
+          <div>
+            <!-- Datetime pickers -->
+            <div ng-show="$ctrl.selectedServiceType && !$ctrl.selectedServiceType.quoteable">
+              <div class="separator"></div>
+              <h3 class="paso3">Fechas y horarios para dejar su vehículo (Opcional)</h3>
+
+              <div class="datetime-picker -remove-gray-readonly margin-top-20" ng-repeat="datetime in $ctrl.datetimes">
+                <div class="fecha-orden"># {{ $index + 1}}</div>
+                <div class="margin-left-20 fecha-container -full-width-mobile">
+                  <div class="input-group input-fecha-hora">
+                    <input
+                      class="form-control border-right-no"
+                      ng-model="date"
+                      moment-picker="datetime.date"
+                      format="DD-MM-YYYY"
+                      min-view="month"
+                      max-view="month"
+                      min-date="$ctrl.minDate"
+                      validate="true"
+                      placeholder="Elija una fecha"
+                      readonly>
+                    <div class="input-group-addon">
+                      <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="margin-left-20 fecha-container -full-width-mobile">
+                  <div class="input-group input-fecha-hora">
+                    <input
+                      class="form-control border-right-no"
+                      ng-model="datetime.parsedTime"
+                      moment-picker="datetime.time"
+                      format="HH:00"
+                      min-view="day"
+                      max-view="day"
+                      show-header="false"
+                      selectable="$ctrl.timeSelectable(date, type)"
+                      placeholder="Elija una hora"
+                      readonly>
+                    <div class="input-group-addon">
+                      <a href=""><span class="glyphicon glyphicon-time color-blue" aria-hidden="true"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="remove-datetime">
+                  <span class="glyphicon glyphicon-remove" ng-click="$ctrl.removeDatetime(datetime)" ng-show="$index != 0"></span>
+                </div>
+              </div>
+
+              <!-- Add datetime -->
+              <div class="margin-top-20 text-center">
+                <a href="" role="button" class="mas-auto" ng-click="$ctrl.addDatetime()" ng-show="$ctrl.datetimes.length < 3">
+                  <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otra fecha
+                </a>
+              </div>
+            </div>
+
+            <h5 class="margin-top-60 margin-bottom-30 text-center text-grey">Si no encontraste el modelo de tu auto más arriba, por favor ingresalo ahora - Ingresa el modelo de tu motor también - ¿Tenés más información o querés dejar un comentario adicional?</h5>
+            <textarea class="form-control margin-bottom-30" ng-model="$ctrl.explanations" rows="3" placeholder="Escribe aquí..."></textarea>
+
+             <!-- INFORMACIÓN DE LOGIN  -->
+                    <div ng-if="!$ctrl.isLogged()">
+
+                      <h2 class="margin-bottom-20">Datos del usuario</h2>
+
+                      <div class="form-group" ng-class="{ 'has-error errorMessage' : $ctrl.appointmentForm.$submitted && $ctrl.appointmentForm.email.$invalid}">
+                          <div class="addCommerceStep4">
+                            <label class="field-title">Ingresá tu email</label>
+                            <input
+                                  type="email"
+                                  placeholder="Ingresá tu email"
+                                  ng-model="$ctrl.email"
+                                  name="email"
+                                  class="form-control margin-bottom-10"
+                                  ng-required='true'>
+                            <!-- <p class="field-title terminos"><em>Ingresá tu dirección de mail de contacto comercial</em></p> -->
+                            <span ng-messages="$ctrl.appointmentForm.email.$error" ng-if='$ctrl.appointmentForm.$submitted && $ctrl.appointmentForm.email.$dirty' role="alert">
+                                <span ng-message="required" >El email es obligatorio</span>
+                                <span ng-message="email">La dirección de correo no es válida</span>
+                            </span>
+                          </div>
+                      </div>
+
+                      <!-- Tooltip when caps lock key is pressed -->
+                      <div class="tootiop-caps-lock">
+                          <tooltip-gen position="top" tittle-text="" image-rute="" text="Tenés activada la tecla mayúscula."></tooltip-gen>
+                      </div>
+                      <!-- Password -->
+                      <div class="form-group password" ng-class="{ 'has-error errorMessage' : $ctrl.appointmentForm.$submitted && $ctrl.appointmentForm.password.$invalid}">
+                        <label class="field-title">Ingresá una contraseña</label>
+                        <input
+                              ng-attr-type="{{ $ctrl.showPassword ? 'text' : 'password' }}"
+                              name="password"
+                              placeholder="Ingresá tu contraseña"
+                              class="form-control margin-bottom-10"
+                              ng-model="$ctrl.password"
+                              ng-required="true"
+
+                              ng-pattern="$ctrl.validations.password.pattern"
+                              ng-minlength="$ctrl.validations.password.min"
+                              ng-maxlength="$ctrl.validations.password.max"
+                              ng-keypress="$ctrl.onKeydown($event)">
+                        <span ng-if="!$ctrl.showPassword"
+                              ng-click="$ctrl.toggleShowPassword()"
+                              class="glyphicon glyphicon-eye-open"
+                              style="cursor: pointer; pointer-events: all;">
+                        </span>
+                        <span ng-if="$ctrl.showPassword"
+                              ng-click="$ctrl.toggleShowPassword()"
+                              class="glyphicon glyphicon-eye-close"
+                              style="cursor: pointer; pointer-events: all;">
+                        </span>
+
+                        <span ng-messages="$ctrl.appointmentForm.password.$error" ng-if='$ctrl.appointmentForm.$submitted && $ctrl.appointmentForm.password.$dirty' role="alert">
+                          <span ng-message="required">La contraseña es obligatoria</span>
+                          <span ng-message="pattern">Ingresar solo letras y números</span>
+                          <span ng-message="minlength">Debe contar con al menos {{ $ctrl.validations.password.min }} caracteres</span>
+                          <span ng-message="maxlength">No puede ser mayor a {{ $ctrl.validations.password.max }} caracteres</span>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- END INFORMACIÓN DE LOGIN  -->
+
+            <p class="text-grey text-center terminos center-block margin-top-15">
+              Al continuar, acepto los Términos de uso de Autominuto y reconozco que leí la Política de privacidad.
+            </p>
+            <br>
+          </div>
+      </div>
+      <button class="col-md-12 submit-button" type="submit" ng-click="$ctrl.askAppointment()">Pedir Cotizacion</button>
+    </form>
+  </div>
+  </div>
+</div>
+<cookies-banner></cookies-banner>

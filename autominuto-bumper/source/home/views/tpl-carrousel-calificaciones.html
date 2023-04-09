@@ -1,0 +1,14 @@
+<div class="sombra" ng-repeat="calificacion in $ctrl.calificaciones">
+  <div class=""><img ng-src="{{ calificacion.user.imageName || 'assets/images/icons-default/driver.png' }}" class="center-block circle_coment"  width="75" height="75"></div>
+  <div class="col-md-12 bg-grey padding-grey">
+    <p><!--div star-show-rating rating="calificacion.totalRating" style="display: inline-block;"></div--> Calificación</p>
+  </div>
+  <div class="col-md-12 bg-white">
+    <div class="padding-white text-right nombre">
+      <h3><strong>{{ calificacion.commerce.name }}</strong></h3>
+      <h5>tipo de calificacion</h5>
+      <h5>nombre compania</h5>
+    </div>
+    <div class="padding-10"><p>{{ calificacion.comment }}</p></div>
+  </div>
+</div>

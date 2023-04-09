@@ -1,0 +1,12 @@
+<div class="tooltip-gen {{$ctrl.position}} {{$ctrl.tooltipSize}}">
+	<div class="tooltip-header" >
+        <img ng-show="$ctrl.imageRute" ng-src="{{$ctrl.imageRute}}" style="width: 50px; height: 50px;">
+        <!-- <div ng-class="{'with-image': $ctrl.imageRute }">{{$ctrl.angTitle || $ctrl.tittleText}}</div> -->
+		<div ng-class="{'with-image': $ctrl.imageRute }" ng-bind-html="$ctrl.angTitle || $ctrl.tittleText"></div>
+	</div>
+	<div>
+        <!-- <div class="{{$ctrl.bodyAlign}}">{{$ctrl.angText || $ctrl.text}}</div> -->
+        <div ng-bind-html="$ctrl.angText || $ctrl.text"></div>
+	</div>
+	<span class="button-close" ng-click="$ctrl.close()"><i class="fa fa-times"></i></span>
+</div>

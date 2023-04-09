@@ -1,0 +1,125 @@
+
+
+
+.roundedOne {
+  width: 20px;
+  height: 20px;
+  background: #5c9abf;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+
+  position: relative;
+  margin-left: -15px;
+}
+
+.roundedOne label {
+  cursor: pointer;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  left: 3px;
+  top: 3px;
+
+  background: #fff;
+}
+
+.roundedOne label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  background: #5c9abf;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  top: -2px;
+  left: -2px;
+
+}
+
+.roundedOne label:hover::after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+  opacity: 0.3;
+}
+
+.roundedOne input[type=checkbox]:checked + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+
+
+
+
+
+
+.roundedFilter {
+  width: 18px;
+  height: 18px;
+  background: #5c9abf;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+
+  position: relative;
+  margin-left: -15px;
+
+  input {
+    display: none;
+  }
+}
+
+.roundedFilter label {
+  cursor: pointer;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  left: 3px;
+  top: 3px;
+
+  background: #fff;
+}
+
+.roundedFilter label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #5c9abf;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  top: -2px;
+  left: -2px;
+
+}
+
+.roundedFilter label:hover::after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+  opacity: 0.3;
+}
+
+.roundedFilter input[type=checkbox]:checked + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+

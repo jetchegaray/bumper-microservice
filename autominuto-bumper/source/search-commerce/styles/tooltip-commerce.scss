@@ -1,0 +1,38 @@
+.tooltip-search-commerce {
+
+    &.tooltip-gen-control {
+
+        .tooltip-gen {
+
+            .tooltip-header {
+
+                text-align: start;
+
+            }
+
+            @media (max-width: 1024px) {
+                &.top-mobile {
+                    top: auto;
+                    right: auto;
+                    bottom: 120%;
+                    left: 50%;
+                    margin-bottom: 15px;
+                    -webkit-transform: translateX(-50%);
+                    -moz-transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                    -o-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                }
+
+                &.top-mobile:after {
+                    content: "";
+                    top: 100%;
+                    left: 50%;
+                    right: auto;
+                    border-width: 7px;
+                    border-color: #25a7fc transparent transparent transparent;
+                }
+            }
+        }
+    }
+}

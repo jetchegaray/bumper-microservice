@@ -1,0 +1,130 @@
+<div class="stripe" ng-class="$ctrl.getCommerceColorType()">
+  <p ng-class="$ctrl.getCommerceColorType()" ng-show="$ctrl.banner.serviceOfficialBrands.length > 0">OFICIAL</p>
+</div>
+<div class="banner-container">
+  <div class="col-xs-9">
+    <div class="logo-dm -no-margin-mobile perfil-image" >
+         <img ng-if="$ctrl.imageLogoName !== '?width=105&height=105'" ng-src="{{ $ctrl.imageLogoName || 'assets/images/icons-default/commerce.png' }}" width="180" height="180" style="cursor: auto">
+         <img ng-if="$ctrl.imageLogoName == '?width=105&height=105'" ng-src="{{ 'assets/images/icons-default/commerce.png' }}" width="180" height="180" style="cursor: auto">
+    </div>
+    <span>
+      <div class="perfil-title">
+        <span ng-show="$ctrl.banner.name.length > 0">
+          <div ng-show="$ctrl.banner.validated"><img src="assets/images/icons/confirm.png"></div>
+          <div  ng-show="!$ctrl.banner.validated"><img src="assets/images/icons/check_blue.png" style="width: 21px;height: 21px;"></div>
+          <div class="title-label" aria-label="{{$ctrl.banner.name}}">
+            <p class="name-commerce">{{$ctrl.banner.name}}</p>
+          </div>
+        </span>
+        <div  style="display: inline-block">
+          <div star-show-rating rating="$ctrl.banner.rating"></div>
+        </div>
+
+        <img src="assets/images/icons/bronze.png"  width="36" height="44" ng-if="$ctrl.banner.typeCommerceQuality == 'BRONZE'">
+        <img src="assets/images/icons/silver.png"  width="36" height="44" ng-if="$ctrl.banner.typeCommerceQuality == 'SILVER'">
+        <img src="assets/images/icons/gold.png"  width="36" height="44" ng-if="$ctrl.banner.typeCommerceQuality == 'GOLD'">
+        <img src="assets/images/icons/vw.png"  width="36" height="44" ng-if="$ctrl.banner.typeCommerceQuality == 'PLATINUM'">
+
+      </div>
+      <div class="perfil-subtitle" ng-show="$ctrl.banner.address.length > 0">
+        <div><span><img src="assets/images/icons/location.png" class="margin-right-10"><p>{{$ctrl.banner.address}}</p></span></div>
+      </div>
+      <div class="perfil-link" ng-show="$ctrl.banner.commerceWeb.length > 0">
+        <div><span><img src="assets/images/icons/link.png" class="margin-right-10"><p>{{$ctrl.banner.commerceWeb}}</p></span></div>
+      </div>
+
+      <div class="margin-bottom-10 responsive-center" ng-if="$ctrl.isProfile == false">
+        <button class="btn btn-primary btn-primary-light-blue" ng-click="$ctrl.goToUserProfile()">Ir a mi perfil de usuario</button>
+      </div>
+  </span>
+  </div>
+
+  <div class="col-xs-3">
+    <div>
+      <span>
+        <div class="clock" ng-if="$ctrl.banner.isOpen == true">
+          <p style="color:#24b047">Comercio abierto</p>
+        </div>
+        <div class="clock" ng-if="$ctrl.banner.isOpen == false">
+          <p style="color:#ff4141">Comercio cerrado</p>
+        </div>
+        <div class="date"><!--  -->
+          <div style="position: relative">
+            <button ng-click="$ctrl.showWorkingHours = true" ng-blur="$ctrl.showWorkingHours = false" class="button-banner-workingHours" ng-if="$ctrl.banner.workingHours != null && $ctrl.banner.workingHours != undefined">
+              <img src="assets/images/icons/calendar.png">
+              <p>Horarios de atención</p>
+            </button>
+            <div ng-if="$ctrl.banner.workingHours == null || $ctrl.banner.workingHours == undefined"  class="button-banner-workingHours">
+              <img src="assets/images/icons/calendar.png">
+              <p>No hay Horarios disponibles</p>
+            </div>
+            <div class="tooltip-workingHours-banner tooltip-workingTime-banner" ng-if="$ctrl.banner.workingTime && $ctrl.showWorkingHours">
+              {{$ctrl.banner.workingTime}}
+            </div>
+            <div class="tooltip-workingHours-banner" ng-if="$ctrl.banner.workingHours && $ctrl.showWorkingHours">
+              <working-hours day="Lunes"     periods="$ctrl.banner.workingHours.monday"></working-hours>
+              <working-hours day="Martes"    periods="$ctrl.banner.workingHours.tuesday"></working-hours>
+              <working-hours day="Miércoles" periods="$ctrl.banner.workingHours.wednesday"></working-hours>
+              <working-hours day="Jueves"    periods="$ctrl.banner.workingHours.thursday"></working-hours>
+              <working-hours day="Viernes"   periods="$ctrl.banner.workingHours.friday"></working-hours>
+              <working-hours day="Sábado"    periods="$ctrl.banner.workingHours.saturday"></working-hours>
+              <working-hours day="Domingo"   periods="$ctrl.banner.workingHours.sunday"></working-hours>
+              <working-hours day="Feriados"  periods="$ctrl.banner.workingHours.holiday"></working-hours>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          <div ng-if="$ctrl.showPhoneButton && $ctrl.shouldShowPhoneButton()" class="container_button_phone">
+            <button ng-click="$ctrl.showedPhone()">Ver teléfono</button>
+          </div>
+          <div class="number-1" style="display: flex;" ng-repeat="phone in $ctrl.banner.phones" ng-if="!$ctrl.showPhoneButton">
+            <p ng-show="phone.acceptWhatsapp == false">{{ phone.printNumber }}</p>
+          </div>
+          <div class="number-1" style="display: flex;" ng-if="!$ctrl.showPhoneButton && !$ctrl.shouldShowPhoneButton()">
+            <p>No Hay Telefonos disponibles</p>
+          </div>
+        -->
+
+        <div class="car-brands">
+           <div class="test-drive" style="margin-right: 8px;" ng-if="$ctrl.banner.isASeller && $ctrl.banner.serviceOfficialBrands.length > 0">
+            <button ng-click="$ctrl.showNews()" style="width: 140px;">
+              <img src="assets/images/icons/test-drive.png">TEST-DRIVE
+            </button>
+          </div>
+
+          <span>
+            <div class="logo-car" style="margin-right: 8px;" ng-repeat="brand in $ctrl.banner.brands | limitTo: $ctrl.amountVisibleBrands">
+              <img src="assets/images/brands/logo/{{brand.imageName}}" width="45" height="45"
+                   ng-mouseover="$ctrl[brand + $index] = true" ng-mouseleave="$ctrl[brand + $index] = false">
+               <!--div class="tooltip-brand" ng-if="$ctrl[brand + $index]">
+                {{ brand.name }}
+              </div-->
+            </div>
+            <div class="logo-car" style="cursor: pointer; width: 45px; height: 45px;" ng-if="$ctrl.banner.brands.length > $ctrl.amountVisibleBrands"
+                 ng-click="$ctrl.showOtherBrands = true" tabindex="-1" ng-blur="$ctrl.showOtherBrands = false" ng-init="$ctrl.showOtherBrands = false">
+              <div class="more">
+                <b class="ng-binding">+{{ $ctrl.banner.brands.length - $ctrl.amountVisibleBrands }}</b>
+
+                <div class="popup-other-brands-banner" ng-if="$ctrl.showOtherBrands">
+                  <div class="container-other-brands">
+                    <div ng-repeat="brand in $ctrl.banner.brands | limitTo: ($ctrl.amountVisibleBrands - $ctrl.banner.brands.length)" style="position: relative;">
+                      <img src="assets/images/brands/logo/{{brand.imageName}}" width="45" height="45"
+                           ng-mouseover="$ctrl[otherbrand + $index] = true" ng-mouseleave="$ctrl[otherbrand + $index] = false">
+                      <!--div class="tooltip-brand" ng-if="$ctrl[otherbrand + $index]" style="top:113%; left:-35%">
+                        {{ brand.name }}
+                      </div-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </span>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+

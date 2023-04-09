@@ -1,0 +1,19 @@
+<form name="discountCodeForm" novalidate ng-submit="$ctrl.validateCode()">
+  <div class="form-group prom-code form-inline">
+    <h6>¿Tenés un código promocional?</h6>
+    <div ng-class="{'tooltip-gen-control': !$ctrl.closeTooltip}">
+      <input type="text" name="discountCode" class="form-control" placeholder="ingresá el código" ng-model="$ctrl.code" ng-focus="$ctrl.closeTooltip = true">
+      <button type="submit" ng-disabled="$ctrl.disabled" class="btn btn-primary" style="background-color: rgba(255, 200, 87, 1); border-color: #729abc; color: #0f374b; width: 80px;border-radius: 3px;">
+        <strong ng-if="!$ctrl.disabled">Validar</strong>
+        <img ng-if="$ctrl.disabled" src="assets/images/loader-ajax.gif" style="width: 20px;">
+      </button>
+      <tooltip-gen position="top" close-button-control="$ctrl.closeTooltip" tittle-text="Psst !" text="Si recibiste un cupón de descuento, ingrésalo aquí" tooltip-size="small"></tooltip-gen>
+    </div>
+    
+    <div ng-messages="discountCodeForm.discountCode.$error" ng-if='discountCodeForm.discountCode.$dirty && discountCodeForm.$submitted || discountCodeForm.$submitted' role="alert">
+      <div ng-if="$ctrl.validCode" class="successMessage"><strong><i class="glyphicon glyphicon-ok" style="margin-right: 5px;"></i>Código válido</strong></div>
+      <div ng-if="$ctrl.validCode !== undefined && !$ctrl.validCode" class="errorMessage"><i class="glyphicon glyphicon-remove" style="margin-right: 5px;"></i>El código no es correcto</div>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,64 @@
+<div class="form-group prom-code form-inline" id="payment-methods-component">
+    <h5 class="field-title">{{$ctrl.title}}</h5>
+    <label class="additional-check-container">
+      <input type="checkbox" ng-model="$ctrl.paymentMethodsObject.cash" name="checkCash">
+      <span>{{$ctrl.cashLabel}}</span>
+      <img ng-src="assets/images/icons/payment-method-cash.svg" style="width: 20px;height: 20px">
+    </label>
+    <label class="additional-check-container">
+      <input type="checkbox" ng-model="$ctrl.paymentMethodsObject.transfer" name="checkCash">
+      <span>{{$ctrl.transferLabel}}</span>
+      <img ng-src="assets/images/icons/payment-method-transfer.svg" style="width: 20px;height: 20px">
+    </label>
+    <label class="additional-check-container margin-top-5">
+      <input type="checkbox" ng-model="$ctrl.paymentMethodsObject.debit" name="checkDebit">
+      <span>{{$ctrl.debitLabel}}</span>
+      <img ng-src="assets/images/icons/payment-method-card.svg" style="width: 20px;height: 20px">
+    </label>
+    <label class="additional-check-container margin-top-5">
+      <input type="checkbox" ng-model="$ctrl.paymentMethodsObject.credit" name="checkCredit">
+      <span>{{$ctrl.creditLabel}}</span>
+      <img ng-src="assets/images/icons/payment-method-card.svg" style="width: 20px;height: 20px">
+    </label>
+    <label class="control-label margin-top-20">Promociones (Opcional)</label>
+    <div class="row margin-top-10" ng-repeat="promotion in $ctrl.paymentMethodsObject.promotions">
+      <div class="col-md-4 margin-bottom-10">
+        <select
+          class="form-control"
+          name="cards"
+          ng-model="promotion.card"
+          ng-options="card for card in $ctrl.cards"
+          >
+          <option value="">Elija una tarjeta</option>
+        </select>
+      </div>
+      <div class="col-md-2 col-offset-2 margin-bottom-10" >
+        <select
+          class="form-control"
+          name="installment"
+          ng-model="promotion.installments"
+          ng-options="installment for installment in $ctrl.installments"
+          >
+          <option value="">Cuotas</option>
+        </select>
+      </div>
+
+       <div class="col-md-2 col-offset-2 interests">
+        <input
+          name="interest"
+          type="number"
+          class="form-control"
+          ng-pattern="/^[0-9]*$/"
+          ng-model="promotion.interest"
+          placeholder="Intereses  ej:0">
+       </div> 
+        <div class="remove-datetime">
+          <span class="glyphicon glyphicon-remove" ng-click="$ctrl.removePromotion(promotion)" ng-show="$index != 0"></span>
+        </div>
+    </div>
+    <div class="margin-bottom-20">
+      <a href="" role="button" class="mas-auto" ng-click="$ctrl.addPromotion()" ng-show="$ctrl.paymentMethodsObject.promotions.length < 10">
+        <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otra promocion</a>
+    </div>
+
+  </div>

@@ -1,0 +1,140 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog section-commerce" styles="margin-top:10px !important;">
+    <div class="modal-content poppup-presupuesto-comercio">
+
+      <div class="center">
+
+	        <div class="presupuesto-popup-container">
+	        	<form name="popupProductForm" ng-submit="sendBudget()" novalidate>
+	      			<div class="recibido -align-right-not-mobile">
+						<p>Recibido: {{ sent }}</p>
+					</div>
+					<br />
+					<div class="user-information">
+						<p>Para: <strong>{{ userName }} de {{location}}</strong></p>
+						<p class="text-ellipsis" ng-if="modelCar.brandName">Marca:<strong>{{ modelCar.brandName }}</strong></p>
+						<p class="text-ellipsis" ng-if="modelCar.subBrandName">Modelo: <strong>{{ modelCar.subBrandName }}</strong> </p>
+						<p ng-if="modelCar.chasisNumber">Nro de Chasis: <strong>{{modelCar.chasisNumber}}</strong> </p>
+						<p ng-if="modelCar.carYear">Año: <strong>{{ modelCar.carYear }}</strong> </p>
+					</div>
+					<div class="recibido sol-flex">
+						<p>Solicitó: <strong>{{ issue.name }}</strong><img ng-src="assets/images/categories/{{issue.image}}" style="width: 20px;height: 20px;"> </p>
+						<p><span>Detalles del pedido: <strong>{{issue.detailIssue}}</strong></span></p>
+            <p style="margin: 10px 0;" ng-if="explanations">
+              Comentario: <span style="font-style: italic;"><strong>"{{ explanations }}"</strong></span>
+            </p>
+          </div>
+					<!--div class="recibido">
+					<p>Recibido: {{ sent | strReplace:'-':'/'}}</p>
+					</div-->
+					<div class="data-input-product-container custom-transition" ng-repeat="(index, prod) in products track by $index">
+						<span class="dis-block text-center">
+							<button class="remove-button" ng-click="removeDataProduct($index)" ng-if="products.length > 1">
+								<i class="glyphicon glyphicon-remove"></i>
+							</button>
+						</span>
+						<span class="data-product -inside-column-mobile">
+              <span class="product-container">
+						  	<p ng-class="{'error-label': popupServiceForm.$submitted && popupProductForm['name' + $index].$invalid}">Nombre del producto *:</p>
+						  	<input type="text" ng-model="prod.name" name="name{{$index}}" ng-required="true" style="padding: 10px;">
+              </span>
+              <span class="product-container">
+						  	<p ng-class="{'error-label': popupProductForm['brand' + $index].$invalid}">Marca:</p>
+						  	<input type="text" ng-model="prod.temporaryBrand" name="brand{{$index}}" style="padding: 10px;">
+              </span>
+						</span>
+						<span ng-messages="popupProductForm['name' + $index].$error" ng-show="popupProductForm['name' + $index].$dirty" role="alert" class="errorMessage">
+              <span ng-message="required" class="errorMessage">Nombre es obligatorio</span>
+            </span>
+
+						<span class="data-product">
+						  	<p ng-class="{'error-label': popupProductForm['code' + $index].$invalid}">Código :</p>
+						  	<input type="text" ng-model="prod.code" name="code{{$index}}" ng-maxlength="15" style="padding: 10px;">
+						</span>
+						<span ng-messages="popupProductForm['code' + $index].$error" ng-show="popupProductForm['code' + $index].$dirty" role="alert" class="margin-bottom-10">
+		                  <span ng-message="maxlength" class="errorMessage">El código es muy largo</span>
+		                </span>
+
+						<span class="data-product">
+						  	<p ng-class="{'error-label': popupServiceForm.$submitted && ['priceAr' + $index].$invalid}">AR$ *:</p>
+						  	<input type="number" ng-model="prod.price" name="priceAr{{$index}}" ng-required="true" min="1" max="999999.99" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" style="padding: 10px;" required>
+						  	<p  ng-class="{'error-label': popupProductForm['priceUsd' + $index].$invalid}" style="display: none;">U$D *:</p>
+						  	<input type="number" ng-model="prod.priceUsd" name="priceUsd{{$index}}" ng-required="false" style="padding: 10px; display: none">
+						</span>
+						 <span ng-messages="popupProductForm['priceAr' + $index].$error" ng-show="popupProductForm['priceAr' + $index].$dirty" role="alert" class="errorMessage">
+		                  <span ng-message="max" class="errorMessage">El monto es muy grande</span>
+		                  <span ng-message="pattern" class="errorMessage">Máximo 2 decimales</span>
+		                  <span ng-message="required" class="errorMessage">El precio es obligatorio</span>
+		                  <span ng-message="min" class="errorMessage">El monto tiene que ser mayor a 1</span>
+		                  <span ng-message-default class="errorMessage">formáto inválido</span>
+		                </span>
+						<span class="dis-block">
+						  	<p ng-class="{'error-label': popupProductForm['description' + $index].$invalid}">Descripción *</p>
+						  	<textarea style="resize: none;" ng-model="prod.description" ng-maxlength="250" name="description{{$index}}"></textarea>
+						</span>
+						<span ng-messages="popupProductForm['description' + $index].$error" ng-show="popupProductForm['description' + $index].$dirty" role="alert" class="errorMessage">
+		                  <span ng-message="maxlength" class="errorMessage">La descripción es muy larga</span>
+		                </span>
+						<!--<span class="container-ngf margin-bottom-30">
+							<p>Foto del producto</p>
+							<label class="fileContainer cupon-imagen" ng-class="{'image-error': popupProductForm['photoProduct'+ $index].$invalid}">
+								<img ngf-thumbnail="fileImages[$index] || imagePath" class="center-block">
+								<h6>Cargar</h6>
+								<input type="file"
+									name="photoProduct{{$index}}"
+									ngf-select
+									ng-model="fileImages[$index]"
+									accept="image/*"
+									ngf-max-size="5MB"
+									ngf-min-height="50"
+                                 	ngf-min-width="50"
+									ngf-model-invalid="errorFile">
+							</label>
+							<div class="clearfix margin-bottom-10"></div>
+	                        <div style="color:#d10542; font-size: 0.85em;">
+	                          <span ng-show="popupProductForm['photoProduct'+ $index].$error.minWidth || popupProductForm['photoProduct'+ $index].$error.minHeight">
+	                           La imagen debe ser por lo menos de 50x50px.
+	                          </span>
+	                          <span ng-show="popupProductForm['photoProduct'+ $index].$error.maxSize">
+	                           La imagen no debe superar los 5MB.
+	                          </span>
+	                        </div>
+		                </span> -->
+
+
+		                <div class="error-message" ng-show="popupProductForm['name' + $index].$error.required || popupProductForm['priceAr' + $index].$error.required">
+		                	<p> * Todos los campos son obligatorios</p>
+		                </div>
+			        </div>
+
+		        	<div class="add-more">
+						<button href="" role="button" ng-click="addNewProduct()" ng-disabled="!popupProductForm.$valid">
+							<i class="fa fa-plus"></i>
+						</button>
+						<div class="descript-button">
+							<div>Agregá una alternativa más</div>
+							<div><span>Clickeando en el botón "más",podes ingresar mas opciones.</span></div>
+							<div><span>ingresá productos de diferentes marcas y que el cliente pueda elegir!</span></div>
+						</div>
+		            </div>
+	                <div class="checkout-popup-quote tool-gen-father" >
+						<input type="checkbox" value="" ng-model="checkAddProductsToStore"> <span>Agregar estos presupuestos a mi tienda.</span> 
+						<tooltip-gen position="left" tittle-text="Dale un impulso a tu tienda" image-rute="assets/images/icons/nave2.png" text="Agregando este presupuesto a tu tienda, conseguirás más visitas en tu comercio."></tooltip-gen>
+		            </div>
+					
+		        	<div class="submit-buttons" style="margin-top: 0px">
+			          	<button class="btn" ng-click="close(true)" data-dismiss="modal"
+			                  ng-disabled="!popupProductForm.$valid">ENVIAR PRESUPUESTO</button>
+			          	<button class="btn margin-top-10-mobile" ng-click="close(false)" data-dismiss="modal"
+			                  ng-disabled="loadingProduct"
+			                  ng-style="loadingProduct && {'cursor': 'not-allowed', 'opacity': '.65'}">CANCELAR</button>
+		        	</div>
+	        	</form>
+	        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+

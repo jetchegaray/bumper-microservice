@@ -1,0 +1,15 @@
+<div class="item-discount" ng-style="{'padding': '0 5px'}">
+  <div>
+    <div class="options-selected" ng-click="$ctrl.goToCoupons()">
+      <span>
+        <img src="assets/images/icons/view.png">
+      </span>
+    </div>
+    <div class="col-md-3 porcentaje">
+      <span><div class="number"><p>%{{ $ctrl.getDiscount() }} <br><b>SOLO POR HOY</b></p></div></span>
+    </div>
+    <div class="col-md-9 codigo">
+      <span><p>En {{ $ctrl.getServiceSummary() }}, presentando este código:<br> <b>{{ $ctrl.code | uppercase}}</b></p></span>
+    </div>
+  </div>
+</div>

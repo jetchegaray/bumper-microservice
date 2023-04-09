@@ -1,0 +1,68 @@
+<div class="tab-content col-md-12 col-sm-12 col-xs-12">
+  <div id="paso1" class="tab-pane fade in active">
+
+    <div class="row actions">
+      <div ng-class="{'enabled': $ctrl.servicesVisible}" ng-click="$ctrl.showServices()">Servicios</span></div>
+      <div ng-class="{'enabled': $ctrl.sparePartsVisible}" ng-click="$ctrl.hideServices()">Autopartes</span></div>
+    </div>
+
+    <div class="row">
+      <div class="main-title">
+        <h3>Los más buscados</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div ng-if="$ctrl.servicesVisible && $ctrl.servicesMostUsed"     ng-include="'home/views/tpl-carousel-most-used-services.html'"    id="services" onload="$ctrl.loadCarousel('services')"></div>
+      <div ng-if="$ctrl.sparePartsVisible && $ctrl.sparePartsMostUsed" ng-include="'home/views/tpl-carousel-most-used-spare-parts.html'" id="services" onload="$ctrl.loadCarousel('services')"></div>
+    </div>
+
+    <div class="row">
+      <div class="main-title">
+        <h4>¿No encontrás lo que estás buscando?</h4>
+
+        <unique-selector
+          placeholder="Buscar en todos los servicios"
+          data="$ctrl.serviceResult"
+          selected-data="$ctrl.selection"
+          on-change="$ctrl.selectOptionFromList($ctrl.selection)"
+        ></unique-selector>
+
+      </div>
+    </div>
+
+
+    <div class="row" id="extra-fields" ng-if="$ctrl.isSomeOptionSelected()">
+      <div class="separator"></div>
+
+      <div class="main-title">
+        <h4>Detalles de la solicitud:</h4><div class="service-name">{{$ctrl.selectedOption.name}}</div>
+        <div class="service-description">{{ $ctrl.selectedOption.description | cut:true:$ctrl.descLimit:' ...' }} <a class="see-more" ng-click="$ctrl.changeLimit()" href="#" ng-if="$ctrl.selectedOption.description.length > $ctrl.descLimit && !$ctrl.descriptionExpanded">Ver más</a></div>
+      </div>
+
+      <extra-fields option="$ctrl.selectedOption" product-included-checked="$ctrl.isProductIncludedChecked"></extra-fields>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="paso1 action-buttons not-desktop">
+  <!-- STEP 1 -->
+  <div class="row">
+    <div class="col-xs-6 padding-left-no">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6 padding-right-no">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span>Siguiente</span>
+      </div>
+    </div>
+  </div>
+</div>

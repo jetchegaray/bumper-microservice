@@ -1,0 +1,7 @@
+@import "edges";
+
+@media screen and (max-width: $px-medium) {
+  .zEWidget-launcher {
+    display: none;
+  }
+}

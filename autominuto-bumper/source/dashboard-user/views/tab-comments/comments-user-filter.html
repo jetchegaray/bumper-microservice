@@ -1,0 +1,31 @@
+<div class="col-md-12 comments-filter">
+  <div>
+    <span><p>Filtros:</p></span>
+
+    <div class="first-filter">
+      <div class="roundedFilter">
+        <input id="Respondidos" type="checkbox" name="Respondidos" value="Respondidos"
+               ng-model="$ctrl.answered" ng-click="$ctrl.changeFilter('answered')">
+        <label for="Respondidos"></label>
+        <p>Respondidos</p>
+      </div>
+    </div>
+    <div class="second-filter">
+      <div class="roundedFilter">
+        <input id="NoRespondidos" type="checkbox" name="NoRespondidos" value="NoRespondidos"
+               ng-model="$ctrl.notAnswered" ng-click="$ctrl.changeFilter('notAnswered')">
+        <label for="NoRespondidos"></label>
+        <p>No respondidos</p>
+      </div>
+    </div>
+    <div class="order">
+      <p>Mostrar:</p>
+      <div class="select-style">
+        <select name="type" ng-model="$ctrl.type" disabled="$ctrl.type == undefined"
+                ng-options="filter.text for filter in $ctrl.dates track by filter.days"
+                ng-change="$ctrl.sortByDays($ctrl.type.days)">
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

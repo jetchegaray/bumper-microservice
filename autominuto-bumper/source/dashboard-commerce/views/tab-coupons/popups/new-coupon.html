@@ -1,0 +1,211 @@
+<div class="modal fade" id="modal-account">
+  <div class="modal-dialog new-coupon" >
+
+    <div class="modal-content">
+      <form name="formCoupon" class="modal-body">
+          <div class="col-md-5 col-sm-12 col-xs-12 form-content">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom: 1px solid #d8d8d8">
+                <h4>{{ action }} cupón</h4>
+
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 display-form">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="form-group">
+                      <h6 class="text-grey">Imagen destacada</h6>
+                      <label class="fileContainer cupon-imagen">
+                        <div class="cut-image">
+                          <img ngf-thumbnail="fileImage || imagePath" ng-class="{'portrait': fileImage.$ngfHeight > fileImage.$ngfWidth || !fileImage }" ngf-size="{quality:0.2}" class="center-block">
+                        </div>
+                        <h6>Cargar</h6>
+                        <input type="file"
+                               name="photoCoupon"
+                               ngf-select
+                               ng-model="fileImage"
+                               accept="image/*"
+                               ngf-max-size="5MB"
+                               ngf-model-invalid="errorFile">
+                      </label>
+                      <div class="clearfix margin-bottom-10"></div>
+                    </div>
+                    <div class="form-group">
+                      <h6 class="text-grey">el descuento aplica sobre</h6>
+                      <div class="input-group input-group-search-categories">
+                        <service-type-multiple-selector
+                          data="commerceServices"
+                          selected-data="selectedServices"
+                          search-attribute="aliasUser"
+                          style="width: 100%">
+                        </service-type-multiple-selector>
+
+                        <div class="input-group-addon input-group-addon-search-categories">
+                          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <h6 class="text-grey">Título de descuento</h6>
+                      <input type="text"  class="form-control" name="discount-tittle" ng-model="title" maxlength="70">
+                    </div>
+
+                <!--    <div class="form-group form-inline">
+                      <h6 class="text-grey">Precio sin descuento</h6>
+                      <label>Precio regular</label>
+                      <input type="number"  class="form-control" ng-model="price"  min="0" ng-change="updatePriceWithDiscount()">
+                    </div>
+                -->
+                    <div class="form-group">
+                      <h6 class="text-grey">Valor de descuento</h6>
+                      <div class="row">
+                        <!--<div class="col-md-12 col-sm-12 col-xs-12 content-radio">
+                          <label class="radio">
+                            <input type="radio" name="price" value="male" ng-click="selectDiscountFixed()" ng-checked="discountFixedSelected">
+                            <span>Precio fijo</span>
+                          </label>
+                          <input type="number"  style="width:100px;" class="form-control" ng-model="discountFixed" min="0"
+                          ng-disabled="discountPercentageSelected" ng-change="updatePriceWithDiscount()">
+                        </div>
+                        -->
+                          <div class="col-md-12 col-sm-12 col-xs-12 content-radio">
+                          <!--<label class="radio">
+                            <input type="radio" name="price" value="female" ng-click="selectDiscountPercentage()" ng-checked="discountPercentageSelected">
+                            --><span>Porcentual</span>
+                          </label>
+                          <input type="number" style="width:100px;" class="form-control" ng-model="discountPercentage"
+                                 min="0" max="99" ng-change="updatePriceWithDiscount()"> <strong>%</strong>
+                        </div> 
+                        <span class="col-xs-12" style="color: red; font-size: 0.85em; margin-top: 2px;"
+                        ng-show="discountFixedSelected && discountFixed >= price">
+                          El precio fijo debe ser menor al precio regular
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <h6 class="text-grey">Validez</h6>
+                      <div class="content-date-desde-hasta -remove-gray-readonly">
+                        <label>Desde</label>
+                        <div>
+                          <div class="input-group">
+                            <input
+                              class="form-control border-right-no"
+                              ng-model="validFrom"
+                              moment-picker="validFrom"
+                              format="DD/MM/YYYY"
+                              min-view="month"
+                              max-view="month"
+                              min-date="minDate"
+                              ng-model-options="{ updateOn: 'blur' }"
+                              validate="true"
+                              readonly>
+                            <div class="input-group-addon">
+                              <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <label>Hasta</label>
+                        <div>
+                          <div class="input-group">
+                            <input
+                              class="form-control border-right-no"
+                              ng-model="validTo"
+                              moment-picker="validTo"
+                              format="DD/MM/YYYY"
+                              min-view="month"
+                              max-view="month"
+                              min-date="validFrom"
+                              ng-model-options="{ updateOn: 'blur' }"
+                              validate="true"
+                              readonly>
+                            <div class="input-group-addon">
+                              <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" ng-show="action == 'Nuevo'">
+                      <h6 class="text-grey">Cantidad de cupones a emitir</h6>
+                      <label>Cant. de cupones</label>
+                      <input type="number" style="width: 100px" class="form-control" min="1" ng-model="quantity">
+                    </div>
+                    <div class="form-group">
+                      <h6 class="text-grey">Descripción</h6>
+                      <textarea class="form-control" ng-model="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <h6 class="text-grey">Limitaciones de la promoción</h6>
+                      <div class="row checkbox-content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 padding-no">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="" ng-model="mondayToFridayContraint">
+                              <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                              Lunes a Viernes
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 padding-no">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="" ng-model="noValidHolidayContraint">
+                              <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                              No válido en feriados
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 padding-no">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="" ng-model="justForTodayContraint">
+                              <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                              Solo por hoy
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 padding-no">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="" ng-model="noAddedContraint">
+                              <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                              No acumulable
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 padding-no">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="" ng-model="onePerProductContraint">
+                              <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                              <span class="letter">Un cupón por artículo</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <textarea class="form-control" placeholder="Más limitaciones de la promoción"
+                                    ng-model="customContraints" maxlength="200"></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEGUNDA COLUMNA -->
+          {{valueButton}}
+          <div class="col-md-7 col-sm-12 col-xs-12 display-content">
+            <div class="container-display-content">
+              <div ng-include src="'dashboard-commerce/views/tab-coupons/popups/coupon-view.html'"></div>
+            </div>
+          </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<ui-select multiple limit="10" remove-selected="false"
+           ng-model="$ctrl.selectedData" 
+           theme="bootstrap"
+           on-select="$ctrl.onSelect($item, $model)"
+           class="input-placeholder">
+  <ui-select-match allow-clear="true" placeholder="{{$ctrl.placeholder}}">
+    <div class="selected-option">
+      <img ng-src="{{$ctrl.rootImages}}{{$item.imageName}}" ng-if="$item.imageName"/>
+      <span class="selected-label">{{$item.name}}</span>
+    </div>
+    <!-- <span class="tooltip-text"> {{ $item[$ctrl.searchAttribute] }}</span> -->
+  </ui-select-match>
+  <ui-select-choices repeat="data in $ctrl.dataFiltered"
+                     minimum-input-length="1" refresh-delay="0"
+                     refresh="$ctrl.filterData($select.search)">
+    <div ng-bind-html="data[$ctrl.searchAttribute] | highlight: $select.search"></div>
+  </ui-select-choices>
+</ui-select>

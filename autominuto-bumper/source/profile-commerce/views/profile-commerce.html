@@ -1,0 +1,45 @@
+<header-notification></header-notification>
+
+<div class="container-fluid  section-commerce" style="padding:0;">
+  <div class="container container-commerce" image-map="/assets/images/back_02.jpg">
+    <section>
+      <div class="col-md-12 col-xs-12 margin-10 banner">
+        <div class="perfil-container col-xs-11">
+          <div class="containet_button_over_banner" ng-show="!$ctrl.commerce.hasAnOwner && !$ctrl.hasClaim">
+            <button ng-click="$ctrl.claimCommerce()">
+              <img src="assets/images/icons/commerce-icon-transparent.png" alt="Reclamar comercio" title="Reclamar comercio"> RECLAMAR ESTE COMERCIO
+            </button>
+          </div>
+
+          <banner-commerce banner="$ctrl.banner" is-profile="true" image-logo-name="$ctrl.imageLogoName"></banner-commerce>
+
+          <div class="menu">
+            <tab-container commerce-profile="true" like-commerce="$ctrl.likeCommerce" is-favorite="$ctrl.isFavorite">
+              <tab title-tab="Resumen" state="summary" ng-show="$ctrl.commerce">
+                <tab-summary commerce="$ctrl.commerce"></tab-summary>
+              </tab>
+              <tab title-tab="Servicios" state="services">
+                <tab-pieces only-products="false" only-services="true"
+                data="$ctrl.services" pages="$ctrl.servicePages" 
+                all-data-filters="$ctrl.filters" ng-if="$ctrl.services && $ctrl.filters"></tab-pieces>
+              </tab>
+              <tab title-tab="Autopartes" state="pieces">
+                <tab-pieces only-products="true" only-services="false" 
+                data="$ctrl.products" pages="$ctrl.productPages" 
+                all-data-filters="$ctrl.filters" ng-if="$ctrl.products && $ctrl.filters"></tab-pieces>
+              </tab>
+              <tab title-tab="Descuentos" state="opportunities" ng-if="$ctrl.commerce">
+                <tab-coupons commerce-services="$ctrl.banner.services" profile="$ctrl.isCouponProfile"></tab-coupons>
+              </tab>
+              <tab title-tab="Preguntas" state="comments" ng-if="$ctrl.commerce">
+                <tab-comments
+                  get-data-commerce="$ctrl.getSimpleCommerceData" is-profile="true">
+                </tab-comments>
+              </tab>
+            </tab-container>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

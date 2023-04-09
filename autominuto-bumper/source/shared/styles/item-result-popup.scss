@@ -1,0 +1,201 @@
+@import "../../shared/styles/edges";
+
+.modal-content-results {
+  display: inline-block;
+  color: #000;
+}
+
+.modal-body-results {
+  background-color: #f7f7f7;
+}
+
+.modal-footer-results {
+  background-color: #f7f7f7;
+}
+
+.border-footer-results {
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding-top: 0;
+  padding-bottom: 30px;
+}
+
+
+.modal-header-results {
+  background: #283d4f;
+  > div {
+    &:nth-child(1), &:nth-child(4) {
+      display: none;
+
+      @media (min-width: 992px) {
+        display: block;
+      }
+    }
+  }
+
+  
+}
+
+.popup-official-brands{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .congratulations {
+    width: 400px;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  .chevrolet-logo {
+    display: none;
+    width: 150px;
+
+    .name-brand-results {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (min-width: 600px) {
+      display: block;
+    }
+
+    > img {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+}
+
+.item-result-popup {
+  display: flex;
+  padding: 0;
+  .sombra:hover{
+    cursor: pointer;
+  }
+  > div {
+    width: calc(100% - 10px);
+    display: table;
+    margin: 5px;
+    background: #fff;
+  }
+
+  .logo {
+    margin-top: 12px;
+  }
+
+  .oficial {
+    display: table-cell;
+    height: 100%;
+    float: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &.gold {
+      background-color: #f6bf0e;
+    }
+
+    &.silver {
+      background: #bebebe;
+
+    }
+
+    &.bronze {
+      background: #c57235;
+    }
+
+    &.default {
+      background: #bebebe;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: 1px) and (max-width: $px-medium) {
+      img {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      .vertical-bar-bottom, .vertical-bar-top {
+        display: none;
+      }    
+    }
+    
+    .vertical-bar-top {
+      border-left: 1px solid #fff;
+      opacity: .5;
+      width: 1px;
+      height: 15%;
+      position: absolute;
+      right: 50%;
+    }
+
+    .vertical-bar-bottom {
+      border-left: 1px solid #fff;
+      opacity: .5;
+      width: 1px;
+      height: 15%;
+      position: absolute;
+      right: 50%;
+      bottom: 0;
+    }
+  }
+
+  .distance {
+    color: #9f9f9f;
+  }
+
+  .description {
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
+
+    > div {
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .working-hour-results-popup {
+      height: 16px;
+    }
+  }
+
+  h5 {
+    max-width: 280px;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 1em;
+  }
+
+  .stars {
+    margin-left: 10px;
+  }
+
+  .stars i {
+    color: #f3c43c;
+    font-size: 12px;
+  }
+
+  .stars i.no {
+    color: #e4e4e4;
+
+  }
+
+  .commerce-name-result{
+    color: #6fb7d2;
+    font-weight: bold; 
+  }
+
+}

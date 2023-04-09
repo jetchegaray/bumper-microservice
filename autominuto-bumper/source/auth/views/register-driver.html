@@ -1,0 +1,67 @@
+<header-notification></header-notification>
+
+<div class="container-fluid pasos ng-scope margin-top-40">
+  <!-- <h2 class="text-center text-grey margin-bottom-50">REGISTRO DE CONDUCTORES</h2> -->
+
+  <div class="container container-register">
+    <div class="col-md-12 section-register">
+        <div class="col-md-5 padding-right-no padding-left-6 conductor-text-container only-desktop">
+            <div class="conductor-text">
+                <div class="clearfix">
+                <h4 class="conductor-text margin-bottom-20">
+                    Todo lo que necesitás para tu auto,<br><strong>&nbsp;en un solo lugar</strong>
+                </h4>
+                </div>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+                Conectate con más de 5000 comercios automotores.
+                </h5>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+                Usuarios verificados, transacciones seguras.
+                </h5>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+                Buscá, compará y ahorrá.
+                </h5>
+            </div>
+        </div>
+
+        <div class="col-md-7 sign-up-container">
+            <sign-up-form is-commerce="false" on-sign-up="$ctrl.onSignUp(email, password, name, phone)"></sign-up-form>
+
+            <div style="font-size: 16px; margin: 15px 0 10px;">O bien registrate con</div>
+
+            <div class="redes-container">
+                <div class="social-section margin-bottom-20">
+                    <div class="input-group">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary icon icon-fb login-icon"><i class="fa fa-facebook-official" aria-hidden="true"></i></button>
+                        <button class="btn btn-warning redes-text fb" ng-click="$ctrl.authenticateFacebook(false)">REGISTRATE CON FACEBOOK</button>
+                    </div>
+                    </div>
+                </div>
+                <div class="social-section">
+                    <div class="input-group">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary icon icon-gmail login-icon"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                        <button class="btn btn-warning redes-text gmail" ng-click="$ctrl.authenticate('google', {hasCommerce: false, isLogin:false})">REGISTRATE CON GMAIL</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-12 container">
+        <hr class="margin-top-20">
+        <div class="col-md-6 col-sm-12 already-registered">
+            <h5 class="login">¿Ya posee cuenta en Autominuto?</h5>
+            <button class="btn btn-lg btn-info" ng-click="$ctrl.goToLogin()">Login</button>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<div ng-include="'shared/views/tpl-promo-mobile.html'"></div>

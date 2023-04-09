@@ -1,0 +1,83 @@
+li.service{
+    border-top: 1px solid lightgrey;
+    list-style: none;
+    width: 100%;
+    padding: 15px 0;
+    height: 71px;
+}
+
+li.service img{
+    width: 13%;
+    margin-right: 20px;
+}
+li.service span{
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+li.service a{
+    width: 65%;
+    text-align: center;
+}
+li.service a:hover,
+li.service a:focus,
+li.service a:active{
+    text-decoration: none;
+}
+
+.title-categoria{
+    height: 80px;
+    min-width: 882px;
+    color: #000;
+    background-color: #fff;
+    font-size: 24px;
+    font-family: 'Montserrat Light', sans-serif;
+    text-align: right;
+    padding: 20px 20px 20px 0;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(222, 222, 222, 1);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(222, 222, 222, 1);
+    box-shadow: 0px 4px 5px 0px rgba(222, 222, 222, 1);
+}
+.title-categoria a:hover,
+.title-categoria a:focus,
+.title-categoria a:active{
+    text-decoration: none;
+}
+.text-rotar{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+
+.title-categoria span{
+    margin-left: 20px;
+}
+
+.margin-top-paso4{
+    margin-top:620px;
+}
+.margin-top-paso3{
+    margin-top:722px;
+}
+.margin-top-paso2{
+    margin-top:810px;
+}
+
+@media (max-width: 450px){
+   .text-rotar{
+       transform: none;
+   } 
+   .title-categoria{
+       min-width: 100%;
+       font-size: 16px;
+   }
+    .title-categoria span{
+        display: none;
+    }
+   .margin-top-paso4,
+   .margin-top-paso3,
+   .margin-top-paso2{
+    margin-top:0px;
+    }
+}

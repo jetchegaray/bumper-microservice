@@ -1,0 +1,15 @@
+<span class="style-selector-directive" ng-class="{'disable-directive-style': $ctrl.isDisabled}">
+  <ui-select ng-model="$ctrl.selectedIssue"
+             theme="bootstrap"
+             ng-disabled="$ctrl.isDisabled" 
+             on-select="$ctrl.onChange($item)">
+    <ui-select-match allow-clear="true" placeholder="Necesito repuestos de llantas y cambio de aceite para mi auto...">
+      <span>{{$select.selected}}</span>
+    </ui-select-match>
+    <ui-select-choices repeat="issue in $ctrl.issuesFiltered"
+                       minimum-input-length="3" refresh-delay="0"
+                       refresh="$ctrl.filterIssues($select.search)">
+      <div ng-bind-html="issue | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+</span>

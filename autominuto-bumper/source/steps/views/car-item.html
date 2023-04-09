@@ -1,0 +1,147 @@
+<div class="row" ng-form="carItem">
+
+  <!-- Remove item -->
+  <span class="remove-car glyphicon glyphicon-remove pull-right margin-right-60" ng-click="$ctrl.remove()"></span>
+
+  <!-- User car selector -->
+  <div class="row preselected-cars" ng-show="$ctrl.userCars.length > 0">
+    <div class="col-md-6 col-xs-12">
+      <p>Seleccionar un auto ya cargado anteriormente:</p>
+      <select
+        class="form-control"
+        ng-model="selectedUserCar"
+        ng-options="userCar.brand.name + ' - ' + userCar.brand.subbrands[0].name for userCar in $ctrl.userCars track by userCar.id"
+        ng-change="$ctrl.selectUserCar(selectedUserCar)">
+        <option value="">Elija un vehículo...</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- <div class="margin-bottom-20"><p>Carga un nuevo auto:</p></div> -->
+
+  <div class="col-md-6 col-xs-12">
+
+    <!-- Brand -->
+    <label class="control-label">Marca</label>
+    <div>
+      <div class="input-groupx" ng-class="{ 'has-error errorMessage' : ($ctrl.parentForm.$submitted || carItem.brand.$dirty) && carItem.brand.$error.required }">
+
+          <unique-selector
+            id="brand"
+            data="$ctrl.brands"
+            selected-data="$ctrl.car.brand"
+            placeholder="Seleccioná la marca"
+            class="field"
+            on-change="$ctrl.saveBrandSelection($ctrl.car.brand)"
+            required
+          ></unique-selector>
+        <!-- <div class="input-group-addon"><span class="field_required">*</span></div> -->
+      </div>
+      <div ng-if="!$ctrl.car.brand  && $ctrl.parentForm.$submitted" role="alert" class="car-error">
+        <span>Marca es requerido.</span>
+      </div>
+    </div>
+    <!-- Subbrand -->
+    <label class="control-label">Modelo</label>
+    <div>
+      <div>
+
+        <unique-selector
+          id="subbrand" class="field" placeholder="Seleccioná el modelo"
+          data="$ctrl.car.brand.subbrands"
+          selected-data="$ctrl.car.subBrand"
+          on-change="$ctrl.saveSubBrandSelection($ctrl.car.subBrand)"
+          focus-on="$ctrl.focusOnSubbrandEventName"
+          required
+        ></unique-selector>
+
+      </div>
+      <div ng-if="!$ctrl.car.subBrand  && $ctrl.parentForm.$submitted" role="alert" class="car-error">
+        <span>Modelo es requerido.</span>
+      </div>
+    </div>
+
+    <!-- year -->
+    <label class="control-label">Año</label>
+    <div>
+      <div class="input-groupx" ng-class="{ 'has-error errorMessage' : ($ctrl.parentForm.$submitted || carItem.year.$dirty) && (carItem.year.$error.required || carItem.year.$error.pattern || carItem.year.$error.max)}">
+
+        <input
+          id="year"
+          name="year"
+          type="number"
+          required
+          class="form-control"
+          ng-pattern="/^[0-9]*$/"
+          ng-model="$ctrl.car.year"
+          ng-maxlength="4"
+          ng-minlength="4"
+          ng-max="{{$ctrl.maxYear}}"
+          ng-change="$ctrl.validateMaxYear()">
+
+        <!-- <div class="input-group-addon">
+          <span class="field_required">*</span>
+        </div>   -->
+      </div>
+        <div ng-show="$ctrl.parentForm.$submitted || carItem.year.$dirty" class="car-error">
+          <span ng-show="carItem.year.$error.required" class="field_required">El año del auto es obligatorio</span>
+          <span ng-show="carItem.year.$error.pattern || carItem.year.$error.minlength || carItem.year.$error.maxlength"
+          class="field_required">Escriba el año con el formato : 2020</span>
+          <span ng-show="carItem.year.$error.max && !(carItem.year.$error.pattern || carItem.year.$error.minlength || carItem.year.$error.maxlength)"
+          class="field_required">No puede ser mayor al año actual</span>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6 col-xs-12">
+    <!-- Km -->
+    <label class="control-label">Kilometraje (opcional)</label>
+    <div>
+      <input
+        name="kms"
+        type="number"
+        class="form-control"
+        ng-pattern="/^[0-9]*$/"
+        ng-model="$ctrl.car.kms ">
+    </div>
+
+    <!-- Aseguradora -->
+    <label class="control-label">Aseguradora (opcional)</label>
+    <div>
+
+      <unique-selector
+        id="insurance" class="field" placeholder="Elija su seguro"
+        data="$ctrl.insuranceCompanies"
+        selected-data="$ctrl.car.insurance"
+        on-change="$ctrl.saveInsuranceSelection($ctrl.car.insurance)"
+      ></unique-selector>
+
+    </div>
+
+    <!-- Chassis number -->
+    <label class="control-label" ng-if="$ctrl.showChasis()">Número de chasis
+      <span class="margin-left-10">
+        <a href="" rel="tooltip" title="tooltip imagen" class="tt_large">
+          <!-- <img src="assets/images/icons/ask.svg" width="17" /> -->
+          <span class="glyphicon glyphicon-info-sign"></span>
+        </a>
+      </span>
+    </label>
+    <div ng-if="$ctrl.showChasis()">
+      <div id="vin" class="input-groupx" vin-input ng-model="$ctrl.car.vin" ng-class="{ 'has-error errorMessage' : ($ctrl.parentForm.$submitted || carItem.vin.$dirty) && (carItem.vin.$error.required || carItem.vin.$error.pattern || carItem.vin.$error.minlength) }"></div>
+      <div ng-show="$ctrl.parentForm.$submitted || carItem.vin.$dirty" class="car-error">
+          <span ng-show="carItem.vin.$error.required" class="field_required">El número de chasis es obligatorio.</span>
+          <span ng-show="carItem.vin.$error.pattern" class="field_required">Caracter inválido (I,O,Q,Ñ y especiales).</span>
+          <span ng-show="carItem.vin.$error.minlength && $ctrl.parentForm.$submitted && !carItem.vin.$error.pattern" class="field_required">Mínimo 8 caracteres.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div class="row">
+  <div ng-show="!$ctrl.car.brand || !$ctrl.car.year" class="field_required col-sm-3">* Campo obligatorio</div>
+</div> -->
+
+<!-- </div> -->

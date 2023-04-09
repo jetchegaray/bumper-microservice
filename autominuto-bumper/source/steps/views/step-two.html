@@ -1,0 +1,56 @@
+<div class="col-md-10 col-md-offset-1 col-xs-12">
+  <div class="tab-content">
+    <div id="paso2" class="tab-pane fade in active text-grey">
+      <form name="$ctrl.stepTwoForm" id="form-step-2" class="form-horizontal" ng-submit="$ctrl.continue()" novalidate accessible-form>
+
+        <!-- Car item -->
+        <car-item
+          ng-repeat="car in $ctrl.cars"
+          car="car"
+          user-cars="$ctrl.userCars"
+          brands="$ctrl.brands"
+          insurance-companies="$ctrl.insuranceCompanies"
+          parent-form="$ctrl.stepTwoForm"
+          on-remove="$ctrl.removeCar(car)"
+          on-select-user-car="$ctrl.selectUserCar(car, selectedUserCar)"
+          on-select-car-brand="$ctrl.saveCarBrand(car, brandName)"
+          on-select-car-sub-brand="$ctrl.saveCarSubBrand(car, subBrandName)"
+          on-select-car-insurance="$ctrl.saveCarInsurance(car, insuranceName)"
+          on-is-product-category="$ctrl.isProductCategory()"
+          on-show-chasis="$ctrl.showChasis()">
+        </car-item>
+
+        <!-- Add car -->
+        <div class="row" ng-show="false">
+          <a href="" role="button" class="mas-auto" ng-click="$ctrl.addCar()">
+            <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otro auto
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="paso2 action-buttons not-desktop">
+  <!-- FORM STEP 2 -->
+  <div class="row">
+    <div class="col-xs-6 padding-left-no">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6 padding-right-no">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span>Siguiente</span>
+      </div>
+      <!-- <button type="submit" form="form-step-2" class="continue" value="Submit">
+        Siguiente
+      </button> -->
+    </div>
+  </div>
+</div>

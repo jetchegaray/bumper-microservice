@@ -1,0 +1,38 @@
+<div class="col-md-4 padding-left-no" ng-repeat="(indexColumn,categoryColumn) in $ctrl.categoriesChained" >
+  <div ng-repeat="(indexCategory,category) in categoryColumn">
+    <!-- desplegable -->
+    <div class="nest-check">
+      <a ng-if="category.childrens.length > 0" role="button" data-toggle="collapse" href="" data-target="#collapseExample{{indexColumn}}-{{indexCategory}}" aria-expanded="false" aria-controls="collapseExample" class="plus-checklist pull-left">
+      </a>
+      <div class="checkbox light desplegar pull-right" style="margin-bottom: 0px" ng-class="{ 'margin-left-15' : category.childrens.length == 0}">
+        <label>
+          
+          <input type="checkbox" ng-required="!$ctrl.categoryNotSelected" name="grandFatherCategory" ng-model="category.selected" ng-change="$ctrl.grandFatherChange (indexColumn,indexCategory)"> 
+          <img ng-src="assets/images/categories/{{ category.imageName }}" height="20px" width="20px">{{category.name}}
+        </label>
+        <div class="collapse" id="collapseExample{{indexColumn}}-{{indexCategory}}" >
+          <div class="well">
+            <div ng-repeat="(subIndex,subCategory) in category.childrens" ng-class="{ 'margin-left-15' : subCategory.childrens.length == 0}">
+              <a ng-if="subCategory.childrens.length > 0" role="button" style="margin-top: 3px;" data-toggle="collapse" href=""
+                 data-target="#subCollapseExample{{indexColumn}}-{{indexCategory}}-{{subIndex}}" aria-expanded="false" aria-controls="collapseExample" class="plus-checklist pull-left"></a>
+              <label >
+                <input type="checkbox" ng-model="subCategory.selected" ng-change="$ctrl.fatherChange(indexColumn,indexCategory,subIndex)"> <img ng-src="assets/images/categories/{{ subCategory.imageName }}" height="20px" width="20px">{{subCategory.name}} <!-- - {{subCategory.id}} -->
+              </label>
+              <div class="collapse" id="subCollapseExample{{indexColumn}}-{{indexCategory}}-{{subIndex}}">
+                <div class="well">
+                  <div ng-repeat="(subSubIndex,subSubCategory) in subCategory.childrens" class="margin-left-15">
+                    <label>
+                      <input type="checkbox" ng-model="subSubCategory.selected"
+                             ng-change="$ctrl.sonChange(indexColumn, indexCategory, subIndex, subSubIndex)"> <img ng-src="assets/images/categories/{{ subSubCategory.imageName }}" height="20px" width="20px">{{subSubCategory.name}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /desplegable -->
+    </div>
+  </div>
+</div>

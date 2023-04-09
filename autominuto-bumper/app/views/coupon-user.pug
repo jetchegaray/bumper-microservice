@@ -1,0 +1,232 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title Autominuto cupon
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:600,700,400', rel='stylesheet', type='text/css')
+    style(type='text/css').
+      html {
+        width: 100%;
+      }
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        mso-margin-top-alt: 0px;
+        mso-margin-bottom-alt: 0px;
+        mso-padding-alt: 0px 0px 0px 0px;
+        background: #E7E7E7;
+        font-family: Raleway;
+      }
+      p, h1, h2, h3, h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      table {
+        font-size: 14px;
+        border: 0;
+      }
+      img {
+        border: none !important;
+      }
+    // Responsive CSS
+    style(type='text/css').
+      @media only screen and (max-width: 800px) {
+        body[yahoo] .quote_full_width {
+          width: 100% !important;
+        }
+        body[yahoo] .quote_content_width {
+          width: 90% !important;
+        }
+      }
+      @media only screen and (max-width: 640px) {
+        body[yahoo] .full_width {
+          width: 100% !important;
+        }
+        body[yahoo] .content_width {
+          width: 80% !important;
+        }
+        body[yahoo] .center_txt {
+          text-align: center !important;
+        }
+        body[yahoo] .post_sep {
+          width: 100% !important;
+          height: 60px !important;
+        }
+        body[yahoo] .gal_sep {
+          width: 100% !important;
+          height: 40px !important;
+        }
+        body[yahoo] .gal_img {
+          width: 100% !important;
+        }
+        body[yahoo] .bb_space {
+          height: 90px !important;
+        }
+      }
+      .btn {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 28;
+        text-transform: uppercase;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Raleway;
+        color: #ffffff;
+        font-size: 14px;
+        padding: 15px 80px 15px 80px;
+        text-decoration: none;
+      }
+      .btn:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+      }
+      @media print {
+        td.off-discount-text{
+          background-color:#2282d3 !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.off-desc-text{
+          background-color:#3a97e5 !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.coupon-code{
+          background-color:#808080 !important;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+
+body(onload='window.print()')
+    table(width='100%', border='0', cellspacing='0', cellpadding='0')
+      tr
+        td(align='center', valign='top', bgcolor='#ffe77b', style='background-color:#ffffff;')
+          br
+          br
+          table(width='800', border='0', cellspacing='0', cellpadding='0')
+            tr
+              td(height='70', align='left', valign='middle')
+                img(src=host + "/assets/images/autominuto_icon_s.jpg", width='100', style='display:block;')
+            tr
+              td(align='left', valign='top', bgcolor='#ffffff', style='background-color:#ffffff;')
+                //
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                  <td align="center" valign="middle" style="padding:10px; color:#564319; font-size:42px; font-family:Georgia, 'Times New Roman', Times, serif;">30% Off, Special Discount</td>
+                  </tr>
+                  </table>
+                table(width='100%', border='0', align='center', cellpadding='0', cellspacing='0', style='background-color:#f2f0f0')
+                  tr
+                    td(align='left', valign='middle', style='color:#525252;  padding:10px;padding-left:20px')
+                      div(style='font-size:24px;') #{commerce.name}
+                      br
+                      div(style='font-size:13px;')
+                        i.fa.fa-phone
+                        each phone in commerce.phones
+                          |    #{phone.printNumber}
+                        br
+                        br
+                        i.fa.fa-map-marker
+                        |    #{commerce.address}
+                        br
+                        br
+                        if commerce.workingHours === null
+                          i.fa.fa-calendar  #{commerce.workingTime}
+                        else
+                          each ranges, day in commerce.workingHours
+                            if ranges[0] !== undefined
+                                i.fa.fa-calendar  #{convertDays[day]}:&nbsp;
+                                each range in ranges
+                                    | #{range.openHour} a #{range.closeHour} &nbsp;&nbsp;
+                                br
+                        br
+                        i.fa.fa-ioxhost
+                        |   #{commerce.commerceWeb}
+                    td(width='40%', align='right', valign='middle', style='padding:0px;')
+                      img(src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCrQ3FBy08YFSKgo85QkFpA1w-crB2ZD7M&center=" + commerce.location.lat + "," + commerce.location.lng + "&zoom=17&size=400x187&markers=label:|" + commerce.location.lat + "," + commerce.location.lng, width='400', height='187', style='display:block')
+                table(width='100%', border='0', cellspacing='0', cellpadding='0', style='margin-bottom:0px;')
+                  tr
+                    td(align='left', class='off-discount-text', valign='middle', style='padding:15px; background-color:#2282d3; ')
+                      div(style='font-size:22px; color:#ffffff;text-align:center')
+                        if coupon.discountPercentage !== 0
+                          | %#{coupon.discount} OFF
+                        else
+                          | $#{coupon.price - coupon.discountFixed} OFF
+                    td(valign='middle', class='off-desc-text' style='padding:15px; background-color:#3a97e5; ')
+                      div(style='font-size:13px; color:#ffffff;') #{coupon.title}.
+                div(style='border:groove')
+                  table(width='100%', border='0', align='center', cellpadding='0', cellspacing='0', style='margin-bottom:15px;')
+                    br
+                    br
+                    tr
+                      td(align='left', valign='middle', style='padding:15px;padding-left:15px; ')
+                        div(style='font-size:16px; color:black;') Descuento aplica sobre #{treeAlias}
+                        br
+                        br
+                        div(style='font-size:22px; color:#e1e1e1;')
+                          strike $#{coupon.price}
+                          if coupon.discountPercentage !== 0
+                            b(style='color:black') $#{coupon.price - coupon.price * coupon.discountPercentage / 100}
+                          else
+                            b(style='color:black') $#{coupon.price - coupon.discountFixed}
+                        br
+                        br
+                        div(style='font-size:16px; color:black;')
+                          b(style='color:#efd040') valido &nbsp;
+                          | desde #{moment(coupon.validFrom, "DD-MM-YYYY HH:mm").format('DD/MM/YYYY')} hasta #{moment(coupon.validTo, "DD-MM-YYYY HH:mm").format('DD/MM/YYYY')}
+                        br
+                        br
+                        div(style='font-size:16px; color:#efd040;') Descripción
+                        br
+                        div(style='font-size:13px; color:#525252;')
+                          | #{coupon.description}
+                          br
+                        br
+                        div(style='font-size:16px; color:#ffe77b;')  Limitaciones de la promocion
+                        div(style='font-size:13px; color:#525252;')
+                          ul
+                            if coupon.mondayToFridayContraint
+                              li
+                                b De lunes a viernes
+                            if coupon.justForTodayContraint
+                              li
+                                b Solo por hoy
+                            if coupon.noValidHolidayContraint
+                              li
+                                b No canjeable en dias feriados
+                            if coupon.onePerProductContraint
+                              li
+                                b El cupon puede usarse solo una vez
+                            if coupon.noAddedContraint
+                              li
+                                b No es acumulable con otras promociones
+                          br
+                          br
+                          if coupon.customContraints !== ''
+                            p(style='font-size:14px; color:#a3a1a1;')
+                              | #{coupon.customContraints}
+                br
+                table(width='100%', border='0', cellspacing='0', cellpadding='0', style='margin-bottom:20px;padding-bottom:30px')
+                  tr
+                    td(align='left', class='coupon-code', valign='middle', style='padding:15px; background-color:#808080; width:220px')
+                      div(style='font-size:22px; color:#ffffff;text-align:center') ID CUPON:#{coupon.code}
+                    td(valign='middle', style='padding:15px; background-color:#ffffff; ')
+                      div(style='font-size:13px; color:#ffffff;')
+                div
+                  p(style='font-size:14px;color:#a3a1a1;padding-bottom:30px')
+                    | Este cupón puede ser canjeado solo una vez, Autominuto,todos los derechos reservados.
+          br
+          br

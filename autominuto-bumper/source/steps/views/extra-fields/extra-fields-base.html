@@ -1,0 +1,21 @@
+<!-- FIELDS -->
+<div ng-repeat="component in $ctrl.option.components" class="field-block">
+  <extra-fields-drop-down    ng-if="component.componentType == $ctrl.fieldTypes.DROP_DOWN"    component="component" ng-class="{'col-md-6 element': !$ctrl.fullWidth}" class="col-xs-12"></extra-fields-drop-down>
+  <extra-fields-check-box    ng-if="component.componentType == $ctrl.fieldTypes.CHECK_BOX"    component="component" ng-class="{'col-md-6 element': !$ctrl.fullWidth}" class="col-xs-12"></extra-fields-check-box>
+  <extra-fields-input-text   ng-if="component.componentType == $ctrl.fieldTypes.INPUT_TEXT"   component="component" ng-class="{'col-md-6 element': !$ctrl.fullWidth}" class="col-xs-12"></extra-fields-input-text>
+  <extra-fields-radio-button ng-if="component.componentType == $ctrl.fieldTypes.RADIO_BUTTON" component="component" ng-class="{'col-md-6 element': !$ctrl.fullWidth}" class="col-xs-12"></extra-fields-radio-button>
+  <extra-fields-images       ng-if="component.componentType == $ctrl.fieldTypes.INPUT_IMAGES" component="component" class="col-md-12 col-xs-12"></extra-fields-images>
+</div>
+
+ <div class="col col-md-6 col-xs-12 element" ng-if="$ctrl.option.productIncluded">
+	<div class="option-title">
+	<!-- {{$ctrl.field.title}} -->
+	  Incluye repuesto
+	</div>
+	<div class="option-element option-input">
+	  <input type="checkbox" id="product-included" name="isProductIncludedChecked" ng-model="$ctrl.productIncludedChecked"/>
+	  <label for="product-included" class="label-input label-checkbox">
+	    <span class="span-input">Incluir repuesto</span>
+	  </label>
+	</div>
+ </div>

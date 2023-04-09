@@ -1,0 +1,117 @@
+<div class="modal fade">
+    <div class="center">
+      <div class="cupon-popup-container pop-up" style="top:40px; padding-bottom: 30px;">
+        <span class="title">
+          <img src="assets/images/icons/crear_cupon.png">
+          <h3>Nuevo producto / servicio</h3>
+        </span>
+        <form name="productForm" class="cupon-elements" novalidate>
+         <!-- <span class="titular">
+            <p style="color: #1e58da;">Agregar un nuevo:</p>
+            <select class="selectpicker form-control" ng-model="product.service" ng-click="updateProductImages()" ng-disabled="!isNew">
+              <option ng-value="false">Producto</option>
+              <option ng-value="true" >Servicio</option>
+            </select>
+          </span>
+-->
+          <span class="titular">
+            <p style="color: #1e58da;" class="required-symbol">Nombre</p>
+            <input type="text" name="name" ng-model="product.name" ng-maxlength="150"  required>
+            <div class="error-commerce-photo">
+              <span class="error-commerce-photo" ng-show="productForm['name'].$error.maxlength">
+                El nombre es demasiado largo
+              </span>
+            </div>
+          </span>
+           <div class="form-group" ng-show="isNew">
+            <h4 style="color: #1e58da;" class="required-symbol">Categoria</h4>
+            <div class="input-group input-group-search-categories -no-align product-category-selector-container">
+              <service-type-unique-selector data="commerceServices" selected-data="selectedServiceType" class="cus-modal" style="width: 100%" on-change="changeService(selectedServiceType)" search-attribute="aliasCommerce" placeholder="Ej: Cambio de pastillas de freno">
+              </service-type-unique-selector>
+              <div class="input-group-addon input-group-addon-search-categories">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+          <span class="valor" ng-if="!product.service">
+            <p style="color: #1e58da;" class="required-symbol">Precio</p>
+            <span class="monto">
+              <div class="width-50">ARS ($)</div>
+              <input type="number" name="price" ng-model="product.price" min="1" required>
+            </span>
+          </span>
+          <span class="valor" ng-if="product.service">
+            <p style="color: #1e58da;" class="required-symbol">Precio</p>
+            <span class="monto">
+              <div class="width-50">ARS ($)</div>
+              <input type="number" name="price" ng-model="product.price" min="1" required>
+            </span>
+          </span>
+          <span class="valor" ng-if="!product.service">
+            <p style="color: #1e58da;" class="required-symbol">Stock</p>
+            <span class="monto">
+              <div class="width-50">Unid.</div>
+              <input type="number" name="stock" ng-model="product.stock" min="1" required>
+            </span>
+          </span>
+          <span class="valor" ng-if="!product.service">
+            <p style="color: #1e58da;">Codigo</p>
+            <span class="monto">
+              <input name="code" style="margin:0" ng-model="product.code">
+            </span>
+          </span>
+          <span class="valor" ng-if="!product.service">
+            <p style="color: #1e58da;">Marca</p>
+            <span class="monto">
+              <input name="temporaryBrand" style="margin:0" ng-model="product.temporaryBrand">
+            </span>
+          </span>
+          <span class="descripcion">
+            <p  style="color: #1e58da;">Descripcion</p>
+            <textarea ng-model="product.description"></textarea>
+          </span>
+          <span class="upload load-images">
+            <p style="color: #1e58da;" class="required-symbol">Foto</p>
+           <div class="upload-images" style="display: flex;">
+              <label ng-repeat="productImage in productImages track by $index" class="fileUpload">
+                <div class="cut-image">
+                  <img ngf-thumbnail="productImages[$index] || pathDefaultProducts[$index]" ng-class="{'portrait': productImages[$index].$ngfHeight > productImages[$index].$ngfWidth || !productImages[$index] }" ngf-size="{quality:0.4}" style="cursor:pointer" width="77" height="78" >
+                </div>
+                <input type="file" style="opacity: 0; padding: 0; height: 0" name="imageProduct{{$index}}"
+                       ngf-select
+                       ng-model="productImages[$index]"
+                       accept="image/*"
+                       ngf-max-size="5MB"
+                       ngf-model-invalid="$ctrl.errorFile"
+              />
+              </label>
+            </div>
+          </span>
+
+          <div ng-if="!product.service" class="error-commerce-photo" style="font-size: 0.85em;" ng-repeat="productImage in productImages track by $index" ng-if="productImage === null">
+            <span ng-show="productForm['imageProduct' + $index].$error.maxSize">
+              La {{ getNameImage($index) }} foto no debe superar los 5MB.
+            </span>
+            <span ng-show="productForm['imageProduct'  + $index].$error.minWidth || $ctrl.commerceForm.commerceLogo.$error.minHeight">
+                La {{ getNameImage($index) }} foto debe ser por lo menos de 100x100px.
+            </span>
+          </div>
+
+
+          <div class="submit-buttons">
+
+            <div>
+              <p class="mini-description"><strong>* Los campos con <span class="required-symbol"></span> son obligatorios</strong></p>
+            </div>
+            <button data-dismiss="modal"
+                    ng-click="close(true)"
+                    ng-disabled="!isValidForm()"
+                    ng-style="!isValidForm() && {'cursor': 'not-allowed'}">
+              ACEPTAR
+            </button>
+            <button ng-click="close(false)" data-dismiss="modal" >CANCELAR</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

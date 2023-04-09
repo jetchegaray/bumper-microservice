@@ -1,0 +1,606 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclamá tu comercio</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+
+
+        /* Client-specific Styles */
+
+        #outlook a {
+            padding: 0;
+        }
+
+
+        /* Force Outlook to provide a "view in browser" menu link. */
+
+        body {
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+
+        /* Force Hotmail to display emails at full width */
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+
+        /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+
+        #backgroundTable {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            line-height: 100% !important;
+        }
+
+        img {
+            outline: none;
+            text-decoration: none;
+            border: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a img {
+            border: none;
+        }
+
+        .image_fix {
+            display: block;
+        }
+
+        p {
+            margin: 0px 0px !important;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        .fluid-table {
+            border-left: #EAEAEB 1px solid;
+            border-right: #EAEAEB 1px solid;
+        }
+
+        .last-table {
+            border-bottom: #EAEAEB 1px solid;
+        }
+
+        /*##############################################*/
+
+
+        /*IPHONE STYLES*/
+
+
+        /*##############################################*/
+
+        @media only screen and (max-width: 480px) {
+            table {
+                position: relative;
+            }
+            .fluid-table {
+                width: 100% !important;
+                min-width: 100% !important;
+                padding: 20px 0px 20px 0px!important;
+                margin-left: 0 !important;
+            }
+        }
+
+
+        /* CUSTOM */        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            
+            border: none;
+            font-family: Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .header {
+            background-color: rgb(26, 55, 73);
+            text-align: center;
+            height: 60px;
+            padding-top: 20px;            
+        }
+
+        .increase-sales-container {
+            padding: 40px 50px 50px;
+        }
+
+        .remarked {
+            font-weight: 700;
+            color: rgb(26, 55, 73);
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .circle {
+            width: 140px;
+            height: 140px;
+
+            padding: 25px;
+            padding-top: 30px;
+
+            -moz-border-radius: 70px; 
+            -webkit-border-radius: 70px; 
+            border-radius: 70px;
+
+            background-color: #EAEAEB;
+            display: inline-block;
+        }
+
+        .background-grey {
+            background-color: #EAEAEB;
+        }
+
+        .know-more {
+            border-top: 1px solid #EAEAEB;
+        }
+
+        .know-more .title {
+            text-align: left;
+        }
+
+        .container.guides {
+            display: block;
+        }
+
+        .guides .card {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+
+            margin-top: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: 544px) {
+            .guides .card {
+                width: 100%;
+            }
+        }
+
+        .guides .card div {
+            margin-top: 10px;
+        }
+
+        .guides img,
+        .guides .image {
+            width: 60px;
+            height: 60px;
+            background-size: 60px 60px;
+            margin: auto;
+
+            margin-top: 10px;
+            font-size: 12px;
+            color: #000000;            
+        }
+
+        .image.alta-de-conductor {
+            background-image: url('https://autominuto-mails.s3-sa-east-1.amazonaws.com/mailing-icons/to-know-more/alta-de-conductor.svg');
+        }
+        .image.como-comprar {
+            background-image: url('https://autominuto-mails.s3-sa-east-1.amazonaws.com/mailing-icons/to-know-more/como-comprar.svg');
+        }
+        .image.solicitar-presupuestos {
+            background-image: url('https://autominuto-mails.s3-sa-east-1.amazonaws.com/mailing-icons/to-know-more/solicitar-presupuestos.svg');
+        }
+        .image.obtener-cupones {
+            background-image: url('https://autominuto-mails.s3-sa-east-1.amazonaws.com/mailing-icons/to-know-more/obtener-cupones.svg');
+        }
+        .image.medios-de-pago {
+            background-image: url('https://autominuto-mails.s3-sa-east-1.amazonaws.com/mailing-icons/to-know-more/medios-de-pago.svg');
+        }
+        
+        .guides .text {
+            color: #000000;
+        }
+        .sub-description {
+            font-style: italic;
+            font-size: 14px;
+            text-align: left;
+            margin-top: 10px;
+            color: rgb(26, 55, 73)
+        }
+
+        .rectangle-blue {
+            width: 270px;
+            height: 45px;
+            background-color: rgba(15,55,75,1);
+            color: #fff !important;
+            text-transform: capitalize;
+            border-radius: 10px;
+            padding-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.3em;
+        }
+
+        .container-image {
+            height: 85px;
+            width: 85px;
+            background-image: url('${link}');
+            background-size: 85px 85px;
+            background-repeat: no-repeat;
+        }
+
+        .block-help {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .block-help a {
+            text-decoration: none;
+        }
+
+        .block-help span {
+            color: rgba(15,55,75,1);
+        }
+
+        .block-social a {
+            margin-right: 10px;
+        }
+
+        .action {
+            margin-top: 20px; 
+            display: block;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 480px) {
+
+            .increase-sales-container {
+                padding: 22px !important;
+            }
+
+            .Aument__tus_ventas_respondiend_Class {
+                width: 60% !important;
+            }
+
+            .action {
+                margin-bottom: 30px;
+            }
+
+            .rectangle-blue {
+                width: 190px !important;
+            }
+
+            .circle {
+                zoom: 0.8;
+                margin-top: 0;
+            }
+        }
+
+        @media only screen and (max-width: 374px) {
+
+            .rectangle-blue {
+                width: 160px !important;
+            }
+
+            .circle {
+                zoom: 0.7;
+            }
+        }
+
+        /* IMPORTED */
+        .Potenci__tu_negocio_Class {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 26px;
+            color: rgba(15,55,75,1);
+            text-align: left;
+        }
+        .Aument__tus_ventas_respondiend_Class {
+            width: 70%;
+            margin-top: 30px;
+            /* margin-bottom: 10px; */
+            text-align: left;
+            font-weight: normal;
+            font-size: 15px;
+            display: inline-block;
+            color: rgba(15,55,75,1);
+            float: left;
+            
+        }
+        .Dejar_de_recibir_mensajes_de_A_Class {
+            text-align: center;
+            font-size: 10px;
+            color: rgba(112,112,112,1);
+            height: 30px;
+            margin-top: 15px;
+        }
+        .__2019_Autominto__CABA_Argenti_Class {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .__2019_Autominto__CABA_Argenti_Class span {
+            color: rgba(15,55,75,1);
+        }
+        .icono_facebook_Class {
+            width: 23.916px;
+            height: 23.916px;
+            left: 254px;
+            top: 874px;
+            overflow: visible;
+        }
+        .icono_instagram_Class {
+            width: 23.916px;
+            height: 23.916px;
+            left: 290.592px;
+            top: 874px;
+            overflow: visible;
+        }
+        .icono_twitter_Class {
+            width: 23.916px;
+            height: 23.916px;
+            left: 327.184px;
+            top: 874px;
+            overflow: visible;
+        }
+        .icono_youtube_Class {
+            width: 23.916px;
+            height: 23.916px;
+            left: 363.776px;
+            top: 874px;
+            overflow: visible;
+        }
+        .help-section {
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .__Class {
+            display: inline-block;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout: fixed;" align="center">
+        <!--
+            /*##############################################*/
+                                HEADER
+            /*##############################################*/
+        -->
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" class="fluid-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="header">
+                                    <a href="https://www.autominuto.com" target="_blank" rel="noopener noreferrer nofollow">
+                                        <img class="logo" src="https://autominuto-mails.s3.sa-east-1.amazonaws.com/certificar-comercios/logo_autominuto_header.png">
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <!--
+            /*##############################################*/
+                                BODY
+            /*##############################################*/
+        -->
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" class="fluid-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="increase-sales-container remarked">
+
+                                    <div class="Potenci__tu_negocio_Class">
+                                        <span>${title}</span>
+                                    </div>
+                                    <div class="Aument__tus_ventas_respondiend_Class">
+                                        <span>${body}</span>
+                                        <a href="${link}" target="_blank" rel="noopener noreferrer nofollow" class="rectangle-blue action">
+                                            <span>${buttonLink}</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="circle">
+                                        <div class="container-image"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    
+        <!--
+            /*##############################################*/
+                                SABER MAS
+            /*##############################################*/
+        -->
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" class="fluid-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="increase-sales-container know-more remarked">
+
+                                    <div class="title">
+                                        <span>¿Querés saber más?</span>
+                                    </div>
+                                    <div class="container guides">
+
+                                        <div class="sub-description">Todo lo que tu auto necesita, en un solo lugar</div>
+
+                                        <div class="card">
+                                            <a href="https://www.autominuto.com/guias/alta-de-conductor">
+                                                <div class="image alta-de-conductor"></div>
+                                            </a>
+                                            <div>Alta de conductor</div>
+                                        </div>
+
+                                        <div class="card">
+                                            <a href="https://www.autominuto.com/guias/como-comprar">
+                                                <div class="image como-comprar"></div>
+                                            </a>
+                                            <div>¿Cómo comprar?</div>
+                                        </div>
+                                        
+                                        <div class="card">
+                                            <a href="https://www.autominuto.com/guias/solicitar-presupuestos">
+                                                <div class="image solicitar-presupuestos"></div>
+                                            </a>
+                                            <div>Solicitar presupuestos</div>
+                                        </div> 
+
+                                        
+                                        <div class="card">
+                                            <a href="https://www.autominuto.com/guias/obtener-cupones">
+                                                <div class="image obtener-cupones"></div>
+                                            </a>
+                                            <div>Obtener cupones</div>
+                                        </div> 
+    
+                                        <div class="card">
+                                            <a href="https://www.mercadopago.com.ar/ayuda/medios-de-pago-cuotas-promociones_264">
+                                                <div class="image medios-de-pago"></div>
+                                            </a>
+                                            <div>Medios de pago</div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <!--
+            /*##############################################*/
+                                GREY
+            /*##############################################*/
+        -->
+
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" class="fluid-table">
+                    <tbody>
+                        <tr>
+                            <td class="background-grey">
+
+                                <div class="block-help">
+                                    <a href="https://www.autominuto.com" target="_blank" rel="noopener noreferrer nofollow">
+                                        <div id="ayuda_comercios" class="help-section">
+                                            <span>Ayuda para comercios</span>
+                                        </div>
+                                    </a>
+                                    <div class="__Class">
+                                        <span>|</span>
+                                    </div>
+                                    <a href="https://www.autominuto.com" target="_blank" rel="noopener noreferrer nofollow">
+                                        <div id="preguntas_frecuentes" class="help-section">
+                                            <span>Preguntas Frecuentes</span>
+                                        </div>
+                                    </a>
+                                    <div class="__Class">
+                                        <span>|</span>
+                                    </div>
+                                    <a href="mailto:altas@autominuto.com" target="_blank" rel="noopener noreferrer nofollow">
+                                        <div id="contactanos" class="help-section">
+                                            <span>Contactanos</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-help block-social" style="margin-bottom: 25px;">
+                                    <a href="https://www.facebook.com/autominuto" target="_blank" rel="noopener noreferrer nofollow">
+                                    <img style="width:23.916px;height:23.916px;left:254px;top:874px;overflow:visible;" id="icono_facebook" class="icono_facebook_Class" src="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_facebook.png" srcset="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_facebook.png 1x, https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_facebook%402x.png 2x">
+                                    </a>
+                                    <a href="https://www.instagram.com/autominuto" target="_blank" rel="noopener noreferrer nofollow">
+                                    <img style="width:23.916px;height:23.916px;left:290.592px;top:874px;overflow:visible;" id="icono_instagram" class="icono_instagram_Class" src="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_instagram.png" srcset="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_instagram.png 1x, https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_instagram%402x.png 2x">
+                                    </a>
+                                    <a href="https://twitter.com/autominuto" target="_blank" rel="noopener noreferrer nofollow">
+                                    <img style="width:23.916px;height:23.916px;left:327.184px;top:874px;overflow:visible;" id="icono_twitter" class="icono_twitter_Class" src="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_twitter.png" srcset="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_twitter.png 1x, https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_twitter%402x.png 2x">
+                                    </a>
+                                    <a href="https://www.youtube.com/user/autominutocom" target="_blank" rel="noopener noreferrer nofollow">
+                                    <img style="width:23.916px;height:23.916px;left:363.776px;top:874px;overflow:visible;" id="icono_youtube" class="icono_youtube_Class" src="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_youtube.png" srcset="https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_youtube.png 1x, https://autominuto-mails.s3-sa-east-1.amazonaws.com/certificar-comercios/icono_youtube%402x.png 2x">
+                                    </a>
+                                </div>
+
+                                <div class="__2019_Autominto__CABA_Argenti_Class">
+                                    <span>© 2019 Autominto. CABA Argentina. Todos los derechos reservados.</span><br>
+                                </div>    
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <!--
+            /*##############################################*/
+                                DISCLAIMER
+            /*##############################################*/
+        -->
+
+        <!-- <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" class="fluid-table last-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="Dejar_de_recibir_mensajes_de_A_Class">
+                                    <span>Dejar de recibir mensajes de Autominuto en ${userEmail}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr> -->
+
+      </table>
+    </div>
+  </body>
+</html>

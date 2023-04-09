@@ -1,0 +1,37 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog section-commerce" styles="margin-top:10px !important;">
+    <div class="modal-content poppup-presupuesto-comercio">
+
+      <div class="center">
+        <div class="presupuesto-popup-container">
+          <div class="title"><h1>{{ issue.name }}</h1></div>
+          <div class="user-information">
+            <p>Para: <strong>{{ userName }}</strong></p>
+            <p>Marca: <strong>{{ modelCar.brandName }}</strong></p>
+            <p>Modelo: <strong>{{ modelCar.subBrandName }}</strong></p>
+          </div>
+          <div class="recibido">
+            <p>Recibido: <strong>{{ sent }}</strong></p>
+          </div>
+          <form name="presupuesto"  class="importe">
+             <div class="checkout-popup-quote tool-gen-father" >
+                <input type="checkbox" value="" ng-model="checkNoGivenService">No Brindo este servicio
+                <tooltip-gen position="left" tittle-text="Atención" text="Si clickeas, nunca más recibirás pedidos por este tipo de servicio/producto"></tooltip-gen>
+              </div>
+            <span>
+              <p>Motivos del rechazo</p>
+              <textarea ng-model="comments"></textarea>
+            </span>
+
+            <div class="submit-buttons">
+              <button class="btn" ng-click="close(true)" data-dismiss="modal" ng-disabled="presupuesto.$invalid">ENVIAR RECHAZO</button>
+              <button class="btn" ng-click="close(false)" data-dismiss="modal">CANCELAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

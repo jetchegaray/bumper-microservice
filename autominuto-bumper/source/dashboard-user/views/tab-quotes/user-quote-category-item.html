@@ -1,0 +1,40 @@
+<div class="row message-no-exists-items-dashboard" ng-show="$ctrl.elementListData.length == 0 && $ctrl.showMessage">
+	<div ng-show="$ctrl.filterToShow == 'budgets'">No hay presupuestos disponibles</div>
+	<div ng-show="$ctrl.filterToShow == 'buys'">No hay compras disponibles</div>
+</div>
+
+<img class="ajax-loader" ng-show="$ctrl.elementListData == null" src="assets/images/loader-ajax.gif">
+
+<div class="row" ng-show="$ctrl.elementListData.length > 0">
+	<div ng-if="$ctrl.filterToShow == 'budgets'">
+		<user-budget-item
+			budget-items = "$ctrl.elementListData"
+			update-page = "$ctrl.updatePage"
+			current-filter = "$ctrl.currentFilter">
+		</user-budget-item>
+
+    <div ng-switch="$ctrl.currentFilter" ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+      <div class="alert alert-info" ng-switch-when="requested">
+        Aún no recibiste solicitudes de presupuesto.
+      </div>
+      <div class="alert alert-info" ng-switch-when="replied">
+        Aún no enviaste presupuestos.
+      </div>
+      <div class="alert alert-info" ng-switch-when="refused_user">
+        No rechazaste ningún presupuesto.
+      </div>
+      <div class="alert alert-info" ng-switch-when="accepted_user">
+        Aún no aceptaste ningún presupuesto.
+      </div>
+    </div>
+
+	</div>
+
+	<div ng-if="$ctrl.filterToShow == 'buys'">
+		<buys-item
+			buys-items = "$ctrl.elementListData"
+			update-page = "$ctrl.updatePage">
+		</buys-item>
+	</div>
+
+</div>

@@ -1,0 +1,513 @@
+@import "../../shared/styles/edges";
+@import "../../shared/styles/colors";
+
+@media screen and (max-width: $px-medium) {
+    .zEWidget-launcher.zEWidget-launcher--active {
+        margin: 5px !important;
+    }
+}
+
+#landing {
+	display: block;
+    overflow: hidden;
+
+    *:not(.fa) {
+        font-family: Montserrat, sans-serif;
+        color: $color-blue;
+    }
+
+	h2 {
+        font-size: 40px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+        letter-spacing: normal;
+        @media screen and (max-width: $px-medium) {
+            font-size: 25px;
+        }
+	}
+
+    .bold {
+        font-weight: 700 !important;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        padding: 0px 60px;
+
+        @media screen and (max-width: $px-medium) {
+            flex-direction: column;
+            margin-top: 10px;
+            padding: 0;
+        }
+    }
+
+    section {
+        background-color: $color-white;
+        margin: 80px 0;
+
+        @media screen and (max-width: $px-medium) {
+            margin: 40px 0;
+        }
+
+        &.header {
+
+            margin-top: 0;
+
+            .background-image {
+                background-image: url(/assets/images/landing/back_vendemas_optimizado.jpg);
+                background-size: cover;
+                background-position: center;
+                height: 590px;
+                position: relative;
+                padding-top: 90px;
+
+                @media screen and (max-width: $px-medium) {
+                    padding-top: 60px;
+                }
+            }
+
+            #main-text {
+                padding-top: 85px;
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 58px;
+                padding-left: 35px;
+                width: 100%;
+
+                div, span {
+                    color: rgba(255,255,255,1);
+                }
+
+                @media screen and (max-width: $px-medium) {
+                    padding-top: 30px;
+                    padding-left: 0;
+                    font-size: 30px;
+                    line-height: 48px;
+                    width: 95%;
+                }
+
+                @media screen and (max-width: $px-mobile) {
+                    font-size: 30px;
+                    line-height: 48px;
+                }
+
+                #cotiza_en_tiempo_real {
+                    line-height: 28px;
+                    margin-top: 20px;
+                    font-weight: normal;
+                    font-size: 22px;
+                    color: rgba(255,255,255,1);
+
+                    span {
+                        color: $color-white;
+                    }
+
+                    @media screen and (max-width: $px-medium) {
+                        font-size: 20px;
+                    }
+                    @media screen and (max-width: $px-mobile) {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            .rectangulo {
+                background-color: $color-yellow;
+                border-radius: 34px;
+                text-align: center;
+
+                width: 400px;
+                height: 48px;
+
+                margin: 30px auto 0;
+
+                font-weight: 500;
+                font-size: 18px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+
+                @media screen and (max-width: $px-medium) {
+                    margin: 30px auto 0;
+                }
+
+                @media screen and (max-width: 400px) {
+                    margin-top: 20px;
+                }
+
+                span {
+                    color: $color-blue;
+                }
+            }
+
+            #recibi_tu_primer_pedido {
+                text-align: center;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                margin-top: 10px;
+                color: rgba(255,255,255,1);
+                span {
+                    color: $color-white;
+                }
+
+                @media screen and (max-width: $px-medium) {
+                    font-size: 13px;
+                    margin: 10px auto 0;
+                }
+            }
+            @media screen and (max-width: $px-medium) {
+
+                .rectangulo, #recibi_tu_primer_pedido {
+                    width: 300px;
+                }
+
+            }
+
+        }
+
+        &.sub-header {
+            margin-bottom: 150px;
+
+            .background-image {
+                background-image: url(/assets/images/landing/banner_logo_autominuto.png);
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                height: 460px;
+                padding: 40px;
+
+                @media screen and (max-width: $px-medium) {
+                    height: 380px;
+                    padding: 0;
+                }
+
+                .logo {
+                    background-image: url(/assets/images/landing/logo_nuevo.svg);
+                    position: absolute;
+
+                    width: 200px;
+                    height: 200px;
+                    left: calc(50% - 100px);
+                    bottom: -100px;
+
+                    @media screen and (max-width: $px-medium) {
+                        width: 100px;
+                        height: 100px;
+                        left: calc(50% - 50px);
+                        bottom: -50px;
+                    }
+                }
+            }
+            .container {
+                max-width: 600px;
+                text-align: center;
+
+                .title {
+                    padding-top: 60px;
+                    font-size: 40px;
+                    font-weight: 700;
+
+                    @media screen and (max-width: $px-medium) {
+                        font-size: 26px;
+                    }
+                }
+                .description {
+                    padding-top: 40px;
+                    font-size: 16px;
+                    font-weight: 400;
+
+                    @media screen and (max-width: $px-medium) {
+                        padding-top: 20px;
+                    }
+                }
+
+                span {
+                    color: $color-white !important;
+                }
+            }
+        }
+
+        &.how-it-work {
+            background-color: $color-light-gray;
+            position: relative;
+            margin: 0;
+            padding: 80px 0;
+
+            @media screen and (max-width: $px-medium) {
+                padding: 40px 0;
+            }
+
+            .dot-divisor {
+                color: $color-white !important;
+            }
+            img {
+                height: 100px;
+            }
+        }
+
+        &.advantages {
+            img {
+              &:not(.covid-image) {
+                height: 70px;
+              }
+            }
+        }
+
+        .covid-container {
+          margin: 0 56px 56px;
+          @media (max-width: 767px) {
+            margin: 0 0 43px;
+          }
+        }
+
+        .section-how-it-work,
+        .section-advantages,
+        .section-sum-up {
+			position: relative;
+            color: $color-dark-gray;
+
+			h2{
+				line-height: 39px;
+			}
+			.gray-blocks{
+                position: relative;
+                color: #253a4d;
+				p {
+                    font-size: 17px;
+                    text-align: center;
+					color: #253a4d;
+					span {
+						font-weight: 400;
+						color: #253a4d;
+                    }
+                    &.medium-title {
+                        margin-top: 30px;
+                        span {
+                            font-size: 22px;
+                        }
+                    }
+                }
+				&.whatsapp {
+                    margin-top: -20px;
+                    @media screen and (max-width: $px-medium) {
+                        margin-top: 20px;
+                    }
+                    img {
+                        height: 150px;
+                    }
+                }
+			}
+		}
+
+        &.sum-up .gray-blocks p.medium-title span {
+            font-size: 50px;
+            font-weight: 400;
+        }
+    }
+
+	@media (max-width: 1024px) {
+        .android-image, .background-android{
+			display: none !important;
+		}
+		.padding-right-40{
+			padding-right: 15px !important;
+		}
+		section{
+			.container-fluid{
+				.container{
+					width: 100% !important;
+				}
+			}
+		}
+
+		@media (max-width: 768px) {
+
+			section{
+				.dot-divisor{
+					.prev-dot, .next-dot{
+						position: initial;
+					    height: 150px;
+					    width: 100%;
+					    display: flex;
+					    justify-content: space-evenly;
+					    flex-direction: column;
+					    font-size: 12px;
+					    margin-bottom: 10px;
+					}
+                }
+
+                .container-fluid{
+                    .container {
+                        padding: 0
+                    }
+                }
+			}
+
+			.section-download{
+				.buttons-app{
+					display: block !important;
+					overflow: hidden;
+					a{
+						margin-bottom: 20px;
+					}
+				}
+				.circle-outer{
+				    margin: auto !important;
+				    top: 200px !important;
+				}
+
+			}
+			.section-plans{
+				.contract-plan.plan-free{
+					max-width: 90% !important;
+				}
+				.contract-plan.plan-full{
+					max-width: 90% !important;
+				}
+			}
+		}
+
+		@media (max-width: 480px) {
+
+			.section-download{
+
+				.circle-outer{
+					display: none !important;
+				}
+
+			}
+			.any-question{
+				p{
+					font-size: 16px !important;
+				}
+			}
+		}
+
+
+    }
+
+    /* CAROUSEL */
+    .carousel {
+        height: 58px;
+        @media screen and (max-width: $px-medium) {
+          height: 48px;
+        }
+    }
+
+    .vertical .carousel-inner {
+        height: 100%;
+        .item {
+            color: $color-yellow !important;
+        }
+      }
+
+      .carousel.vertical .item {
+        -webkit-transition: 0.6s ease-in-out top;
+           -moz-transition: 0.6s ease-in-out top;
+            -ms-transition: 0.6s ease-in-out top;
+             -o-transition: 0.6s ease-in-out top;
+                transition: 0.6s ease-in-out top;
+      }
+
+      @media screen and (max-width: $px-mobile-sm) {
+        .small-carousel-text {
+            font-size: 0.9em;
+          }
+      }
+
+      .carousel.vertical .active {
+        top: 0;
+      }
+
+      .carousel.vertical .next {
+        top: 100%;
+      }
+
+      .carousel.vertical .next.left,
+      .carousel.vertical .prev.right {
+        top: 0;
+      }
+
+      .carousel.vertical .active.left {
+        top: -100%;
+        left: 0 !important;
+      }
+
+      .carousel-inner>.item.prev, .carousel-inner>.item.active.left {
+          transform: inherit !important;
+      }
+
+      .carousel.vertical .item {
+        left: 0;
+      }
+}
+
+/* FOOTER */
+
+.vendemas {
+    .footer {
+        @media screen and (max-width: $px-medium) {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.adjusted-edge {
+  display: none;
+
+  @media screen and (max-width: 430px) {
+    display: block;
+  }
+}
+
+
+/* Nav bar visibility */
+
+#landing {
+
+  .nav-links {
+
+    .navbar-nav {
+      margin-top: 10px;
+      @media screen and (max-width: $px-medium) {
+        margin-top: 0;
+      }
+    }
+
+    &.top {
+      top: 0;
+
+      @media screen and (max-width: $px-medium) {
+        display: none;
+        height: 63px;
+      }
+
+      .start-now {
+          @media screen and (max-width: $px-medium) {
+              display: none;
+          }
+      }
+
+      .logo-header-mobile {
+        margin-left: 7px;
+      }
+    }
+    @media screen and (max-width: $px-medium) {
+      ul {
+        flex-direction: row;
+
+        li {
+          width: auto;
+        }
+      }
+    }
+  }
+}

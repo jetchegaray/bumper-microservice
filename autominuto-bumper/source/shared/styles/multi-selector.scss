@@ -1,0 +1,28 @@
+@import "../../shared/styles/colors";
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+  width: 100% !important;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  color: $color-blue;
+  margin-right: 15px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match {
+  display: inline-block;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match img {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .selected-label {
+  margin-left: 0;
+}

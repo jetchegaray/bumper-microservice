@@ -1,0 +1,29 @@
+<div class="buy-item">
+
+  <div class="buy-toolbar">
+    <div class="btns">
+      <button ng-click="$ctrl.voucherProductRequestBudget($ctrl.buy)">Voucher</button>
+      <button ng-click="$ctrl.rateBuy($ctrl.buy.boughtId)" class="blue-budget-button  ">Calificar</button>
+    </div>
+    <div class="amount">{{ $ctrl.buy.product.price | currency: "$"}}</div>
+  </div>
+
+  <div class="buy-body">
+
+    <div class="buy-header">
+      <div class="product-image"><img ng-src="{{ $ctrl.buy.product.image || 'assets/images/icons-default/product.png'}}"></div>
+      <div class="product-title">{{ $ctrl.buy.product.name }}</div>
+      <div class="product-category">{{ $ctrl.buy.product.category}}</div>
+    </div>
+
+    <div class="commerce-widget">
+      <span class="brand-logo" back-img="{{ $ctrl.buy.commerce.logo || 'assets/images/icons-default/commerce.png' }}"></span>
+      <span class="brand-name">{{ $ctrl.buy.commerce.name }}</span>
+    </div>
+
+    <div class="paid">
+      Pagado el {{ $ctrl.buy.paidAt }}
+    </div>
+
+  </div>
+</div>

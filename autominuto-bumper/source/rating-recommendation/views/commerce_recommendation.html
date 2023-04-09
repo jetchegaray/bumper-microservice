@@ -1,0 +1,67 @@
+<header-notification></header-notification>
+
+<div class="container-fluid">
+  <div class="container">
+    <section class="margin-top-50 margin-bottom-50">
+        <div class="stripe" ng-class="$ctrl.getCommerceColorType()"><p ng-show="$ctrl.simpleCommerceData.serviceOfficialBrands.length > 0">OFICIAL</p></div>
+        <div class="banner-container dm-dashboard" ng-class="$ctrl.getCommerceColorType()">
+        <div class="col-md-3 col-xs-12">
+          <div class="logo-dm perfil-image">
+            <img ng-src="{{$ctrl.simpleCommerceData.logo || 'assets/images/icons-default/commerce.png'}}" width="160" height="160" style="cursor:auto">
+          </div>
+        </div>
+        <div class="col-md-9 col-xs-12">
+          <div class="dm-content">
+            <div class="strong-dm margin-bottom-20">
+              <img src="assets/images/icons/confirm.png">
+              <span><strong>{{$ctrl.simpleCommerceData.name}}</strong></span>
+              <div  style="display: inline-block">
+                <div star-show-rating rating="2"></div>
+              </div>
+            </div>
+
+            <div class="margin-bottom-10">
+              <img src="assets/images/icons/calendar.png"><span>{{$ctrl.simpleCommerceData.location.streetAddress.street }} - {{$ctrl.simpleCommerceData.location.streetAddress.streetNumber}}, 
+                {{$ctrl.simpleCommerceData.location.place.city}},
+                {{$ctrl.simpleCommerceData.location.place.province}}
+              </span>
+            </div>
+            <div class="margin-bottom-10" ng-if="$ctrl.simpleCommerceData.webSite">
+              <img src="assets/images/icons/link.png"><span>{{$ctrl.simpleCommerceData.webSite}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+  </div>
+</div>
+
+  <div class="row">
+    <div class="container-fluid">
+        <div class="container margin-bottom-50">
+          <div class="col-md-12 margin-bottom-50" style="text-align: center">
+            <h4>Hola, <strong>{{$ctrl.simpleCommerceData.name}}</strong> necesita que lo recomiendes en Autominuto. Tu recomendación </br> lo ayudará a brindar más confianza al resto de los usuarios<h4>
+          </div>
+          <div class="col-md-8 col-md-offset-2 margin-bottom-50">
+            <h5>¿Como calificarías a {{$ctrl.simpleCommerceData.name}}?<h5>
+            <div  style="display: inline-block" class="stars-rating">
+              <star-rating max="$ctrl.maxValue" value='$ctrl.recommendationStar' ng-click="$ctrl.changeOnHover = false" hover='$ctrl.changeOnHover' is-readonly='false'></star-rating>
+            </div>
+            <div class="form-group">
+              <label for="comment">Escribe un breve comentario:</label>
+              <textarea ng-model="$ctrl.recommendationComment" class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div>
+               <button ng-class="{'disabled-button': !$ctrl.recommendationComment.length || !$ctrl.recommendationStar}"
+                ng-disabled="!$ctrl.recommendationComment.length || !$ctrl.recommendationStar"  class="grey-button" ng-click="$ctrl.saveRecommendation()">ENVIAR RECOMENDACIÓN</button>
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+    </div>
+  </div>

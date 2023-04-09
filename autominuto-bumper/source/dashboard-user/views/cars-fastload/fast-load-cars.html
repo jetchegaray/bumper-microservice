@@ -1,0 +1,102 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="container-fluid  section-commerce" style="padding:0;">
+  <div class="container container-commerce" image-map="/assets/images/webp.jpg">
+  <section>
+  <div class="container-fluid">
+				<div class="container">
+			  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fastload">
+			  	<form name="formCars" ng-submit="formCars.$valid && $ctrl.saveCars()" novalidate>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button ng-click="$ctrl.goToCars()" class="btn border-white btn-transparent margin-top-30 margin-bottom-30"><i class="fa fa-long-arrow-left" style="margin-right: 10px;"></i>Volver a autos</button>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tittle-fastLoad">
+                <div class="padding-left-right-30"><h3>Carga rápida</h3></div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content-fastLoad margin-bottom-30">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <div class="padding-left-right-30 margin-top-30">
+                          <h2>Subir tu flota de autos desde un archivo Excel puede ser rápido y fácil</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="padding-left-right-30">
+                      
+                      <h6 style="color: #1e58da;"><strong>Paso 1</strong><br><br> Descarga nuestro excel de ayuda para cargar tu flota de autos : </h6>
+                      <h6>
+                        <a class="tool-gen-father" href="download/fast-load/autominuto_flotas.xlsx" target="_blank">
+                          <span> Flota de Autos </span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a> <br><br>
+                       
+                       </h6>
+                       
+                      <div class="form-group margin-top-30">
+                        <h6 style="color: #1e58da;"><strong>Paso 2</strong> - Subi el excel que acabas de completar <span class="text-gray"> (formato xls)</span></h6>
+                        <label class="fileContainer" style="cursor: pointer;">
+                          <img ngf-thumbnail="$ctrl.showExcelUploaded" style="max-width: 114px" class="center-block">
+                          <h6 style="color: #1e58da;">Cargar Excel</h6>
+                          <input type="file"
+                                 name="excel"
+                                 ngf-select
+                                 ng-model="$ctrl.fileExcel"
+                                 required
+                                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                                 ngf-max-size="5MB"
+                                 ngf-model-invalid="errorFile1"
+                                 ng-change="$ctrl.checkExcelFile()"
+                                 valid-files="csv">
+                        </label>
+                        <div class="clearfix margin-bottom-10"></div>
+                        <div style="color:#d10542; font-size: 0.85em;">
+                          <span ng-show="formCars.$submitted && formCars.excel.$error.required" style="display: block">
+                            Debe cargar un archivo Excel.
+                          </span>
+                          <span ng-show="formCars.excel.$error.maxSize" style="display: block">
+                           El archivo no debe superar los 5MB.
+                          </span>
+                          <span ng-show="formCars.excel.$error.invalidType" style="display: block">
+                           Solo se permiten archivos de tipo excel (csv, xls, xlsx).
+                          </span>
+                        </div>
+                        
+                      </div>   
+
+
+                      <div ng-show="$ctrl.fileExcel && $ctrl.errorMessage">
+                        <span class="errorMessage" ng-bind="$ctrl.errorMessage"></span>
+                        <span class="errorMessage excel-error-desc">El excel es envàlido</span>
+                        </span>
+                      </div>
+                       <h6>
+                            * Si tenes algun inconveniente al cargar tu excel por favor envianos un mail con el archivo a <a href="mailto:altas@autominuto.com">Altas Autominuto<a>
+                      </h6>
+                      
+                      <hr>
+                      <button type="submit" class="button-comments-commerce margin-top-30 margin-bottom-30">Cargar Autos</button>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <div class="excel-fastload-example" >
+                        <img src="assets/images/fastload/excel-cars-fastload.png"> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+   </section>
+ </div>
+</div>
+<cookies-banner></cookies-banner>

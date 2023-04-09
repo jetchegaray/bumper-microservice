@@ -1,0 +1,86 @@
+<div class="modal fade" id="modal-account">
+  <div class="modal-dialog mini" >
+    <div class="modal-content" style="background: white; color:#253a4c">
+      <form class="form-horizontal" novalidate ng-submit="addAddress()">
+        <div class="modal-header">
+          <h4 class="modal-title"><span class="glyphicon glyphicon-map-marker"></span>Agregar nueva dirección</h4>
+          <hr>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-12">
+  <!--
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <h6>Ingrese su dirección</h6>
+                  <div class="relative add-in">
+                    <button class="btn btn-primary">
+                      <span class="fa fa-dot-circle-o" aria-hidden="true"></span>ubicación actual
+                    </button>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              -->
+              <!-- Address input -->
+              <div class="margin-bottom-30">
+                <h6>Ingrese su dirección</h6>
+                <div style="position: relative;">
+                  <input style="height: 42px;"
+                    class="form-control"
+                    name="address"
+                    ng-model="rawAddress"
+                    places-auto-complete
+                    on-place-changed="placeChanged()"
+                    component-restrictions="{country:'ar'}"
+                    placeholder="Calle Nro, Localidad, Provincia" />
+                  <div class="location-error" ng-show="flags.locationError">Error al obtener el domicilio</div>
+                  <div class="location-error" ng-show="!address && !flags.locationError && flags.addressDirty || !address && !flags.locationError && flags.submitted">
+                    Domicilio inválido (debe tener calle y número)
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-warning btn-sm btn-map-inside"
+                    ng-click="getLocation()"
+                    ng-disabled="flags.loadingLocation">
+                    <img src="assets/images/icons/pointer.svg" width="15" />
+                    Mi ubicación
+                  </button>
+                  <span
+                    class="location-spinner"
+                    us-spinner="{lines: 9, width: 2, radius: 4, length: 5}"
+                    spinner-on="flags.loadingLocation">
+                  </span>
+                </div>
+              </div>
+              
+
+
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-inline">
+                      <h6>Código postal</h6>
+                      <input class="form-control" >
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer margin-bottom-20">
+          <button class="btn btn-primary button-modal">
+            ACEPTAR
+          </button>
+          <button type="reset" class="btn btn-primary button-modal" ng-click="close()">
+            CANCELAR
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

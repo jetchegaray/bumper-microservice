@@ -1,0 +1,32 @@
+<header-notification></header-notification>
+
+<div class="container-fluid pasos">
+  <div class="container margin-top-80 margin-bottom-80">
+    <h2 class="text-center text-grey margin-bottom-30">CREÁ TU CUENTA</h2>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-6 col-xs-12 padding-left-no padding-right-6 margin-bottom-30 registro-responsive section-register">
+        <div class="registro-select text-center">
+          <h3 class="margin-no">Soy Conductor</h3>
+          <p class="btn-register-commerce">Contratá servicios y comprá autopartes de manera simple, estes donde estes</p>
+          <img src="assets/images/icons/conductor.png" class="center-block margin-bottom-20 margin-top-40">
+          <a ui-sref="register_driver" class="btn btn-lg btn-primary" type="submit">Registro</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12 padding-right-no padding-left-6 margin-bottom-30 registro-responsive section-register">
+        <div class="registro-select text-center">
+          <h3 class="margin-no">Soy Comerciante</h3>
+          <p class="btn-register-commerce">Taller mecanico, Lubricentro, Gomería, Lava Autos, Car Detailing, Casa de repuestos</p>
+          <img src="assets/images/icons/mechanic.svg" width="100" class="center-block margin-bottom-20 margin-top-40">
+          <a ui-sref="vendemas" class="btn btn-lg btn-primary" type="submit">Alta de Comercio</a>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <p class="text-grey text-center terminos center-block">
+        Al continuar, acepto los <a href="/terminos-condiciones" target="_blank" title="terminos y condiciones"><strong class="color-blue">Términos de uso</strong></a><br>
+        de Autominuto y reconozco que leí la <a href="/politicas-privacidad" target="_blank"><strong class="color-blue">Política de privacidad</strong></a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'shared/views/tpl-promo-mobile.html'"></div>

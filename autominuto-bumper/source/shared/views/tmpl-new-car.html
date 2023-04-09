@@ -1,0 +1,232 @@
+<div class="modal fade" id="modal-account">
+  <div class="modal-dialog" >
+    <div class="modal-content" style="background: white; color:#253a4c">
+      <form name="carForm" novalidate ng-submit="addCar();">
+        <div class="modal-header">
+          <h4 class="modal-title"><span class="fa fa-car"></span>Agregar nuevo vehículo</h4>
+          <hr>
+        </div>
+        <div class="modal-body" style="padding-left: 50px; padding-right: 50px;">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <!-- fila uno -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+
+                  <h6>Marca</h6>
+                  <div class="input-group">
+                    <select
+                      name="brand"
+                      class="form-control"
+                      ng-model="carBrandSelected"
+                      ng-options="brand.name for brand in brands track by brand.id"
+                      required>
+                      <option value="">Elija una marca</option>
+                    </select>
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.brand.$error" ng-if='carForm.brand.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage" >Marca es obligatorio</div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <h6>Modelo</h6>
+                  <div class="input-group">
+                    <select
+                      name="subbrand"
+                      class="form-control"
+                      ng-model="carSubBrandSelected"
+                      ng-options="subBrand.name for subBrand in carBrandSelected.subbrands track by subBrand.internalId"
+                      required>
+                      <option value="">Elija un modelo</option>
+                    </select>
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.subbrand.$error" ng-if='carForm.subbrand.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage">Modelo es obligatorio</div>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12">
+                  <h6>Año</h6>
+                  <div class="input-group">
+                    <input type="text" name="year" required ng-model="car.year" class="form-control" />
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.year.$error" ng-if='carForm.year.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage" >Año es obligatorio</div>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12">
+                  <h6>Kilometros</h6>
+                  <input type="text" ng-model="car.kilometers" class="form-control"/>
+                </div>
+              </div>
+              <div class="row">
+                <!-- fila dos -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <h6>Combustible</h6>
+                  <div class="input-group">
+                    <select 
+                      name="fuel"
+                      class="form-control"
+                      ng-model="car.fuel"
+                      ng-options="combustible for combustible in combustibles"
+                      required>
+                      <option value="">Elija un combustible</option>
+                    </select>
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.fuel.$error" ng-if='carForm.fuel.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage">Combustible es obligatorio</div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <h6>Tipo de motor</h6>
+                  <div class="input-group">
+                    <input type="text" name="engineModel" required ng-model="car.engineModel" class="form-control" />
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.engineModel.$error" ng-if='carForm.engineModel.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage" >Motor es obligatorio</div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <h6>Seguro contratado</h6>
+                  <div class="input-group">
+                    <select 
+                      class="form-control"
+                      name="userInsuranceCompany"
+                      ng-model="car.idInsurance"
+                      ng-options="userInsComp.id as userInsComp.name for userInsComp in userInsurancesCompanies"
+                      required>
+                      <option value="">Elija un seguro</option>
+                    </select>
+                    <div class="input-group-addon"><span class="field_required">*</span></div>
+                  </div>
+                  <div ng-messages="carForm.userInsuranceCompany.$error" ng-if='carForm.userInsuranceCompany.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="required" class="errorMessage" >Seguro es obligatorio</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <h6>N° de póliza de seguros</h6>
+                  <input type="text" class="form-control" ng-maxlength="20" name="polizaNumber" ng-model="car.insuranceNumber"/>
+                  <div ng-messages="carForm.polizaNumber.$error" ng-if='carForm.polizaNumber.$dirty  || carForm.$submitted' role="alert">
+                    <div ng-message="maxlength" class="errorMessage" > 20 caracteres máximo</div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1">
+                  <h6>N° de chasis</h6>
+                  <div class="input-group" vin-input ng-model="car.chasisNumber"></div>
+                  <div ng-show="carForm.$submitted || carForm.vin.$dirty">
+                    <span ng-show="carForm.vin.$error.required" class="errorMessage">El número de chasis es obligatorio.</span>
+                    <span ng-show="carForm.vin.$error.pattern" class="errorMessage">Caracter inválido (I,O,Q,Ñ y especiales).</span>
+                    <span ng-show="carForm.vin.$error.minlength && carForm.$submitted && !carForm.vin.$error.pattern" class="errorMessage">Mínimo 17 caracteres.</span>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 margin-top-40">
+                  <h6>Indique los siguientes vencimientos del vehículo:
+                </div>
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h6>Licencia</h6>
+                      <div class="input-group">
+                        <input
+                          class="form-control border-right-no"
+                          ng-model="licenceExpireDate"
+                          moment-picker="datetime.date"
+                          format="DD/MM/YYYY"
+                          min-view="month"
+                          max-view="month"
+                          min-date="$ctrl.minDate"
+                          validate="true"
+                          placeholder="DD/MM/YYYY">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h6>Seguro</h6>
+                      <div class="input-group">
+                        <input
+                          class="form-control border-right-no"
+                          ng-model="secureExpireDate"
+                          moment-picker="datetime.date1"
+                          format="DD/MM/YYYY"
+                          min-view="month"
+                          max-view="month"
+                          min-date="$ctrl.minDate"
+                          validate="true"
+                          placeholder="DD/MM/YYYY">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h6>Matafuegos</h6>
+                      <div class="input-group">
+                        <input
+                          class="form-control border-right-no"
+                          ng-model="extinguisherExpireDate"
+                          moment-picker="datetime.date2"
+                          format="DD/MM/YYYY"
+                          min-view="month"
+                          max-view="month"
+                          min-date="$ctrl.minDate"
+                          validate="true"
+                          placeholder="DD/MM/YYYY">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h6>Vtv</h6>
+                      <div class="input-group">
+                        <input
+                          class="form-control border-right-no"
+                          ng-model="vtvExpireDate"
+                          moment-picker="datetime.date3"
+                          format="DD/MM/YYYY"
+                          min-view="month"
+                          max-view="month"
+                          validate="true"
+                          placeholder="DD/MM/YYYY">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-md-12 margin-top-40">
+                  <h6><img src="assets/images/icons/image-upload.png" style="height: 20px;margin-right: 10px;">Adjuntar una foto del vehículo
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer margin-bottom-20" style="padding-left: 50px; padding-right: 50px;">
+          <button class="btn btn-primary button-modal">
+            ACEPTAR
+          </button>
+          <button type="reset" class="btn btn-primary button-modal" ng-click="close()">
+            CANCELAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

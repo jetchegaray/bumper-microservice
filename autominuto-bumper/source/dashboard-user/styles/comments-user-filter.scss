@@ -1,0 +1,199 @@
+
+comment-user-filter {
+  .comments-filter {
+    border-bottom: thin #ccc solid;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    align-items: center;
+    position: relative;
+    div {
+      display: flex;
+      float: left;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px 0 0;
+        p {
+          margin: 0;
+          color: #868686;
+          font-weight: normal;
+        }
+        img {
+          margin-right: 5px;
+        }
+
+      }
+      .order {
+        display: flex;
+        align-items: center;
+        margin-top: 1px;
+        p {
+          margin: 0;
+        }
+        .select-style {
+          padding: 0;
+          margin: 0;
+          border: none;
+          width: 150px;
+          border-radius: 3px;
+          overflow: hidden;
+          background: url("../../assets/images/icons/flechita.jpg") no-repeat 90% 50%;
+          select {
+            padding: 5px 8px;
+            width: 100%;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            background-image: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            color: #5c9bbf;
+            cursor: pointer;
+            font-weight: bold;
+          }
+          select:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .first-filter {
+        margin: 5px 0 0 15px;
+        width: 115px;
+
+        p {
+          margin: 1px 0 10px 25px;
+          color: #868686;
+        }
+      }
+
+      .second-filter {
+        margin: 5px 0 0 15px;
+        width: 130px;
+
+        p {
+          margin: 1px 0 10px 25px;
+          white-space: nowrap;
+          height: 100%;
+          color: #868686;
+        }
+      }
+    }
+    .add-cupon {
+      float: right;
+      position: absolute;
+      right: 0;
+    }
+    button {
+      img {
+        margin-right: 5px;
+      }
+    }
+    .light-blue-button {
+      float: right;
+
+    }
+
+
+
+
+
+  }
+
+
+  .button-comments-commerce {
+    display: flex;
+    align-items: center;
+    background-color: #6699cc;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 22px;
+    border: none;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  comment-user-filter {
+    .comments-filter {
+      padding-bottom: 31px;
+      border: none;
+
+      .light-blue-button {
+        margin-top:-13px;
+
+        button {
+          padding: 10px 16px;
+          font-size: 0.8em;
+        }
+      }
+
+      div .order .select-style select {
+          font-size: 0.9em;
+      }
+
+      div .order .select-style {
+        width: 95px;
+      }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  comment-user-filter {
+    .comments-filter span p {
+      font-size: 0.8em;
+    }
+
+    .order {
+      p {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 745px) {
+  comment-user-filter {
+    .comments-filter {
+      .light-blue-button {
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+
+        button {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 600px) {
+  comment-user-filter .comments-filter {
+    display: block;
+    padding: 0;
+    height: 190px;
+    margin: 0;
+  }
+
+  comment-user-filter .comments-filter div {
+    display: block;
+    float: none;
+  }
+
+  comment-user-filter .comments-filter div span {
+    margin: 5px 0 !important;
+  }
+
+  comment-user-filter .comments-filter div .order {
+    float: none;
+    justify-content: center;
+  }
+}

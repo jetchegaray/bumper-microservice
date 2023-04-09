@@ -1,0 +1,17 @@
+.section-commerce {
+
+  @import "commerce";
+  @import "header-commerce";
+  @import "banner";
+  @import "tab-budget-commerce";
+  @import "coupons";
+  @import "shop";
+  @import "popup_presupuesto";
+  @import "comments";
+}
+
+.section-user {
+  @import "commerce";
+  @import "banner-user";
+  @import "coupons";
+}

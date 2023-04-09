@@ -1,0 +1,31 @@
+.item-appointment {
+  display: flex;
+  padding: 0;
+
+  > div {
+    width: calc(100% - 10px);
+    margin: 5px;
+    background-color: #fff;
+  }
+
+  .lubricentro {
+    font-family: 'Montserrat Light', sans-serif;
+    color: #729abc;
+    margin: 0;
+  }
+
+  .days {
+    margin: 0;
+  }
+
+  .description {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .turno {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+}

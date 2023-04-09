@@ -1,0 +1,149 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="container-fluid  section-commerce" style="padding:0;">
+  <div class="container container-commerce" image-map="/assets/images/webp.jpg">
+  <section>
+  <div class="container-fluid">
+				<div class="container">
+			  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fastload">
+			  	<form name="formProducts" ng-submit="formProducts.$valid && $ctrl.saveProducts()" novalidate>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button ng-click="$ctrl.goToStoreCommerce()" class="btn border-white btn-transparent margin-top-30 margin-bottom-30"><i class="fa fa-long-arrow-left" style="margin-right: 10px;"></i>Volver a la tienda</button>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tittle-fastLoad">
+                <div class="padding-left-right-30"><h3>Carga rápida</h3></div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content-fastLoad margin-bottom-30">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <div class="padding-left-right-30 margin-top-30">
+                          <h2>Subir productos o servicios desde un archivo Excel puede ser rápido y fácil</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="padding-left-right-30">
+                      
+                      <h6 style="color: #1e58da;"><strong>Paso 1</strong><br><br> Descarga nuestro excel de ayuda segun tu tipo de comercio : </h6>
+                      <h6>
+                        <a class="tool-gen-father" href="download/fast-load/autoradio_autopartes.xlsx" target="_blank">
+                          <span> Autoradio productos </span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a> <br><br>
+                       
+                        <a class="tool-gen-father" href="download/fast-load/autoradio_servicios.xlsx" target="_blank">
+                          <span> Autoradio servicios</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+                       
+                        <a class="tool-gen-father" href="download/fast-load/baterias.xlsx" target="_blank">
+                          <span> Baterías</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+
+                        <a class="tool-gen-father" href="download/fast-load/cerrajeria.xlsx" target="_blank">
+                          <span> Parabrisas y Cerrajeria</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+
+                        <a class="tool-gen-father" href="download/fast-load/detailing_autopartes .xlsx" target="_blank">
+                          <span > Detailing autopartes</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+
+                        <a class="tool-gen-father" href="download/fast-load/detailing_servicios.xlsx" target="_blank">
+                          <span > Detailing servicios</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+
+                        <a class="tool-gen-father" href="download/fast-load/gomeria_neumaticos.xlsx" target="_blank">
+                          <span > Gomería Neumáticos</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+                        
+                        <a class="tool-gen-father" href="download/fast-load/gomeria_servicios.xlsx" target="_blank">
+                          <span > Gomería servicios</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+                        
+                        <a class="tool-gen-father" href="download/fast-load/lavautos.xlsx" target="_blank">
+                          <span > Lavautos</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+                        
+                        <a class="tool-gen-father" href="download/fast-load/lubricentro_autopartes.xlsx" target="_blank">
+                          <span > lubricentro autopartes</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+
+                        <a class="tool-gen-father" href="download/fast-load/lubricentro_servicios.xlsx" target="_blank">
+                          <span > lubricentro servicios</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                        </a><br><br>
+                        <!--
+                        <a class="tool-gen-father" href="download/taller-mantenimiento-autominuto.xlsx" target="_blank">
+                          <span > Taller Mantenimiento</span><i class="fa fa-download" aria-hidden="true"></i>
+                        </a><br><br> -->
+                       </h6>
+                        <h6 style="color: #1e58da;">Si no descarga nuestro excel generico para cualquier comercio </h6>
+                        <h6>
+                          <a class="tool-gen-father" href="download/fast-load/productos-autominuto.xlsx" target="_blank">
+                            <span > Comercio Generico</span><i class="fa-fw fa fa-download" aria-hidden="true"></i>
+                          </a>
+                        </h6>
+
+                      <div class="form-group margin-top-30">
+                        <h6 style="color: #1e58da;"><strong>Paso 2</strong> - Subi el excel que acabas de completar <span class="text-gray"> (formato xls)</span></h6>
+                        <label class="fileContainer" style="cursor: pointer;">
+                          <img ngf-thumbnail="$ctrl.showExcelUploaded" style="max-width: 114px" class="center-block">
+                          <h6 style="color: #1e58da;">Cargar Excel</h6>
+                          <input type="file"
+                                 name="excel"
+                                 ngf-select
+                                 ng-model="$ctrl.fileExcel"
+                                 required
+                                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                                 ngf-max-size="5MB"
+                                 ngf-model-invalid="errorFile1"
+                                 ng-change="$ctrl.checkExcelFile()"
+                                 valid-files="csv">
+                        </label>
+                        <div class="clearfix margin-bottom-10"></div>
+                        <div style="color:#d10542; font-size: 0.85em;">
+                          <span ng-show="formProducts.$submitted && formProducts.excel.$error.required" style="display: block">
+                            Debe cargar un archivo Excel.
+                          </span>
+                          <span ng-show="formProducts.excel.$error.maxSize" style="display: block">
+                           El archivo no debe superar los 5MB.
+                          </span>
+                          <span ng-show="formProducts.excel.$error.invalidType" style="display: block">
+                           Solo se permiten archivos de tipo excel (csv, xls, xlsx).
+                          </span>
+                        </div>
+                        
+                      </div>   
+
+
+                      <div ng-show="$ctrl.fileExcel && $ctrl.errorMessage">
+                        <span class="errorMessage" ng-bind="$ctrl.errorMessage"></span>
+                        <span class="errorMessage excel-error-desc">Recordá que:</span>
+                        <span class="errorMessage excel-error-desc">nombre, precio, categoría son obligatorios</span>
+                        <span class="errorMessage excel-error-desc">precio, stock tienen que ser mayor a 0</span>
+                      </div>
+                      
+                      <hr>
+                      <button type="submit" class="button-comments-commerce margin-top-30 margin-bottom-30">Cargar Productos</button>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <div class="excel-fastload-example" >
+                        <img src="assets/images/fastload/excel-fastload.png"> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+   </section>
+ </div>
+</div>
+<cookies-banner></cookies-banner>

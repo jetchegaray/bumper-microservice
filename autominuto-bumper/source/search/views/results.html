@@ -1,0 +1,136 @@
+<header class="wrap navbar-fixed-top">
+    <user-inactive-banner></user-inactive-banner>
+    <header-notification></header-notification>
+</header>
+
+
+<section class="section-results container-fluid blog" style="display: block;">
+  <div class="container-fluid container-results margin-bottom-80">
+
+    <div class="col-md-7 col-xs-12 custom-results">
+      <form class="form-container">
+
+        <results-search
+          on-search="$ctrl.onSearch()"
+          update-service-type="$ctrl.updateService(serviceType)"
+          update-brand="$ctrl.updateBrand(brand)"
+          update-location="$ctrl.updateLocation(location)"
+          default-service-type="$ctrl.search.service"
+          default-brand="$ctrl.search.brand"
+          default-location="$ctrl.defaultLocation"
+          brands="$ctrl.brands"
+          services-types="$ctrl.services"
+        ></results-search>
+
+        <hr class="border-filtro">
+
+       <!-- <results-filter
+          promo="$ctrl.promo"
+          update-promo="$ctrl.updatePromo(val)"
+          recommended="$ctrl.recommended"
+          update-recommended="$ctrl.updateRecommended(val)"
+          quality="$ctrl.quality"
+          update-quality="$ctrl.updateQuality(val)"
+          update-order-by="$ctrl.updateOrderBy(val)"
+        ></results-filter> -->
+
+      </form>
+
+      <div class="item-container">
+
+        <div class="spinner-container" ng-show="$ctrl.showSpinner">
+          <span us-spinner="{lines: 11, width: 3, radius: 13, length: 12}" spinner-on="$ctrl.showSpinner"></span>
+        </div>
+
+        <div ng-repeat="item in $ctrl.items" ng-switch="item.type">
+          <results-item-result
+            ng-switch-when="result"
+            commerce-id="item.id"
+            commerce-slug="item.slug"
+            official="item.official"
+            grade="item.grade"
+            logo="item.logo"
+            validated="item.validated"
+            is-open="item.isOpen"
+            working-time="item.workingTime"
+            name="item.name"
+            stars="item.stars"
+            description="item.description"
+            price="item.price"
+            services="item.services"
+            products="item.products"
+            search-service="$ctrl.search.service"
+            search-brand="$ctrl.search.brand"
+            is-product="$ctrl.search.service.service"
+            current-location="$ctrl.currentLocation"
+            commerce-location="item.position"
+            ng-mouseover="$ctrl.addMouseOverClass(item.id)"
+            ng-mouseleave="$ctrl.addMouseOutClass(item.id)"
+            images-brands="item.brands"
+            images-categories="item.categories"
+          ></results-item-result>
+          <div ng-if="item.coupons.length" >
+            <results-item-discount
+              ng-repeat="c in item.coupons track by $index"
+              commerce-id="c.commerceId"
+              commerce-slug="c.commerceSlug"
+              code="c.code"
+              discount-percentage="c.discountPercentage"
+              discount-fixed="c.discountFixed"
+              price="c.price"
+              services="c.services" ng-if="$index === 0 && !$ctrl.promo">
+            </results-item-discount>
+            <results-item-discount
+              ng-repeat="c in item.coupons track by $index"
+              commerce-id="c.commerceId"
+              commerce-slug="c.commerceSlug"
+              code="c.code"
+              discount-percentage="c.discountPercentage"
+              discount-fixed="c.discountFixed"
+              price="c.price"
+              services="c.services" ng-if="$index === 0 && $ctrl.promo">
+            </results-item-discount>
+          </div>
+          <results-item-appointment ng-switch-when="appointment"></results-item-appointment>
+          <span ng-switch-default></span>
+        </div>
+        <div ng-if="$ctrl.emptyResults && !$ctrl.showSpinner" class="text-center empty-results">
+          <not-found-component image-route="assets/images/car-not-found.png" show-ups="false"></not-found-component>
+        </div>
+      </div>
+
+      <div class="pagination-container">
+        <ul class="pagination">
+          <li ng-class="{disabled: $ctrl.prevPage === false}" ng-show="$ctrl.prevPage === true && !$ctrl.emptyResults && $ctrl.showSpinner === false">
+            <a ng-click="$ctrl.updatePage($ctrl.page - 1)">Atrás</a>
+          </li>
+          <li ng-class="{disabled: $ctrl.nextPage === false}" ng-show="$ctrl.nextPage === true && !$ctrl.emptyResults && $ctrl.showSpinner === false">
+            <a ng-click="$ctrl.updatePage($ctrl.page + 1)">Siguiente</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-md-5 col-xs-12" style="padding: 0">
+      <div class="map-resultados col-md-5 col-xs-12" ng-style="{height: $ctrl.getSizeMap() + 'px'}">
+<!--        <ng-map style="display: block; height: 100%;" on-zoom_changed="$ctrl.onZoomChanged()" on-dragend="$ctrl.onDragEnd()" on-tilesloaded="$ctrl.onTilesLoaded()"> -->
+          <ng-map style="display: block; height: 100%;">
+          <custom-marker ng-class="{'outstanding-custom-mark': m.id == $ctrl.hoverMarkId }"  on-mouseover="$ctrl.mouseover()" on-mouseout="$ctrl.mouseout()" ng-repeat="m in $ctrl.items" z-index="{{ m.hasPaidPlan ? 1 : 0}}" position="{{ m.position }}" size="15">
+            <a id="{{m.id}}" class="my-custom-marker" ui-sref="profile_commerce({commerceSlug: m.slug, commerceId: m.id})" target="_blank" title="{{m.name}}">
+             <!-- <img ng-src="{{ $ctrl.getOfficialCommerceIcon() }}"  width="70" height="70" ng-if="m.official"/> -->
+              <!-- <img ng-src="{{ $ctrl.getUnOfficialCommerceIcon(m) }}"  width="70" height="70" ng-if="m.official"/> -->
+              <img ng-src="{{ $ctrl.getUnOfficialCommerceIcon(m) }}" width="70" height="70" ng-if="!m.hasPaidPlan"/>
+              <img ng-src="{{ $ctrl.getUnOfficialCommerceIcon(m) }}" width="90" height="90" ng-if="m.hasPaidPlan"/>
+            </a>
+          </custom-marker>
+          <marker z-index="89888" position="{{ $ctrl.marker }}" icon="{{ $ctrl.getDriverIcon() }}"></marker>
+        </ng-map>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<cookies-banner></cookies-banner>

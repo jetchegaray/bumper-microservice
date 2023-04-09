@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+  <li ng-repeat="tab in $ctrl.tabs"
+      ng-class="{'active': tab.selected }"
+      ng-click="$ctrl.select(tab)">
+    <a data-toggle="tab" data-target="#menu1">
+      {{ tab.titleTab }} <i class="{{tab.titleIcon}}" fa-fw></i> 
+    </a>
+  </li>
+  <li ng-if="$ctrl.commerceProfile">
+    <div class="comerciante-options">
+      <div class="like" ng-click="$ctrl.likeCommerce()" style="cursor: pointer; font-size: 1.5em; font-weight: bold;">
+        <i class="fa fa-heart-o" ng-if="!$ctrl.isFavorite"></i>
+        <i class="fa fa-heart" ng-if="$ctrl.isFavorite" style="color:#ab0a0a"></i>
+      </div>
+<!--<div class="reply">
+        <img src="assets/images/icons/reply-grey.png">
+      </div> -->
+    </div>
+  </li>
+</ul>
+<div class="tab-content">
+  <ng-transclude>
+    <!-- Use this as transclusion content even if empty. -->
+  </ng-transclude>
+</div>

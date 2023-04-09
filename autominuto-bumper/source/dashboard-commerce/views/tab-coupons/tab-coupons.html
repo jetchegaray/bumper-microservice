@@ -1,0 +1,38 @@
+<h1>Descuentos</h1>
+
+<filter-dashboard-commerce
+  update-sort-by-dscto="$ctrl.updateSortByDscto"
+  filter-states="$ctrl.filterStates"
+  add-coupon="$ctrl.showAddEditCoupon",
+  profile="$ctrl.profile">
+</filter-dashboard-commerce>
+
+<div ng-show="$ctrl.coupons.length == 0">
+  <h3 class="text-center">Este comerciante aun no activo ningún cupón de descuento</h3>
+</div>
+<div ng-show="!$ctrl.isLoadingCoupons && $ctrl.coupons.length > 0">
+  <div class="cupones-container">
+    <div class="col-md-4"
+         ng-repeat="coupon in $ctrl.coupons
+         | orderBy: $ctrl.orderByParam:$ctrl.currentOrder
+         | filter:$ctrl.applyCouponFilter">
+      <coupon-commerce
+        coupon="coupon"
+        show-coupon="$ctrl.showCoupon"
+        show-edit-coupon="$ctrl.showAddEditCoupon"
+        show-delete-coupon="$ctrl.showDeleteCoupon"
+        show-buy-coupon="$ctrl.showBuyCoupon"
+        profile="$ctrl.profile"
+      ></coupon-commerce>
+    </div>
+  </div>
+
+  <pagination-complete
+    ng-show="$ctrl.totalPages > 1"
+    load-page="$ctrl.loadPage"
+    total-pages="$ctrl.totalPages"
+    current-page="$ctrl.currentPage">
+  </pagination-complete>
+
+</div>
+

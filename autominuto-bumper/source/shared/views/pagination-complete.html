@@ -1,0 +1,10 @@
+<div class="col-md-12 paginator" ng-show="$ctrl.totalPages > 0">
+  <div class="pagination">
+    <a  ng-class="{'load-page-disabled': $ctrl.currentPage === 1}"
+        ng-click="$ctrl.onPreviousPage()">&laquo;</a>
+    <a ng-repeat="page in $ctrl.getArrayPages()" ng-click="$ctrl.loadPage(page)"
+       ng-class="{'page-active': page === $ctrl.currentPage}"> {{ page }} </a>
+    <a  ng-class="{'load-page-disabled': $ctrl.currentPage === $ctrl.totalPages}"
+        ng-click="$ctrl.onNextPage()">Siguiente &raquo;</a>
+  </div>
+</div>

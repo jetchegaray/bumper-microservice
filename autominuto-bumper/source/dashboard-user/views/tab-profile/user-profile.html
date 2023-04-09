@@ -1,0 +1,45 @@
+
+    <!-- inicio mis direcciones -->
+    <div class="row">
+      <!--corresponde a la primer columna -->
+      <div class="col-md-6 col-sm-5 col-xs-12 my-address">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <h3>Mis direcciones:</h3>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-20">
+            <h6><strong>Seleccione su dirección predeterminada para editar:</strong></h6>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-20">
+            <label class="dis-block radio-hover" ng-repeat="direction in $ctrl.userDirections">
+              <input type="radio" ng-model="$ctrl.radioDirections" ng-value="direction">
+              {{direction.streetAddress.street}}
+              {{direction.streetAddress.streetNumber}}
+              {{direction.place.city}},
+              {{direction.place.province}} - 
+              <span class="relative">{{direction.place.countryCode}}
+                <span ng-click="$ctrl.deleteAddress(direction)" class="hover-delete-address" style="cursor: pointer"><strong>Eliminar</strong></span>
+              </span>
+              
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-7 col-xs-12 data-edit-perfil">
+        <div class="row">
+          <div class="col-md-12 margin-top-20">
+
+            <button class="btn btn-primary margin-bottom-10" ng-disabled="!$ctrl.radioDirections" ng-click="$ctrl.showModalDireccion($ctrl.radioDirections)">
+              <strong><span class="glyphicon glyphicon-pencil"></span>EDITAR DATOS</strong>
+            </button>
+            <button class="btn btn-primary margin-bottom-10" ng-click="$ctrl.showModalDireccion()">
+              <strong><span class="glyphicon glyphicon-map-marker"></span>NUEVA DIRECCIÓN</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fin mis direcciones -->
+
+    <!-- inicio mis vehículos -->
+    <hr>

@@ -1,0 +1,33 @@
+.modal-message {
+  
+  .modal-dialog{
+    margin-top: 75px;
+    width: 35%;
+  }
+
+  .modal-content {
+    background: white;
+    color: #253a4c;
+    border: none;
+
+    .modal-header {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      button {
+        float: right;
+        color: white;
+      }
+
+      h4 { color: white; }
+    }
+  }
+
+  &.modal-success .modal-header {
+    background: #24b047;
+  }
+
+  &.modal-error .modal-header {
+    background: indianred;
+  }
+}

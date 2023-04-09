@@ -1,0 +1,64 @@
+
+<h1>Presupuestos y Compras</h1>
+
+<div class="commerce-budgets margin-top-10" id="commerce-budgets">
+  <div class="presupuestos-container">
+
+    <filter-category
+      categories="$ctrl.categories"
+      change-filter="$ctrl.changeFilter"
+      current-filter="$ctrl.currentFilter"
+    ></filter-category>
+
+    <img class="ajax-loader" ng-show="!!$ctrl.loadingContent" src="assets/images/loader-ajax.gif">
+
+    <div ng-if="$ctrl.filterToShow === 'budgets'">
+      <div class="budget-container">
+        <user-budget-item ng-repeat="budget in $ctrl.elementListData"
+                          budget="budget"
+                          update-page="$ctrl.updatePage"
+                          current-filter = "$ctrl.currentFilter"
+        ></user-budget-item>
+      </div>
+      <div ng-switch="$ctrl.currentFilter" ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+        <div class="alert alert-info" ng-switch-when="requested">
+          No tenés presupuestos sin contestar.
+        </div>
+        <div class="alert alert-info" ng-switch-when="replied">
+          No tenés presupuestos contestados.
+        </div>
+        <div class="alert alert-info" ng-switch-when="refused_user">
+          No tenés presupuestos rechazados.
+        </div>
+        <div class="alert alert-info" ng-switch-when="accepted_user">
+          No has aceptados presupuestos aún.
+        </div>
+        <div class="alert alert-info" ng-switch-when="finished">
+          Ningún trabajo fué finalizado aún.
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.filterToShow === 'buys'">
+      <div class="budget-container" >
+        <buys-item ng-repeat="buy in $ctrl.elementListData"
+                   buy="buy"
+                   update-page="$ctrl.updatePage"
+        ></buys-item>
+      </div>
+      <div ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+        <div class="alert alert-info">
+          Aún no hiciste compras.
+        </div>
+      </div>
+    </div>
+
+    <simple-pagination
+      next-page-enabled="$ctrl.nextPageEnabled"
+      previous-page-enabled="$ctrl.previousPageEnabled"
+      load-next-page="$ctrl.loadNextPage"
+      load-previous-page="$ctrl.loadPreviousPage" >
+    </simple-pagination>
+
+  </div>
+</div>

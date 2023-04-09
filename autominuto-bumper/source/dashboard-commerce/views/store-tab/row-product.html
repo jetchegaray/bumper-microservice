@@ -1,0 +1,9 @@
+
+<div class="productos-row col-xs-12" >
+  <store-product ng-repeat="product in $ctrl.products track by product.id"
+    product="product"
+    edit-product="$ctrl.editProduct"
+    delete-product="$ctrl.deleteProduct"
+  >
+  </store-product>
+</div>

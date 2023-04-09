@@ -1,0 +1,33 @@
+@import '../../source/shared/styles/style';
+@import '../../source/home/styles/home';
+@import '../../source/shared/styles/nav-bar-white';
+@import '../../source/shared/styles/footer';
+@import '../../source/shared/styles/covid-banner';
+
+a.start-button,
+a.home-button {
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+section.header .carousel {
+  text-align: left;
+}
+
+@media screen and (max-width: 991px) {
+  .only-desktop {
+    display: none !important; } }
+
+@media screen and (min-width: 992px) {
+  .not-desktop {
+    display: none !important; } }
+
+@media screen and (min-width: 401px) {
+  .only-mobile {
+    display: none !important; } }
+
+@media screen and (max-width: 400px) {
+  .not-mobile {
+    display: none !important; } }

@@ -1,0 +1,17 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification
+  banner="$ctrl.banner"
+  percent-profile="$ctrl.percentProfile"
+  refresh-callback="$ctrl.refreshCallback()"
+  my-commerce-id="$ctrl.myCommerceId"
+  show-modal-user-profile-callback="$ctrl.showModalUserData()"></header-notification>
+
+<div class="section-user">
+	<div class="container container-user">
+		<section id="main">
+  			<div ui-view="area"></div>
+		</section>
+	</div>
+</div>
+
+<cookies-banner></cookies-banner>

@@ -1,0 +1,103 @@
+<!-- BACK END HEADER -->
+<nav class="navbar navbar-inverse margin-no dashboard-header">
+
+  <div class="container">
+    <header>
+
+      <div class="col-md-6 col-xs-12 mobile-header">
+        <a class="navbar-brand logo-align" ui-sref="home"><img class="automin-isologo" src="assets/images/isologo.png"></a>
+
+        <button
+            type="button"
+            class="navbar-toggle toggle-nav"
+            data-toggle="collapse"
+            data-target="#header-navbar-collapse"
+            aria-expanded="true">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div id="header-navbar-collapse" class="header-nav-collapse collapse">
+
+        <div class="col-md-3 col-xs-12 no-padding section-commerce" ng-if="$ctrl.isLogged()">
+            <div class="login-header-commerce" ng-click="$ctrl.goToPerfil()">
+            <div class="name-header" >
+                <img ng-src="{{$ctrl.imageLink || 'assets/images/icons-default/driver.png'}}" alt="default user">
+                <span>{{$ctrl.dataUser.nickName}}</span>
+            </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3 col-xs-12 no-padding section-commerce" ng-if="$ctrl.isLogged()">
+            <div class="login-header-commerce">
+            <a ng-click="$ctrl.logout()" class="close-session-header">
+                <span class="glyphicon glyphicon-log-out icon-logout" ></span>
+                <span class="text-logout"> Cerrar Sesión </span>
+            </a>
+            <div class="user-perfil">
+                <div class="show-popup-noti relative" ng-click="$ctrl.updateStatePanelNotification(true)" tabindex="-1" ng-blur="$ctrl.updateStatePanelNotification(false)">
+                <div class="perfil-notification">
+                    <div ng-if="$ctrl.totalNotifications" class="notificacion">
+                    <p>{{$ctrl.totalNotifications}}</p>
+                    </div>
+                    <img src="assets/images/icons/notificacion.png">
+                </div>
+
+
+                <!-- POP UP NOTIFIACIONES -->
+                <div class="notifiaciones-popup-container pop-up"  ng-show="$ctrl.notifications.length > 0 && $ctrl.showPanelNotification">
+                    <div class="title-noti"><h3>NOTIFICACIONES</h3></div>
+                    <div class="new-noti-container">
+                    <div class="notificaciones-popup" ng-repeat="notification in $ctrl.notifications">
+                        <div class="notificacion-item nuevo" ng-click="$ctrl.goToPerfil()">
+                        <div class="perfil-icon">
+
+                            <img ng-src="{{notification.imagePath || 'assets/images/icons-default/driver.png'}}" width="54" height="54"
+                            ng-show="!notification.isUserNotificacion">
+                            <img ng-src="{{notification.imagePath || 'assets/images/icons-default/commerce.png'}}" width="54" height="54"
+                            ng-show="notification.isUserNotificacion">
+                        </div>
+                        <div class="notificacion-elements">
+                            <div class="nuevo-comentario"><button>{{notification.title}}</button></div>
+                            <div class="perfil-title">{{notification.author}}</div>
+                            <div class="description">{{notification.description | limitTo: 25}}{{notification.description.length > 25 ? '...' : ''}}</div>
+                            <div class="date">{{notification.until}}</div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                </div>
+                </div>
+
+                <div class="perfil-configuration" ng-click="$ctrl.goToPerfil()"><img src="assets/images/icons/configurar.png"></div>
+
+
+
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xs-12 no-padding section-commerce"  ng-if="!$ctrl.isLogged()">
+            <div class="user-perfil notification-header-commerce">
+            <div class="login-header">
+                <a ui-sref="login" class="bold">Iniciar Sesión</a>
+                <a ui-sref="register_driver" >Soy conductor</a>
+                <a role="button" class="btn potencia" ui-sref="vendemas">
+                <img src="assets/images/icons/shop.svg" style="width: 22px; height: 22px;">
+                <span style="margin-left: 10px;">Soy comerciante</span>
+                </a>
+            </div>
+            </div>
+        </div>
+    
+      </div>
+
+    </header>
+  </div>
+</nav>

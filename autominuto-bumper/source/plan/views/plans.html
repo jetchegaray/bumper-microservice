@@ -1,0 +1,148 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="container-fluid main" id="plans">
+  <div class="custom-container">
+    <div class="row text-center">
+      <div class="col-md-12 margin-top-80">
+        <h1><strong>Elegí el plan adecuado para tu negocio</strong></h1>
+        <h5>Ya son más de 5 mil los talleres mecánicos y comercios automotrices que forman parte de autominuto.</h5>
+        <h5>Vendé tus productos y servicios online. <strong>Destacá tu comercio del resto</strong></h5>
+      </div>
+      <!--<div class="col-md-12 col-sm-12 col-xs-12 margin-top-60 contain-promo">
+          <div>
+            <div class="dual-checkbox">
+              <label>SEMESTRAL</label>
+              <label class="checkbox-switch">
+                <input type="checkbox" checked ng-model="$ctrl.annual">
+                <span class="checkbox-slider round"></span>
+              </label>
+              <label style="vertical-align:bottom">ANUAL</label>
+            </div>
+            <div class="ahorro-container">
+              <img src="assets/images/icons/ahorras-20.png">
+            </div>
+          </div>
+         
+      </div> -->
+    </div>
+  </div>
+
+  <section>
+    <div class="background-pattern"></div>
+    <div class="container-fluid">      
+      <div class="container section-plans">
+        <div class="row margin-bottom-80">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row justify-center flex-wrap">
+              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 padding-right-40 justify-center">
+                <div class="contract-plan plan-free margin-top-50">
+                  <div class="contract-plan-header free">
+                    <div class="filter-black"></div>
+                    <span>
+                      <h3>Plan FREE</h3>
+                      <p>Gratis para siempre</p>
+                    </span>
+                  </div>
+                  <div class="contract-plan-body">
+                    <div class="contract-plan-content">
+                      <h5>Date a conocer</h5>
+                      <ul>
+                        <li><strong>5%</strong> comisión por Servicio o Repuesto</li> 
+                        <li>Foto de perfil con tu logo o fachada de comercio</li>
+                        <li>Recibirás pedidos de cotizaciones de hasta <strong>2 kms</strong> de distancia</li>
+                        <li><strong>1</strong> cupon o descuentos x temporada.</li>
+                        <li>X productos/servicios en e-shop</li>
+                      </ul>
+                    </div>
+                    <div class="contract-plan-footer">
+                      <button class="plan-button" ng-click="$ctrl.registerNow()">CRECÉ</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6 padding-right-40 justify-center">
+                <div class="contract-plan plan-full margin-top-50">
+                  <div class="contract-plan-header full">
+                    <div class="filter-black"></div>
+                    <span>
+                      <h3>Plan FULL</h3>
+                      <p>${{$ctrl.priceHighlinePerMonth}} por mes</p>
+                    </span>
+                    <div class="tag-coupon">
+                      <img src="assets/images/icons/listo.svg">
+                    </div>
+                    <div class="tag-label">
+                      <div class="desc orange">
+                        <span>Recomendado</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="contract-plan-body">
+                    <div class="contract-plan-content">
+                      <h5>Destaca tu comercio automotor</h5>
+                      <ul>
+                        <li><strong>4%</strong> comisión por Servicio o Repuesto</li>
+                        <li>FREE + 5 fotos + web link + social links en perfil público</li>
+                        <li>Recibirás pedidos de cotizaciones de <br>hasta <strong>10 kms</strong> de distancia</li>
+                        <li>Cupones <strong>ilimitados</strong></li>
+                        <li>X productos/servicios en e-shop</li>
+                        <li>Posicionamiento diferencial en listado, mapa y home.</li>
+                      </ul>
+                    </div>
+                    <div class="contract-plan-footer">
+                      <!--<a href="#" class="see-more">
+                        <img src="assets/images/landing/ver.png">
+                        <h5>Ver Plan Full ></h5>
+                      </a> -->
+                      <promotional-code on-success="$ctrl.onSuccess(discount, code)"></promotional-code>
+  
+                      <button class="plan-button dark-blue" ng-click="$ctrl.payNow('HIGHLINE')">PROBÁ</button>
+                    </div>
+                    
+                    <div class="tag-coupons-bottom">
+                      <img src="assets/images/landing/cupones-planes.png">
+                    </div>
+                    <div class="android-image">
+                      <img src="assets/images/landing/android.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid margin-bottom-80">
+      <div class="container section-cards">
+        <div class="row relative margin-top-40 justify-center">          
+          <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <img src="assets/images/icons/mercadopago-large.png" class="mp-logo">
+            <h1>Cobrá usando los medios de pago que todos prefieren</h1>
+            <div class="pay-offer">
+              <h4>¡ Hacé click y activá tu cuenta de mercado pago AHORA !</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-center">       
+          <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <div class="payments">
+              <div ng-repeat="paymentmethod in $ctrl.credit_cards" class="ui-payments-methods">
+                <span class="paymentmethod-large paymentmethod-{{paymentmethod}}" style="overflow: hidden"></span>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>      
+    </div>
+  </section>
+</div>
+<cookies-banner></cookies-banner>

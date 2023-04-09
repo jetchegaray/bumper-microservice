@@ -1,0 +1,748 @@
+
+<div class="container-fluid pasos" ng-class="{'tab-perfil-private-commerce': !$ctrl.completePage}">
+        <div class="container margin-top-50 margin-bottom-80"  ng-class="{'tab-perfil-private-commerce': !$ctrl.completePage}">
+          <div ng-if="$ctrl.completePage">
+            <h2 class="text-center text-grey margin-bottom-20 title-validate-add-commerce">{{ $ctrl.title }}</h2>
+            <h4 class="text-center text-grey margin-bottom-50">
+              Cargá GRATIS la información de tu comercio automotor y empezá a ser conocido también en la web. <br>
+              Llegá a más clientes en tan solo unos minutos.
+            </h4>
+          </div>
+
+          <div class="section-register" ng-class="{'tab-perfil-private-commerce col-md-11': !$ctrl.completePage, 'col-md-12': $ctrl.completePage}">
+            <!-- col 01 -->
+            <form name="$ctrl.commerceForm" ng-submit="$ctrl.saveCommerce()" class="col-md-12 padding-left-no mobile-no-pad" novalidate accessible-form>
+              <div class="col-md-6 margin-bottom-30 mobile-no-pad">
+                <!-- INFORMACIÓN DEL COMERCIO -->
+                <p class="margin-bottom-30"><strong>INFORMACIÓN DEL COMERCIO</strong></p>
+                <div class="form-group" ng-class="{ 'has-error errorMessage' :
+                     $ctrl.commerceForm.razonSocial.$dirty && $ctrl.commerceForm.razonSocial.$invalid ||
+                     $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.razonSocial.$invalid}">
+                  <div class="col-md-12 addCommerceStep1 padding-no">
+                    <h4 class="text-grey">Nombre o <span class="large">razón social</span> del comercio</h4>
+
+                    <input type="text" style="margin-bottom: 15px;" name="razonSocial" ng-model="$ctrl.commerce.name" class="form-control margin-bottom-30"
+                           ng-required='true' ng-class="{ 'margin-bottom-10' : $ctrl.commerceForm.razonSocial.$dirty && $ctrl.commerceForm.razonSocial.$invalid
+                           || $ctrl.commerceForm.$submitted && commerceForm.razonSocial.$invalid}" ng-pattern="/^[^<>%#\^\[\]\{\}¨$]*$/">
+                    <span style="position: relative;top: -5px;" ng-messages="$ctrl.commerceForm.razonSocial.$error"
+                          ng-if='$ctrl.commerceForm.razonSocial.$dirty  || $ctrl.commerceForm.$submitted' role="alert">
+                          <span ng-message="required">Razón Social es obligatorio</span>
+                          <span ng-message="pattern" class="errorMessage">Razón Social es inválida</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div  class="form-group" ng-class="{ 'has-error errorMessage' :
+                $ctrl.commerceForm.especificAddress.$dirty && $ctrl.commerceForm.especificAddress.$invalid ||
+                commerceForm.$submitted  && commerceForm.especificAddress.$invalid}">
+                  <div  class="col-md-12 addCommerceStep2 padding-no margin-top-10 "
+                        ng-class="{ 'margin-bottom-10' : $ctrl.commerceForm.especificAddress.$dirty && $ctrl.commerceForm.especificAddress.$invalid ||
+                       commerceForm.$submitted && (commerceForm.especificAddress.$invalid || $ctrl.rawAddress.length === 0 )}">
+                    <h4 class="text-grey">Dirección</h4>
+
+                    <input class="form-control"
+                           name="especificAddress"
+                           ng-model="$ctrl.rawAddress"
+                           places-auto-complete
+                           on-place-changed="$ctrl.placeChanged()"
+                           component-restrictions="{country:'ar'}"
+                           placeholder="Calle Nro, Localidad, Provincia"
+                           ng-required='true'
+                    />
+                    <div style="color:#a94442; margin: 5px 0 5px 0" ng-show="$ctrl.flags.locationError">Error al obtener el domicilio</div>
+                    <div style="color:#a94442; margin: 5px 0 5px 0" ng-show="!$ctrl.address && !$ctrl.flags.locationError && $ctrl.flags.addressDirty">
+                      Domicilio inválido (debe tener calle y número)
+                    </div>
+                    <div style="color:#a94442; margin: 5px 0 5px 0;" ng-show="$ctrl.rawAddress.length === 0 && $ctrl.commerceForm.$submitted">
+                      La dirección es obligatoria
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-12 margin-top-20 find-or-search-text">
+                    <span
+                        class="spinner-location-commerce"
+                        us-spinner="{lines: 9, width: 2, radius: 4, length: 5}"
+                        spinner-on="$ctrl.flags.loadingLocation">
+                    </span>
+                    <span>
+                        ó
+                    </span>
+                </div>
+
+                <div  class="col-md-12 padding-right-no padding-no margin-bottom-20 mobile-left button-find-address">
+                  <button class="btn btn-primary btn-block btn-lg btn-comercio"
+                          type="button"
+                          ng-disabled="$ctrl.flags.loadingLocation"
+                          ng-click="$ctrl.getLocation()">
+                    <img src="assets/images/icons/pointer.svg" width="15" />
+                    ENCONTRAR MI DIRECCIÓN
+                  </button>
+                </div>
+
+              </div>
+              <!-- /col-md-6 -->
+
+              <!--MAPA  ng-class="{'col-md-5': !$ctrl.completePage, 'col-md-6 ': $ctrl.completePage}" -->
+              <div class="col-md-6 col-xs-12 margin-bottom-30" >
+                <ng-map class="map-add-commerce" zoom="15">
+                  <marker position="{{ $ctrl.marker }}"></marker>
+                </ng-map>
+              </div>
+              <!-- /col-md-6 -->
+              <div class="clearfix"></div>
+
+              <div class="col-md-12 mobile-no-pad">
+                <h4 class="text-grey">Logo o fachada del comercio</h4>
+
+                <label class="fileContainer addCommerceStep3">
+                  <div class="cut-image">
+                    <img ngf-thumbnail="$ctrl.commerceImages[0] || $ctrl.pathImages[0]"
+                         ng-class="{'portrait': $ctrl.commerceImages[0].$ngfHeight > $ctrl.commerceImages[0].$ngfWidth || !$ctrl.commerceImages[0] }"
+                         class="center-block commerce-photo"
+                         ngf-size="{quality:0.4}">
+                  </div>
+
+                  <h4>Cargar una foto</h4>
+                  <input type="file" name="commerceLogo"
+                         ngf-select
+                         ng-model="$ctrl.commerceImages[0]"
+                         accept="image/*"
+                         ngf-max-size="5MB"
+                         ngf-model-invalid="$ctrl.errorFile0"
+                  />
+                </label>
+                <div class="clearfix margin-bottom-10"></div>
+
+                <p class="text-grey terminos -left">
+                  <em>(Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 5MB. Dimensiones mínimas: 50x50px).</em>
+                </p>
+
+                <div class="error-commerce-photo">
+                  <span ng-show="$ctrl.commerceForm.$submitted && !$ctrl.commerceImages[0] && ($ctrl.pathImages[0] == $ctrl.defaultCommerceLogoPath)">La imagen del comercio es obligatoria</span>
+                  <span ng-show="$ctrl.commerceForm.commerceLogo.$error.maxSize">La imagen no debe superar los 5MB.</span>
+                  <span ng-show="$ctrl.commerceForm.commerceLogo.$error.minWidth || $ctrl.commerceForm.commerceLogo.$error.minHeight">
+                    La imagen debe ser por lo menos de 50x50px.</span>
+                </div>
+
+              </div>
+
+              <div class="col-md-12 margin-top-20 mobile-no-pad">
+                <!-- DATOS DE CONTACTO -->
+                <p class="margin-bottom-30"><strong>DATOS DE CONTACTO</strong></p>
+
+                <div class="form-group" ng-class="{ 'has-error errorMessage': $ctrl.commerceForm.webdomain.$dirty && $ctrl.commerceForm.webdomain.$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.webdomain.$invalid}">
+                  <div class="col-md-12 padding-no">
+                    <h4 class="text-grey">Sitio web</h4>
+                    <input type="text" ng-model="$ctrl.commerce.commerceWeb" class="form-control margin-bottom-30" placeholder="www.tusitioweb.com">
+                    <!-- ng-pattern="/^(?:(?:http|https):\/\/)?www\.+[A-z0-9\-]+.com/" name="webdomain" ng-class="{'margin-bottom-10':$ctrl.commerceForm.webdomain.$error.pattern}"
+                    <span ng-messages="$ctrl.commerceForm.webdomain.$error" ng-if='$ctrl.commerceForm.webdomain.$dirty  || $ctrl.commerceForm.$submitted' role="alert">
+                          <span ng-message="pattern">El dominio no es válido</span>
+                      </span>
+                      -->
+                  </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.email.$dirty && $ctrl.commerceForm.email.$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.email.$invalid}">
+                  <div  class="col-md-12 addCommerceStep4 padding-no">
+                    <h4 class="text-grey">Email</h4>
+                    <input type="email" ng-model="$ctrl.commerce.email" name="email" class="form-control margin-bottom-10" ng-required='true'>
+                    <p class="text-grey terminos -left"><em>Ingresá tu dirección de mail de contacto comercial</em></p>
+                    <span ng-messages="$ctrl.commerceForm.email.$error" ng-if='$ctrl.commerceForm.email.$dirty  || $ctrl.commerceForm.$submitted' role="alert">
+                        <span ng-message="required" >El email es obligatorio</span>
+                        <span ng-message="email">La dirección de correo no es válida</span>
+                    </span>
+                  </div>
+                </div>
+
+                 <div class="form-group" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.alternativeEmail.$dirty && $ctrl.commerceForm.alternativeEmail.$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.alternativeEmail.$invalid}">
+                  <div  class="col-md-12 padding-no">
+                    <h4 class="text-grey">Email Alternativo (Opcional)</h4>
+                    <input type="email" ng-model="$ctrl.commerce.alternativeEmail" name="alternativeEmail" class="form-control margin-bottom-10">
+                    <p class="text-grey terminos -left"><em>Ingresá tu dirección de mail alternativa de contacto comercial</em></p>
+                    <span ng-messages="$ctrl.commerceForm.alternativeEmail.$error" ng-if='$ctrl.commerceForm.alternativeEmail.$dirty  || $ctrl.commerceForm.$submitted' role="alert">
+                        <span ng-message="alternativeEmail">La dirección de correo no es válida</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-md-12 padding-left-no margin-top-10 margin-bottom-30 mobile-right" ng-style="!$ctrl.completePage && {'padding-right': '0px'}">
+                  <div ng-repeat="phone in $ctrl.phones">
+
+                    <div  class="col-md-12 addCommerceStep5 padding-no margin-bottom-10">
+                      <h4 class="text-grey">Número de teléfono</h4>
+                      <div class="col-md-4 col-xs-12 padding-left-no">
+                        <label style="font-size: 0.7em">Area</label>
+                        <div class="input-group margin-bottom-10">
+                          <div class="input-group-addon">
+                            <img src="assets/images/icons/argentina.png" width="20"/>
+                          </div>
+                          <input type="text" class="form-control" placeholder=" +54" disabled name="phone{{$index}}">
+                        </div>
+                      </div>
+                      <div class="col-md-3 padding-left-no">
+                        <label style="font-size: 0.7em">Cod. area</label>
+                        <div class="input-group margin-bottom-10 input-placeholder" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm['prefixPhone' + $index].$dirty && $ctrl.commerceForm['prefixPhone' + $index].$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm['prefixPhone' + $index].$invalid}">
+                          <input type="text" class="form-control" id="exampleInputAmount{{$index}}" placeholder="sin 0 ej: 11"
+                                 ng-pattern="/^[1-9]\d+$/"
+                                 ng-minlength="1"  ng-maxlength="5" ng-model="phone.areaCode" name="prefixPhone{{$index}}" ng-required='{{$first}}'>
+                        </div>
+                      </div>
+                      <div class="col-md-5 padding-left-no">
+                        <label style="font-size: 0.7em">Número</label>
+                        <div class="input-group margin-bottom-10" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm['numberPhone' + $index].$dirty && $ctrl.commerceForm['numberPhone' + $index].$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm['numberPhone' + $index].$invalid}">
+                          <input type="text" class="form-control" id="exampleInputAmount{{$index}}" placeholder="sin el 15 ej: 63234343"
+                                 ng-pattern="/^[1-9]\d+$/"
+                                 ng-minlength="6"  ng-maxlength="10" ng-model="phone.number" name="numberPhone{{$index}}" ng-required='{{$first}}'>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12 padding-left-no" >
+                        <!-- <label style="font-weight: normal;cursor: pointer; color: #253a4c !important; display: block">
+                          <input type="checkbox" ng-model="phone.acceptMessages" name="phoneNotifications{{$index}}"> Quiero recibir notificaciones
+                        </label> -->
+                        <label class="whatsapp-check">
+                          <input type="checkbox"  ng-model="phone.acceptWhatsapp" name="phoneWhatsapp{{$index}}">
+                          <span>WhatsApp </span>
+                          <img src="assets/images/icons/whats-icon.png">
+                        </label>
+                        <br>
+                        <a href="" role="button" ng-click="$ctrl.deletePhone($index)" ng-show="$ctrl.phones.length > 1">
+                          <img src="assets/images/icons/refused.png" width="18" style="margin-right: 5px; margin-bottom: 4px; margin-left: -1px;" /> Borrar teléfono
+                        </a>
+                      </div>
+                    </div>
+                    <span ng-messages="$ctrl.commerceForm['prefixPhone' + $index].$error" role="alert" style="display: block" ng-if="$ctrl.commerceForm['prefixPhone' + $index].$dirty || $ctrl.commerceForm.$submitted">
+                      <span ng-message="required" class="error errorMessage">El prefijo es obligatorio</span>
+                      <span ng-message="minlength, maxlength, pattern" class="errorMessage">El prefijo es inválido, recuerde ingresarlo sin 0 delante</span>
+                    </span>
+                    <span ng-messages="$ctrl.commerceForm['numberPhone' + $index].$error" role="alert" style="display: block" ng-if="$ctrl.commerceForm['numberPhone' + $index].$dirty || $ctrl.commerceForm.$submitted">
+                      <span ng-message="required" class="error errorMessage">El número es obligatorio</span>
+                      <span ng-message="minlength, maxlength, pattern" class="errorMessage">El número es inválido</span>
+                    </span>
+                  </div>
+
+                  <div class="margin-top-10">
+                    <a href="" role="button"   ng-click="$ctrl.addPhone()">
+                      <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otro Teléfono
+                    </a>
+                  </div>
+
+                  <div class="padding-left-no form-group margin-no"
+                       ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.nextelId.$dirty && $ctrl.commerceForm.nextelId.$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.nextelId.$invalid}">
+                    <h4 class="text-grey  margin-top-30">ID Nextel (Opcional)</h4>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <img src="assets/images/icons/nextel.jpg" width="20"/>
+                      </div>
+                      <input type="text" name="nextel" class="form-control"
+                             placeholder="123*4567" ng-model="$ctrl.commerce.nextelId" ng-maxlength="9"
+                             ng-pattern="/^(\d+\*)+(\d)+$/">
+                    </div>
+                    <div class="margin-top-10" ng-show="$ctrl.commerceForm.nextelId.$error.pattern">
+                      <span class="errorMessage">El número de nextel no es válido</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="padding-no">
+                  <h4 class="text-grey">Link de Facebook (Opcional)</h4>
+                  <div class="input-group margin-bottom-30" ng-class="{'margin-bottom-10':$ctrl.commerceForm.facebook.$error.pattern}">
+                    <div class="input-group-addon">
+                      <i class="fa fa-facebook-official color-dark-blue" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" name="facebook" class="form-control" ng-model="$ctrl.commerce.facebook" ng-pattern="/^(?:(?:http|https):\/\/)?www\.facebook.com\//" placeholder="www.facebook.com/tufanpage">
+                  </div>
+                  <div class="margin-top-10" ng-show="$ctrl.commerceForm.facebook.$error.pattern">
+                    <span class="errorMessage">link de facebook no inválido, Ej: www.facebook.com/tufanpage ó http://www.facebook.com/tufanpage</span>
+                  </div>
+                  <h4 class="text-grey">Link de Twitter (Opcional)</h4>
+                  <div class="input-group margin-bottom-30" ng-class="{'margin-bottom-10':$ctrl.commerceForm.twitter.$error.pattern}">
+                    <div class="input-group-addon">
+                      <i class="fa fa-twitter color-cyan" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" name="twitter" class="form-control" ng-model="$ctrl.commerce.twitter" ng-pattern="/^(?:(?:http|https):\/\/)?www\.twitter.com\//" placeholder="www.twitter.com/tufanpage">
+                  </div>
+                  <div class="margin-top-10" ng-show="$ctrl.commerceForm.twitter.$error.pattern">
+                    <span class="errorMessage">link de twitter no inválido, Ej: www.twitter.com/tufanpage ó http://www.twitter.com/tufanpage</span>
+                  </div>
+                  <h4 class="text-grey">Link de YouTube (Opcional)</h4>
+                  <div class="input-group margin-bottom-30" ng-class="{'margin-bottom-10':$ctrl.commerceForm.youtube.$error.pattern}">
+                    <div class="input-group-addon">
+                      <i class="fa fa-youtube color-red" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" name="youtube" class="form-control" ng-model="$ctrl.commerce.youtube" ng-pattern="/^(?:(?:http|https):\/\/)?www\.youtube.com\//" placeholder="www.youtube.com/tufanpage">
+                  </div>
+                  <div class="margin-top-10" ng-show="$ctrl.commerceForm.youtube.$error.pattern">
+                    <span class="errorMessage">link de youtube no inválido</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12 addCommerceStep9">
+
+                <div class="input-group input-group-search-categories" id="spinnerService"
+                     ng-class="{ 'has-error errorMessage': !$ctrl.selectedCommerceTypes.length && $ctrl.commerceForm.$submitted}"
+                     style="line-height: 0;">
+
+                    <h4 class="field-title">Tipo de negocio</h4>
+
+                    <commerce-type-multiple-selector ng-if="$ctrl.commerceTypes.length" data="$ctrl.commerceTypes" selected-data="$ctrl.selectedCommerceTypes" class="cus-modal padding-no" placeholder="Ej: Lubricentro" id="commerceType" element-selector="'commerceType'"></commerce-type-multiple-selector>
+
+                    <div style="padding-top: 10px; padding-left: 0" ng-if='!$ctrl.selectedCommerceTypes.length  && $ctrl.commerceForm.$submitted' role="alert">
+                        <span>Debés seleccionar al menos un tipo de comercio</span>
+                    </div>
+                </div>
+
+              </div>
+
+
+               <div class="col-md-12 col-sm-12 col-xs-12 addCommerceStep9">
+
+                <div class="input-group input-group-search-categories" id="spinnerService">
+
+                    <h4 class="field-title">Aseguradoras con que trabajás (opcional)</h4>
+
+                    <insurance-company-multiple-selector ng-if="$ctrl.insuranceCompanies.length"  data="$ctrl.insuranceCompanies"
+                          selected-data="$ctrl.selectedInsuranceCompanies" class="cus-modal padding-no" placeholder="Ej: ACA automovil club argentino" id="insuranceCompany" element-selector="'insuranceCompany'">
+                    </insurance-company-multiple-selector>
+
+                </div>
+
+              </div>
+
+
+              <div class="col-md-12 col-sm-12 col-xs-12" id="spinnerBrands">
+                  <div class="margin-top-20 multi-marca-container">
+                    <h5 class="field-title">Marcas de autos que trabajás</h5>
+                    <div class="multi-marca">
+                      <label>
+                        <input type="checkbox" ng-model="$ctrl.multimarca">
+                        <span>multi marca</span>
+                      </label>
+                      <span class="glyphicon glyphicon-info-sign" ng-click="$ctrl.toggleTooltip()"></span>
+                      <tooltip-gen class="tooltip-multi-marca" position="top" tittle-text="" text="Selecionalo en caso que atiendas varias marcas" tooltip-size="medium"></tooltip-gen>
+                    </div>
+                  </div>
+                  
+                  <multiple-brand-selector disable="$ctrl.multimarca" src="'manage-commerce-data/views/brand-selector.html'" id="official-brands" element-selector="'official-brands'" brands="$ctrl.serviceBrands" selected-brand="$ctrl.addedServiceBrands" class="cus-modal padding-no" placeholder="Ej: Toyota"></multiple-brand-selector>
+
+                  <div style="padding-top: 10px; padding-left: 0" ng-if='$ctrl.commerceForm.$submitted && !$ctrl.hastAtLeastOneBrandSelected()' role="alert">
+                      <span>Debés seleccionar al menos una marca con la que trabajás o autoparte</span>
+                  </div>
+                      <!-- </div> -->
+
+                      <!-- <div class="addCommerceStep9" style="display: block;"> -->
+
+                  <div class="addCommerceStep9 form-group">
+                      <div class="input-group input-group-search-categories"
+                            ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.$submitted && !$ctrl.hastAtLeastOneBrandSelected()}" >
+
+                          <h5 class="field-title margin-top-20"> Marcas de autopartes o repuestos que trabajás</h5>
+
+                          <multiple-brand-selector brands="$ctrl.autoPartsBrand" selected-brand="$ctrl.selectedAutoPartsBrand" id="spare-brands" element-selector="'spare-brands'" src="'manage-commerce-data/views/brand-selector.html'" class="cus-modal padding-no" placeholder="Ej: Pioneer" allow-clear="!$ctrl.selectedAutoPartsBrand[1]"></multiple-brand-selector>
+
+                          <div style="padding-top: 10px; padding-left: 0" ng-if='$ctrl.commerceForm.$submitted && !$ctrl.hastAtLeastOneBrandSelected()' role="alert">
+                              <span>Debés seleccionar al menos una marca con la que trabajás o autoparte</span>
+                          </div>
+
+                      </div>
+                  </div>
+                      <!-- </div> -->
+
+                  <h5 class="field-title margin-top-20">Representante oficial de las marcas</h5>
+
+                  <div class="brandsContainer" id="addedBrands">
+                      <div class="checkbox light" ng-repeat="addedBrand in $ctrl.addedServiceBrands track by $index">
+                      <label class="margin-bottom-10">
+                          <input type="checkbox" ng-model="addedBrand.official">
+                          <img ng-src="{{addedBrand.imageName}}" class="max-height-20">
+                      </label>
+                      </div>
+                  </div>
+
+                  <div class="brandsContainer" id="addedAutoPartsBrand" style="overflow: hidden;">
+                    <div class="checkbox light" ng-repeat="addedAutoPartBrand in $ctrl.selectedAutoPartsBrand track by $index" ng-if="addedAutoPartBrand">
+                        <label class="margin-bottom-10">
+                        <input type="checkbox" ng-model="addedAutoPartBrand.official">
+                        <img ng-src="{{addedAutoPartBrand.imageName}}" class="max-height-20">
+                        </label>
+                    </div>
+                  </div>
+
+
+                  <div class="clearfix margin-bottom-20"></div>
+                  <div class="row">
+                  <div class="col-md-12">
+                    <h4 class="text-grey">
+                       Sí no encontraste la marca que representa tu comercio, ingresala aquí
+                    </h4>
+                    <div class="row margin-top-10" ng-repeat="(index, newSparePartsBrands) in $ctrl.newSparePartsBrands">
+                      <div class="col-md-12">
+                        <input type="text" name="autobrandAdded{{index}}" class="form-control" ng-model="$ctrl.newSparePartsBrands[index].name" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9_. -]*$/">
+                        <div ng-show="$ctrl.commerceForm['autobrandAdded' + index].$error.pattern" style="margin-top: 5px" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.$error.pattern}">
+                          <span>Ingresa una marca de autoparte válida</span>
+                        </div>
+                      </div>
+                      <span class="text-grey" ng-if="$ctrl.newSparePartsBrands.length > 1" style="display: flex; align-items: center;margin-left: 5px">
+                        <a href="" role="button" ng-click="$ctrl.deleteNewSparePartsBrands(index)"><i class="glyphicon glyphicon-remove"></a>
+                      </span>
+                    </div>
+                    <div class="margin-top-10" ng-if="$ctrl.newSparePartsBrands.length < 5">
+                      <a href="" role="button" ng-click="$ctrl.addNewSparePartsBrands()">
+                        <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" />Añadir otra marca
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group col-md-12">
+                <payment-methods payment-methods-object="$ctrl.commerce.paymentMethods">
+                </payment-methods>  
+              </div>
+                  
+              <div class="clearfix margin-bottom-20"></div>
+
+              <div  class="col-md-12 col-sm-12 col-xs-12 margin-top-30 mobile-no-pad">
+                <div class="col-md-6 addCommerceStep11 padding-left-no margin-top-10 margin-bottom-30 mobile-right">
+                  <h4 class="text-grey">Selecciona Horarios de Atención según día</h4>
+
+                   <div class="margin-top-30 margin-bottom-30">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.allDayOpenCheck"> Abierto 24 horas
+                    </label>
+                  </div>  
+                      
+                  <div ng-repeat="(index, workingHour) in $ctrl.workingHours">
+                    <div class="col-md-12 form-group margin-no working-day-container">
+                      <span class="text-grey" ng-if="$ctrl.workingHours.length > 1">
+                        <a href="" role="button" ng-click="$ctrl.deleteWorkingDay(index)">X</a>
+                      </span>
+                      <div  class="addCommerceStep12" style="display: flex; width: 100%">
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.lu"  ng-change="$ctrl.change('lu', $ctrl.workingHours[index].dias.lu, index)" ng-disabled="$ctrl.diasSeleccionados.lu.value == true && $ctrl.diasSeleccionados.lu.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">LU</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.ma"  ng-change="$ctrl.change('ma', $ctrl.workingHours[index].dias.ma, index)" ng-disabled="$ctrl.diasSeleccionados.ma.value == true && $ctrl.diasSeleccionados.ma.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">MA</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.mi"  ng-change="$ctrl.change('mi', $ctrl.workingHours[index].dias.mi, index)" ng-disabled="$ctrl.diasSeleccionados.mi.value == true && $ctrl.diasSeleccionados.mi.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">MI</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.ju"  ng-change="$ctrl.change('ju', $ctrl.workingHours[index].dias.ju, index)" ng-disabled="$ctrl.diasSeleccionados.ju.value == true && $ctrl.diasSeleccionados.ju.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">JU</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.vi"  ng-change="$ctrl.change('vi', $ctrl.workingHours[index].dias.vi, index)" ng-disabled="$ctrl.diasSeleccionados.vi.value == true && $ctrl.diasSeleccionados.vi.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">VI</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.sa"  ng-change="$ctrl.change('sa', $ctrl.workingHours[index].dias.sa, index)" ng-disabled="$ctrl.diasSeleccionados.sa.value == true && $ctrl.diasSeleccionados.sa.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">SA</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.do"  ng-change="$ctrl.change('do', $ctrl.workingHours[index].dias.do, index)" ng-disabled="$ctrl.diasSeleccionados.do.value == true && $ctrl.diasSeleccionados.do.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">DO</span>
+                        </label>
+                        <label class="working-day">
+                          <input class="invisible" type="checkbox" ng-model="$ctrl.workingHours[index].dias.fe" ng-change="$ctrl.change('fe', $ctrl.workingHours[index].dias.fe, index)" ng-disabled="$ctrl.diasSeleccionados.fe.value == true && $ctrl.diasSeleccionados.fe.pos != index" name="workingDay{{index}}" ng-required="!$ctrl.existsSelectedDay()">
+                          <span class="lud-ohdf">FE</span>
+                        </label>
+
+                      </div>
+                      <div ng-repeat="(indexHour, hour) in $ctrl.workingHours[index].horario" class="margin-bottom-20 working-hours-container" style="display: block; overflow: hidden;">
+                        <div class="col-md-12 dis-flex">
+                          <div style="margin-right: 5px">
+                            <input ng-model="$ctrl.workingHours[index].horario[indexHour].open" type="time" class="form-control input-small" placeholder="HH:mm" min="00:00" max="23:59" ng-required="true" >
+                          </div>
+                          <!-- <div> - </div> -->
+                          <div ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm['hasta-' + index +'-' + indexHour].$dirty
+                              && $ctrl.commerceForm['hasta-' + index +'-' + indexHour].$invalid || $ctrl.commerceForm.$submitted
+                              && $ctrl.commerceForm['hasta-' + index +'-' + indexHour].$invalid}">
+                            <input ng-model="$ctrl.workingHours[index].horario[indexHour].close" type="time" name="hasta-{{index}}-{{indexHour}}"
+                                   class="form-control input-small" placeholder="HH:mm" min="{{$ctrl.workingHours[index].horario[indexHour].open}}" max="23:59" ng-required="true">
+                          </div>
+                          <span class="text-grey" ng-if="$ctrl.workingHours[index].horario.length > 1" style="display: flex; align-items: center;margin-left: 5px">
+                            <a href="" role="button" ng-click="$ctrl.deleteWorkingHourDay(index, indexHour)"><i class="glyphicon glyphicon-remove"></a>
+                          </span>
+                        </div>
+                        <div class="col-md-12">
+                            <span ng-messages="$ctrl.commerceForm['hasta-' + index +'-' + indexHour].$error"
+                                  ng-if="$ctrl.commerceForm['hasta-' + index +'-' + indexHour].$dirty  || $ctrl.commerceForm.$submitted" role="alert">
+                                <span ng-message="min" class="errorMessage">Debe ingresar un horario válido</span>
+                            </span>
+                        </div>
+                      </div>
+
+
+                      <div  class="addCommerceStep13 margin-top-10" ng-if="$ctrl.workingHours[index].horario.length < 3">
+                        <a  href="" role="button"   ng-click="$ctrl.addHour(index)">
+                          <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" />Añadir otro Horario de atención
+                        </a>
+                      </div>
+
+                      <div class="col-md-12">
+                        <span ng-if="!$ctrl.existsSelectedDay() && $ctrl.commerceForm.$submitted" role="alert" class="errorMessage">
+                          Debe seleccionar al menos un día
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="addCommerceStep14 margin-top-10" ng-if="$ctrl.workingHours.length < 3" style="display: inline-block; overflow: hidden;">
+                    <a href="" role="button" ng-click="$ctrl.addWorkingDay()">
+                      <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" />Añadir otro día y horario de atención
+                    </a>
+                  </div>
+                 
+                </div>
+              </div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="clearfix margin-bottom-20"></div>
+                <h4 class="text-grey">Adicionales del comercio</h4>
+
+                <div class="col-md-4">
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasWifi.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasWifi"> Wi - Fi
+                    </label>
+                  </div>
+
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasWaitingArea.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasWaitingArea"> Sala de espera
+                    </label>
+                  </div>
+
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasAir.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasAir"> Aire acondicionado
+                    </label>
+                  </div>
+                </div>
+                <!-- col-md-4 -->
+                <div class="col-md-4">
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasPostSales.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasPostSales"> Posventa
+                    </label>
+                  </div>
+
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasGaranty.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasGaranty"> Garantía
+                    </label>
+                  </div>
+
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasComputerDiagnostics.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasComputerDiagnostics"> Diagnosticos por computadora
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasSavingPlan.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasSavingPlan"> Plan de ahorro
+                    </label>
+                  </div>
+                  <div class="checkbox light">
+                    <img src="assets/images/icons/hasTemporalCar.png" class="additional-trade">
+                    <label>
+                      <input type="checkbox" ng-model="$ctrl.commerce.hasTemporalCar"> Auto sustituto
+                    </label>
+                  </div>
+                </div>
+                <!-- col-md-4 -->
+              </div>
+              <!-- col-md-6 -->
+
+              <div class="col-md-12 col-sm-12 col-xs-12 margin-top-30 mobile-no-pad">
+                <!-- DATOS EXTRA -->
+                <!--<p class="margin-bottom-30"><strong>DATOS EXTRAS</strong></p>-->
+                <h4 class="text-grey">Fotos del taller o comercio</h4>
+                <div class="addCommerceStep15">
+
+                  <div class="col-md-2 col-xs-12 padding-left-no mobile-right">
+                    <label class="fileContainer small small-image center-block">
+                      <div class="cut-image">
+                        <img ngf-thumbnail="$ctrl.commerceImages[1] || $ctrl.pathImages[1]" class="center-block" ng-class="{'portrait': $ctrl.commerceImages[1].$ngfHeight > $ctrl.commerceImages[1].$ngfWidth, 'without-image': !$ctrl.commerceImages[1]}" ngf-size="{quality:0.1}">
+                      </div>
+                      <h4>Agregar</h4>
+                      <input type="file" name="fachada"
+                             ngf-select
+                             ng-model="$ctrl.commerceImages[1]"
+                             accept="image/*"
+                             ngf-max-size="5MB"
+                             ngf-model-invalid="$ctrl.errorFile1"
+                      />
+                    </label>
+                    <div class="clearfix"></div>
+                    <h5 class="text-grey fotos-text center-block"><strong>Fachada</strong></h5>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12 mobile-left">
+                    <label class="fileContainer small small-image center-block">
+                      <div class="cut-image">
+                        <img ngf-thumbnail="$ctrl.commerceImages[2] || $ctrl.pathImages[2]" class="center-block" ng-class="{'portrait': $ctrl.commerceImages[2].$ngfHeight > $ctrl.commerceImages[2].$ngfWidth, 'without-image': !$ctrl.commerceImages[2]}" ngf-size="{quality:0.1}">
+                      </div>
+                      <h4>Agregar</h4>
+                      <input type="file" name="interior"
+                             ngf-select
+                             ng-model="$ctrl.commerceImages[2]"
+                             accept="image/*"
+                             ngf-max-size="5MB"
+                             ngf-model-invalid="$ctrl.errorFile2"
+                      />
+                    </label>
+                    <div class="clearfix"></div>
+                    <h5 class="text-grey fotos-text center-block"><strong>Interior</strong></h5>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12 mobile-left">
+                    <label class="fileContainer small small-image center-block">
+                      <div class="cut-image">
+                        <img ngf-thumbnail="$ctrl.commerceImages[3] || $ctrl.pathImages[3]" class="center-block" ng-class="{'portrait': $ctrl.commerceImages[3].$ngfHeight > $ctrl.commerceImages[3].$ngfWidth, 'without-image': !$ctrl.commerceImages[3]}" ngf-size="{quality:0.1}">
+                      </div>
+                      <h4>Agregar</h4>
+                      <input type="file" name="vistaCalle"
+                             ngf-select
+                             ng-model="$ctrl.commerceImages[3]"
+                             accept="image/*"
+                             ngf-max-size="5MB"
+                             ngf-model-invalid="$ctrl.errorFile3"
+                      />
+                    </label>
+                    <div class="clearfix"></div>
+                    <h5 class="text-grey fotos-text center-block"><strong>Vista calle</strong></h5>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12 mobile-left">
+                    <label class="fileContainer small small-image center-block">
+                      <div class="cut-image">
+                        <img ngf-thumbnail="$ctrl.commerceImages[4] || $ctrl.pathImages[4]" class="center-block" ng-class="{'portrait': $ctrl.commerceImages[4].$ngfHeight > $ctrl.commerceImages[4].$ngfWidth, 'without-image': !$ctrl.commerceImages[4]}" ngf-size="{quality:0.1}">
+                      </div>
+                      <h4>Agregar</h4>
+                      <input type="file" name="empleados"
+                             ngf-select
+                             ng-model="$ctrl.commerceImages[4]"
+                             accept="image/*"
+                             ngf-max-size="5MB"
+                             ngf-model-invalid="$ctrl.errorFile4"
+                      />
+                    </label>
+                    <div class="clearfix"></div>
+                    <h5 class="text-grey fotos-text center-block"><strong>Empleados</strong></h5>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12 mobile-left">
+                    <label class="fileContainer small small-image center-block">
+                      <div class="cut-image">
+                        <img ngf-thumbnail="$ctrl.commerceImages[5] || $ctrl.pathImages[5]" class="center-block" ng-class="{'portrait': $ctrl.commerceImages[5].$ngfHeight > $ctrl.commerceImages[5].$ngfWidth, 'without-image': !$ctrl.commerceImages[5]}" ngf-size="{quality:0.1}">
+                      </div>
+                      <h4>Agregar</h4>
+                      <input type="file" name="estacionTrabajo"
+                             ngf-select
+                             ng-model="$ctrl.commerceImages[5]"
+                             accept="image/*"
+                             ngf-max-size="5MB"
+                             ngf-model-invalid="$ctrl.errorFile5"
+                      />             </label>
+                    <div class="clearfix"></div>
+                    <h5 class="text-grey fotos-text center-block"><strong>Estación <br>de trabajo</strong></h5>
+                  </div>
+
+                  <div class="clearfix margin-bottom-10"></div>
+                  <div class="error-commerce-photo">
+                    <span ng-show="$ctrl.commerceForm.fachada.$error.maxSize">La imagen de la fachada no debe superar los 5MB.</span>
+                    <span ng-show="$ctrl.commerceForm.fachada.$error.minWidth || $ctrl.commerceForm.fachada.$error.minHeight">
+                      La imagen de la fachada debe ser al menos de 50x50px.</span>
+                  </div>
+                  <div class="error-commerce-photo">
+                    <span ng-show="$ctrl.commerceForm.interior.$error.maxSize">La imagen del interior no debe superar los 5MB.</span>
+                    <span ng-show="$ctrl.commerceForm.interior.$error.minWidth || $ctrl.commerceForm.interior.$error.minHeight">
+                      La imagen del interior debe ser por lo menos de 50x50px.</span>
+                  </div>
+                  <div class="error-commerce-photo">
+                    <span ng-show="$ctrl.commerceForm.vistaCalle.$error.maxSize">La imagen de la vista a la calle no debe superar los 5MB.</span>
+                    <span ng-show="$ctrl.commerceForm.vistaCalle.$error.minWidth || $ctrl.commerceForm.vistaCalle.$error.minHeight">
+                      La imagen de la vista a la calle debe ser por lo menos de 50x50px.</span>
+                  </div>
+                  <div class="error-commerce-photo">
+                    <span ng-show="$ctrl.commerceForm.empleados.$error.maxSize">La imagen de los empleados no debe superar los 5MB.</span>
+                    <span ng-show="$ctrl.commerceForm.empleados.$error.minWidth || $ctrl.commerceForm.empleados.$error.minHeight">
+                      La imagen de los empleados debe ser por lo menos 50x50px.</span>
+                  </div>
+                  <div class="error-commerce-photo">
+                    <span ng-show="$ctrl.commerceForm.estacionTrabajo.$error.maxSize">La imagen de la estación de trabajo no debe superar los 5MB.</span>
+                    <span ng-show="$ctrl.commerceForm.estacionTrabajo.$error.minWidth || $ctrl.commerceForm.estacionTrabajo.$error.minHeight">
+                      La imagen de la estación de trabajo debe ser por lo menos de 50x50px.</span>
+                  </div>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error errorMessage' : $ctrl.commerceForm.description.$dirty && $ctrl.commerceForm.description.$invalid || $ctrl.commerceForm.$submitted  && $ctrl.commerceForm.description.$invalid}">
+                  <div class="col-md-8 col-xs-12 padding-left-no">
+                    <h4 class="text-grey">Descripción del comercio</h4>
+                    <textarea class="form-control margin-bottom-30 mi-input" name="description"  rows="5" ng-model="$ctrl.commerce.description" ng-maxlength='2500' ng-required='true'
+                              placeholder="Especialistas en... trabajando en la zona desde... 2da generacion... representante oficial... aceptamos tarjeta, ..."
+                              ng-class="{ 'margin-bottom-10' : $ctrl.commerceForm.description.$dirty && $ctrl.commerceForm.description.$invalid || $ctrl.commerceForm.$submitted && $ctrl.commerceForm.description.$invalid}"></textarea>
+                    <span ng-messages="$ctrl.commerceForm.description.$error" ng-if='$ctrl.commerceForm.description.$dirty  || $ctrl.commerceForm.$submitted' role="alert">
+                          <span ng-message="required">La descripción es obligatoria</span>
+                          <span ng-message="maxlength" class="errorMessage">máximo 2500 caracteres</span>
+                      </span>
+                  </div>
+                </div>
+
+                <div class="col-md-6 addCommerceStep16 padding-left-no dis-block over-hidden" ng-if="$ctrl.completePage">
+                  <h4 class="text-grey">Código promocional</h4>
+                  <!--input type="text" class="form-control margin-bottom-10 mi-input"
+                         placeholder="Si tenés un código promocional, ingresalo aquí" style="max-width: 315px;"-->
+                  <h5 class="margin-bottom-20 margin-top-20 prom-code-text">
+                    <strong>Si tenés un código promocional podrás ingresarlo al elegir tu Plan en el próximo paso</strong>
+                  </h5>
+
+                  <p class="text-grey terminos -left margin-bottom-30">
+                    Al continuar, acepto los <a href="/terminos-condiciones" target="_blank"><strong class="color-blue">Términos de uso</strong></a><br>
+                    de Autominuto y reconozco que leí la <a href="/politicas-privacidad" target="_blank"><strong class="color-blue">Política de privacidad</strong></a>
+                  </p>
+                </div>
+
+                <div class="col-md-12 padding-left-no">
+                  <button class="btn btn-lg btn-primary" type="submit">
+                    <strong ng-if="$ctrl.completePage">{{$ctrl.submitButtonTitle}}</strong>
+                    <strong ng-if="!$ctrl.completePage">GUARDAR CAMBIOS</strong>
+                  </button>
+                </div>
+
+                <div class="col-md-12 padding-left-no margin-top-40 has-error errorMessage" ng-if="$ctrl.commerceForm.$submitted && !$ctrl.isFormValid()">
+                     Por favor complete los datos faltantes e intente nuevamente
+                </div>
+
+              </div>
+              <!-- /col-md-12-->
+
+            </form>
+            <!-- /form -->
+
+          </div>
+          <!-- /col 01 -->
+
+        </div>
+
+      </div>

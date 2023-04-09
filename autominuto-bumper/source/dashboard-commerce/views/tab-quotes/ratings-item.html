@@ -1,0 +1,31 @@
+	<span class="budget-item">
+	  <div class="presupuesto">
+	    <div class="row no-padding">
+	      <div class="col-md-2 no-padding">
+	        <div class="perfil">
+	          <img ng-src="{{ $ctrl.rating.userFrom.userPhoto || 'assets/images/icons-default/driver.png'}}" width=83 height="83">
+	          <div class="enviado">
+	            Enviado  <br> {{ $ctrl.rating.createdOn }}
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-md-10 right no-padding">
+	        <div class="diagnostico">
+	          <span>
+	            <div class="stars">
+	              <div star-show-rating rating="$ctrl.rating.stars"></div>
+	            </div>
+          	  </span>
+	          <div class="title"><span class="username">{{ $ctrl.rating.userFrom.username | limitTo: 20 }}{{$ctrl.rating.userFrom.username.length > 20 ? '...' : ''}} </span> &nbsp; Califico su {{ $ctrl.getMainTitle($ctrl.rating)}}</div>
+	          <div class="subtitle">{{ $ctrl.rating.name }}</div>
+
+	          <div class="car">{{ $ctrl.rating.description}}</div>
+
+	          <div class="car">{{ $ctrl.rating.comment}}</div>
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="corner-button-quote"><img ng-src="assets/images/icons/replied.png"></div>
+	</span>

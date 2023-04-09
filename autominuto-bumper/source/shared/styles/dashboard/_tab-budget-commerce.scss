@@ -1,0 +1,241 @@
+
+.commerce-budges {
+  .presupuestos-container{
+
+    .quote-content {
+        @media (max-width: 991px) {
+            margin: 30px 0;
+        }
+    }
+
+    .filtro{
+      ul{
+        list-style: none;
+        padding-left: 20px;
+        li{
+
+          a:hover, a:focus {
+            text-decoration: none;
+            background-color: #eee;
+            border-radius: 6px;
+          }
+
+          font-size: 1em;
+          float: left;
+          width: 100%;
+          display: flex;
+          p{
+            float: left;
+
+          }
+          .notificaciones{
+            float: left;
+            p{
+              margin:0;
+              float: right;
+              background-color: #ff4141;
+              padding: 0px 4px;
+              color: #fff;
+              border-radius: 22px;
+              font-size: 11px;
+              width: 14px;
+              text-align: center;
+            }
+          }
+        }
+      }
+      p{
+        padding: 10px;
+        margin: 0;
+      }
+      .active{
+        background: #f5f5f5;
+        float: left;
+        border-radius: 10px;
+      }
+    }
+
+    .quote-user {
+      position: relative;
+      display: flex;
+      -webkit-box-shadow: -2px 5px 25px -9px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: -2px 5px 25px -9px rgba(0, 0, 0, 0.75);
+      box-shadow: -2px 5px 25px -9px rgba(0, 0, 0, 0.75);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+
+      .presupuesto{
+        color: #b5b6ba;
+        width: 100%;
+        .row{
+          margin:0;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          .right{
+            display: flex;
+            align-items: center;
+
+          }
+        }
+        .reply{
+          .border-right{
+            border-left: thin solid #ececec;
+            .cost-reply {
+              padding-left: 20px;
+              font-size: 14px;
+            }
+            .reply-inner{
+              display: flex;
+              padding: 10px 10px;
+              .brand-logo{
+                float: left;
+                .image-quote{
+                  width: 95px;
+                  height: 95px;
+                  margin: 0 auto;
+                  background-size: cover;
+                  border-radius: 48px; 
+                  background-repeat: no-repeat;
+                  border: 3px solid #253a4c;
+                }
+                .brand-title{
+                  text-align: center;
+                  font-size: 0.8em;
+                  color: #00305b;
+                  font-weight: bold;
+                }
+              }
+              .brand-answer{
+                padding: 0 20px;
+                float: left;
+                p{
+                  float: left;
+                }
+
+                .title_turn {
+                  margin-right: 5px;
+                }
+              }
+            }
+          }
+          .perfil{
+            text-align: right!important;
+            img{
+              padding: 0 20px;
+            }
+          }
+        }
+        .diagnostico{
+          width: 100%;
+
+          .title{
+            font-size: 19px;
+          }
+          .subtitle{
+            font-size: 15px;
+            font-weight: bold;
+            color: #787a83;
+          }
+          .car{
+            font-size: 15px;
+          }
+          .title,.subtitle,.car{
+            margin: 8px 0;
+          }
+
+          .appointment_quote {
+            display: block;
+            margin-bottom: 10px;
+          }
+
+          .armar{
+            display: flex;
+
+            button{
+              display: flex;
+              align-items: center;
+              background-color: #b5b6ba;
+              border-radius: 52px;
+              border: none;
+              padding: 4px 15px;
+
+              p {
+                margin: 0 0 0 10px;
+                color: #fff;
+              }
+            }
+ 
+          }
+
+        }
+        .perfil{
+          font-size: 12px;
+          text-align: center;
+          .enviado{
+            margin-top: 20px;
+          }
+          .name-user-quote {
+            width: 105px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+      }
+
+
+      .corner-button-quote {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        margin: 10px;
+        float: none;
+        opacity: 1;
+        line-height: 1;
+
+        img {
+          margin-top: 0;
+          vertical-align: middle;
+          border: 0px;
+        }
+      }
+
+      .corner-button-quote:hover {
+        opacity: .5;
+      }
+    }
+
+    .quote-user:focus, .quote-user:active, .quote-user:hover, .quote-user:visited {
+      background-color: #729abc;
+
+      .name-user-quote, .title, .subtitle, .car, .enviado, .cost-reply, .brand-title, .turn, .brand-answer, .title_turn, .appointment_quote {
+        color: white !important;
+      }
+
+      button {
+        background-color: white !important;
+
+        p {
+          color: #b5b6ba !important;
+        }
+      }
+    }
+
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

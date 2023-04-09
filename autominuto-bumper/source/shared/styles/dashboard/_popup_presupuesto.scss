@@ -1,0 +1,369 @@
+
+.poppup-presupuesto-comercio {
+  h1,h2,h3,h4,h5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  input.ng-pristine.ng-invalid {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow:none;
+    border-color: #ccc !important;
+    color: #ccc !important;
+  }
+
+  .center {
+    width: 100%;
+    float: left;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form.ng-invalid{
+      input.ng-invalid, textarea.ng-invalid, input.ng-invalid+div.input-group-addon{
+        // border-color: red;
+      }
+      .error-label{
+        color: red !important;
+      }
+      .error-label + input.ng-invalid, .error-label + textarea.ng-invalid{
+        color: red;
+      }
+      .image-error{
+        border: 2px dotted red !important;
+      }
+    }
+    .presupuesto-popup-container {
+      left: 30%;
+      top: 150%;
+      width: 500px;
+      padding: 25px;
+      border-radius: 6px;
+      background-color: #fff;
+      @keyframes fadein-elements
+      {
+        0%{opacity: 0}
+        100%{opacity:1}
+      }
+
+      @media (max-width: 767px) {
+        width: inherit;
+        padding: 20px;
+      }
+
+      .sol-flex{
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        margin-top: 15px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        p{
+          display: flex;
+          align-items: center;
+          img{
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+          span{
+            margin-bottom: 0;
+          }
+        }
+
+
+      }
+      .custom-transition{
+        opacity: 0;
+        animation-name: fadein-elements;
+        animation-duration: 1s;
+        animation-fill-mode:forwards;
+      }
+      .data-input-product-container{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+
+        .remove-button{
+          background-color: transparent;
+          border: 0px solid #757575;
+          color: #757575;
+          i{
+            font-size: 1.5em;
+          }
+        }
+        p, span {
+          margin: 10px 0 0 0;
+          color: #818788;
+        }
+        span {
+          p {
+            margin: 10px 0;
+          }
+          textarea {
+            height: 90px;
+          }
+        }
+        span.errorMessage{
+          color: red;
+          display: block;
+          margin-top: 0;
+          font-size: 0.9em;
+          font-style: italic;
+        }
+        input, textarea {
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          height: 35px;
+          width: 100%;
+          padding: 10px;
+        }
+        .data-product{
+          display: flex;
+          align-items: center;
+
+          &.-inside-column-mobile{
+            @media (max-width: 767px) {
+              flex-direction: column;
+            }
+          }
+          .product-container{
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+
+            @media (max-width: 767px) {
+              &:not(:first-child) {
+                margin-top: 10px;
+              }
+            }
+          }
+
+          p{
+            width: 75px;
+          }
+          input{
+            padding: 10px;
+            height: 30px;
+            width: 120px;
+            margin-left: 10px;
+            margin-right: 20px;
+          }
+        }
+        .container-ngf{
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .fileContainer{
+            border: 2px dotted #ddd;
+            width: 65px;
+            height: 65px;
+            display: block;
+            overflow: hidden;
+            padding: 10px;
+            padding-top: 10px;
+            text-align: center;
+            border-radius: 8px;
+            color: #048cb4;
+          }
+        }
+        .error-message{
+          p{
+            color: red;
+            padding-top: 15px;
+            font-weight: bold;
+          }
+
+        }
+        .checkout-popup-quote{
+          margin-top: 20px;
+          display: block;
+          input{
+            width: auto;
+            margin-top: 2px;
+            cursor: pointer;
+          }
+        }
+      }
+      .add-more{
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 30px;
+        align-items: center;
+        button{
+          float: left;
+          display: flex;
+          font-size: 2em;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid;
+          width: 50px;
+          height: 50px;
+          border-radius: 5px;
+          margin-right: 10px;
+          background-color: #fff;
+          i{
+            margin-left: 1px;
+            margin-top: -1px;
+          }
+        }
+        button[disabled]{
+          cursor: no-drop;
+        }
+        .descript-button{
+          float: left;
+          div{
+            display: block;
+            font-size: 0.9em;
+            font-weight: 500;
+            span{
+              font-weight: 300;
+              font-size: 0.9em;
+              font-style: italic;
+            }
+          }
+        }
+      }
+      .title {
+        h1 {
+          font-weight: bold;
+          font-size: 1.4em;
+          font-family: 'Montserrat', sans-serif;
+          margin: 0;
+        }
+      }
+      .recibido,
+      .user-information,
+      .importe {
+        label {
+          display: flex;
+          align-items: center;
+        }
+        p, span {
+          // margin: 0 0 10px 0;
+          color: #818788;
+        }
+        span {
+          p {
+            margin: 10px 0;
+          }
+          textarea {
+            height: 90px;
+          }
+        }
+        checkbox {
+          width :  15px;
+          margin-left: 10px;
+        }
+        input, textarea {
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          height: 35px;
+        }
+        input.border-right-no{
+          -webkit-border-bottom-right-radius: 0px;
+          -moz-border-radius-bottomright: 0px;
+          border-bottom-right-radius: 0px;
+          -webkit-border-top-right-radius: 0px;
+          -moz-border-radius-topright: 0px;
+          border-top-right-radius: 0px;
+        }
+      }
+      .recibido {
+        margin-top: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ccc;
+
+        &.-align-right-not-mobile {
+          @media (min-width: 768px) {
+            text-align: right;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+      .importe {
+        margin-top: 20px;
+        .monto {
+          display: flex;
+          align-items: center;
+          p {
+            margin-right: 5px;
+          }
+          input {
+            width: 30%;
+            margin-left: 10px;
+          }
+          div {
+            font-size: 1em;
+          }
+        }
+        .form-group {
+          width: 50%;
+          float: left;
+          padding-right: 20px;
+          .form-control {
+            height: 38px;
+          }
+          input {
+            border-radius: 6px 0 0 6px;
+          }
+        }
+        span {
+          textarea {
+            width: 100%;
+          }
+        }
+      }
+      .user-information, .recibido {
+        p {
+          margin: 0;
+        }
+        small {
+          font-size: 1em;
+          color: #818788;
+        }
+      }
+      .submit-buttons {
+        margin-top: 20px;
+        float: left;
+        button {
+          border: none;
+          border-radius: 31px;
+          color: white;
+          padding: 10px 20px;
+          background-color: #5c9bbf;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bold;
+          margin: 0 20px 0 0;
+
+          &.margin-top-10-mobile {
+            @media (max-width: 767px) {
+              margin-top: 10px
+            }
+          }
+        }
+        button:nth-child(2) {
+          background-color: #787a83;
+        }
+      }
+      .importe {
+        p {
+          font-size: 1.3em;
+        }
+        .glyphicon {
+          color: #5c9bbf;
+        }
+      }
+    }
+
+  }
+
+}

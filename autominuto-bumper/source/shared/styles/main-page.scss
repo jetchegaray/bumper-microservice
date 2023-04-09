@@ -1,0 +1,17 @@
+.inicio{
+	.cotiza-section{
+		padding-left: 15px;
+
+		@media (max-width: 375px) {
+			h3 {
+				font-size: 22px;
+			}
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.button-cotiza {
+			text-align: center;
+		}
+	}
+}

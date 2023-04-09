@@ -1,0 +1,24 @@
+.product-not-found{
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+
+tab-pieces {
+  .name-image-product {
+    width: 200px;
+    font-size: 1.2em;
+  }
+
+  .overlay-pieces {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 0 20px;
+    line-height: 1em;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+}

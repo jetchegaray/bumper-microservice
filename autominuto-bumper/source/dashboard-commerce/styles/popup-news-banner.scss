@@ -1,0 +1,16 @@
+.popup-news-banner {
+  width: 100%;
+  display: inline-table!important;
+  color: #fff;
+  background-color: #25a7fc;
+  font-size: 12px;
+  transition: opacity .8s;
+  padding: 31px 0;
+  border-radius: 6px;
+  box-shadow: 1px 1px 19px rgba(0,0,0,.5);
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

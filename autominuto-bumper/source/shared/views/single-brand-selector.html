@@ -1,0 +1,17 @@
+<ui-select  
+            ng-model="$ctrl.selectedBrand"
+            theme="bootstrap"
+            on-select="$ctrl.onSelect($item, $model)"            
+            on-remove="$ctrl.remove($item, $model)">
+  <ui-select-match allow-clear="{{$ctrl.allowClear}}" placeholder="{{$ctrl.placeholder}}">
+    <div class="selected-option-img">
+      <img ng-src="{{$select.selected.imageNameLogo}}"/>
+    </div>
+    <span>{{$select.selected.name}}</span>
+  </ui-select-match>
+  <ui-select-choices style="width: auto;" repeat="brand in $ctrl.filteredBrands"
+                     minimum-input-length="0" refresh-delay="0"
+                     refresh="$ctrl.filterBrands($select.search)">
+    <div ng-bind-html="brand.name | highlight: $select.search"></div>
+  </ui-select-choices>
+</ui-select>

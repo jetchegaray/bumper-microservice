@@ -1,0 +1,41 @@
+<div class="row filtros-container cupones">
+  <div class="col-xs-6">
+    <span class="col-sm-2 only-desktop">Filtros:</span>
+    <div class="col-sm-6 col-xs-2 first-filter">
+      <div class="roundedFilter">
+        <input id="Pack" type="checkbox" name="Pack" value="Pack"
+               ng-model="$ctrl.filterStates.showPack">
+        <label for="Pack"></label>
+        <p>Pack</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xs-2 second-filter">
+      <div class="roundedFilter">
+        <input id="Cupones" type="checkbox" name="Cupones" value="Cupones"
+               ng-model="$ctrl.filterStates.showCoupons">
+        <label for="Cupones"></label>
+        <p>Cupones</p>
+      </div>
+    </div> 
+    <!-- <div class="third-filter">
+      <div class="roundedFilter">
+        <input id="vencenHoy" type="checkbox" name="vencenHoy" value="vencenHoy"
+               ng-model="$ctrl.filterStates.showExpireToday">
+        <label for="vencenHoy"></label>
+        <p>Vencen hoy</p>
+      </div>
+    </div> 
+    <div class="order">
+      <p>Ordenar por:</p>
+      <div class="select-style">
+        <select name="type" ng-model="$ctrl.type"
+                ng-options="filter.text for filter in $ctrl.dsctos"
+                ng-change="$ctrl.updateSortByDscto()">
+        </select>
+      </div>
+    </div> -->
+  </div>
+  <div class="add-cupon light-blue-button col-sm-3 col-xs-6 align-items-end" ng-show="!$ctrl.profile">
+    <button ng-click="$ctrl.addCoupon(null)"><img src="assets/images/icons/add.png"><b>NUEVO CUP&Oacute;N</b></button>
+  </div>
+</div>

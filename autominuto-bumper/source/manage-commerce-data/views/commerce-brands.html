@@ -1,0 +1,14 @@
+
+<div class="col-md-4 col-sm-4 col-xs-6" ng-repeat="(index,brand) in $ctrl.serviceBrands">
+  <div class="checkbox light margin-no">
+    <label style="margin-bottom: 3px;">
+      <!--
+      <input type="checkbox" data-brandNumber="{{$index}}" ng-model="$ctrl.checkAll[index]"
+             name="brandChecked" ng-click="$ctrl.addCheckBrand($index)" ng-required="!$ctrl.someSelected($ctrl.brandChecked)">
+      -->
+      <!--ng-required="$ctrl.addedServiceBrands.length == 0 && $ctrl.selectedAutoPartsBrand.length === 0"-->
+      <input type="checkbox" name="addedServiceBrands" ng-click="$ctrl.addServiceBrand($index)" ng-model="$ctrl.serviceBrandsChecked[index]">
+      <img ng-src="{{brand.imageNameLogo}}" class="max-height-20"></img>{{brand.name}}    
+    </label>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="group-comments">
+  
+  <div class="comment">
+    <div class="perfil" style="text-align: center;"><img ng-src="{{$ctrl.data.userFrom.image || 'assets/images/icons-default/driver.png'}}" class="img-rounded-border" width="75" height="75"></div>
+    <div class="group">
+      <div class="name"> {{ $ctrl.data.userFrom.username }}</div>
+      <div class="text"> {{ $ctrl.data.message }} </div>
+      <div class="options-content">
+        <div class="date" ng-show="$ctrl.data.differenceDays > 0"> Hace {{ $ctrl.data.differenceDays }} días </div>
+        <div class="date" ng-show="$ctrl.data.differenceDays === 0"> Hoy </div>
+        <span class="divider" ng-if="$ctrl.data.answer == null && !$ctrl.isProfile"><p><b>-</b></p></span>
+        <div class="answer" ng-hide="$ctrl.data.answer !== null">
+          <p><b>
+            <a ng-click="$ctrl.showCommentEntry()" ng-show="!$ctrl.isProfile" ng-class="{'disabled': !$ctrl.answerButtonIsActive()}" style="cursor:pointer;">Responder</a>
+          </b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reply-content" ng-show="$ctrl.visibleCommentEntry || $ctrl.data.answer !== null">
+    <div class="reply-icon"><img src="assets/images/icons/reply.jpg"></div>
+
+    <div ng-hide="$ctrl.data.answer === null" style="display: flex;">
+      <div class="answer-logo"><img style="width: 48px; height: 48px;" class="img-rounded-border" ng-src="{{ $ctrl.data.commerceImageUrl || 'assets/images/icons-default/commerce.png'}}" width="75" height="75"></div>
+      <div class="group">
+        <div class="name"> {{ $ctrl.getCommerce().name }} </div>
+        <div class="text">{{ $ctrl.data.answer.message }}</div>
+        <div class="options-content">
+          <div class="date" ng-show="$ctrl.data.answer.differenceDays > 0">Hace {{ $ctrl.data.answer.differenceDays }} días</div>
+          <div class="date" ng-show="$ctrl.data.answer.differenceDays === 0">Hoy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="answer-area" ng-show="$ctrl.visibleCommentEntry && $ctrl.data.answer === null">
+      <textarea ng-model="$ctrl.answer" ng-pattern ="/^[a-zA-Z_\-&`´#\. áéíóúÁÉÍÓÚÑñÇç].*[\s\.]*$/" ng-trim="false" ng-change="$ctrl.updateRemainingComment()" placeholder="Escribe tu respuesta.." maxlength=300 style="resize: none;"></textarea>
+      <div class="row">
+        <div class="light-blue-button">
+          <button ng-class="{'disabled-button': !$ctrl.answer.length}"
+            class="button-comments-commerce" ng-disabled="!$ctrl.answer.length" ng-click="$ctrl.sendReply()" style="cursor:pointer;">RESPONDER</button>
+        </div>
+        <div class="counter">
+          <p>Quedan {{ $ctrl.remainingComment }} caracteres</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,140 @@
+.tag-template .left-panel {
+  float: left;
+}
+
+.tag-template .right-panel img {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: default;
+}
+
+.tag-template .right-panel {
+  float: left;
+}
+
+.autocomplete-template .left-panel {
+  float: left;
+}
+
+.autocomplete-template .left-panel img {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
+.autocomplete-template .right-panel {
+  float: left;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+.autocomplete-template .right-panel span:first-child {
+  font-size: 16px;
+}
+
+.autocomplete-template .right-panel span:nth-child(2) {
+  font-size: 14px;
+  color: gray;
+}
+
+.autocomplete-template .right-panel span:last-child {
+  display: block;
+  font-size: 14px;
+}
+
+
+.tag-item {
+  background: #e9e9e9 !important;
+  border: 1px solid #e9e9e9 !important;
+}
+
+.remove-button {
+  font-size: 1em !important;
+  font-weight: 100 !important;
+  color: #7e7d7d !important;
+  margin-left: 0 !important;
+  line-height: 1.8 !important;
+  text-decoration: none !important;
+}
+
+.input-group-search-categories {
+  display: flex;
+  flex: 1;
+  align-items: center;
+
+  &.-no-align {
+    align-items: inherit;
+  }
+}
+
+tags-input {
+  width: 100% !important;
+
+  .tags {
+    .input {
+      height: 26px !important;
+      border: 0px !important;
+    }
+  }
+}
+
+.host {
+  height: 35px !important;
+}
+
+.input-group-addon-search-categories {
+  width: 35px !important;
+  min-height: 35px;
+  padding: 8px 10px 6px 8px !important;
+
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  padding-top: 6px !important;
+}
+
+.tooltip-categories {
+  //position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted #ccc;
+}
+
+.tooltipText::after {
+  left: 50%;
+  bottom: 100%;
+  content: "";
+  position: absolute;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #262626 transparent;
+}
+
+.tooltipText {
+  visibility: hidden;
+  top: 105%;
+  font-size: 12px;
+  padding: 0;
+  border-radius: 3px;
+
+  position: absolute;
+  width: 100px !important;
+  background-color: #262626;
+  color: #fff;
+  text-align: center;
+  //padding: 5px 0;
+  //border-radius: 6px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity .6s;
+
+  //top: 135%;
+  //left: 50%;
+  margin: 0 0 0 -40px !important;
+}
+
+.tooltip-categories:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+}

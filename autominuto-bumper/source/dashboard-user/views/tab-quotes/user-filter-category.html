@@ -1,0 +1,34 @@
+<div class="filter">
+  <ul  class="nav">
+    <li class="active">
+      <a ng-click="$ctrl.changeFilter('requested')" data-toggle="tab" data-target="#tabquote1" ng-class="{'filter-selected': 'requested' === $ctrl.currentFilter}">
+        Enviados
+      </a>
+    </li>
+    <li>
+      <a ng-click="$ctrl.changeFilter('replied')" data-toggle="tab" data-target="#tabquote2" ng-class="{'filter-selected': 'replied' === $ctrl.currentFilter}">
+        Respondidos
+      </a>
+    </li>
+    <li>
+      <a ng-click="$ctrl.changeFilter('accepted_user')" data-toggle="tab" data-target="#tabquote3" ng-class="{'filter-selected': 'accepted_user' === $ctrl.currentFilter}">
+        Aceptados y vouchers
+      </a>
+    </li>
+    <li>
+      <a ng-click="$ctrl.changeFilter('refused_user')" data-toggle="tab" data-target="#tabquote4" ng-class="{'filter-selected': 'refused_user' === $ctrl.currentFilter}">
+        Rechazados
+      </a>
+    </li>
+   <li>
+      <a ng-click="$ctrl.changeFilter('finished')" data-toggle="tab" data-target="#tabquote5" ng-class="{'filter-selected': 'finished' === $ctrl.currentFilter}">
+        Finalizados
+      </a>
+    </li>
+    <li>
+      <a ng-click="$ctrl.changeFilter('buys')" data-toggle="tab" data-target="#tabquote6" ng-class="{'filter-selected': 'buys' === $ctrl.currentFilter}">
+        Compras
+      </a>
+    </li>
+  </ul>
+</div>

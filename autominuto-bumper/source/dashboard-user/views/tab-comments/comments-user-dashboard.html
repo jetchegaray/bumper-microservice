@@ -1,0 +1,27 @@
+<div class="group-comments">
+  <div class="comment">
+     <div class="perfil" style="text-align: center;"><img ng-src="{{$ctrl.getLinkImage($ctrl.data.userFrom.image) || 'assets/images/icons-default/driver.png'}}" class="img-rounded-border" width="75" height="75"></div>
+    <div class="group">
+      <div class="name"> {{ $ctrl.data.userFrom.username }} -- {{ $ctrl.data.commerceName }}</div>
+      <div class="text"> {{ $ctrl.data.message }} </div>
+      <div class="options-content">
+        <div class="date" ng-show="$ctrl.data.differenceDays > 0"> Hace {{ $ctrl.data.differenceDays }} días </div>
+        <div class="date" ng-show="$ctrl.data.differenceDays === 0"> Hoy </div>
+        <span class="divider" ng-hide="$ctrl.data.answer !== null"><p></p></span>
+      </div>
+    </div>
+  </div>
+  <div class="reply-content" ng-show="$ctrl.data.answer !== null">
+    <div class="reply-icon"><img src="assets/images/icons/reply.jpg"></div>
+      <div class="answer-logo"><img style="width: 48px; height: 48px;" class="img-rounded-border" ng-src="{{ $ctrl.data.commerceImageUrl || 'assets/images/icons-default/commerce.png'}}" width="75" height="75"></div>
+      <div class="group">
+        <div class="name"> {{ $ctrl.data.commerceName }} </div>
+        <div class="text">{{ $ctrl.data.answer.message }}</div>
+        <div class="options-content">
+          <div class="date" ng-show="$ctrl.data.answer.createdOn > 0">Hace {{ $ctrl.data.answer.createdOn }} días</div>
+          <div class="date" ng-show="$ctrl.data.answer.createdOn === 0">Hoy</div>
+        </div>
+      </div>
+  </div>
+
+</div>

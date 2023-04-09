@@ -1,0 +1,10 @@
+<div class="simple-pagination">
+  <ul class="pagination-controls">
+    <li ng-class="{disabled: $ctrl.previousPageEnabled === false}" ng-show="$ctrl.previousPageEnabled === true">
+      <a ng-click="$ctrl.onLoadPreviousPage()">Atrás</a>
+    </li>
+    <li ng-class="{disabled: $ctrl.nextPageEnabled === false}" ng-show="$ctrl.nextPageEnabled === true">
+      <a ng-click="$ctrl.onLoadNextPage()">Siguiente</a>
+    </li>
+  </ul>
+</div>

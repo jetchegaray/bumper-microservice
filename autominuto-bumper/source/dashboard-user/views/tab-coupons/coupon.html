@@ -1,0 +1,18 @@
+<span>
+  <div class="cupon-options">
+  </div>
+  <div class="cupon">
+    <div class="options-selected">
+      <span ng-click="$ctrl.printCoupon($ctrl.coupon)" style="cursor: pointer"><img src="assets/images/icons/print.png"></span>
+      <span ng-click="$ctrl.showCoupon($ctrl.coupon)" style="cursor: pointer"><img src="assets/images/icons/view.png"></span>
+    </div>
+    <div>
+      <div class="col-md-5 porcentaje">
+        <span><div class="number"><p>%{{ $ctrl.coupon.discount }} <br><b>SOLO POR HOY</b></p></div></span>
+      </div>
+      <div class="col-md-7 codigo">
+        <span><p>En {{ $ctrl.getServiceSummary() }} <br> Codigo: <b>{{ $ctrl.coupon.code }}</b></p></span>
+      </div>
+    </div>
+  </div>
+</span>

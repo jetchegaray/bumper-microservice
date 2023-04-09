@@ -1,0 +1,19 @@
+
+
+<div class="col-md-12 commerce-comment-list">
+
+
+  <product-comment ng-repeat="comment in $ctrl.comments | filter: $ctrl.filterComments"
+    data="comment"
+    do-comment="$ctrl.saveComment"
+    get-product="$ctrl.product">
+  </product-comment>
+
+</div>
+
+<div class="row message-no-exists-items-dashboard"
+     ng-class="{'no-exists-items-dashboard': $ctrl.comments.length > 0  || $ctrl.firstLoadComments}">
+  No hay mensajes disponibles
+</div>
+
+<button class="button-comments-commerce" ng-if="$ctrl.comments.length > 0" ng-click="$ctrl.loadMoreComments()" ng-show="$ctrl.comments.length > 0"><b>CARGAR M&Aacute;S MENSAJES</b></button>

@@ -1,0 +1,23 @@
+<div class="col-md-3 col-xs-3">
+  <div class="filtro">
+    <h1>Nuestros productos</h1>
+
+    <div  class="tipo" ng-repeat="item in $ctrl.filters">
+      <h3 class="title_product">{{ $ctrl.getTitle(item.type) }}</h3>
+      <p ng-repeat="filter in item.values" ng-if="$ctrl.indexValid($index)"
+         ng-click="$ctrl.onLoadProductsWithFilter(filter, item.type)"
+         ng-class="{'filterActive': filter.active}">
+        {{ filter.name }}
+      </p>
+      <span class="ver-mas" ng-show="item.values.length > $ctrl.limit && $ctrl.showAll === false"
+            ng-click="$ctrl.changeVisibility()">
+        <b><span ng-show="$ctrl.showAll === false">ver más</span>
+          <span ng-show="$ctrl.showAll">ver menos</span>
+          <img src="assets/images/icons/flecha-vermas.png">
+        </b>
+      </span>
+    </div>
+
+
+  </div>
+</div>

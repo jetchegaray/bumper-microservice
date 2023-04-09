@@ -1,0 +1,44 @@
+<div class="modal fade" id="results-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content-results">
+
+      <div class="modal-header modal-header-results text-white col-xs-12 popup-official-brands ">
+        <div class="chevrolet-logo">
+          <img ng-src="{{ $ctrl.brand.brandImage }}" class="center-block" style="width: 100%">
+          <div class="name-brand-results"><span>{{ $ctrl.brand.name }}</span></div>
+        </div>
+        <div class="congratulations">
+          <h2>¡FELICITACIONES!</h2>
+          <p class="responsive-center"> Tu pedido de presupuesto fue enviado a los siguientes representados
+            oficiales más cercanos.</p>
+        </div>
+      </div>
+
+      <div class="modal-body-results col-xs-12">
+        <div class="row">
+          <results-item-result-popup ng-repeat="item in $ctrl.popupItems" ng-click="$ctrl.close(item.id)"
+            official="item.official"
+            grade="item.grade"
+            logo="item.logo"
+            validated="item.validated"
+            name="item.name"
+            stars="item.stars"
+            distance="item.distance"
+            address="item.address"
+            phone="item.phone"
+            working-time="item.workingTime"
+            is-open="item.isOpen"
+            commerce-id="item.id"
+            go-profile-commerce="goProfileCommerce"
+          ></results-item-result-popup>
+
+        </div>
+      </div>
+
+      <div class="modal-footer-results border-footer-results col-xs-12">
+        <button type="button" class="btn btn-primary btn-lg center-block continuar" ng-click="$ctrl.close(null)">ACEPTAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

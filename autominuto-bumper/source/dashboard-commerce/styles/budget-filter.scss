@@ -1,0 +1,111 @@
+@import "../../shared/styles/colors";
+
+filter-category, user-filter-category {
+  .filter {
+    ul{
+      list-style: none;
+      margin-bottom: 2em;
+
+      @media (max-width: 991px) {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      li {
+
+        font-size: 1em;
+        height: 41px;
+        float: left;
+
+        a {
+          border-radius: 20px;
+          padding: 0.75em 1.5em;
+        }
+
+        a:hover, a:focus {
+          text-decoration: none;
+          background-color: lighten($color-yellow, 30%);
+          cursor: pointer;
+        }
+
+        .filter-selected {
+          text-decoration: none;
+          background-color: #eee;
+          border-radius: 6px;
+        }
+
+        &.active a {
+          background-color: $color-primary-500;
+        }
+
+        p{
+          float: left;
+        }
+        .notifications {
+          float: left;
+          p{
+            margin:0;
+            float: right;
+            background-color: #ff4141;
+            padding: 0px 4px;
+            color: #fff;
+            border-radius: 22px;
+            font-size: 11px;
+            width: 14px;
+            text-align: center;
+          }
+
+          span{
+            margin:0;
+            float: right;
+            background-color: #ff4141;
+            padding: 0px 4px;
+            color: #fff;
+            border-radius: 22px;
+            font-size: 11px;
+            width: 14px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            .tooltip-notification{
+              display: none;
+            }
+
+          }
+          span:hover{
+            .tooltip-notification{
+              position: absolute;
+              display: block;
+              background-color: #25a7fc;
+              color: #fff;
+              top: -16px;
+              left: 22px;
+              width: 189px;
+              font-size: 1.2em;
+              padding: 5px;
+              border-radius: 5px;
+              z-index: 100;
+
+            }
+
+            .tooltip-notification::after {
+              left: 0;
+              top: 36%;
+              bottom: 25px;
+              content: "";
+              position: absolute;
+              margin-left: -14px;
+              border-width: 7px;
+              border-style: solid;
+              border-color: transparent #25a7fc transparent transparent;
+            }
+          }
+        }
+      }
+    }
+    p{
+      padding: 10px;
+      margin: 0;
+    }
+  }
+}

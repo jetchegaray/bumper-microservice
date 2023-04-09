@@ -1,0 +1,88 @@
+<h1>Ventas y Solicitudes</h1>
+
+<div class="commerce-budges margin-top-10">
+  <div class="presupuestos-container">
+
+    <filter-category
+      categories="$ctrl.categories"
+      change-filter="$ctrl.changeFilter"
+      current-filter="$ctrl.currentFilter"
+    ></filter-category>
+
+    <div class="hasCommerceAccount" ng-if="$ctrl.currentFilter == 'requested' && $ctrl.hasCommerceAccountPaymentMP == 'false'">
+      <!-- <div class="not-associated">¡ Querés Comenzar a Vender ? No cobramos comisiones por venta !</div> -->
+      <label ng-click="$ctrl.goToMercadoPago()" class="add-card radio">
+        <!-- <div class="associate-account"><input type="radio"/><span class="associate-label">Asociar cuenta</span></div> -->
+        <img src="assets/images/icons/mercadopago-large.png" class="mp-logo image-mercadopago">
+        <div class="pay-description">
+          <h1>Cobrá usando los medios de pago que todos prefieren</h1>
+          <div class="pay-offer">
+            <h4 class="only-desktop">¡ Hacé click y activá tu cuenta de mercado pago AHORA !</h4>
+            <h4 class="not-desktop">¡ Hacé click y activá tu cuenta !</h4>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <img class="ajax-loader" ng-show="!!$ctrl.loadingContent" src="assets/images/loader-ajax.gif">
+
+    <div ng-if="$ctrl.filterToShow == 'budgets'">
+
+      <div class="budget-container" ng-repeat="budget in $ctrl.elementListData">
+        <budget-item budget="budget"
+                     update-page="$ctrl.updatePage"
+        ></budget-item>
+      </div>
+
+      <div ng-switch="$ctrl.currentFilter" ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+        <div class="alert alert-info" ng-switch-when="requested">
+          Aún no recibiste solicitudes de presupuesto.
+        </div>
+        <div class="alert alert-info" ng-switch-when="replied">
+          Aún no enviaste presupuestos.
+        </div>
+        <div class="alert alert-info" ng-switch-when="refused">
+          No rechazaste ningún presupuesto.
+        </div>
+        <div class="alert alert-info" ng-switch-when="accepted_user">
+          Ningún conductor aceptó un presupuesto tuyo aún.
+        </div>
+      </div>
+
+    </div>
+
+    <div ng-if="$ctrl.filterToShow == 'qualified'">
+      <div class="ratings-container" >
+        <ratings-item ng-repeat="rating in $ctrl.elementListData"
+                      rating="rating"
+                      update-page="$ctrl.updatePage"
+        ></ratings-item>
+      </div>
+      <div class="alert alert-info"
+           ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+          Ningún conductor calificó tu trabajo aún.
+      </div>
+    </div>
+    <div ng-if="$ctrl.filterToShow == 'sales'">
+
+      <div class="sales-container">
+        <sales-item ng-repeat="sale in $ctrl.elementListData"
+                    sale="sale"
+                    update-page="$ctrl.updatePage"
+        ></sales-item>
+      </div>
+      <div class="alert alert-info"
+           ng-if="!$ctrl.elementListData.length && !$ctrl.loadingContent">
+        Aún no tenés ventas.
+      </div>
+    </div>
+
+    <simple-pagination
+      next-page-enabled="$ctrl.nextPageEnabled"
+      previous-page-enabled="$ctrl.previousPageEnabled"
+      load-next-page="$ctrl.loadNextPage"
+      load-previous-page="$ctrl.loadPreviousPage" >
+    </simple-pagination>
+
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<rect x="96.5" y="216" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="119.5" height="24.5"/>
+<rect x="294.5" y="216" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="119.5" height="24.5"/>
+<rect x="128.5" y="54.5" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="23.5" height="145.5"/>
+<rect x="360" y="55.304" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="24" height="144.696"/>
+<rect x="296" y="368" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="112" height="24"/>
+<rect x="104" y="368" fill="#F0BC5E" stroke="#000000" stroke-miterlimit="10" width="112" height="24"/>
+<title>construction-clothes-jacket-equipment-tools</title>
+<g id="Expand">
+	<path d="M478.992,68.112c-1.111-1.998-3.024-3.424-5.256-3.92l-144-32C329.166,32.064,328.584,32,328,32H184
+		c-0.584,0-1.166,0.064-1.736,0.192l-144,32c-4.313,0.958-7.034,5.23-6.076,9.543c0.068,0.309,0.155,0.614,0.26,0.913L88,233.36V472
+		c0,4.418,3.582,8,8,8h320c4.418,0,8-3.582,8-8V233.36l55.552-158.712C480.309,72.489,480.104,70.11,478.992,68.112z M408,232v8H296
+		v-24h117.12l-4.672,13.352C408.152,230.204,408.001,231.099,408,232z M328,408h48v16h-48V408z M296,392v-24h112v24H296z M136,408
+		h48v16h-48V408z M104,392v-24h112v24H104z M213.872,200H168V51.752l10.04-2.232L213.872,200z M216,352h-16v-24c0-4.418-3.582-8-8-8
+		h-64c-4.418,0-8,3.582-8,8v24h-16v-96h112V352z M184,352h-48v-16h48V352z M152,200h-24V60.64l24-5.336V200z M216,216v24H104v-8
+		c-0.001-0.901-0.152-1.796-0.448-2.648L98.88,216H216z M231.784,206.152L194.128,48h123.744l-37.656,158.152
+		C280.072,206.757,280,207.378,280,208v256h-48V208C232,207.378,231.928,206.757,231.784,206.152L231.784,206.152z M298.128,200
+		L333.96,49.52L344,51.752V200H298.128z M376,352h-48v-16h48V352z M392,352v-24c0-4.418-3.582-8-8-8h-64c-4.418,0-8,3.582-8,8v24
+		h-16v-96h112v96H392z M360,200V55.304l24,5.336V200H360z M50.52,77.856L112,64.192V200H93.28L50.52,77.856z M104,408h16v24
+		c0,4.418,3.582,8,8,8h64c4.418,0,8-3.582,8-8v-24h16v56H104V408z M296,464v-56h16v24c0,4.418,3.582,8,8,8h64c4.418,0,8-3.582,8-8
+		v-24h16v56H296z M418.721,200H400V64.192l61.479,13.664L418.721,200z"/>
+	<rect x="440" y="296" width="16" height="152"/>
+	<path d="M56,280h16v-40c-0.001-0.901-0.152-1.796-0.448-2.648l-44.8-128l-15.112,5.296L56,241.36V280z"/>
+	<rect x="440" y="264" width="16" height="16"/>
+</g>
+</svg>

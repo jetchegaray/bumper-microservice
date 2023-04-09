@@ -1,0 +1,254 @@
+<!-- Promo header -->
+<div promo-header></div>
+
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div id="home" class="home">
+
+	<section class="header">
+		<div class="background-home-image">
+      <div class="home-header-container">
+        <h1 class="title">Autominuto te acerca presupuestos de
+          <div class="carousel slide vertical">
+                  <div class="carousel-inner">
+                      <div class="active item">lubricentros</div>
+                      <div class="item">talleres mecánicos</div>
+                      <div class="item">gomerías</div>
+                      <div class="item">car detailings</div>
+                      <div class="item">lavaderos</div>
+                      <div class="item small-carousel-text">casa de repuestos</div>
+                  </div>
+              </div> cercanos </h1>
+        <h2 class="subtitle">Elegí mejor comparando desde donde estés en 3 simples pasos</h2>
+
+        <button class="home-button start-button" ng-click="$ctrl.startNow()">RECIBIR COTIZACIONES</button>
+      </div>
+		</div>
+  </section>
+
+  <section>
+    <div class="home-how-container">
+      <div class="covid-banner" ng-include="'shared/views/covid-banner.html'"></div>
+
+      <h2 class="title-section">¿Cómo funciona autominuto?</h2>
+      <div class="how-steps-container">
+        <div class="steps-explain-container">
+          <div class="linking-line"></div>
+          <div class="step-container">
+            <div class="circle-container">
+              <img class="circle-img" src="assets/images/home/lens.svg" alt="lupa"/>
+            </div>
+            <div class="explain-text">
+              <p>Elegí el tipo de necesidad o falla que puedas tener, contanos los datos de tu auto y dónde estás.</p>
+            </div>
+          </div>
+          <div class="step-container">
+            <div class="circle-container">
+              <img class="circle-img" src="assets/images/home/gps.svg" alt="ubicaciónn"/>
+            </div>
+            <div class="explain-text">
+              <p>Autominuto mandará tu pedido a los talleres mecánicos y/o demás comercios automotores cercanos a vos.</p>
+            </div>
+          </div>
+          <div class="step-container -last-item">
+            <div class="circle-container">
+              <img class="circle-img" src="assets/images/home/choose.svg" alt="elección"/>
+            </div>
+            <div class="explain-text">
+              <p>Te acercamos los presupuestos para que elijas el más económico o cercano.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="everyone-win-container">
+      <h2 class="title-section everyone-title">Con autominuto ganan todos</h2>
+      <div class="row">
+        <div class="col col-md-6 col-xs-12">
+          <div class="box-container -first">
+            <div class="box-driver">
+              <div class="box-title-container">
+                <h2 class="box-title">Conductores</h2>
+              </div>
+              <div class="box-description-image-mobile">
+                <p class="box-description">Autominuto te ayuda a que encuentres en tres simples pasos a tu nuevo taller de confianza. <strong>Contratar a través de Autominuto es seguro, ya que vas a tener una cobertura de seis meses de garantía.</strong> (Ley 24.240 de Defensa del Consumidor). Elegi mejor pagando lo justo.</p>
+
+              </div>
+              <button ui-sref="steps.one" class="home-button box-start-button">COMENZAR</button>
+            </div>
+            <div class="box-image-container">
+              <img src="assets/images/home/driver.svg" alt="conductor" />
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-6 col-xs-12">
+          <div class="box-container">
+            <div class="box-driver box-commerce">
+              <div class="box-title-container">
+                <h2 class="box-title">Comercios</h2>
+              </div>
+                <p class="box-description">Date a conocer a nuevos conductores que necesitan lo que vendés. Somos tu nuevo canal de ventas que podés gestionar en cualquier momento del día y desde cualquier lugar </br><strong>Lo mejor de todo? </br>Los primeros 4 meses, no pagás comisión.</strong></p>
+              <button ui-sref="vendemas" class="home-button box-start-button">COMENZAR</button>
+            </div>
+            <div class="box-image-container">
+                <img class="commerce-image" src="assets/images/home/Comercio-desktop-home.svg" alt="taller" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<section id="connect" class="connect">
+    <div class="container-fluid">
+      <div class="container section-connect">
+        <h2 class="title">¿Querés conocer a los talleres mecánicos que tenés cerca? ¡Decinos qué necesitás!</h2>
+        <div class="fast-search-container">
+          <fast-search-component brands="$ctrl.brands"></fast-search-component>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+<!--
+  <section id="coupons" ng-if="$ctrl.topCoupons.length > 0">
+    <div class="coupons-container">
+      <h2 class="title-section coupons-title">Nuestros talleres mecánicos tienen estas promociones para vos</h2>
+        <div class="row coupon-boxes-container">
+          <div ng-repeat="coupon in $ctrl.topCoupons">
+            <div class="col col-md-3">
+              <div class="coupon-box-container">
+                <div class="coupon-box-text">
+                  <h2 class="coupon-box-title-container">{{coupon.discountPercentage}}%</h2>
+                  <div class="coupon-box-commerce-container">
+                    <p class="coupon-box-commerce-name">{{coupon.commerceName}}</p>
+                    <p class="coupon-box-service-type">{{coupon.title}}</p>
+                    <div>
+                    </div>
+                  </div>
+                  <button class="home-button coupon-box-button" ng-click="$ctrl.goToCoupons(coupon.commerceId, coupon.commerceSlug)">Ver Tienda</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+-->
+  <section class="most-used">
+    <div class="container-fluid">
+        <div class="container section-most-used">
+            <h2>
+                Los servicios más cotizados
+            </h2>
+            <h3 >Compará precios en tiempo real y resolvé las necesidades de tu auto en minutos</h3>
+            <div class="row">
+              <div style="width: 100%;">
+                <div ng-include="'home/views/HOME-tpl-carousel-most-used-services.html'"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="seo" class="seo">
+    <div class="seo-container">
+       <div class="seo-boxes-container">
+            <div class="">
+              <div class="seo-box-container">
+                <div class="seo-box-image">
+                  <img class="seo-img" src="assets/images/home/seo-1.svg" alt="alineacion-balanceo"/>
+                </div>
+                <div class="seo-box-text">
+                  <div class="seo-text-title">¿Dónde hacer alineación y balanceo del auto?</div>
+                  <p>
+                    Lo más lógico sería hacerla en una gomería, dado que en todas ellas cuentan con las herramientas necesarias para realizar la alineación y balanceo de tu vehículo. Sin embargo, hay muchos lubricentros que también
+                    la hacen. Recordá que en
+                    Autominuto.com podés hacer un pedido de cotización a las gomerías cercanas a vos para dar con la mejor opción para tu bolsillo.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <div class="seo-box-container">
+                <div class="seo-box-image">
+                  <img class="seo-img" src="assets/images/home/seo-2.svg" alt="vtv-frenos"/>
+                </div>
+                <div class="seo-box-text">
+                  <div class="seo-text-title">¿Qué revisar antes de salir a la ruta con tu auto?</div>
+                  <p>
+                    Tenes que hacer revisar el auto por un profesional: llevarlo al taller revisar el sistema de frenado, dirección, suspensión y luces; además chequeá los neumáticos.
+                    La VTV y los documentos tienen que estar al día. Los elementos de seguridad obligatorios son matafuegos vigente y balizas. El kit de primeros auxilios, crique y
+                    chaleco de seguridad son opcionales.
+                  </p>
+                </div>
+              </div>
+             </div>
+             <div class="">
+               <div class="seo-box-container">
+                <div class="seo-box-image">
+                  <img class="seo-img" src="assets/images/home/seo-3.svg" alt="lubricentro-gomeria"/>
+                </div>
+                <div class="seo-box-text">
+                  <div class="seo-text-title">¿Cuáles son los documentos obligatorios para circular con tu vehículo?</div>
+                  <p>
+                    Documento Nacional de Identidad (DNI) de quien conduce.
+                    Licencia Nacional de Conducir.
+                    Cédula verde o cédula azul (en este último caso si no sos el titular del vehículo).
+                    Constancia de VTV o RTO (si tu auto la necesita)
+                    Comprobante de póliza de seguro vigente (no es necesario presentar la factura paga de la última cuota).
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<!--	<section class="most-searched">
+    <div class="container-fluid">
+        <div class="container section-most-searched">
+            <h2>
+                <strong>Los comercios más buscados</strong>
+            </h2>
+            <h3>Descubrí cientos de comercios automotores con una sola búsqueda</h3>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 margin-top-30 most-searched-block talleres" ng-click="$ctrl.goToResults('taller-chequeo-general')" title="Talleres">
+                    <div class="most-searched-description">
+                        <p class="medium-title"><span>Talleres</span></p>
+                        <p>más de 15&nbsp;<br class="only-mobile"> cerca tuyo</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 margin-top-30 most-searched-block lubricentros" ng-click="$ctrl.goToResults('lubricentro-cambio-aceite-filtro')" title="Lubricentros">
+                    <div class="most-searched-description">
+                        <p class="medium-title"><span>Lubricentros</span></p>
+                        <p>más de 23&nbsp;<br class="only-mobile"> cerca tuyo</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 margin-top-30 most-searched-block gomerias" title="Gomerias" ng-click="$ctrl.goToResults('neumaticos-auto-camioneta')">
+                  <div class="most-searched-description">
+                      <p class="medium-title"><span>Gomerías</span></p>
+                      <p>más de 35 cerca tuyo</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section> -->
+
+<!--	<section class="brands">
+    <div class="container section-brands">
+        <div>
+            <h3 class="not-desktop"><span>Comercios</span><br> <span class="bold">recomendados</span></h3>
+            <div ng-include="'home/views/tpl-carousel-brands.html'" onload="$ctrl.loadBrands()" class="brands-container"></div>
+        </div>
+    </div>
+  </section>
+-->
+</div>
+
+<cookies-banner></cookies-banner>

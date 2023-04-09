@@ -1,0 +1,36 @@
+// @import "../../shared/styles/colors";
+
+.cupon-imagen {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  img {
+    width: 70%;
+    height: 70%;
+    margin-top: 3%;
+  }
+  h6 {
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0;
+  }
+  input {
+    display: none;
+  }
+}
+
+// service-type-multiple-selector {
+
+  // .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+  //   width: 100% !important;
+  // }
+
+  // .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  //   color: $color-blue;
+  // }
+
+  // .ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+  //   margin-right: -12px;
+  //   margin-top: 2px;
+  // }
+// }

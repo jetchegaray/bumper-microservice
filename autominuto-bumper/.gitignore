@@ -1,0 +1,19 @@
+# Dirs
+.idea/
+.history/
+.vscode/
+doc/
+node_modules/
+public/
+out/
+
+# Files
+npm-debug.log
+server.log
+package-lock.json
+.DS_Store
+.package-lock.js
+newrelic_agent.log
+launch.json
+**/constants.js
+/bumper.iml

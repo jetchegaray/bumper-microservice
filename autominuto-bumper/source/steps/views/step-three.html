@@ -1,0 +1,139 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="tab-content fade in active text-grey">
+    <div id="paso3" class="row">
+      <form class="form-horizontal col-md-5" id="form-step-3" name="$ctrl.formstep3" ng-submit="$ctrl.continue()" accessible-form>
+        <!-- Address input -->
+        <div class="margin-bottom-30">
+          <p>Dirección</p>
+          <div style="position: relative;">
+            <input style="height: 42px;"
+              class="form-control"
+              id="address"
+              name="address"
+              ng-model="$ctrl.rawAddress"
+              places-auto-complete
+              on-place-changed="$ctrl.placeChanged()"
+              component-restrictions="{country:'ar'}"
+              placeholder="Calle Nro, Localidad, Provincia"
+              ng-class="{ 'has-error errorMessage' : $ctrl.flags.locationError || (!$ctrl.address && !$ctrl.flags.locationError && $ctrl.flags.addressDirty) || ($ctrl.rawAddress.length === 0 && $ctrl.formstep3.$submitted)}">
+            <div class="location-error" ng-show="$ctrl.flags.locationError">Error al obtener el domicilio</div>
+            <div class="location-error" ng-show="!$ctrl.address && !$ctrl.flags.locationError && $ctrl.flags.addressDirty">
+              Domicilio inválido (debe tener calle y número)
+            </div>
+            <div class="location-error" ng-show="$ctrl.rawAddress.length === 0 && $ctrl.formstep3.$submitted">
+              La dirección es obligatoria
+            </div>
+            <button
+              type="button"
+              class="btn-warning btn-sm btn-map-inside btn-map-step-3"
+              ng-click="$ctrl.getLocation()"
+              ng-disabled="$ctrl.flags.loadingLocation">
+              <img src="assets/images/icons/pointer.svg" width="15" />
+              Usar mi ubicación actual
+            </button>
+            <span
+              class="location-spinner"
+              us-spinner="{lines: 9, width: 2, radius: 4, length: 5}"
+              spinner-on="$ctrl.flags.loadingLocation">
+            </span>
+          </div>
+        </div>
+
+        <!-- Address selector -->
+        <p class="margin-bottom-10" ng-show="$ctrl.userAddresses.length > 0">o seleccione una de sus direcciones guardadas:</p>
+        <div class="radio text-light-grey" ng-repeat="userAddress in $ctrl.userAddresses">
+          <label>
+            <input type="radio" name="userAddress" ng-click="$ctrl.selectUserAddress(userAddress)">
+            <p  ng-class="{'address-bold': $ctrl.rawAddress === userAddress.addressLine}">{{ userAddress.addressLine }}</p>
+          </label>
+        </div>
+
+        <!-- Datetime pickers -->
+        <p ng-show="$ctrl.isNotProductCategory()" class="datetime">Fechas y horarios para dejar su vehículo (Opcional)</p>
+        <div class="datetime-picker -remove-gray-readonly" ng-repeat="datetime in $ctrl.datetimes" ng-show="$ctrl.isNotProductCategory()">
+          <div>
+            <div class="input-group">
+              <input
+                class="form-control border-right-no"
+                ng-model="date"
+                is-open="$ctrl.isDateOpened[$index]"
+                moment-picker="datetime.date"
+                locale="es"
+                format="DD-MM-YYYY"
+                min-view="month"
+                max-view="month"
+                min-date="$ctrl.minDatetime"
+                validate="true"
+                placeholder="Elija una fecha"
+                readonly>
+              <div class="input-group-addon" ng-click="$ctrl.switchDateOpened($index)">
+                <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="input-group">
+              <input
+                class="form-control border-right-no"
+                
+                ng-class="{ 'has-error errorMessage' : $ctrl.formstep3.$submitted && $ctrl.isNotProductCategory()}"
+                ng-model="datetime.parsedTime"
+                is-open="$ctrl.isTimeOpened[$index]"
+                moment-picker="datetime.time"
+                format="HH:00"
+                min-view="day"
+                max-view="day"
+                show-header="false"
+                selectable="$ctrl.timeSelectable(date, type)"
+                placeholder="Elija una hora"
+                readonly>
+              <div class="input-group-addon" ng-click="$ctrl.switchTimeOpened($index)">
+                <a href=""><span class="glyphicon glyphicon-time color-blue" aria-hidden="true"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="remove-datetime">
+            <span class="glyphicon glyphicon-remove" ng-click="$ctrl.removeDatetime(datetime)" ng-show="$index != 0"></span>
+          </div>
+        </div>
+
+        <!-- Add datetime -->
+        <div class="margin-top-20">
+          <a href="" role="button" class="mas-auto" ng-click="$ctrl.addDatetime()" ng-show="$ctrl.isNotProductCategory() && $ctrl.datetimes.length < 3">
+            <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otra fecha
+          </a>
+        </div>
+
+      </form>
+
+      <div class="col-md-7 padding-map map-step-3">
+        <ng-map style="display: block; height: 300px;">
+          <marker position="{{ $ctrl.marker }}"></marker>
+        </ng-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="paso3 action-buttons not-desktop">
+  <!-- FORM STEP 3 -->
+  <div class="row">
+    <div class="col-xs-6 padding-left-no">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6 padding-right-no">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span>Siguiente</span>
+      </div>
+      <!-- <button type="submit" form="form-step-3" class="continue" value="Submit">
+        Siguiente
+      </button> -->
+    </div>
+  </div>
+</div>

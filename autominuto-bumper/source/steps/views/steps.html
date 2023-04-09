@@ -1,0 +1,113 @@
+<header-notification></header-notification>
+
+<div class="container-fluid pasos">
+  
+  <div class="container margin-top-80 margin-bottom-50" >
+
+    <div role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="collapsed" ng-click="$ctrl.goStepOne()">
+          <div class="panel-heading" ng-class="{'active' : $ctrl.isTabOpened('steps.one')}" role="tab" id="questionOne">
+            <h5 class="panel-title">
+              {{$ctrl.getStepNumber(1)}} - ¿Que necesitas para tu auto?
+              <div ng-if="$ctrl.isStepDone(1)" class="step-completed"><img src="assets/images/steps/tick_verde.svg"></div>
+            </h5>
+            <svg class="arrow-up" viewBox="0 0 11.797 23.595" ng-if="$ctrl.isTabOpened('steps.one')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_278_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+            <svg class="arrow-down" viewBox="0 0 11.797 23.595" ng-if="!$ctrl.isTabOpened('steps.one')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div id="answerOne" class="panel-collapse collapse" ng-class="{'in' : $ctrl.isTabOpened('steps.one')}" role="tabpanel" aria-labelledby="questionOne">
+          <div class="panel-body">
+            <step-one></step-one>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel panel-default" ng-if="$ctrl.isStepDone(1) && $ctrl.isCarNeeded()">
+        <div class="collapsed" ng-click="$ctrl.goStepTwo()">
+          <div class="panel-heading" ng-class="{'active' : $ctrl.isTabOpened('steps.two')}" role="tab" id="questionTwo">
+            <h5 class="panel-title">
+              {{$ctrl.getStepNumber(2)}} - Información del auto
+              <div ng-if="$ctrl.isStepDone(2)" class="step-completed"><img src="assets/images/steps/tick_verde.svg"></div>
+            </h5>
+            <svg class="arrow-up" viewBox="0 0 11.797 23.595" ng-if="$ctrl.isTabOpened('steps.two')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_278_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+            <svg class="arrow-down" viewBox="0 0 11.797 23.595" ng-if="!$ctrl.isTabOpened('steps.two')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div id="answerTwo" class="panel-collapse collapse" ng-class="{'in' : $ctrl.isTabOpened('steps.two')}" role="tabpanel" aria-labelledby="questionTwo">
+          <div class="panel-body">
+            <step-two></step-two>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-if="$ctrl.isStepDone(1) && $ctrl.isStepDone(2)">
+        <div class="collapsed" ng-click="$ctrl.goStepThree()">
+          <div class="panel-heading" ng-class="{'active' : $ctrl.isTabOpened('steps.three')}" role="tab" id="questionThree">
+            <h5 class="panel-title">
+              {{$ctrl.getStepNumber(3)}} - ¿Dónde estás?
+              <div ng-if="$ctrl.isStepDone(3)" class="step-completed"><img src="assets/images/steps/tick_verde.svg"></div>              
+            </h5>
+            <svg class="arrow-up" viewBox="0 0 11.797 23.595" ng-if="$ctrl.isTabOpened('steps.three')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_278_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+            <svg class="arrow-down" viewBox="0 0 11.797 23.595" ng-if="!$ctrl.isTabOpened('steps.three')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div id="answerThree" class="panel-collapse collapse" ng-class="{'in' : $ctrl.isTabOpened('steps.three')}" role="tabpanel" aria-labelledby="questionThree">
+          <div class="panel-body">
+            <!-- <ui-view ng-if="$ctrl.isTabActive(3)"></ui-view ng-if="$ctrl.isTabOpened('steps.one')"> -->
+            <step-three></step-three>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-if="$ctrl.isStepDone(1) && $ctrl.isStepDone(2) && $ctrl.isStepDone(3)">
+        <div class="collapsed" ng-click="$ctrl.goStepFinal()">
+          <div class="panel-heading" ng-class="{'active' : $ctrl.isTabOpened('steps.final')}" role="tab" id="questionFinal">
+            <h5 class="panel-title">
+              {{$ctrl.getStepNumber(4)}} - Resumen
+            </h5>
+            <svg class="arrow-up" viewBox="0 0 11.797 23.595" ng-if="$ctrl.isTabOpened('steps.final')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_278_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+            <svg class="arrow-down" viewBox="0 0 11.797 23.595" ng-if="!$ctrl.isTabOpened('steps.final')">
+              <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div id="answerFinal" class="panel-collapse collapse" ng-class="{'in' : $ctrl.isTabOpened('steps.final')}" role="tabpanel" aria-labelledby="questionFinal">
+          <div class="panel-body">
+            <step-final steps-data="$ctrl.stepsData"></step-final>
+          </div>
+        </div>
+      </div>      
+
+      <div ng-include="'steps/views/action-buttons.html'"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div ng-include="shared/views/tpl-promo-mobile.html"></div>
+
+<cookies-banner></cookies-banner>

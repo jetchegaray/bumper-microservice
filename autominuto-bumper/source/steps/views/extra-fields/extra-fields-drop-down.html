@@ -1,0 +1,17 @@
+<div class="option-title">
+  <!-- {{$ctrl.field.title}} -->
+  Tipo de producto
+</div>
+
+<div
+  swavs-auto-complete
+  class="option-element"
+  source="$ctrl.options"
+  placeholder="Seleccioná el tipo de producto"
+  selected-result="$ctrl.selection"
+  select-handler="$ctrl.saveSelectedOption"
+  element-selector="input-product-type"
+  initial-value="$ctrl.initialValue"
+  show-arrow="true"
+  readonly>
+</div>

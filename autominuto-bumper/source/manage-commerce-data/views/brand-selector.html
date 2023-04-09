@@ -1,0 +1,13 @@
+<ui-select ng-model="$ctrl.selectedBrand"
+           theme="bootstrap">
+  <ui-select-match allow-clear="true" placeholder="Ej: Ford">
+    <div class="selected-option-img">
+      <img ng-src="{{$select.selected.imageNameLogo}}"/>
+    </div>
+    <span>{{$select.selected.name}}</span>
+  </ui-select-match>
+  <ui-select-choices style="width: auto;" repeat="brand in $ctrl.serviceBrands"
+                     minimum-input-length="3" refresh-delay="0">
+    <div ng-bind-html="brand.name | highlight: $select.search"></div>
+  </ui-select-choices>
+</ui-select>

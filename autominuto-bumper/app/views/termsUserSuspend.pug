@@ -1,0 +1,109 @@
+doctype html
+html
+	head
+		title= "Autominuto"
+		meta(property="og:locale", content = "es_AR")
+		meta(property="og:image", content= host + "/assets/images/autominuto_icon_s.png")
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(name="description", content="Autominuto")
+		link(rel="icon", type="image/x-icon" href="assets/images/favicon.ico")
+		style(type='text/css').
+			.underlined {
+				text-decoration: underline;
+			}
+			.color-red {
+				color: red;
+			}
+			.color-initial {
+				color: initial;
+			}
+			.tittle-list{
+				font-weight: bold;
+			}
+			.tittle-list p{
+				font-weight: normal;
+			}
+			a:link {
+			    color: red;
+			}
+
+			/* visited link */
+			a:visited {
+			    color: green;
+			}
+			ol {
+			  list-style-type: none;
+			  counter-reset: item;
+			  margin: 0;
+			  padding: 0;
+			}
+
+			ol > li {
+			  display: table;
+			  counter-increment: item;
+			  margin-bottom: 0.6em;
+			}
+
+			ol > li:before {
+			  content: counters(item, ".") ".";
+			  display: table-cell;
+			  padding-right: 0.6em;
+			}
+
+			li ol > li {
+			  margin: 0;
+			}
+
+			li ol > li:before {
+			  content: counters(item, ".");
+			}
+
+			body{
+				font-family: Raleway;
+				max-width:700px;
+				margin: 0 auto;
+				padding: 15px;
+			}
+			p{
+				color:#666;
+			}
+	body
+		h3 Cuentas duplicadas
+		p En Autominuto #[b cada usuario es identificado por su apodo.] Para el caso de los usuarios vendedores, su trayectoria en la comunidad se refleja en su reputación.
+		p En este sentido, si un usuario se inscribe #[b bajo diferentes identidades] podrá ser inhabilitado permanentemente para operar en el sitio.
+		p Si has sido suspendido por este motivo, para que podamos verificar tu identidad es necesario que nos envíes una copia del documento con el que te inscribiste en Autominuto.
+		b
+		h3 Incumplimiento del compromiso de compra
+		p Todas las ofertas en Autominuto son en firme, por lo tanto cada vez que un usuario compra u oferta por un artículo publicado o contrata un servicio en Autominuto adquiere un compromiso ineludible.
+		p Si un usuario es responsabilizado en 3 o más ocasiones de no cumplir con el mismo, Autominuto lo podrá suspender para continuar operando en el sitio.		
+		h3 Operaciones irregulares
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. Para ello #b[es necesario que todos los usuarios mantengan un comportamiento correcto, adecuado a lo expresado en los] #[a(href="/terminos-condiciones") Términos y Condiciones Generales] que aceptaron al inscribirse.
+		p Si un usuario fuese sospechado de intentar perjudicar a otros a través de operaciones irregulares, Autominuto podrá suspenderlo o incluso inhabilitarlo permanentemente para operar en el sitio.
+		p Sin perjuicio de lo anterior, Autominuto se reserva también el derecho de entregar toda información referente a este usuario así como a sus operaciones a autoridades competentes (ver #[a(href="/politicas-privacidad") Políticas de privacidad y confidencialidad de la información]).
+		h3 Incumplimiento del compromiso de venta
+		p Cada vez que un usuario comerciante publica un artículo adquiere un compromiso: en caso de que la venta se concrete deberá hacer la entrega del mismo en las condiciones que haya contemplado dentro de su publicación.
+		p Si un usuario es responsabilizado en forma reiterada por no cumplir con este compromiso, Autominuto lo podrá inhabilitar para continuar operando en el sitio.
+		h3 ¿Cómo solicito la baja o el alta de mi cuenta?
+		p Debes tenerla al día, sin facturas pendientes de pago.
+		h3 ¿Puedo operar con diferentes cuentas?
+		p Por seguridad, no puedes operar con diferentes cuentas. Si detectamos que tienes más de un usuario, te inhabilitaremos. Nuestro objetivo es mantener una comunidad segura, donde puedas operar con confianza. Tu seudónimo es tu identidad. Si tienes dudas, revisa los #[a(href="/terminos-condiciones") Términos y Condiciones Generales.]
+		h3 Lenguaje inapropiado
+		p El objetivo de Autominuto es mantener una comunidad segura y cordial. El respeto entre sus miembros es la condición necesaria para su desarrollo. Por esta razón no está permitido el uso de un lenguaje soez, ni insultante, ni inadecuado para el ámbito en el que se expresa. Cualquier usuario que usara un lenguaje inadecuado tanto en su página de artículo, en las preguntas y respuestas del vendedor, como en los foros, etc., podrá ser suspendido temporalmente, o incluso inhabilitado definitivamente de operar en el sitio.
+		h3 Uso reiterado de técnicas prohibidas
+		p En Autominuto creemos que reglas claras ayudan a mantener una comunidad segura y dinámica. Por esta razón, si un usuario utiliza en reiteradas ocasiones técnicas de publicación prohibidas, Autominuto podrá suspenderlo o incluso inhabilitarlo permanentemente para operar en el sitio.
+		h3 Menor de edad
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. Por esto, sólo aquellos usuarios que tengan capacidad legal de contratar pueden operar dentro del sitio. Lamentablemente los #[b menores de edad] no se encuentran en esta situación ya que #[b de acuerdo a las leyes vigentes no están autorizados para responder por transacciones comerciales.] Si una cuenta se encontrara inscripta a nombre de un menor de edad, será inhabilitada para operar dentro del sitio.
+		h3 Acerca de registrarse con un teléfono celular únicamente
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. En este sentido, es recomendable que, para ser miembros activos de la comunidad, los usuarios se registren al menos con un teléfono de red fija.
+		p Eventualmente, el usuario podrá ser inhabilitado para operar en el sitio si Autominuto tomara conocimiento de la falsedad del teléfono ingresado.
+		p En el caso de que tu cuenta haya sido inhabilitada por este motivo, para volver a ser un miembro activo de la comunidad #[b deberás enviarnos una copia de tu factura telefónica y de tu número de documento.]
+		h3 Error en la cuenta de e-mail
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. Cuando la dirección de e-mail de un usuario tiene problemas para recibir los mensajes que le enviamos desde Autominuto, la cuenta del mismo podrá ser inhabilitada temporalmente hasta tanto nos informe una nueva dirección de e-mail.
+		h3 Limitaciones para operar en el sitio de usuarios suspendidos
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. Por esta razón, cuando un usuario es suspendido no puede publicar, comprar u ofertar artículos, participar en foros ni hacer preguntas a los vendedores.
+		h3 Limitaciones para operar en el sitio de usuarios inhabilitados
+		p En Autominuto trabajamos para mantener una comunidad segura, donde los usuarios puedan operar con confianza. Por esta razón, cuando un usuario es inhabilitado no puede publicar, comprar u ofertar artículos, participar en foros o hacer preguntas. Al mismo tiempo, todas las publicaciones de sus artículos podrán ser dadas de baja.
+		br
+		p ¿Tiene más preguntas? #[a(href="mailto:info@autominuto.com") Enviar una solicitud]

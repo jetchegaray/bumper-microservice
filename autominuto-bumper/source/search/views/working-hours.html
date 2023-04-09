@@ -1,0 +1,9 @@
+<div>
+  <b>{{ $ctrl.day }}</b>:
+  <span ng-if="$ctrl.closed()">Cerrado</span>
+  <span ng-if="$ctrl.openAllDay()">Abierto todo el día</span>
+  <span ng-if="!$ctrl.openAllDay()" ng-repeat="hours in $ctrl.periods track by $index">
+    <span>{{ hours.openHourTime }} a {{ hours.closeHourTime }}</span>
+    <span ng-if="$index < $ctrl.periods.length - 1"> | &nbsp;</span>
+  </span>
+</div>

@@ -1,0 +1,63 @@
+<div class="perfil-user-inner-container" id="perfil-account">
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+      <span class="perfil-image">
+        <img src="{{$ctrl.banner.imageUrl || 'assets/images/icons-default/driver.png'}}" ng-click="$ctrl.showModalUserProfileCallback()" width="200" height="200">
+      </span>
+      <div class="fixed-wrapper">
+        <div>
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="user-info">
+              <div class="perfil-name">
+                <span class="title-label" aria-label="{{$ctrl.banner.name || $ctrl.banner.nickName}}">
+                  <strong>{{$ctrl.banner.name || $ctrl.banner.nickName}}</strong>
+                </span>
+              </div>
+
+              <div class="margin-bottom-10" ng-show="$ctrl.banner.address">
+                <img src="assets/images/icons/location.png"><p class="m-l-10">{{$ctrl.banner.address}}</p>
+              </div>
+              <div class="margin-bottom-10">
+                <img src="assets/images/icons/mail-user.png"><p class="m-l-10">{{$ctrl.banner.email}}</p>
+              </div>
+              <div class="margin-bottom-10" ng-show="$ctrl.banner.phone.printNumber">
+                <img src="assets/images/icons/phone-user.png"><p class="m-l-10">{{$ctrl.banner.phone.printNumber}}</p>
+              </div>
+              <div class="margin-bottom-10" ng-if="$ctrl.myCommerceId">
+                <button class="btn btn-primary btn-primary-light-blue" ng-click="$ctrl.goToMyCommerce()">Ver mi comercio</button>
+              </div>
+              <div class="margin-bottom-10" ng-if="!$ctrl.myCommerceId && $ctrl.banner.hasCommerce">
+                <button class="btn btn-primary btn-primary-light-blue" ng-click="$ctrl.goToAddCommerce()">Alta de comercio</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="perfil-info">
+              <div class="perfil-percent">
+                <p>{{$ctrl.percentProfile}} %</p>
+              </div>
+              <div>
+                <p>del perfil completo</p>
+              </div>
+              <div class="margin-bottom-10">
+                ---------------------------
+              </div>
+              <div class="rating" >
+                <div>
+                  <div><span class="glyphicon glyphicon-star"></span> {{$ctrl.banner.recommendations}}</div>
+                  <p>Recomendaciones</p>
+                </div>
+                <div>
+                  <div><span class="glyphicon glyphicon-plus-sign"></span> {{$ctrl.banner.ratings}}</div>
+                  <p>Calificaciones</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

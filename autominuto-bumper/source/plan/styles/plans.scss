@@ -1,0 +1,538 @@
+/* PLANES */
+@import "../../shared/styles/colors";
+
+#plans{
+  h2{
+    font-weight: 500;
+    color: #3b507a;
+  }
+  .prom-code{
+    input{
+      width: 200px;
+    }
+  }
+  .medios-pago{
+    .container-cards{
+      width: 700px;
+      display: block;
+      overflow: hidden;
+      margin: auto;
+      div{
+        width:100px;
+        height:60px;
+        float:left;
+        margin-right: 10px;
+        margin-bottom:10px;
+        background-color: #f3f0f0;
+        .pay-methods{
+			position: absolute;
+		    margin: auto;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 5px;
+		}   
+      }
+    }
+  }
+  .dual-checkbox{
+    display: inline-block;
+  }
+  .ahorro-container{
+    display: inline-block;
+    position:relative;
+    img{
+      position:absolute;
+      bottom: 15px;
+    }
+  }
+  .icon-plan{
+    height: 25px;
+  }
+  .container-plans{
+    display: flex;
+    justify-content: space-around;
+  }
+  .select-plans{
+    width: 350px;
+    display: inline-block;
+  }
+  .planes{
+    padding-left: 30px;
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .back-plans{
+    background-color: #f7f7f7;
+    position: relative;
+  }
+
+}
+
+#plans.back-plans::before{
+  background-color: #fff;
+  height: 550px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+}
+
+ 
+
+.plan-detail{
+  list-style: none;
+  padding: 0;
+  li{
+    padding-left: 1.3em;
+    font-size: 0.9em;
+    padding-right: 10px;
+    position:relative;
+    margin-bottom: 15px;
+    .absolute-li-plan{
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+  }
+  li:before {
+    content: "\f00c"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; /* same as padding-left set on li */
+    width: 1.3em; /* same as padding-left set on li */
+  }
+}
+@media (min-width: 320px){
+
+  .custom-container{
+    width: 100%;
+  }
+  #plans{
+    .contain-promo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .prom-code{
+        float:none;
+        text-align: center;
+        input{
+          width: 200px;
+          margin: 0 auto;
+          display: block;
+        }
+        button{
+          margin-top: 10px;
+          width: 200px;
+        }
+      }
+    }
+
+    .medios-pago{
+      .container-cards{
+        width: 100%;
+      }
+    }
+    .container-plans{
+      display: block;
+    }
+    .select-plans{
+      width: 230px;
+      font-size: 0.8em;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 768px){
+    #plans{
+
+      .medios-pago{
+        .container-cards{
+          width: 700px;
+        }
+      }
+      .container-plans{
+        display: flex;
+        justify-content: space-around;
+      }
+      .select-plans{
+        width: 350px;
+        font-size: 0.8em;
+      }
+    }
+}
+
+@media (min-width: 1024px){
+    #plans .select-plans{
+      width: 350px;
+      font-size: 0.9em;
+    }
+    #plans{
+      .contain-promo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        &:first-child{
+          text-align: left;
+          .dual-checkbox{
+            text-align: left;
+          }
+        }
+        :last-child{
+          .prom-code{
+            float:right;
+            text-align: inherit;
+            input{
+              width: 200px;
+              display: inline-block;
+            }
+            button{
+              margin-top: 0;
+              width: auto;
+            }
+          }
+        }
+
+
+      }
+
+    }
+
+}
+
+@media (min-width: 1280px){
+    #plans{
+      .select-plans{
+        width: 350px;
+        font-size: 1em;
+      }
+      .dual-checkbox{
+        padding-left: 10px;
+        text-align: left;
+      }
+    }
+
+}
+
+@media (min-width: 1367px){
+    #plans{
+      .dual-checkbox{
+        text-align: left;
+      }
+    }
+}
+
+
+$color-dark-gray: #4a4a4a;
+#plans {
+
+  section {
+    position: relative;
+  }
+  .background-pattern{
+    background-image: url(/assets/images/landing/pattern.png);
+    background-size: auto;
+    height: 500px;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    top: 50%;
+    margin-top: -150px;
+  }
+}
+.section-plans{
+  position: relative;
+  min-height: 600px;
+  color: #fff;
+  text-align: center;
+  .tittle{
+    position: relative;
+    h1{
+      margin-top: 30px;
+      font-size: 30px;
+      font-weight: 400;
+      color: $color-dark-gray;
+      text-align: center;
+    }
+  }
+  
+  .tag-coupon{
+    position: absolute;
+    width: 80px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .see-more{
+    text-align: center;
+
+    img{
+      width: 20px;
+      height: 17px;
+      display: inline-block;
+      vertical-align: sub;
+    }
+
+    h5{
+      display: inline-block;
+      margin-left: 8px;
+      font-weight: bold;
+      color: #27536d;
+    }
+  }
+
+  .plan-button{
+    color: $color-blue;
+    font-weight: bold;
+    background-color: $color-yellow;
+    border-radius: 27px;
+    width: 175px;
+    border: 0;
+    font-size: 15px;
+    line-height: 50px;
+    &.dark-blue {
+      color: $color-white;
+      background-color: $color-blue;
+    }
+  }
+
+  .contract-plan.plan-full{
+    .contract-plan-body{
+      .contract-plan-content{
+        h5{
+          color: #27536d;
+        }
+      }
+    }
+  }
+  .contract-plan{
+    width: 100%;
+    max-width: 425px;
+    
+    .contract-plan-header{
+      
+      position: relative;
+      background-size: cover;
+      border-radius: 13px 13px 0 0px;
+      height: 190px;
+      text-align: left;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      
+      &.full {
+        background-image: url(/assets/images/landing/planfull.jpg);
+      }
+
+      &.free {
+        background-image: url(/assets/images/landing/planfree.jpg);
+      }
+
+      .filter-black{
+        border-radius: 13px 13px 0 0;
+      }
+      .tag-label{
+        position: absolute;
+        top: 20px;
+        right:-18px;
+        width: 155px;
+        .desc{
+          position:relative;
+          width: 100%;
+          height: 29px;
+          box-shadow: 4px 5px 6px -1px rgba(0,0,0,.21);
+          text-align: center;
+          background-size: cover;
+
+          &:after {
+            content: "";
+            font-size: .5em;
+            position: absolute;
+            border-style: solid;
+            border-color: #27b574 transparent transparent transparent;
+            bottom: -15px;
+            right: 0;
+            border-width: 15px 18px 0 0;
+            z-index: -1;
+          }
+
+          &.orange{
+            background-image: url(/assets/images/landing/ribbon-orange.png);
+            padding-left: 20px;
+            padding-right: 10px;
+            background-position: 0px center;
+            &:after {
+              border-color: $color-yellow transparent transparent transparent;
+            }
+          }
+
+          span{
+            margin: 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 28px;
+          }
+        }
+      }
+
+      h3{
+        margin-bottom: 0;
+        font-weight: bold;
+        font-size: 28px;
+      }
+
+      p{
+        font-size: 16px;
+      }
+    }
+    .contract-plan-body{
+      color: $color-dark-gray;
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.11);
+      background-color: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 450px;
+      justify-content: space-between;
+      padding-bottom: 20px;
+
+      .android-image{
+        width: 210px;
+        position: absolute;
+        bottom: 0;
+        right: -180px;
+
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+      .tag-coupons-bottom{
+        position: absolute;
+        bottom: 0;
+        right: -10px;
+        width: 125px;
+
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      .contract-plan-content{
+        h5{
+          padding-top: 20px;
+          margin: 0;
+          color: #4c4e55;
+          font-weight: bold;
+          line-height: 20px;
+        }
+        ul{
+          text-align: left;
+          li{
+            margin-top: 15px;
+            padding-right: 30px;
+          }
+        }
+      }
+      .contract-plan-footer {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .padding-right-40 {
+      padding-right: 15px;
+    }
+  }
+}
+
+.section-cards{
+  text-align: center;
+
+  h1{
+    font-size: 50px !important;
+    font-weight: 500 !important;
+    margin-bottom: 20px;
+    text-align: left;
+
+    @media (max-width: 768px) { 
+      font-size: 36px !important;
+    }
+  }
+
+  .payments{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+
+  .mp-logo {
+    width: 150px;
+    position: absolute;
+    left: -180px;
+    top: 40px;
+
+    @media (max-width: 1279px) { 
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  .pay-offer{
+    text-align: center;
+    background-color: #253a4d;
+    position: relative;
+    padding: 0 20px;
+    
+    h4{
+      color: #fff;
+      font-weight: bold;
+      line-height: 36px;
+      text-align: left;
+    }
+  }
+  h3{
+    font-weight: bold;
+    text-align: center;
+    color: $color-dark-gray;
+  }
+  .content-desc{
+    h5{ 
+      font-weight: bold;
+      color: #253a4d;
+      font-size: 1.5em;
+    }
+    .circle{
+      text-align: center;
+      margin: 0 auto;
+      border: 1px solid #253a4d;
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: #253a4d;
+      font-weight: bold;
+    }
+    p{
+      color: #969696;
+    }
+  }
+  
+}

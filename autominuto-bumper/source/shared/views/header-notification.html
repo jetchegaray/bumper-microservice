@@ -1,0 +1,168 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+
+    <ul class="nav navbar-nav navbar-right desktop" ng-show="!$ctrl.isLogged()">
+        <li class="advantages-header">
+          <a ui-sref="register_driver">Soy conductor</a>
+        </li>
+        <li class="landing-header">
+          <a href="#" ng-click="$ctrl.goToLanding()">Tengo un negocio</a>
+        </li>
+        <li class="landing-header">
+          <a ui-sref="register_fleet">Tengo una flota</a>
+        </li>
+        <li>
+          <a href="#" ng-click="$ctrl.goToLogin()">
+            <span class="start-now">Iniciar Sesión</span>
+          </a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li ng-if="!$ctrl.isLogged()" class="dropdown not-desktop">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="http://google.com">
+          <i class="fa fa-bars fa-2x"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a ui-sref="home">
+              <div class="icon"><span class="fa fa-home"></span></div>
+              Inicio
+            </a>
+          </li>
+          <li ng-show="!$ctrl.isLogged()" class="advantages-header">
+            <a ui-sref="register_driver">Soy conductor</a>
+          </li>
+          <li ng-show="!$ctrl.isLogged() || (!$ctrl.myCommerceId && $ctrl.banner.hasCommerce)" class="landing-header">
+            <a href="#" ng-click="$ctrl.goToLanding()">Tengo un negocio</a>
+          </li>
+          <li ng-show="!$ctrl.isLogged() || (!$ctrl.myCommerceId && $ctrl.banner.hasCommerce)" class="landing-header">
+            <a ui-sref="register_fleet">Tengo una flota</a>
+          </li>
+          <li ng-show="!$ctrl.isLogged()" >
+            <a href="#" ng-click="$ctrl.goToLogin()">
+              <span class="icon"><span class="fa fa-sign-in"></span></span>
+              Iniciar Sesión
+            </a>
+          </li>
+        </ul>
+
+      </li>
+
+      <li ng-if="$ctrl.isLogged()" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+          <img ng-src="{{ $ctrl.userData.image || 'assets/images/icons-default/driver.png'}}" alt="Usuario" title="Usuario">
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" ng-class="{ 'with-commerce': !!$ctrl.myCommerce }">
+
+          <li ng-if-start="!!$ctrl.myCommerce" class="user-profile commerce" ui-sref="board.commerce.profile({ commerceId: $ctrl.myCommerce.id })">
+            <div class="user-image">
+              <svg class="user-profile-completed" viewBox="0 0 100 100">
+                <path class="base" stroke-linecap="round" stroke-width="4" fill="none"
+                d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"></path>
+              </svg>
+              <div class="image-wrapper">
+                <img ng-src="{{ $ctrl.userData.image || 'assets/images/icons-default/commerce.png'}}" alt="Usuario" title="Usuario">
+              </div>
+            </div>
+            <div class="greeting">
+              <small>Como comerciante</small><br>
+              <strong>{{ $ctrl.myCommerce.name }}</strong>
+            </div>
+          </li>
+
+          <li class="commerce">
+            <a ui-sref="board.commerce.quotes({ commerceId: $ctrl.myCommerce.id })">
+              <div class="icon"><i class="fa fa-wrench"></i></div>
+              Ventas y solicitudes
+            </a>
+          </li>
+          <li class="commerce">
+            <a ui-sref="board.commerce.shop({ commerceId: $ctrl.myCommerce.id })">
+              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+              Tienda
+            </a>
+          </li>
+          <li class="commerce">
+            <a ui-sref="board.commerce.coupon({ commerceId: $ctrl.myCommerce.id })">
+              <div class="icon"><i class="fa fa-percent"></i></div>
+              Descuentos
+            </a>
+          </li>
+          <li class="commerce" ng-if-end>
+            <a ui-sref="board.commerce.comments({ commerceId: $ctrl.myCommerce.id })">
+              <div class="icon"><i class="fa fa-question"></i></div>
+              Preguntas
+            </a>
+          </li>
+
+          <li ng-if="!!$ctrl.myCommerce" role="separator" class="divider" ng-class="{ commerce: !!$ctrl.myCommerce }"></li>
+
+          <li class="user-profile" ui-sref="board.user.profile">
+            <span class="user-image">
+              <svg class="user-profile-completed" viewBox="0 0 100 100">
+                <path class="base" stroke-linecap="round" stroke-width="4" d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80" fill="none"></path>
+                <path class="progress" stroke-linecap="round" stroke-width="4" percentage="60" stroke-dasharray="{{ $ctrl.userData.profilePercentage * 2.5 }},999" fill="none" d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"></path>
+              </svg>
+              <div class="image-wrapper">
+                <img ng-src="{{ $ctrl.userData.image || 'assets/images/icons-default/driver.png'}}" alt="Usuario" title="Usuario">
+              </div>
+            </span>
+            <span class="greeting">
+              <small>Como conductor</small><br>
+              <strong>Hola {{ $ctrl.userData.nickName }}!</strong>
+            </span>
+          </li>
+
+          <li>
+            <a ui-sref="board.user.quotes">
+              <div class="icon"><i class="fa fa-dollar"></i></div>
+              Presupuestos y Compras
+            </a>
+          </li>
+          <li>
+            <a ui-sref="board.user.cars">
+              <div class="icon"><i class="fa fa-car"></i></div>
+              Mis Autos
+            </a>
+          </li>
+          <li>
+            <a ui-sref="board.user.coupon">
+              <div class="icon"><i class="fa fa-ticket"></i></div>
+              Cupones
+            </a>
+          </li>
+          <li>
+            <a ui-sref="board.user.comments">
+              <div class="icon"><i class="fa fa-question"></i></div>
+              Preguntas
+            </a>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+            <a href="#" ng-click="$ctrl.logout()">
+              <div class="icon"><i class="fa fa-sign-out"></i></div>
+              Cerrar Sesión
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+
+    <div class="navbar-header">
+      <a class="desktop navbar-brand" ui-sref="home">
+        <img class="autominuto-isologo" src="assets/images/nav-bar-white/logo_blue.svg" alt="logo azul" title="logo azul">
+      </a>
+      <a class="not-desktop navbar-brand" ui-sref="home">
+        <img src="assets/images/nav-bar-white/logo_a_mobile.svg" title="mobile logo" alt="mobile logo">
+      </a>
+    </div>
+
+
+
+  </div>
+</nav>

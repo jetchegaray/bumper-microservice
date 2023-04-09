@@ -1,0 +1,6 @@
+<div class="most-used-container slider" ng-class="{'option-selected': $ctrl.isOptionSelected()}">
+  <div ng-repeat="elem in $ctrl.servicesMostUsed" ng-class="{'active': $ctrl.isOptionSelected(elem.value)}" ng-click="$ctrl.selectCategory(elem.value)" class="most-used text-center">
+    <img ng-src="assets/images/categories/{{elem.imageName}}" alt="{{elem.aliasUser}}" class="center-block">
+    <h5>{{elem.aliasUser}}</h5>
+  </div>
+</div>

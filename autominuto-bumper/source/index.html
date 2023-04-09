@@ -1,0 +1,89 @@
+<html lang="es-ar">
+  <head>
+    <base href="/"></base>
+    <title>AUTOMINUTO: resolvé las necesidades de tu auto en minutos</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="En Autominuto conectamos conductores con comercios automotrices para resolver la contratación de servicios y compra-venta de repuestos 🚗" 
+    ng-if="!MetaTags.description"/>
+
+    <meta name="description" content="{{MetaTags.description}}" ng-if="MetaTags.description" />
+    <meta name="author" content="">
+    <meta name="fragment" content="!">
+    <!-- just for testing-->
+    <meta name="robots" content="noindex">
+   
+    <!-- facebook sharing -->
+    <meta property="fb:app_id"             content="2110556505881369" />
+    <meta property="og:url"                content="https://www.autominuto.com" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Autominuto" />
+    <meta property="og:description"        content="Compará, Buscá y Ahorrá en todo lo que necesites para tu auto" />
+    <meta property="og:image"              content="http://www.autominuto.com/assets/images/autominuto_icon_black.png" />
+    <meta property="og:image:secure_url"   content="https://www.autominuto.com/assets/images/autominuto_icon_black.png" />
+
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico"/>
+    <link rel="canonical" href="https://www.autominuto.com" />
+    <link defer href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,700&display=swap" rel="stylesheet">
+    <link defer href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link defer href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" type="text/css"  />
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrQ3FBy08YFSKgo85QkFpA1w-crB2ZD7M&libraries=places,geometry"></script>
+    <!-- dependencies:css -->
+    <!-- endinject -->
+
+    <!-- inject:css -->
+
+    <!-- replaced by versioning yt-->
+    <link defer rel="stylesheet" href="static/main.min.css">
+    <!-- endinject -->
+
+    <!-- Slick must be added after some css files, so we include it manually -->
+    <link defer rel="stylesheet" href="assets/css/slick.css">
+    <link defer rel="stylesheet" href="assets/css/slick-theme.css">
+    <!-- Start of  Zendesk Widget script -->
+    <!--<script defer id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=128d9166-8f70-4d34-bb85-09f89764b336"> </script> -->
+
+<script async data-id="42655" src="https://cdn.widgetwhats.com/script.min.js"></script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '694928307583421');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=694928307583421&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+       <!-- dependencies:js -->
+    <!-- endinject -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37534735-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-37534735-1');
+    </script>
+    <script> window.prerenderReady = true; </script>
+</head>
+<body>
+  <ui-view></ui-view>
+  <ng-include src="'shared/views/footer.html'" ng-hide="$state.current.name === 'results'"></ng-include>
+  <!-- inject:js -->
+  <!-- replaced by versioning -->
+  <script defer src="static/boundle.min.js"></script>
+  <!-- endinject -->
+  <!-- config:js -->
+  <!-- endinject -->
+</body>
+</html>

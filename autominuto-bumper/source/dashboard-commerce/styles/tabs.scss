@@ -1,0 +1,48 @@
+
+
+tab-container {
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border-bottom-color: #69c;
+    color: #69c !important;
+    cursor: pointer;
+  }
+
+  .nav-tabs li a {
+    font-size: 1.2em;
+    color: #253a4c;
+    cursor: pointer;
+  }
+
+  .tab-autominuto {
+    display: none;
+  }
+
+  .tab-autominuto.active {
+    display: block;
+    visibility: visible;
+  }
+
+  .tab-content {
+    margin-top: 40px;
+  }
+
+}
+
+@media (max-width: 980px) {
+  tab-container {
+    .nav-tabs li a {
+      font-size: 0.8em !important;
+      color: #253a4c !important;
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  tab-container {
+    .tab-content {
+      margin-top: 20px !important;
+    }
+  }
+}

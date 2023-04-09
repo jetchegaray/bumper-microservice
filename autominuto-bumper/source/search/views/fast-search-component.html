@@ -1,0 +1,68 @@
+<div class="fast-search-home">
+  <div class="flex-search-container">
+    <div class="search-field search-field-big">
+      <label>Estoy buscando</label>
+  
+      <service-type-unique-selector selected-data="$ctrl.basicSearch.service" 
+                                    placeholder="Ej: Reparación de neumáticos"
+                                    class="cus-search"
+                                    fixed="true"
+                                    search-attribute="aliasUser">
+      </service-type-unique-selector>
+  
+      <i class="button-clear glyphicon glyphicon-remove"
+         ng-click="$ctrl.clear()">
+      </i>
+    </div>
+    <div class="search-field search-field-medium">
+      <label>para un</label>
+      <div
+        class="field fixed-view"
+        swavs-auto-complete
+        name="brand"
+        source="$ctrl.brands"
+        selected-result="$ctrl.basicSearch.brand"
+        placeholder="Ej: Volkswagen"
+        element-selector="input-brand"
+        required>
+      </div>
+    </div>
+    <div class="search-field-full mobile-flex-column">
+      <div class="search-field search-field-big">
+        <label>cerca de</label>
+        <div class="field">
+          <input
+            name="address"
+            ng-model="$ctrl.rawAddress"
+            places-auto-complete
+            on-place-changed="$ctrl.placeChanged()"
+            component-restrictions="{country:'ar'}"
+            placeholder="Ej: Av. Corrientes 2300"
+            ng-readonly="$ctrl.basicSearch.useLocation" />
+        </div>
+      </div>
+
+      <div class="search-field-small search-field search-switch">
+        <div class="search-bar lower">
+          <label>Buscar cerca mío</label>
+          <label class="switch">
+            <input type="checkbox" ng-change="$ctrl.useLocation()" ng-model="$ctrl.basicSearch.useLocation">
+            <div class="pasador round" ></div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lupa-container">
+    <div class="text-center">
+      <div>
+        <div ng-class="{'tooltip-gen-auto': $ctrl.allowSearch()}">
+          <button type="button" class="btn btn-default lupa-open" ng-click="$ctrl.search();" ng-disabled="!$ctrl.allowSearch()">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+          <tooltip-gen position="bottom" tittle-text="¿Estás listo?" text="¡Ya podés comenzar a buscar!" tooltip-size="small"></tooltip-gen>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

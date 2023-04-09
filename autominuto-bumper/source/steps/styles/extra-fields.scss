@@ -1,0 +1,221 @@
+@import "../../shared/styles/edges";
+@import "../../shared/styles/colors";
+
+$margin-fields: 30px;
+
+extra-fields {
+
+  /* GENERAL */
+
+  margin: $margin-fields;
+  display: block;
+
+  @media screen and (max-width: $px-medium) {
+    margin: 5px;
+    margin-top: 20px;
+  }
+
+  extra-fields-drop-down,
+  extra-fields-check-box,
+  extra-fields-input-text,
+  extra-fields-radio-button,
+  extra-fields-images{
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: $px-medium + 1) {
+
+    .field-block .element {
+      min-height: 100px;
+      width: calc(50% - 60px); /* $margin-fields * 2 */
+    }
+
+    /* PARA NEUMÁTICOS QUE TIENE 4 BLOCKES */
+    .field-block:nth-child(4) .element {
+      // position: absolute;
+      // width: calc(50% - 90px); /* $margin-fields * 3 */
+      // left: $margin-fields;
+      // bottom: 35px;
+
+      // float: right;
+      // left: - $margin-fields * 2;
+    }
+
+    .field-block:nth-child(1) .element,
+    .field-block:nth-child(3) .element {
+      margin-right: $margin-fields * 2;
+    }
+
+  }
+
+  .main-image-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $px-medium) {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  .option-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .option-element {
+    margin-bottom: 20px;
+  }
+
+  /* CHECKBOX */
+  /* RADIOS */
+  .option-input {
+    // display: flex;
+    // align-items: center;
+
+    /* NEW */
+    // width: 20px;
+    position: relative;
+
+
+    input[type=checkbox],
+    input[type=radio] {
+      transform: scale(1.6);
+      margin-left: 5px;
+
+      /* NEW */
+      visibility: hidden;
+    }
+
+    input[type=checkbox]:checked + label,
+    input[type=radio]:checked + label {
+      background-color: $color-dark-blue;
+    }
+
+    input[type=checkbox]:checked + label:after,
+    input[type=radio]:checked + label:after {
+      opacity: 1;
+    }
+
+    .label-input {
+      //background-color: $color-dark-blue;
+      border: 1px solid $color-dark-blue;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      // background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#45484d));
+      // background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+      border-radius: 4px;
+      // -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+      //         box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+    }
+
+    .label-checkbox {
+      border-radius: 4px;
+    }
+
+    .label-radio {
+      border-radius: 50%;
+    }
+
+    .label-input:after {
+      content: '';
+      width: 9px;
+      height: 8px;
+      position: absolute;
+      top: 4px;
+      left: 5px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+
+    .label-input:hover::after {
+      opacity: 0.3;
+    }
+
+    /* END NEW */
+
+
+    .span-input {
+      // margin-left: 15px;
+      margin-left: 25px;
+      // margin-top: 5px;
+      white-space: nowrap;
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    extra-fields-radio-button {
+      .span-input {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  /* IMAGES */
+
+  extra-fields-images {
+
+    @media screen and (max-width: $px-medium) {
+      text-align: center;
+    }
+
+    label {
+      border-radius: .5em;
+      border: 1px dashed #d3d3d3;
+      padding: 6px 13px;
+      margin-right: 20px;
+      text-align: center;
+      width: fit-content;
+
+      &.image-selected {
+        padding: 0;
+
+        .image-container {
+          width: 85px;
+          height: 85px;
+        }
+
+        img {
+          padding: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .terminos {
+        text-align: center;
+      }
+
+      img {
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+      }
+
+      input[type=file] {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        opacity: 0;
+      }
+    }
+
+    .terminos {
+      font-size: 11px;
+      font-family: 'Montserrat Light',sans-serif;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+  }
+
+}

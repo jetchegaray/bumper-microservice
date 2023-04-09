@@ -1,0 +1,41 @@
+.validate-popup-container {
+  display: flex;
+  justify-content: center;
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    img {
+      margin-top: 0;
+    }
+  }
+  span {
+    padding: 40px;
+    float: left;
+    text-align: center;
+    .text {
+      width: 380px;
+      margin-bottom: 30px;
+    }
+    .rss {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 2em;
+    }
+  }
+}
+@media (max-width: 450px){
+  h3{
+    font-size: 19px;
+  }
+  .validate-popup-container{
+    span{
+      padding: 20px 5px;
+      .text{
+        width: unset;
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+
+
+
+.login-header-commerce {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  float: right;
+  padding-top: 5px;
+  .name-header {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    span {
+      font-size: 12.5px;
+      max-width: 170px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      //line-height: 0.8em;
+      padding-left: 7px;
+    }
+  }
+
+  .close-session-header {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-table;
+    margin-right: 15px;
+
+    .icon-logout {
+      font-size: 2em;
+      margin-right: 4px;
+    }
+
+    .text-logout {
+      position: relative;
+      bottom: 7px;
+      font-size: 12.5px;
+    }
+  }
+}
+
+.notification-header-commerce {
+  padding-top: 5px;
+
+  .login-header {
+    display: inline-flex;
+    align-items: center;
+
+    a {
+      color: white;
+      margin-right:25px;
+      display: inline-table;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
+  .login-header a:hover {
+    color: #999;
+  }
+}
+
+@media (min-width: 1px) and (max-width: 600px) {
+
+  .login-header-commerce, .name-header {
+    float: none;
+    display: block !important;
+    text-align: center;
+    margin: 10px 0 5px;
+  }
+
+  .close-session-header {
+      margin-bottom: 15px;
+  }
+
+  .notification-header-commerce {
+
+    .login-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        a {
+            margin: 10px 0 !important;
+        }
+
+        .potencia {
+            padding: 0;
+        }
+    }
+  }
+
+  .login-header-commerce {
+    .close-session-header {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: 961px) {
+  .notification-header-commerce {
+    .login-header {
+      margin: -10px 10px 10px 10px !important;
+      a {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1140px) {
+  .login-header-commerce .name-header span {
+    max-width: 200px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .login-header-commerce .name-header span {
+    max-width: 200px;
+  }
+}
+

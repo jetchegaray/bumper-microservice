@@ -1,0 +1,26 @@
+<div ng-show="$ctrl.salesItems.length > 0">
+	<span class="sale-item" ng-repeat="sale in $ctrl.salesItems">
+	  <div class="presupuesto">
+	    <div class="row no-padding">
+	      <div class="col-md-2 no-padding">
+	        <div class="perfil">
+	          <img ng-src="{{ sale.product.image || 'assets/images/icons-default/product.png'}}" width="83" height="83">
+	          <div class="enviado">
+	            Pagado  <br> {{ sale.paidAt }}
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-md-10 right no-padding">
+	        <div class="diagnostico">
+	          <div class="title main-title">{{ $ctrl.getMainTitle(sale.product) }}</div>
+	          <div class="title"><span class="username">{{ sale.user.username }} </span> &nbsp; compró </div>
+	          <div class="subtitle">{{ sale.product.name }}</div>
+	          <div class="car">{{ sale.product.category}}</div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="corner-price">{{sale.product.price | currency: "$"}}</div>
+	  <div class="corner-button-quote"><img ng-src="assets/images/icons/replied.png"></div>
+	</span>
+</div>

@@ -1,0 +1,31 @@
+<div class="option-title">{{$ctrl.component.title || "Podés adjuntar fotos"}}</div>
+<div class="text-grey terminos"><em>Podés adjuntar hasta 10 fotos - Tamaño máximo de cada foto 10MB</em></div>
+
+<div class="main-image-container">
+
+  <label data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]" ng-if="$ctrl.showImageSection(i)" ng-class="{'image-selected': $ctrl.component.images[i]}">
+    <div class="image-container">
+      <img ngf-thumbnail="$ctrl.component.images[i] || $ctrl.imagePath"
+          class="picture-thumbnail"
+          ngf-no-object-url="true"
+          ngf-size="{quality:0.4}">
+    </div>
+
+    <div class="text-grey terminos" ng-if="!$ctrl.component.images[i]"> Agregar foto</div>
+    <input type="file"
+           name="image{{i}}"
+           ngf-select="$ctrl.convertToBase64($file,i)"
+           ng-model="$ctrl.component.images[i]"
+           accept="image/*"
+           />
+  </label>
+</div>
+
+<!-- TODO: FALTA DEFINIR ERRORES
+<div class="clearfix margin-bottom-10"></div>
+
+<div class="error-photo">
+  <span ng-show="$ctrl.commerceForm.commerceLogo.$error.maxSize">La imagen no debe superar los 10MB.</span>
+  <span ng-show="$ctrl.commerceForm.commerceLogo.$error.minWidth || $ctrl.commerceForm.commerceLogo.$error.minHeight">
+    La imagen debe ser por lo menos de 50x50px.</span>
+</div> -->

@@ -1,0 +1,49 @@
+<div class="tittle-image">
+  <span>{{ quantity }}u </span>
+  <img src="assets/images/back_auto.jpg">
+  <div class="text-coupon-descuento">
+    <div>
+      <div><span class="descuento-destacado">{{ discount }}% OFF</span></div>
+      <div>
+        <span class="desc-descuento-destacado">
+          {{ getServicesNames() }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12" style="background-color: #fff; overflow: hidden;">
+  <h4>{{ title}}</h4>
+  <!-- <h3>
+    <span class="text-through text-light-grey">${{ price}}</span>&nbsp
+    <span>  ${{ priceWithDiscount }} </span>
+  </h3> -->
+
+  <p><span class="text-gold">Válido</span> desde {{ validFrom.format('DD/MM/YYYY') }}
+    al {{ validTo.format('DD/MM/YYYY') }}</p>
+  <p><span class="text-gold">Descripción</span></p>
+  <p>
+    {{ description}}
+  </p>
+  <p><span class="text-gold">Limitaciónes de la promoción</span></p>
+  <p>
+    <ul>
+      <li ng-show="mondayToFridayContraint">Canjeable de lunes a viernes</li>
+      <li ng-show="justForTodayContraint">Solo por hoy</li>
+      <li ng-show="noValidHolidayContraint">No canjeable en días feriados</li>
+      <li ng-show="noAddedContraint">No es acumulable con otras promociones</li>
+      <li ng-show="onePerProductContraint">El cupón puede usarse solo una vez</li>
+      <li ng-show="customContraints">{{ customContraints }}</li>
+    </ul>
+  </p>
+  <p>
+    <span class="letra-chica">
+      {{ description }}
+    </span>
+  </p>
+
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 text-center" ng-hide="onlyShow">
+  <button class="btn btn-large" ng-click="close()" ng-disabled="validCoupon() === false || !formCoupon.$valid"> {{ valueButton }} </button>
+</div>

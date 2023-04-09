@@ -1,0 +1,20 @@
+<div class="group-comments">
+	<h5><strong>Preguntale al comercio</strong></h5>
+	<div class="question-area">
+	  <div class="group">
+	    <div class="question-area">
+	    <textarea ng-model="$ctrl.newComment" ng-pattern ="/^[a-zA-Z_\-&`´#\. áéíóúÁÉÍÓÚÑñÇç,\!\(\)\-\_\.\?\¿\%\s]*$/" ng-trim="false" ng-change="$ctrl.updateRemainingComment()" placeholder="Escribí tu pregunta.." maxlength=300 style="resize: none;"></textarea>
+	    <div ng-show="!$ctrl.newComment.length && $ctrl.newComment.length != 0" class="errorMessage">No se permiten números ni caracteres especiales</div>
+	    <div class="row">
+	      <div class="light-blue-button">
+	        <button ng-class="{'disabled-button': !$ctrl.newComment.length && $ctrl.newComment.length != 0}"
+	          class="button-comments-commerce" ng-disabled="!$ctrl.newComment.length" ng-click="$ctrl.saveQuestion()">PREGUNTAR</button>
+	      </div>
+	      <div class="counter">
+	        <p>Quedan {{ $ctrl.remainingComment }} caracteres</p>
+	      </div>
+	    </div>
+	  </div>
+	  </div>
+	</div>
+</div>

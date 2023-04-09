@@ -1,0 +1,44 @@
+.autocomplete-dropdown {
+    border-color: #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    max-height: 200px;
+    overflow: auto;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.autocomplete-search-text, .autocomplete-title {
+    font-size: 14px;
+    padding: 4px;
+}
+
+.autocomplete-row {
+    padding: 4px;
+    color: #787a83;
+}
+
+.autocomplete-highlight-row {
+    background-color: #c2d9e7;
+    border-color: #468fbb;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.autocomplete-list{
+	list-style-type: none;
+	padding: 0;
+	margin:0;
+}
+.matched-text {
+  color: #555;
+  font-weight: 700;
+}
+
+.remove-gray {
+  background-color: inherit !important;
+}

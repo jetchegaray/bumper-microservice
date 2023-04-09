@@ -1,0 +1,96 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<!-- Inicio -->
+<div id="search-commerce">
+  <div class="container-fluid inicio content-back-image text-white">
+    <div class="filter-light-blue"></div>
+    <div class="container margin-top-20" style="text-align: center;">
+
+        <h2><strong>Ya queda muy poco para aumentar tus ventas</strong></h2>
+        <!-- <h5>Decile chau a los tiempos muertos y dejá que sean los clientes</h5>
+        <h5>los que vengan a vos con autominuto.</h5>
+        <br><br>
+        <h8>Contamos con más de 5000 comercios automotrices en nuestra base por eso te pedimos </h8> <br>
+        <h8>que antes de registrar el tuyo, busques en nuestra base, en una de esas, ya esta cargado</h8> <br>
+        <h8> y solo te queda solicitar su <strong> certificación </strong> para operarlo</h8> -->
+
+    </div>
+    <div class="container margin-top-60 progressbar-container margin-bottom-20" style="text-align: center;">
+      <ul class="progressbar col-md-12">
+        <li><span>BUSCÁ TU COMERCIO</span></li>
+        <li><span>CERTIFICALO</span></li>
+        <li><span>LLEGÁ A MAS CLIENTES</span></li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- Sección: MEJORES COMERCIOS -->
+  <div class="container-fluid main">
+    <div class="container margin-bottom-50 margin-top-50">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 padding-no">
+          <div class="form-group margin-bottom-30">
+            <h5 class="text-left"><strong>Buscá tu comercio por su Razón Social</strong></h5>
+            <div class="input-group input-group-search col-md-12">
+                <div class="tooltip-search-commerce" ng-show="$ctrl.totalCommerces > $ctrl.limitCommerce" ng-class="{'tooltip-gen-control': !$ctrl.closeTooltipSearch}">
+                    <tooltip-gen position="left top-mobile" close-button-control="$ctrl.closeTooltipSearch" tittle-text="Encontramos {{ $ctrl.totalCommerces }} comercios" text="<br/>Ingrese el nombre de su comercio lo más diferenciado posible. Si tu comercio se llama <p>Neumáticos Rodriguez S.A.</p>Ingrese <p>Rodriguez S.A.</p>" tooltip-size="medium"></tooltip-gen>
+                </div>
+                <input type="text" class="form-control" placeholder="Razón social de tu comercio"
+                  ng-model="$ctrl.name" ng-keyup="$event.keyCode == 13 && $ctrl.searchCommerces()"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button" ng-click="$ctrl.searchCommerces()"
+                             ng-disabled="$ctrl.name.length === 0">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+                
+            <!-- <div class="tooltip-search-commerce" ng-show="$ctrl.totalCommerces > $ctrl.limitCommerce">
+              <span class="title">Encontramos {{ $ctrl.totalCommerces }} comercios</span>
+              <span class="message">
+                Ingrese el nombre de su comercio lo más diferenciado posible.
+                Si tu comercio se llama <p>Neumáticos Rodriguez S.A.</p>
+                Ingrese <p>Rodriguez S.A.</p>
+              </span>
+            </div> -->
+          </div>
+          <p class="text-gold margin-bottom-30" ng-show="$ctrl.commerces.length"><strong>Tu búsqueda concuerda con estos comercios, elegí tu comercio</strong></p>
+          <label class="radio margin-bottom-30" ng-repeat="commerce in $ctrl.commerces">
+            <input type="radio" name="razon" ng-click="$ctrl.selectCommerce(commerce)">
+            <span> <strong>{{ commerce.name }} </strong> - {{ $ctrl.getLocationParsed(commerce.location) }} </span></span>
+          </label>
+
+          <button class="btn btn-gold comercio margin-bottom-80"
+              ng-click="$ctrl.goToValidateCommerce()" ng-show="$ctrl.commerces.length"
+              ng-disabled="$ctrl.selectedCommerce === null">Certificar mi comercio</button>
+        </div>
+
+        <pagination-complete ng-if="$ctrl.totalPages > 1"
+          load-page="$ctrl.loadPage"
+          total-pages="$ctrl.totalPages"
+          current-page="$ctrl.currentPage">
+        </pagination-complete>
+
+        <div class="col-md-8 col-md-offset-2 register-search-commerce content-back-image padding-top-30 padding-bottom-30" style="background-image: url(/assets/images/back_auto.jpg); overflow: visible;" ng-show="$ctrl.showRegister">
+          <div class="filter-white"></div>
+          <div class="row text-center">
+            <div class="col-md-8 col-sm-8 col-xs-12 margin-bottom-30 margin-top-30">
+              <p><strong>¿Tu comercio no figura en nuestra guía?</strong></p>
+              <p>Registralo ahora y conseguí más clientes</p>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 margin-bottom-30 margin-top-30" ng-class="{'tooltip-gen-control': !$ctrl.closeTooltip}">
+                <button ng-click="$ctrl.goToAddCommerce()" class="btn btn-transparent comercio">Registrar mi comercio</button>
+                <tooltip-gen position="top" close-button-control="$ctrl.closeTooltip" tittle-text="Recorda !" text="Si no encontraste tu comercio en la lista, podés registrar un nuevo comercio." tooltip-size="small"></tooltip-gen>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+          <div class="center margin-top-30" crrsl-comercios></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<cookies-banner></cookies-banner>

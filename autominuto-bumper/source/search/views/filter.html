@@ -1,0 +1,53 @@
+<div class="col-md-12 resultsFilter">
+
+  <div class="col-md-12 padding-left-6">
+    <label class="small">Filtros:</label>
+  </div>
+  <div class="col-md-12 col-lg-8 filter">
+    <div class="checkbox-inline promo">
+      <div class="roundedOne">
+        <input id="check-promo" type="checkbox" value="None" name="promo"
+               ng-model="$ctrl.promo"
+               ng-change="$ctrl.updatePromo({val: $ctrl.promo})"
+        />
+        <label for="check-promo"></label>
+        <span class="option option-size">Promociones</span>
+      </div>
+    </div>
+
+    <div class="checkbox-inline recommended">
+      <div class="roundedOne">
+        <input id="check-recommended" type="checkbox" value="None" name="recommended"
+               ng-model="$ctrl.recommended"
+               ng-change="$ctrl.updateRecommended({val: $ctrl.recommended})"
+        />
+        <label for="check-recommended"></label>
+        <span class="option option-size">Recomendados</span>
+      </div>
+    </div>
+
+    <div class="checkbox-inline quality">
+      <div class="roundedOne">
+        <input id="check-quality" type="checkbox" value="None" name="quality"
+               ng-model="$ctrl.quality"
+               ng-change="$ctrl.updateQuality({val: $ctrl.quality})"
+        />
+        <label for="check-quality"></label>
+        <span class="option option-size option-quality">Mejor Calificación</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-12 col-lg-4 orderBy">
+    <label class="small" for="selectOrdenar">Ordenar por:</label>
+    <div class="select">
+      <select id="selectOrdenar"
+              ng-options="option.name for option in $ctrl.orderBy.options track by option.id"
+              ng-model="$ctrl.orderBy.selected"
+              ng-change="$ctrl.orderChanged()"
+      ></select>
+    </div>
+  </div>
+
+</div>

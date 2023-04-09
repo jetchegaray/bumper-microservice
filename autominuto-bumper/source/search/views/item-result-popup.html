@@ -1,0 +1,52 @@
+<div class="item-result-popup col-xs-12 col-md-6">
+  <div class="sombra">
+    <div class="col-xs-1 oficial gold">
+      <div class="vertical-bar-top"></div>
+      <img src="assets/images/oficial.svg" width="10">
+      <div class="vertical-bar-bottom"></div>
+    </div>
+
+    <div class="col-xs-2" style="padding-left: 5px">
+      <img ng-src="{{ $ctrl.logo || 'assets/images/icons-default/commerce.png' }}" width="70" height="70" class="center-block logo" ng-click="$ctrl.goProfileCommerce($ctrl.commerceId)" style="cursor:pointer;">
+    </div>
+
+    <div class="col-xs-10">
+
+      <div class="container-fluid">
+        <div class="row">
+          <h5 class="pull-left lubricentro">
+            <img ng-show="$ctrl.validated === true" src="assets/images/icons/check.svg" width="17">
+            <img ng-show="$ctrl.validated === false" src="assets/images/icons/check_grey.svg" width="17">
+            <span style="cursor:pointer;" class="commerce-name-result" ng-click="$ctrl.goProfileCommerce($ctrl.commerceId)">{{$ctrl.name}}</span>
+          </h5>
+          <div class="stars pull-left">
+            <i class="fa fa-star" ng-class="{no: $ctrl.stars < 1}"></i>
+            <i class="fa fa-star" ng-class="{no: $ctrl.stars < 2}"></i>
+            <i class="fa fa-star" ng-class="{no: $ctrl.stars < 3}"></i>
+            <i class="fa fa-star" ng-class="{no: $ctrl.stars < 4}"></i>
+            <i class="fa fa-star" ng-class="{no: $ctrl.stars < 5}"></i>
+          </div>
+        </div>
+
+        <div class="row">
+          <h5 class="distance">{{$ctrl.distance}}</h5>
+        </div>
+
+        <div class="row description">
+          <div>{{ $ctrl.address }}</div>
+          <div ng-if="$ctrl.isOpen === true" class="working-hour-results-popup">
+            <span>Comercio abierto - <a style="cursor:pointer;" ui-sref="profile_commerce({commerceId: $ctrl.commerceId})" target="_blank">Ver Horarios</a></span>
+          </div>
+          <div ng-if="$ctrl.isOpen === false" class="working-hour-results-popup">
+            <span>Comercio cerrado - <a style="cursor:pointer;" ui-sref="profile_commerce({commerceId: $ctrl.commerceId})" target="_blank">Ver Horarios</a></span>
+          </div>
+          <div ng-if="$ctrl.isOpen === null" class="working-hour-results-popup">
+            <span>{{ $ctrl.workingTime }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

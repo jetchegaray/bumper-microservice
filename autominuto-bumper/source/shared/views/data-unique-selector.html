@@ -1,0 +1,21 @@
+<ui-select ng-model="$ctrl.selectedData"
+           ng-click="$ctrl.onClick()"
+           ng-blur="$ctrl.onBlur()"
+           theme="bootstrap"
+           ng-disabled="$ctrl.disabled"
+           on-select="$ctrl.onSelect($item, $model)"
+           ng-class="{'fixed-view':$ctrl.fixed}"
+           limit="10"
+           ng-required="$ctrl.required">
+  <ui-select-match allow-clear="{{$ctrl.allowClear}}" placeholder="{{$ctrl.placeholder}}">
+    <div class="selected-option-img">
+      <img ng-src="assets/images/categories/{{$select.selected.imageName}}" ng-if="$select.selected.imageName"/>
+    </div>
+    <span class="selected-label">{{$select.selected[$ctrl.searchAttribute]}}</span>
+  </ui-select-match>
+  <ui-select-choices style="width: auto;" repeat="data in $ctrl.dataFiltered | limitTo: 50"
+                     minimum-input-length="0" refresh-delay="0"
+                     refresh="$ctrl.filterData($select.search)">
+    <div ng-bind-html="data[$ctrl.searchAttribute] | highlight: $select.search"></div>
+  </ui-select-choices>
+</ui-select>

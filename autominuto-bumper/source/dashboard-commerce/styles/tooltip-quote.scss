@@ -1,0 +1,47 @@
+
+
+.tooptip-quote {
+  position: absolute;
+  bottom: -51px;
+  left: -51%;
+  width: 220px;
+  background-color: #26a5f7;
+  padding: 13px;
+  box-shadow: 1px 1px 19px rgba(0,0,0,.5);
+  border-radius: 9px;
+
+  .tooptip-quote-header {
+    display: flex;
+    margin-bottom: 5px;
+
+    span {
+      color: white !important;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 14px !important;
+      margin-top: 8px !important;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .tooltip-quote-content {
+    color: white;
+    font-size: 11px;
+  }
+}
+
+.tooptip-quote::after {
+  left: 102%;
+  top: 45%;
+  bottom: 100%;
+  content: "";
+  position: absolute;
+  margin-left: -2%;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent transparent #25a7fc;
+}

@@ -1,0 +1,134 @@
+<div class="budget-item">
+  <div class="presupuesto">
+    <div class="diagnostico">
+      <div>
+        <span class="title main-title" ng-if="$ctrl.budget.modelCar.brandName">
+          {{ $ctrl.budget.modelCar.brandName }} {{ $ctrl.budget.modelCar.subBrandName }}
+        </span>
+        <span class="title main-title" ng-if="!$ctrl.budget.modelCar.brandName">
+          Coche no especificado
+        </span>
+        <span class="subtitle">
+          {{ $ctrl.budget.issue.name }}
+        </span>
+      </div>
+
+      <div ng-if="$ctrl.currentFilter == 'requested'" class="btns">
+        <button ng-click="$ctrl.finishRequestBudget($ctrl.budget.quoteId, commerceReply.id)">
+          No recibir más presupuestos.
+        </button>
+      </div>
+
+      <div ng-show="$ctrl.currentFilter == 'requested'">
+        <p>Esperando respuesta de <strong>{{$ctrl.budget.replies.length}}</strong> comercios</p>
+        <p class="appointment_budget" ng-show="$ctrl.budget.possibleAppointments.length > 0">
+          Turnos posibles:
+          <span ng-repeat="possibleAppointment in $ctrl.budget.possibleAppointments track by $index">
+            <strong>{{possibleAppointment.date | limitTo: 5 : 0 | strReplace:'-':'/'}}</strong> a las <strong>{{possibleAppointment.date | limitTo: 5 : 11}}</strong>
+            <span ng-show="!$last"> &nbsp; - &nbsp; </span>
+          </span>
+        </p>
+      </div>
+
+
+      <div class="sent">
+        Pedido el {{ $ctrl.budget.createdOn }}
+      </div>
+
+
+    </div>
+    <div ng-if="$ctrl.currentFilter != 'requested'" class="replies filter-{{$ctrl.currentFilter}}">
+
+      <div class="reply" ng-repeat="commerceReply in $ctrl.budget.replies track by $index">
+
+        <div class="reply-toolbar">
+          <div ng-if="$ctrl.currentFilter == 'replied'" class="btns">
+            <div ng-if="!commerceReply.productId">
+              <button ng-click="$ctrl.askToCommerce( commerceReply.commerce.id )" class="blue-budget-button ">Preguntar</button>
+               <button ng-click="$ctrl.acceptRequestBudget($ctrl.budget.quoteId, commerceReply.id, commerceReply.commerce.id )" class="accepted-budget-button">Aceptar</button>
+
+              <!-- <button ng-click="$ctrl.acceptAndBuyRequestBudget($ctrl.budget, commerceReply)" class="accepted-budget-button">Comprar</button>
+            -->
+            </div>
+            <div ng-if="commerceReply.productId">
+              <button ng-click="$ctrl.goProductDetail(commerceReply.commerce.id, commerceReply.productId, $ctrl.budget.quoteId, commerceReply.id)" class="blue-budget-button">Aceptar</button>
+              <button ng-click="$ctrl.rejectRequestBudget($ctrl.budget.quoteId, commerceReply.id, commerceReply.commerce.id )" class="rejection-budget-button">Rechazar</button>
+            </div>
+          </div>
+          <div ng-if="$ctrl.currentFilter == 'accepted_user'" class="btns">
+            <button ng-click="$ctrl.finishRequestBudget($ctrl.budget.quoteId, commerceReply.id)" class="accepted-budget-button relative">
+              Finalizar
+            </button>
+          </div>
+          <div ng-if="$ctrl.currentFilter == 'finished'" class="btns">
+            <button ng-click="$ctrl.qualifyRequestBudget($ctrl.budget.quoteId)" class="blue-budget-button relative">Calificar</button>
+          </div>
+          <div class="amount" ng-show="commerceReply.cost !== '' && !commerceReply.freeService">AR$ {{ commerceReply.cost }} </div>
+          <div class="amount" ng-show="commerceReply.freeService"><strong>Servicio Gratis</strong></div>
+        </div>
+
+        <div class="reply-body">
+          <div class="reply-header">
+            <div class="reply-image">
+              <div class="image-quote" style="cursor:pointer;"
+                   back-img="{{ commerceReply.commerce.logo || 'assets/images/icons-default/commerce.png' }}"
+                   ng-click="$ctrl.goProfileCommerce(commerceReply.commerce.id)"></div>
+            </div>
+            <div class="reply-title">{{ commerceReply.commerce.name }}</div>
+            <div  class="reply-text" ng-init="$scope.clickedViewMore=false">
+              <p>{{ commerceReply.comment }}</p>
+            </div>
+          </div>
+
+          <ul ng-if="$ctrl.currentFilter == 'accepted_user'" class="fa-ul">
+            <li ng-if="commerceReply.commerce.location.streetAddress.street"
+                class="commerce-address">
+              <span class="fa-li"><i class="fa fa-map-marker"></i></span>
+              <a href="http://www.google.com/maps/place/{{ commerceReply.commerce.location.lat }},{{ commerceReply.commerce.location.lng }}">
+                  {{ commerceReply.commerce.location.streetAddress.street }}
+                  {{ commerceReply.commerce.location.streetAddress.streetNumber }}
+                  ({{ commerceReply.commerce.location.streetAddress.streetNumber }})
+              </a>
+            </li>
+            <li ng-if="commerceReply.commerce.email"
+                class="commerce-email">
+              <span class="fa-li"><i class="fa fa-envelope"></i></span>
+              <a href="mailto:{{ commerceReply.commerce.email }}">
+                {{ commerceReply.commerce.email }}
+              </a>
+            </li>
+            <li ng-repeat="phone in commerceReply.commerce.phones"
+                class="commerce-phone">
+              <span class="fa-li"><i class="fa fa-{{ phone.acceptWhatsapp ? 'whatsapp' : 'phone' }}"></i></span>
+              <a href="tel:{{ phone.printNumber }}">{{ phone.printNumber }}</a>
+            </li>
+          </ul>
+          <ul class="fa-ul" ng-show="$ctrl.currentFilter == 'replied'">
+            <li ng-show="commerceReply.possibleAppointments.length > 0">
+              <span class="fa-li"><i class="fa fa-check"></i></span>
+              Te ofreció turno:
+              <span ng-repeat="possibleAppointment in commerceReply.possibleAppointments track by $index">
+                  el <strong>{{possibleAppointment.date | limitTo: 5 : 0 | strReplace:'-':'/'}}</strong>
+                  a las <strong>  {{possibleAppointment.date | limitTo: 5 : 11}}</strong>
+                  <span ng-show="!$last">&nbsp;—&nbsp;</span>
+                </span>
+            </li>
+          </ul>
+          <ul class="fa-ul">
+            <li ng-if="commerceReply.commerce.paymentMethods.label">
+              <span class="fa-li"><i class="fa fa-check"></i></span>
+              {{ commerceReply.commerce.paymentMethods.label }}
+            </li>
+            <li ng-if="commerceReply.commerce.paymentMethods.promotions">
+              <span class="fa-li"><i class="fa fa-check"></i></span>
+              {{ commerceReply.commerce.paymentMethods.promotions }}
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

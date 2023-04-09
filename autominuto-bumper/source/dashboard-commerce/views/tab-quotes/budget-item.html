@@ -1,0 +1,108 @@
+<span class="budget-item">
+  <div class="presupuesto">
+    <div class="row no-padding">
+      <div class="col-md-2 no-padding">
+        <div class="perfil">
+          <div class="image-quote" back-img="{{ $ctrl.budget.userFrom.userPhoto || 'assets/images/icons-default/driver.png' }}">
+
+          </div>
+          <!--img ng-src="{{ $ctrl.budget.userFrom.userPhoto || 'assets/images/icons-default/driver.png' }}" width="83" height="83"-->
+          <div class="name-user-quote">{{ $ctrl.budget.userFrom.username }}</div>
+          <div class="enviado">
+            Enviado  <br> {{ $ctrl.budget.createdOn }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 right no-padding">
+        <div class="diagnostico">
+          <!--<div class="title main-title">{{ $ctrl.getMainTitle($ctrl.budget.quoteType) }}</div>
+          -->
+          <div class="title main-title">{{ $ctrl.budget.issue.name }}</div>
+          <div class="subtitle">{{ $ctrl.budget.issue.detailIssue }}</div>
+          <div class="subtitle" ng-if="$ctrl.budget.modelCar.brandName">{{ $ctrl.budget.modelCar.brandName}} / {{ $ctrl.budget.modelCar.subBrandName }}</div>
+          <!-- <div class="car">
+            {{$ctrl.getLocationParsed($ctrl.budget.location)}}
+          </div> -->
+          <div style="margin-bottom: 10px;" ng-if="$ctrl.budget.explanations">
+            Comentario: <span style="font-style: italic;">"{{ $ctrl.budget.explanations }}"</span>
+          </div>
+          <div ng-show="$ctrl.budget.replies[0].status === 'requested'">
+            <div class="appointment_$ctrl.budget" style="margin-bottom: 10px;" ng-show="$ctrl.budget.possibleAppointments.length">
+              El usuario desea presentarse :
+              <span ng-repeat="possibleAppointment in $ctrl.budget.possibleAppointments track by $index">
+                <strong>{{possibleAppointment.date | limitTo: 5 : 0 | strReplace:'-':'/'}}</strong> a las <strong>{{possibleAppointment.date | limitTo: 5 : 11}}</strong>
+                <span ng-show="!$last"> &nbsp; - &nbsp; </span>
+              </span>
+            </div>
+            <div class="appointment_$ctrl.budget" style="margin-bottom: 10px;" ng-show="$ctrl.budget.possibleAppointments.length == 0">
+              El usuario no ha ingresado horarios posibles
+            </div>
+          </div>
+          <div ng-show="($ctrl.budget.replies[0].status === 'replied') && $ctrl.budget.replies[0].possibleAppointments.length > 0">
+            <div style="margin-top: 10px">
+             <img ng-src="assets/images/icons/{{$ctrl.legendImage}}.png" style="margin-right: 10px">{{ $ctrl.getLegend($ctrl.budget) }}
+            </div>
+          </div>
+          <div class="armar" ng-show="$ctrl.budget.replies[0].status === 'requested'">
+            <button ng-click="$ctrl.buildBudget($ctrl.budget)" class="accepted-budget-button"><img src="assets/images/icons/presupuesto-icon-comprado-white.png"><p>Armar Presupuesto</p></button>
+            <button ng-click="$ctrl.rejectBudget($ctrl.budget)" class="rejection-budget-button"><p>Rechazar Pedido</p></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.budget.replies[0].status != 'requested'">
+
+      <div class="row no-padding reply" ng-show="$ctrl.budget.replies[0].status !== 'requested'"  ng-repeat="reply in $ctrl.budget.replies track by $index">
+        <div class="col-md-2 no-padding">
+          <div class="perfil">
+          <i class="glyphicon glyphicon-share-alt reply-shared-icon"></i>
+          </div>
+        </div>
+        <div class="col-md-8 border-right no-padding">
+          <div class="appointment_$ctrl.budget" style="margin-bottom: 10px; padding-left: 15px; font-size: 1.0em;" ng-show="reply.possibleAppointments.length && reply.status != 'refused_user' && reply.status != 'refused' && $ctrl.budget.quoteType == 'TURN_REQUEST'">
+              <br />
+              <i class="fa fa-check-circle-o" style="font-size: 1.5em; font-weight: 100; vertical-align: middle; color: #00b23b; margin-right: 3px;"></i>
+              Le ofreciste turno para :
+                <span ng-repeat="possibleAppointment in reply.possibleAppointments track by $index">
+                <strong>{{possibleAppointment.date | limitTo: 5 : 0 | strReplace:'-':'/'}}</strong> a las <strong>  {{possibleAppointment.date | limitTo: 5 : 11}}</strong>
+                  <span ng-show="!$last"> &nbsp; - &nbsp; </span>
+                </span>
+                <div style="margin-top: 10px">
+                  <i class="fa fa-check-circle-o" style="font-size: 1.5em; font-weight: 100; vertical-align: middle; color: #00b23b; margin-right: 3px;"></i>
+                  El usuario concurrirá en los horarios elegidos, en caso de modificaciones se comunicara telefonicamente
+                </div>
+          </div>
+
+          <div class="reply-inner">
+            <div class="brand-logo">
+              <div class="image-quote" back-img="{{ reply.commerce.logo || 'assets/images/icons-default/commerce.png' }}">
+
+              </div>
+              <!--img ng-src="{{ $ctrl.budget.reply.commerce.logo || 'assets/images/icons-default/commerce.png' }}" width="92" height="92"-->
+              <div class="brand-title">
+                <p>{{ reply.commerce.name }}</p>
+              </div>
+            </div>
+            <div class="brand-answer">
+              <div ng-init="$scope.clickedViewMore=false">
+                <div class="answer-text" ng-show="!$scope.clickedViewMore && $ctrl.isCommentMaxLength(reply.comment)">{{ reply.comment | limitTo: $ctrl.getMaxCommentLength() }} ...</div>
+                <div class="answer-text" ng-show="$scope.clickedViewMore || !$ctrl.isCommentMaxLength(reply.comment)">{{ reply.comment }}</div>
+                <a ng-if="$scope.clickedViewMore==false && $ctrl.isCommentMaxLength(reply.comment)" ng-click="$scope.clickedViewMore=true;">Ver más</a>
+              </div>
+             <!-- <div ng-show="$ctrl.budget.reply.possibleAppointments.length > 0" >
+                <span class="title_turn">Turnos: {{  $ctrl.budget.reply.possibleAppointments }}</span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 no-padding" ng-show=" reply.status != 'refused_user' && reply.status != 'refused' ">
+          <div class="cost-reply" ng-show="$ctrl.budget.reply.cost !== ''">AR$ {{ reply.cost }} </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="corner-button-quote"><img ng-src="assets/images/icons/{{$ctrl.budget.reply.status}}.png"></div>
+</span>

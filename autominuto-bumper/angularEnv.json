@@ -1,0 +1,6 @@
+{
+	"API_END_POINT": "https://testing.autominuto.com",
+ 	"SOCIAL_RECOMMENDATION_URL": "https://testing.autominuto.com",
+  	"S3_BUCKET": "autominuto-testing",
+  	"PATH_IMAGES" : "http://autominuto-testing.s3-website-sa-east-1.amazonaws.com/"
+}

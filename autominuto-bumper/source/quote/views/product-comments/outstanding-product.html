@@ -1,0 +1,25 @@
+<div class="opiniones-stars" style="font-family: 'Montserrat', sans-serif">
+    <h4>{{$ctrl.name}}:</h4>
+    <div class="group dis-flex text-grey">
+      <div class="puntaje">
+        <p style="text-align: center;">{{ $ctrl.ratingTotal }}</p>
+      </div>
+      <span>
+        <div class="stars stars-container">
+          <div star-show-rating rating="$ctrl.rating"></div>
+        </div>
+        <p>{{ $ctrl.total }} {{$ctrl.type}}</p>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="medal-quality">
+  <div class="comercio-icon" style="float: none">
+    <!--img src="assets/images/icons/default.png"  ng-if="$ctrl.quality  == 'DEFAULT'"-->
+    <img src="assets/images/icons/bronze.png"         ng-if="$ctrl.quality  == 'BRONZE'">
+    <img src="assets/images/icons/silver.png"         ng-if="$ctrl.quality  == 'SILVER'">
+    <img src="assets/images/icons/gold.png"           ng-if="$ctrl.quality  == 'GOLD'">
+    <img src="assets/images/icons/vw.png"             ng-if="$ctrl.quality  == 'PLATINUM'">
+  </div>
+</div>

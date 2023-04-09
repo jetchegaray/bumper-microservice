@@ -1,0 +1,199 @@
+//output: voucher.html
+
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title Autominuto cupon
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:600,700,400', rel='stylesheet', type='text/css')
+    style(type='text/css').
+      html {
+        width: 100%;
+      }
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        mso-margin-top-alt: 0px;
+        mso-margin-bottom-alt: 0px;
+        mso-padding-alt: 0px 0px 0px 0px;
+        background: #E7E7E7;
+      }
+      p, h1, h2, h3, h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      table {
+        font-size: 14px;
+        border: 0;
+      }
+      table tbody {
+        border: 0;
+      }
+      img {
+        border: none !important;
+      }
+      .v-mid-text{
+        font-size: 18px;
+      }
+      .v-big-text{
+        font-size: 27px;
+      }
+      .v-extra-big-text{
+        font-size: 37px;
+        font-weight: bold;
+      }
+      .v-small-text{
+        font-size: 16px;
+      }
+      .v-bold-text{
+        font-weight: bold !important;
+      }
+      .v-pad-r-20{
+        padding-right: 20px;
+      }
+      .v-pad-l-20{
+        padding-left: 20px;
+      }
+      .v-pad-l-30{
+        padding-left:30px;
+      }
+      .v-pad-t-10{
+        padding-top:10px;
+      }
+      .v-pad-b-10{
+        padding-bottom:10px;
+      }
+      .v-pad-30{
+        padding: 30px;
+      }
+    // Responsive CSS
+    style(type='text/css').
+      @media only screen and (max-width: 800px) {
+        body[yahoo] .quote_full_width {
+          width: 100% !important;
+        }
+        body[yahoo] .quote_content_width {
+          width: 90% !important;
+        }
+      }
+      @media only screen and (max-width: 640px) {
+        body[yahoo] .full_width {
+          width: 100% !important;
+        }
+        body[yahoo] .content_width {
+          width: 80% !important;
+        }
+        body[yahoo] .center_txt {
+          text-align: center !important;
+        }
+        body[yahoo] .post_sep {
+          width: 100% !important;
+          height: 60px !important;
+        }
+        body[yahoo] .gal_sep {
+          width: 100% !important;
+          height: 40px !important;
+        }
+        body[yahoo] .gal_img {
+          width: 100% !important;
+        }
+        body[yahoo] .bb_space {
+          height: 90px !important;
+        }
+      }
+      @media print {
+        td.tittle-voucher{
+          background-color:#0f374b !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.tittle-n-voucher{
+          color:#f4d505 !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.numero-voucher{
+          color:#fff !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.subtittle-color{
+          color:#a8a8a8 !important;
+          -webkit-print-color-adjust: exact;
+        }
+        td.main-tittle-color{
+          color:#4f4f4f !important;
+          -webkit-print-color-adjust: exact;
+        }        
+      }
+body
+  table(width='100%', border='0', cellspacing='0', cellpadding='0')
+    tr
+      td(align='center', valign='top', bgcolor='#ffe77b', style='background-color:#ddd;')
+        br
+        br
+        table(width='800', border='0', cellspacing='0', cellpadding='0', style='background-color:#0f374b;padding:20px;height:100px;')
+          tr
+            td(width='360', align='left', valign='middle', class="tittle-voucher")
+              img(src="assets/images/icons/autominuto_logo_invert.png", width='350', style='display:block;' class="v-pad-l-20")
+            td(width='360', align='right', valign='middle', class="tittle-voucher")
+              table(width='360', border='0', cellspacing='0', cellpadding='0', class="v-bold-text")
+                tr  
+                  td(align='right', valign='middle',style='color:#f4d505;', class="v-mid-text v-pad-r-20 tittle-n-voucher") N° DE VOUCHER
+                tr
+                  td(align='right', valign='middle',style='color:#fff;' class="v-big-text v-pad-r-20 numero-voucher") XXXXXXXXXXXXXXXX
+        table(width='800', height="370", style='background-color:#fff;margin-top:20px;height:100px;border:1px solid #ddd;')
+          tr
+            td(class="v-extra-big-text v-pad-30 main-tittle-color" align='left', valign='middle' style="color:#4f4f4f") Taller Mecánico Belgrano Frenos GiordaniMax SRL
+          tr
+            td(class="v-mid-text" align='left', valign='middle' style="color:#ccc")
+              table(width='800', border='0', cellspacing='0', cellpadding='0', class="v-bold-text")
+                tr  
+                  td(align='left', valign='middle',style='color:#a8a8a8', class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") TELÉFONO
+                  td(align='left', valign='middle',style='color:#a8a8a8' class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") HORARIOS
+                tr  
+                  td(align='left', valign='middle',style='color:#4f4f4f', class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") 011 - 437 90 90
+                  td(align='left', valign='middle',style='color:#4f4f4f' class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") 9:00 a 13:00 - 16:00 a 20:00 HS
+                tr  
+                  td(align='left', valign='middle',style='color:#a8a8a8', colspan="2", class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") DIRECCIÓN
+                tr  
+                  td(align='left', valign='middle',style='color:#4f4f4f; padding-bottom:30px;', colspan="2", class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") Av. Cabildo 2040. Buenos Aires.
+        table(width='800', height="300", style='background-color:#6385c3;')
+          tr
+            td(class="v-extra-big-text v-pad-30" align='left', valign='middle' style="color:#4f4f4f")
+              img(src="assets/images/icons/QR-vacio.png", width='200' height="200", style='display:block;' class="v-pad-l-20")
+        table(width='800', border='0', cellspacing='0', cellpadding='0', class="v-bold-text", style="margin-bottom: 30px; margin-top:30px; background-color: #fff")
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#a8a8a8', class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") TITULAR
+            td(align='left', width="400", valign='middle',style='color:#a8a8a8' class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") VEHÍCULO
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#4f4f4f', class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") Juan Falavella
+            td(align='left', width="400", valign='middle',style='color:#4f4f4f' class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") Ford Fiesta Ambiente
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#a8a8a8', class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") PROBLEMA
+            td(align='left', width="400", valign='middle',style='color:#a8a8a8' class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") HORARIO
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#4f4f4f', class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") Tren Delantero
+            td(align='left', width="400", valign='middle',style='color:#4f4f4f' class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") 25 Enero. 15:00 a 17:30 hs
+          tr  
+            td(align='left', valign='middle',style='color:#a8a8a8', colspan="2", class="v-small-text v-pad-l-30 v-pad-t-10 subtittle-color") PRECIO
+          tr  
+            td(align='left', valign='middle',style='color:#4f4f4f', colspan="2", class="v-small-text v-pad-l-30 v-pad-t-10 v-pad-b-10") Av. Cabildo 2040. Buenos Aires.
+        table(width='800', border='0', cellspacing='0', cellpadding='0', class="v-bold-text", style="margin-bottom: 220px; margin-top:30px;")
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#a8a8a8; padding-bottom:10px;', class="v-small-text v-pad-l-20 v-pad-t-10 subtittle-color")
+              img(src="assets/images/icons/autominuto_logo_gray.png" width='270')
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#596c81', class="v-small-text v-pad-l-20 v-pad-t-10 subtittle-color") Todo lo que necesitás para tu auto
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#596c81', class="v-small-text v-pad-l-20 subtittle-color") a un click de distancia
+          tr  
+            td(align='left', width="400", valign='middle',style='color:#596c81;padding-top:20px;', class="v-small-text v-pad-l-20 subtittle-color") ©2020 Autominuto. CABA Argentina.
+            
+            
+            
+            
+            

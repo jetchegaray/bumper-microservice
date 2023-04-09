@@ -1,0 +1,12 @@
+#payment-methods-component{
+
+  .interests {
+    margin-left: 20px;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
+	
+}

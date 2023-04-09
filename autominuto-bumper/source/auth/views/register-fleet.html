@@ -1,0 +1,45 @@
+<header-notification></header-notification>
+
+<div class="container-fluid pasos ng-scope margin-top-40">
+  <!-- <h2 class="text-center text-grey margin-bottom-50">REGISTRO DE CONDUCTORES</h2> -->
+
+  <div class="container container-register">
+    <div class="col-md-12 section-register">
+        <div class="col-md-5 padding-right-no padding-left-6 conductor-text-container only-desktop">
+            <div class="conductor-text">
+                <div class="clearfix">
+                <h4 class="conductor-text margin-bottom-20">
+                    Gestionamos el mantenimiento y reparación de tu flota<br><strong>&nbsp;con tecnologia</strong>
+                </h4>
+                </div>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+                Recibí alertas de mantenimiento preventivo por kilometraje
+                </h5>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+                Mantené tu flota ordenada y documentación al día
+                </h5>
+                <h5 class="text-grey listado margin-bottom-20">
+                <img src="assets/images/icons/listo.svg">
+               	Decidí mejor comparando presupuestos mecánicos en minutos.
+                </h5>
+            </div>
+        </div>
+
+        <div class="col-md-7 sign-up-container">
+            <sign-up-form is-commerce="false" is-fleet="true" on-sign-up="$ctrl.onSignUp(email, password, name, phone)"></sign-up-form>
+        </div>
+    </div>
+    <div class="col-md-12 container">
+        <hr class="margin-top-20">
+        <div class="col-md-6 col-sm-12 already-registered">
+            <h5 class="login">¿Ya posee cuenta en Autominuto?</h5>
+            <button class="btn btn-lg btn-info" ng-click="$ctrl.goToLogin()">Login</button>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<div ng-include="'shared/views/tpl-promo-mobile.html'"></div>

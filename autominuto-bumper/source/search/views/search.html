@@ -1,0 +1,40 @@
+<div class="col-xs-12 buscador">
+
+  <div class="col-xs-12 estoyBuscando">
+    <label>Estoy buscando</label>
+
+    <service-type-unique-selector data="$ctrl.servicesTypes" selected-data="$ctrl.selectedServiceType" search-attribute="aliasUser" class="cus-search" style="width: 50%" on-change="$ctrl.onSelectServiceType(selectedServiceType)" placeholder="Ej: Cambio de faros antinieblas">
+    </service-type-unique-selector>
+            
+    <button class="searchResultButton" ng-click="$ctrl.onSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+  </div>
+  <div class="col-md-6 col-xs-12 paraUn">
+    <label>para un</label>
+    <div swavs-auto-complete
+         placeholder="Ej: Volkswagen"
+         selected-result="$ctrl.selectedBrand"
+         select-handler="$ctrl.onSelectBrand"
+         source="$ctrl.brands"
+         id="results-brand-autocomplete"
+         minlength="2"
+         limit-result="5"
+         initial-value="$ctrl.selectedBrand.label"
+         element-selector="input-brand"
+    ></div>
+  </div>
+
+  <div class="col-md-6 col-xs-12 cercaDe">
+    <label>cerca de</label>
+    <div>
+      <input id="results-location"
+             class="form-control"
+             name="address"
+             ng-model="$ctrl.rawAddress"
+             places-auto-complete
+             on-place-changed="$ctrl.placeChanged()"
+             component-restrictions="{country:'ar'}"
+             placeholder="Ej: Av. Corrientes 2300"/>
+    </div>
+  </div>
+
+</div>

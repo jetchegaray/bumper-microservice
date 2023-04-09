@@ -1,0 +1,1120 @@
+section {
+  .banner {
+    .perfil-container {
+      .menu {
+        .tab-content {
+          margin-top: 40px;
+          .my-data {
+            .user-data-container {
+            }
+          }
+        }
+      }
+    }
+    .perfil-user-inner-container {
+      float: left;
+      width: 100%;
+      background-color: white;
+      padding: 20px 0;
+      border-radius: 8px 8px 0 0;
+      border-bottom: thin solid #cccccc;
+      display: flex;
+      align-items: center;
+      .col-xs-9 {
+        padding: 0;
+        .usuario-photo {
+          span {
+            padding: 0 !important;
+          }
+        }
+        span {
+          .perfil-title {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            span {
+              display: flex;
+              align-items: center;
+            }
+            div {
+              margin: 0 2px;
+              p {
+                font-weight: bold;
+                font-size: 2em;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+                color: #0f374b;
+              }
+            }
+            .stars {
+              display: flex;
+              margin-left: 10px;
+            }
+          }
+          .perfil-subtitle,
+          .perfil-link {
+            margin-bottom: 10px;;
+            div {
+              span {
+                display: flex;
+                align-items: center;
+                img {
+                  margin-right: 10px;
+                }
+                p {
+                  margin: 0;
+                }
+                img {
+
+                }
+              }
+            }
+          }
+          .perfil-social {
+            display: flex;
+            align-items: center;
+            div {
+              span {
+                margin: 4px;
+              }
+            }
+            p {
+              margin-left: 10px;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .col-xs-3 {
+        background-color: #fff;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        div {
+          align-self: center;
+          .date,
+          .number-1,
+          .number-2,
+          .car-brands,
+          .clock {
+            display: flex;
+            justify-content: flex-end;
+            margin: 12px;
+            align-items: center;
+            div {
+              display: flex;
+              align-items: center;
+              p {
+                margin: 0;
+                margin-left: 5px;
+              }
+            }
+            span {
+              display: flex;
+              .logo-car {
+                margin: 0 0 0 10px;
+                position: relative;
+                .more {
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  z-index: 25;
+                  background-image: url("/assets/images/icons/car-brand-transparency.png");
+                  border-radius: 20px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  b {
+                    font-size: 25px;
+                  }
+                }
+              }
+            }
+            .test-drive {
+              width: 140px;
+              button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                background-color: #253a4c;
+                border: none;
+                color: white;
+                padding: 10px 10px;
+                border-radius: 20px;
+              }
+            }
+            p {
+              margin: 0 5px;
+            }
+          }
+          .date {
+            p {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          .number-1,
+          .number-2 {
+            color: #787b84;
+            div {
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+      .perfil-comerciante {
+        width: 67%;
+      }
+    }
+  }
+}
+
+.detalle-vehiculo{
+  .row{
+    >div{
+      height: 70px;
+    }
+  }
+}
+
+
+.btn.btn-primary.btn-primary-light-blue{
+  background-color: #5c9bbf;
+  border: 0;
+}
+
+
+.shadow-bottom{
+  -webkit-box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+  border-radius: 10px;
+}
+#perfil-account{
+
+
+  .perfil-image{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    float: left;
+    img{
+      width: 200px;
+    	height: 200px;
+      border: 5px solid;
+      cursor: pointer;
+    	border-radius: 150px;
+    	-webkit-border-radius: 150px;
+    	-moz-border-radius: 150px;
+      z-index: 2;
+    }
+  }
+  .fixed-wrapper{
+    width: 100%;
+    float: left;
+    margin-left: -250px;
+    padding-left: 250px;
+    >div{
+      width: 100%;
+    }
+  }
+  .btn-primary-light-blue{
+    background-color: #5c9bbf;
+    border: 0;
+  }
+  .perfil-info{
+    padding-left: 100px;
+    .perfil-percent{
+      font-size: 3.2em;
+      margin-bottom: 0;
+    }
+    >div{
+      margin-bottom: 10px;
+    }
+    .rating{
+      display: flex;
+      justify-content: flex-start;
+      text-align: center;
+      div{
+        div{
+          padding: 5px 10px 5px 10px;
+          width: 100px;
+          border-radius: 5px;
+          border: 1px solid;
+          display:block;
+          margin-right: 10px;
+        }
+        p{
+          display: block;
+          font-size: .7em;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  .perfil-name{
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size: 2em;
+  }
+  .user-info{
+    display: inline-block;
+    p.m-l-10{
+      margin-left:10px;
+    }
+  }
+  p{
+    margin: 0;
+    display: inline-block;
+    font-size: 0.9em;
+  }
+  img{
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  hr{margin-top: 0;
+    margin-bottom: 10px;}
+
+    .nav-profile{
+      font-weight: bold;
+      font-size: 1em;
+      ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+        overflow: hidden;    }
+      li{
+        display: inline-block;
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+
+        a{
+          display: block;
+          text-decoration: none;
+          padding: 10px 20px 15px 20px;
+
+        }
+      }
+
+    }
+
+    .nav-tabs a{
+      font-size: 1em;
+      color: #253a4c;
+    }
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+      border-bottom: 3px solid #5c9bbf;
+      color: #5c9bbf;
+    }
+    .nav-tabs>li{
+      float: left;
+      margin-bottom: 0;
+    }
+    .nav-tabs>li>a{
+      margin-right: 0;
+      line-height: 1.42857143;
+      border: 0;
+      border-radius: 0;
+    }
+}
+
+#data-profile{
+  .my-address{
+    label{
+      font-weight: normal;
+    }
+    input{
+      vertical-align: top;
+    }
+
+    .radio-hover{
+      .hover-delete-address{
+        display: none
+      }
+    }
+    .radio-hover:hover{
+      .hover-delete-address{
+          color: red;
+          font-size:0.8em;
+          position: absolute;
+          right: -60px;
+          top: 3px;
+        }
+      span{
+        display: inline-block;
+
+      }
+    }
+  }
+
+  .data-edit-perfil{
+    text-align: right;
+    float: right;
+    button{
+      margin-top: 10px;
+      font-size: 0.9em;
+      width: 170px;
+      text-align: center;
+      background-color: #5c9bbf;
+      border: 0;
+      padding: 10px 0 10px 0;
+      span{
+        margin-right: 10px;
+      }
+    }
+  }
+
+  h6, p, label{
+    color: #80838b;
+  }
+
+}
+.vehiculos-selected{
+  -webkit-box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 10px -2px rgba(0,0,0,0.75);
+}
+
+#mis-vehiculos{
+  label{
+    width: 100%;
+    input{
+      margin-top: 60px;
+    }
+    .del-car{
+      position: absolute;
+      top:0;
+      right: 0;
+      font-size: 1.5em;
+      color:#cc4848;
+    }
+  }
+
+  .margin-wrapper{
+    width: 40px;
+    float: left;
+    margin-top: 20px;
+    text-align: center;
+  }
+  /*.fixed-wrapper{
+    width: 100%;
+    margin-left:-40px;
+    padding-left:40px;
+    float: left;
+    margin-top: 20px;
+    >div{
+      width:100%;
+      display:flex;
+      justify-content: space-around;
+      .vehicle-detail{
+        margin-bottom: 30px;
+        min-height: 42px;
+      }
+    }
+  }*/
+  .fixed-wrapper{
+    width: 100%;
+    padding-right: 40px;
+    /* margin-left: -70px; */
+    /* padding-left: 40px; */
+    margin-right: -40px;
+    float: left;
+    margin-top: 20px;
+    .vehicle-detail{
+      margin-bottom: 30px;
+      min-height: 42px;
+    }
+    span{
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.perfil-image-container{
+  height:350px;
+  >div{
+    position: relative;
+    height: 100%;
+  }
+}
+
+.imaggg{
+    background-image: url(/assets/images/back_auto.jpg);
+}
+
+#modal-account{
+
+	.uploadPerfilImage{
+  	text-align: center;
+  	display: block;
+    /* Upload */
+    .fileContainer {
+      overflow: hidden;
+      position: relative;
+      .cut-image{
+        width: 130px;
+        height: 130px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        img{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          height: 100%;
+          width: auto;
+          -webkit-transform: translate(-50%,-50%);
+              -ms-transform: translate(-50%,-50%);
+                  transform: translate(-50%,-50%);
+        }
+        img.portrait {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      input{
+        display: none;
+      }
+    }
+	}
+
+  ::-webkit-scrollbar
+  {
+  	width: 8px;
+  	/*background-color: #F5F5F5;*/
+  }
+  ::-webkit-scrollbar-thumb
+  {
+  	border-radius: 10px;
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  	background-color: #c1c1c1;
+  }
+  ::-webkit-scrollbar-track
+  {
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  	border-radius: 10px;
+  	background-color: #F5F5F5;
+    display:none;
+  }
+
+  button.button-modal{
+    margin-top: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    background-color: #5c9bbf;
+    border: 0;
+
+    @media (max-width: 767px) {
+      width: 100% !important;
+      display: block;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+
+  h6{
+    font-weight: 500;
+    font-size: 1em;
+    color: #80838b;
+  }
+  .add-in{
+    button{
+      position:absolute;
+      right: 0;
+      margin-top: 0;
+      margin-right: 5px;
+      margin-top: 4px;
+      font-weight: 500;
+      font-size: 1em;
+      padding: 3px;
+      width: 150px;
+      border-radius: 5px;
+      span{
+        margin-right: 10px;
+      }
+    }
+    input{
+      padding-right: 165px;
+    }
+  }
+  .modal-footer{
+    text-align: left;
+  }
+  .modal-title{
+    text-align: center;
+    font-size: 1.6em;
+    span{
+      margin-right: 20px;
+
+    }
+  }
+  .modal-dialog.mini{
+    /* Smartphones (portrait and landscape) ----------- */
+      @media only screen
+      and (min-device-width : 320px)
+      and (max-device-width : 480px) {
+        width: 100%;
+      }
+
+      /* Smartphones (landscape) ----------- */
+      @media only screen
+      and (min-width : 321px) {
+        width: 100%;
+      }
+
+      /* Smartphones (portrait) ----------- */
+      @media only screen
+      and (max-width : 320px) {
+        width: 100%;
+      }
+
+      /* iPads (portrait and landscape) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px) {
+        width: 50%;
+      }
+
+      /* iPads (landscape) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (orientation : landscape) {
+        width: 50%;
+      }
+
+      /* iPads (portrait) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (orientation : portrait) {
+        width: 60%;
+      }
+
+      /* Desktops and laptops ----------- */
+      @media only screen
+      and (min-width : 768px) {
+        width: 50%;
+      }
+
+      /* Desktops and laptops ----------- */
+      @media only screen
+      and (min-width : 1224px) {
+        width: 40%;
+      }
+
+      /* Large screens ----------- */
+      @media only screen
+      and (min-width : 1824px) {
+        width: 30%;
+      }
+
+      /* iPhone 4 ----------- */
+      @media
+      only screen and (-webkit-min-device-pixel-ratio : 1.5),
+      only screen and (min-device-pixel-ratio : 1.5) {
+      /* Styles */
+      }
+  }
+  .modal-dialog{
+    /* Smartphones (portrait and landscape) ----------- */
+      @media only screen
+      and (min-device-width : 320px)
+      and (max-device-width : 480px) {
+        width: 100%;
+      }
+
+      /* Smartphones (landscape) ----------- */
+      @media only screen
+      and (min-width : 321px) {
+        width: 100%;
+      }
+
+      /* Smartphones (portrait) ----------- */
+      @media only screen
+      and (max-width : 320px) {
+        width: 100%;
+      }
+
+      /* iPads (portrait and landscape) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px) {
+      /* Styles */
+      }
+
+      /* iPads (landscape) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (orientation : landscape) {
+      /* Styles */
+      }
+
+      /* iPads (portrait) ----------- */
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (orientation : portrait) {
+        width: 85%;
+      }
+
+      /* Desktops and laptops ----------- */
+      @media only screen
+      and (min-width : 768px) {
+        width: 85%;
+      }
+
+      /* Desktops and laptops ----------- */
+      @media only screen
+      and (min-width : 1224px) {
+        width: 70%;
+      }
+
+      /* Large screens ----------- */
+      @media only screen
+      and (min-width : 1824px) {
+        width: 60%;
+      }
+
+      /* iPhone 4 ----------- */
+      @media
+      only screen and (-webkit-min-device-pixel-ratio : 1.5),
+      only screen and (min-device-pixel-ratio : 1.5) {
+      /* Styles */
+      }
+  }
+
+
+  .new-coupon{
+    /* CHECKBOX AND RADIO */
+    .checkbox-content{
+      font-size: 0.9em;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      .checkbox{
+        margin-top: 0;
+        margin-bottom: 5px;
+        label{
+          padding-left: 0;
+        }
+      }
+    }
+    .checkbox label:after
+    {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .checkbox .cr{
+        position: relative;
+        display: inline-block;
+        border: 1px solid #a9a9a9;
+        width: 1.3em;
+        height: 1.3em;
+        float: left;
+        margin-right: .5em;
+    }
+
+    .checkbox .cr .cr-icon
+    {
+        position: absolute;
+        font-size: .8em;
+        line-height: 0;
+        top: 50%;
+        left: 20%;
+    }
+
+    .checkbox label input[type="checkbox"]{
+        display: none;
+    }
+
+    .checkbox label input[type="checkbox"] + .cr > .cr-icon{
+        transform: scale(3) rotateZ(-20deg);
+        opacity: 0;
+        transition: all .3s ease-in;
+    }
+
+    .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon
+    {
+        transform: scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+
+    .checkbox label input[type="checkbox"]:disabled + .cr
+    {
+      opacity: .5;
+    }
+
+    .radio{
+      color:#ddd;
+      position:relative;
+    }
+    .radio span{
+      padding-left:20px;
+    }
+
+    .radio input[type="radio"]:checked + span{
+      color:#253a4c;
+    }
+
+    /* FIN CHECKBOX AND RADIO */
+    .modal-content{
+      background-color: #f2f2f2;
+      color:#464646;
+      display: block;
+      overflow: hidden;
+      .letra-chica{
+        font-size: 0.8em;
+        color: #939393;
+      }
+      .modal-body{
+        .input-group-addon{
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+          -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+        padding: 0;
+        .form-content{
+          font-size: 0.85em;
+          label{
+            font-weight: 400;
+            margin-right: 10px;
+            +input{
+              width: 100px;
+              display: inline-block;
+            }
+          }
+          h6{
+            color:#1b53da;
+          }
+          background-color: #fff;
+          color:#253a4c;
+          border-radius: 6px 0px 0px 6px;
+          border-right: 1px solid #d8d8d8;
+          .display-form{
+            max-height: 700px;
+            overflow-y: scroll;
+            .fileContainer{
+              border: 2px dotted #ddd;
+              width: 65px;
+              height: 65px;
+              display: block;
+              overflow: hidden;
+              padding: 10px;
+              padding-top: 10px;
+              text-align: center;
+              border-radius: 8px;
+              cursor: pointer;
+              .cut-image{
+                width: 45px;
+                height: 45px;
+                margin: 0 auto;
+                position: relative;
+                overflow: hidden;
+                img{
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  height: 100%;
+                  width: auto;
+                  -webkit-transform: translate(-50%,-50%);
+                      -ms-transform: translate(-50%,-50%);
+                          transform: translate(-50%,-50%);
+                }
+                img.portrait {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+              img{
+                width: 70%
+              }
+              h6{
+                color: #7aabca;
+              }
+            }
+            .content-radio{
+              >label{
+                display: inline-block;
+                min-width: 100px;
+              }
+              input{
+                display: inline-block;
+              }
+            }
+            .content-date-desde-hasta{
+              &.-remove-gray-readonly {
+                input[readonly] {
+                  background-color: inherit;
+                }
+              }
+              .input-group{
+                width: 150px;
+                font-size: 0.8em;
+                input{
+                  font-size: 1em;
+                }
+                .input-group-addon{
+                  padding: 9px 5px 9px 8px;
+                  font-size: 14px;
+                  font-weight: normal;
+                  line-height: 1;
+                  color: #555;
+                  text-align: center;
+                  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+                  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+                }
+              }
+            }
+          }
+        }
+        .display-content{
+          button{
+            background-color: #05bf40;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 13px 10px 13px !important;
+            width: auto;
+            font-weight: 500;
+            border-radius: 3px;
+          }
+          .container-display-content{
+            padding: 15px 45px 0px 45px;
+            display: block;
+            overflow: hidden;
+            .tittle-image{
+              >span{
+                background-color: #ffae04;
+                border-radius: 100%;
+                padding: 10px 8px 10px 8px;
+                position: absolute;
+                color: #fff;
+                top: 40px;
+                right: -20px;
+              }
+              width: 100%; position:relative;
+              img{
+                width: 100%;
+              }
+              .text-coupon-descuento{
+                background-color: #376be5;
+                position: absolute;
+                bottom: 30px;
+                margin: 0 auto;
+                width: 95%;
+                color: #fff;
+                left: 0;
+                right: 0;
+                >div{
+                  >div{
+                    min-width: 35%;
+                  }
+                  position:relative; display: flex;align-items: center;
+                  .descuento-destacado{
+                    font-size: 2em;
+                    background-color: #1752d4;
+                    display: block;
+                    padding: 10px;
+                  }
+                  .desc-descuento-destacado{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    background-color: #376be5;
+                    font-size: 0.9em;
+                    display: flex;
+                  }
+                }
+
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+/* GENERIC */
+.text-light-grey{
+  color: #d0d0d0;
+}
+.text-gold{
+  color:#f6bd00;
+}
+.text-through{
+  text-decoration: line-through;
+}
+textarea{
+  resize: none;
+}
+
+
+  @media (max-width: 1366px) {
+    #perfil-account{
+      .perfil-info{
+        padding-left: 0;
+      }
+    }
+    #modal-account{
+      .new-coupon{
+        .modal-content{
+          .modal-body{
+            .form-content{
+              .display-form{
+                max-height: 650px;
+              }
+            }
+            .display-content{
+              p{
+                font-size: 0.9em;
+              }
+              .container-display-content{
+                padding: 15px 40px 0px 40px;
+                .tittle-image{
+                  .text-coupon-descuento{
+                    >div{
+                      .descuento-destacado{
+                        font-size: 1.7em;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #search-commerce{
+      .register-search-commerce{
+        p{
+          font-size: 1.2em !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 1280px) {
+    #modal-account{
+      .new-coupon{
+        .modal-content{
+          .modal-body{
+            .form-content{
+              .display-form{
+                max-height: 650px;
+              }
+            }
+            .display-content{
+              .container-display-content{
+                padding: 15px 15px 0px 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+
+  }
+  @media (max-width: 980px) {
+    #perfil-account{
+      .perfil-image{
+        margin-top: 70px;
+      }
+    }
+    #modal-account{
+      .new-coupon{
+        .modal-content{
+          overflow-y: scroll;
+          max-height: 100%;
+          padding-bottom: 30px;
+          .modal-body{
+            .form-content{
+              .display-form{
+                max-height: none;
+                overflow: auto;
+              }
+            }
+            .display-content{
+              .container-display-content{
+                padding: 15px 0px 0px 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 745px) {
+    #perfil-account{
+      .fixed-wrapper{
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    #perfil-account{
+      .perfil-image{
+        width: 100%;
+        margin-top: 0;
+      }
+      .perfil-info{
+        .rating{
+          justify-content: center;
+        }
+      }
+    }
+    #mis-vehiculos{
+      label{
+        input{
+          margin-top: 0;
+        }
+      }
+      .margin-wrapper{
+        display:block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    #data-profile{
+      text-align: center;
+      .data-edit-perfil{
+        text-align: center;
+        float: none;
+      }
+      .col-xs-12{
+        display: block;
+        overflow: hidden;
+      }
+    }
+    section {
+      .banner {
+        .perfil-user-inner-container {
+          text-align: center;
+        }
+      }
+    }
+  }

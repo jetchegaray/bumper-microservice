@@ -1,0 +1,90 @@
+<div class="item-resultado col-xs-12">
+  <div class="sombra">
+
+    <div class="logo centrado">
+      <img ng-src="{{$ctrl.logo || 'assets/images/icons-default/commerce.png' }}" style="cursor:pointer;" width="80" height="80" class="center-block img-rounded-border" ng-click="$ctrl.goProfileCommerce()">
+    </div>
+
+    <div class="body">
+      <div class="row">
+        <div class="col-xs-12" ng-class="($ctrl.showProductsSlider === false) ? 'col-md-12' : 'col-md-12'">
+          <div class="container-fluid">
+            <div class="row">
+              <h5 class="pull-left lubricentro">
+                <img ng-show="$ctrl.validated === true" src="assets/images/icons/check.svg" width="17">
+                <img ng-show="$ctrl.validated === false" src="assets/images/icons/check_grey.svg" width="17">
+                <span style="cursor:pointer;" class="commerce-name-result" ng-click="$ctrl.goProfileCommerce()">{{$ctrl.name}}</span>
+              </h5>
+              <div class="stars pull-left">
+                <i class="fa fa-star" ng-class="{no: $ctrl.stars < 1}"></i>
+                <i class="fa fa-star" ng-class="{no: $ctrl.stars < 2}"></i>
+                <i class="fa fa-star" ng-class="{no: $ctrl.stars < 3}"></i>
+                <i class="fa fa-star" ng-class="{no: $ctrl.stars < 4}"></i>
+                <i class="fa fa-star" ng-class="{no: $ctrl.stars < 5}"></i>
+              </div>
+              <div class="pull-right distance">{{ $ctrl.distance() }}</div>
+            </div>
+            <div class="row margin-top-10">
+              <div ng-if="$ctrl.isOpen === true">
+                <span style="color:#24b047">Comercio abierto - <a ui-sref="profile_commerce({commerceSlug: $ctrl.commerceSlug, commerceId: $ctrl.commerceId})" target="_blank">Ver Horarios</a></span>
+              </div>
+              <div ng-if="$ctrl.isOpen === false">
+                <span style="color:#ff4141">Comercio cerrado - <a ui-sref="profile_commerce({commerceSlug: $ctrl.commerceSlug, commerceId: $ctrl.commerceId})" target="_blank">Ver Horarios</a></span>
+              </div>
+              <div ng-if="$ctrl.isOpen === null">
+                <span>{{ $ctrl.workingTime }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="col-md-4 col-xs-12" ng-show="$ctrl.showProductsSlider === false && $ctrl.price > 0">
+          <h3 class="precio-servicio color-blue">$<strong>{{$ctrl.price}}</strong></h3>
+        </div> -->
+
+        <div class="col-xs-12 description-container">
+          <div class="row">
+            <div class="col-xs-12 description">
+              <p>{{$ctrl.description  | cut:true:280:'...'}} <a style="cursor:pointer;" ui-sref="profile_commerce({commerceId: $ctrl.commerceId})" target="_blank" ng-if="$ctrl.description.length > 280">Ver más</a></p>
+            </div>
+
+            <div class="col-xs-12 group-items-button" ng-show="$ctrl.showProductsSlider === false">
+              <div class="of-items of-images">
+                <div>
+                  <span ng-repeat="imCatego in $ctrl.imagesCategories | limitTo: 5">
+                    <img ng-src="{{imCatego.imageName}}">
+                  </span>
+                  <button ng-if="$ctrl.imagesCategories.length > 5" class="button-more-cat" ng-click="$ctrl.goToCommerce($ctrl.commerceId)"> + </button>
+                </div>
+                <div>
+                  <span ng-repeat="imaBrand in $ctrl.imagesBrands | limitTo: 5">
+                    <img ng-src="assets/images/brands/logo/{{imaBrand.imageName}}">
+                  </span>
+                  <button ng-if="$ctrl.imagesBrands.length > 5" class="button-more-cat" ng-click="$ctrl.goToCommerce($ctrl.commerceId)"> + </button>
+                </div>
+              </div>
+              <div class="of-items">
+                <button type="button" class="btn btn-primary margin-right-10" ng-if="$ctrl.isQuotable() == true" ng-click="$ctrl.askQuoteOrAppointment()">COTIZAR</button>
+                <button type="button" class="btn btn-primary margin-right-10" ng-if="$ctrl.isQuotable() == false" ng-click="$ctrl.askQuoteOrAppointment()">PEDIR TURNO</button>
+              </div>
+            </div>
+
+            <div class="col-xs-12 margin-top-10" ng-show="$ctrl.showProductsSlider">
+              <div slick class="carousel-container" settings="$ctrl.slickConfig">
+                <div class="productos sombra" ng-repeat="product in $ctrl.products" title="{{product.name}}">
+                  <h5 class="color-blue price" ng-if="product.price > 0">${{product.price}}</h5>
+
+                  <img ng-src="{{product.image || 'assets/images/icons-default/product.png' }}" width="30px" height="70" class="center-block">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm center-block ubicacion"
+                    ng-click="$ctrl.goProductDetail(product)">COMPRAR</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

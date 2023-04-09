@@ -1,0 +1,86 @@
+<div id="cookies-banner">
+<!-- <div ng-if="$ctrl.userData.isActivate === false && $ctrl.validPath()"> -->
+    <style>
+        /* Styling the bar itself */
+        #cookies-banner #bottombar {
+            position: fixed;
+            align-items: center;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            bottom: -60px;
+            width: 100%;
+            z-index: 999999;
+            box-sizing: border-box;
+            background-color: #ccc;
+            color: rgb(41, 58, 75);
+            font-size: 16px;
+            text-align: center;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+            transition: bottom 0.5s, height 0.5s, padding 0.5s;
+        }
+
+        /* Hiding the checkbox */
+        #cookies-banner #toggleBottom {
+            display: none;
+        }
+        /* Styling the lables, to show and hide the bar */
+        #cookies-banner #showBottom {
+            position: absolute;
+            z-index: 9999;
+            bottom: 0;
+            right: 30px;
+            display: block;
+            padding: 10px;
+            color: rgb(41, 58, 75);
+            cursor: pointer;
+            display: none;
+        }
+        #cookies-banner #hideBottom {
+            float: right;
+            display: inline-block;
+            cursor: pointer;
+        }
+        /* Displaying the bar when the checkbox is checked */
+        #cookies-banner #toggleBottom.visible + #showBottom + #bottombar {
+            transition: bottom 0.5s, height 1s, padding 0.5s;
+            padding: 16px;
+            padding-top: 20px;
+            bottom: 0px;
+            height: auto;
+        }     
+
+        #cookies-banner #toggleBottom.visible + #showBottom {
+            display: none;
+        }
+
+        #cookies-banner .redirection,
+        #cookies-banner .redirection:hover, 
+        #cookies-banner .redirection:focus {
+            cursor: pointer;
+            color: rgb(41, 58, 75);
+            flex:1 1 auto;
+        }
+
+        #cookies-banner .redirection-img {
+            width: 40px;
+            margin-bottom: 3px;
+        }
+    </style>
+
+    <!-- Label to Show Notification bar -->
+    <input type="checkbox" id="toggleBottom" name="toggleBottom" value="toggleBottom" ng-class="{'visible' : $ctrl.getCookiesBannerVisibility()}">
+    <label for="toggleBottom" id="showBottom"  ng-click="$ctrl.setVisibility(true)">
+        <img src="assets/images/icons/notificacion.png">
+    </label>
+    <!-- The checkbox -->
+    <!-- The Notification bar container -->
+    <div id="bottombar">
+        <!-- You're content here -->
+        <span>Utilizamos cookies para que tengas una mejor experiencia en nuestro sitio. Al continuar navegando asumiremos que estás de acuerdo con su uso.</span>
+        <!-- Label to Hide Notification bar -->
+        <label for="toggleBottom" id="hideBottom" ng-click="$ctrl.setCookiesBannerVisibility(false)">x</label>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="col-md-12  product-comerciante">
+
+  <filter-store ng-show=" $ctrl.showFiltersAndSearch"
+                filters="$ctrl.filters"
+                load-products-with-filter="$ctrl.loadProductsWithFilter"
+                remove-filter="$ctrl.removeFilter">
+  </filter-store>
+
+  <div ng-show="$ctrl.rowsList.length == 0 && $ctrl.onlyServices == false && $ctrl.onlyProducts == true && $ctrl.showFiltersAndSearch == false && $ctrl.productsLoaded"><h3 class="text-center">No hay productos disponibles</h3></div> 
+  <div ng-show="$ctrl.rowsList.length == 0 && $ctrl.onlyServices == true && $ctrl.onlyProducts == false && $ctrl.showFiltersAndSearch == false && $ctrl.productsLoaded"><h3 class="text-center">No hay servicios disponibles</h3></div>
+  <div class="col-md-9 col-xs-9">
+    <span class="buscador" ng-show="$ctrl.showFiltersAndSearch">
+      <div>
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control" placeholder="Buscar servicios o autopartes"
+                       ng-model="$ctrl.searched"  autocomplete="on"
+                       ng-keyup="$event.keyCode == 13 && $ctrl.search()"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button" ng-click="$ctrl.search()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+      </div>
+    </span>
+
+    <div class="products">
+      <div ng-show="$ctrl.rowsList.length == 0 && ($ctrl.paramsSearch.category !== undefined || $ctrl.paramsSearch.name.length > 0)" class="product-not-found">
+        <img src="assets/images/car-not-found.png">
+        <h4 class="text-center">El producto o servicio que buscas no existe o no logramos encontrarlo con ese nombre, proba con uno distinto o volvé a cargar <a style="cursor:pointer" ng-click="$ctrl.searchNoName()">aquí</a></h4>
+      </div>  
+      <row-product-profile ng-repeat="row in $ctrl.rowsList"
+                           products="row" link="$ctrl.goToProductDetails">
+      </row-product-profile>
+      <pagination-complete ng-show="$ctrl.totalPages > 1"
+                           load-page="$ctrl.loadPage"
+                           total-pages="$ctrl.totalPages"
+                           current-page="$ctrl.currentPage">
+      </pagination-complete>
+    </div>
+  </div>
+</div>

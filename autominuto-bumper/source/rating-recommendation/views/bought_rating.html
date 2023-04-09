@@ -1,0 +1,65 @@
+<header-notification></header-notification>
+
+<div class="container-fluid">
+  <div class="container">
+    <section class="margin-top-50">
+        <div class="stripe" ng-class="$ctrl.getCommerceColorType()">
+            <p ng-show="$ctrl.payment.commerceView.serviceOfficialBrands.length > 0">OFICIAL</p>
+        </div>
+        <div class="dm-dashboard" ng-class="$ctrl.getCommerceColorType()">
+        <div class="col-md-3 col-xs-12">
+          <div class="logo-dm perfil-image">
+              <img ng-src="{{ $ctrl.commerceImage || 'assets/images/icons-default/commerce.png'}}"  width="160" height="160" style="cursor:auto">
+          </div>
+        </div>
+        <div class="col-md-9 col-xs-12">
+          <div class="dm-content">
+            <div class="strong-dm margin-bottom-20">
+              <img src="assets/images/icons/confirm.png">
+              <span><strong>{{$ctrl.payment.commerce.name}}</strong></span>
+              <div  style="display: inline-block">
+                <div star-show-rating rating="2"></div>
+              </div>
+            </div>
+
+            <div class="margin-bottom-10">
+              <img src="assets/images/icons/calendar.png"> <strong class="color-blue"></strong>
+                Pagaste por un : <strong class="color-blue">$ 
+                <strong class="color-blue">{{ $ctrl.payment.product.name }}</strong>,
+                un total de : <strong class="color-blue">$ {{ $ctrl.payment.product.price }} </strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+  </div>
+</div>
+
+  <div class="row">
+    <div class="container-fluid">
+        <div class="container margin-bottom-50">
+          <div class="col-md-12 margin-bottom-50" style="text-align: center">
+            <h4>Hola, <strong>{{$ctrl.payment.commerce.name}}</strong> necesita que lo califiques en Autominuto. Tu calificación </br> lo ayudará a brindar más confianza al resto de los usuarios<h4>
+          </div>
+          <div class="col-md-8 col-md-offset-2 margin-bottom-50">
+            <h5>¿Como calificarías a {{$ctrl.payment.commerce.name}}?<h5>
+            <div  style="display: inline-block" class="stars-rating">
+              <star-rating max="$ctrl.maxValue" value='$ctrl.ratingStar' ng-click="$ctrl.changeOnHover = false" hover='$ctrl.changeOnHover' is-readonly='false'></star-rating>
+            </div>
+            <div class="form-group">
+              <label for="comment">Escribe un breve comentario:</label>
+              <textarea ng-model="$ctrl.ratingComment" class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div>
+            <button ng-class="{'disabled-button': !$ctrl.ratingComment.length && !ratingStar}"
+            ng-disabled="$ctrl.ratingComment.length > 0 && ratingStar > 0"  class="grey-button" ng-click="$ctrl.saveRating()">ENVIAR CALIFICACIÓN</button>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,236 @@
+<!-- Inicio -->
+<div id="landing">
+
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+
+      <ul class="nav navbar-nav navbar-right not-desktop">
+        <li ng-if="!$ctrl.isLogged()" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bars fa-2x"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a ui-sref="home">
+                <div class="icon"><span class="fa fa-home"></span></div>
+                Inicio
+              </a>
+            </li>
+            <li ng-show="!$ctrl.isLogged()" class="advantages-header">
+              <a ui-sref="register_driver">Soy conductor</a>
+            </li>
+            <li ng-show="!$ctrl.isLogged() || (!$ctrl.myCommerceId && $ctrl.banner.hasCommerce)" class="landing-header">
+              <a href="#" ng-click="$ctrl.goToLanding()">Tengo un negocio</a>
+            </li>
+            <li ng-show="!$ctrl.isLogged() || (!$ctrl.myCommerceId && $ctrl.banner.hasCommerce)" class="landing-header">
+              <a ui-sref="register_fleet">Tengo una flota</a>
+            </li>
+            <li ng-show="!$ctrl.isLogged()" >
+              <a href="#" ng-click="$ctrl.goToLogin()">
+                <span class="start-now">Iniciar Sesión</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right desktop">
+        <li ng-click="$ctrl.gotoAnchor('advantages', 90)" class="advantages-header">
+          <a href="#">Ventajas</a>
+        </li>
+        <li ng-click="$ctrl.gotoAnchor('how-it-work', 90)">
+          <a href="#">Cómo lo hacemos</a>
+        </li>
+        <li ng-click="$ctrl.goToRegisterCommerce()">
+          <a href="#">
+            <span class="start-now">Empezá hoy mismo</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar-header">
+        <a class="desktop navbar-brand" ui-sref="home" href="#">
+          <img class="autominuto-isologo" src="assets/images/nav-bar-white/logo_blue.svg" alt="logo azul" title="logo azul">
+        </a>
+        <a class="not-desktop navbar-brand" ui-sref="home" href="#">
+          <img src="assets/images/nav-bar-white/logo_a_mobile.svg" title="mobile logo" alt="mobile logo">
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+	<section class="header">
+
+      <div class="nav-links bottom">
+        <ul class="nav navbar-nav navbar-fixed-bottom">
+          <li ng-click="$ctrl.goToRegisterCommerce()"><span class="start-now">Empezá hoy mismo</span></li>
+        </ul>
+      </div>
+
+		<div class="background-image">
+      <div class="container">
+          <div id="main-text" class="container">
+              <span>Ganá más plata&nbsp;<br class="adjusted-edge"> con tu&nbsp;</span><br class="not-mobile">
+
+              <div class="carousel slide vertical">
+                  <div class="carousel-inner">
+                      <div class="active item">lubricentro</div>
+                      <div class="item">taller mecánico</div>
+                      <div class="item">gomería</div>
+                      <div class="item">car detailing</div>
+                      <div class="item">lavadero</div>
+                      <div class="item small-carousel-text">casa de repuestos</div>
+                      <div class="item">especialidad</div>
+                  </div>
+              </div>
+
+              <div>en Autominuto</div>
+
+              <div id="cotiza_en_tiempo_real">
+                  <span>Dejá que miles de conductores te encuentren <br> a través de nuestra aplicación</span>
+              </div>
+          </div>
+      </div>
+      <div id="main-action">
+          <div class="rectangulo" ng-click="$ctrl.goToRegisterCommerce()">
+              <span>Empezá hoy mismo</span>
+          </div>
+          <div id="recibi_tu_primer_pedido">
+              <span>Y recibí tu primer pedido de cotización en menos de 12 hs</span>
+          </div>
+      </div>
+		</div>
+	</section>
+
+  <div id="covid19" class="container-fluid">
+    <div class="covid-container" ng-include="'shared/views/covid-banner.html'"></div>
+  </div>
+
+  <section id="advantages" class="advantages">
+		<div class="container-fluid">
+
+      <div class="container section-advantages">
+				<h2 class="text-center">
+					<strong>Ventajas de estar en Autominuto</strong>
+					<!-- <br/>Aumenta tus ventas y generá nuevos clientes -->
+				</h2>
+				<div class="row">
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="gray-blocks margin-top-30">
+                            <p><img src="assets/images/landing/tick.svg" alt="Check" title="Check"></p>
+							<p class="medium-title"><span class="bold">Tu negocio en Internet</span></p>
+							<p>Abrí las puertas de tu comercio <br> a nuevos clientes</p>
+                            <!-- <span class="image-desc"><img src="assets/images/landing/fotos.png"></span> -->
+                        </div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="gray-blocks margin-top-30">
+                            <p><img src="assets/images/landing/tick.svg"></p>
+							<p class="medium-title"><span class="bold">Vendé más</span></p>
+							<p>Sin moverte de tu comercio a <br>través de tu celular</p>
+							<!-- <span class="image-desc"><img src="assets/images/landing/computadora.png"></span> -->
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="gray-blocks margin-top-30">
+                            <p><img src="assets/images/landing/tick.svg"></p>
+                            <p class="medium-title"><span class="bold">¡Probalo GRATIS!</span></p>
+							  <p>No pagas comisión durante los<br>primeros 4 meses</p>
+							<!-- <span class="image-desc"><img src="assets/images/landing/billetera.png"></span> -->
+						</div>
+                    </div>
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="how-it-work" class="how-it-work">
+        <div class="container-fluid">
+            <div class="container section-how-it-work">
+                <h2 class="text-center">
+                    <strong>Trabajá con Autominuto en 3 pasos</strong>
+                    <!-- <br/>Aumenta tus ventas y generá nuevos clientes -->
+                </h2>
+                <div class="row">
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks margin-top-30">
+                            <p><img src="assets/images/landing/store.svg"></p>
+                            <p class="medium-title"><span>Contanos qué tipo de <br>negocio tenés</span></p>
+                            <!-- <p>Abrí tu tienda online gratis <br> y administrala de manera simple</p> -->
+                            <!-- <span class="image-desc"><img src="assets/images/landing/fotos.png"></span> -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks whatsapp">
+                            <p><img src="assets/images/landing/whats.svg"></p>
+                            <p class="medium-title"><span>Cotizá en tiempo real <br> por WhatsApp</span></p>
+                            <!-- <p>Recibí pagos en tu comercio <br>o a través de Mercado Pago</p> -->
+                            <!-- <span class="image-desc"><img src="assets/images/landing/computadora.png"></span> -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks margin-top-30">
+                            <p><img src="assets/images/landing/hands.svg"></p>
+                            <p class="medium-title"><span>Conocé a tu <br> nuevo cliente</span></p>
+                            <!-- <p>Dejá que nuevos conductores<br>te encuentren en Autominuto.</p> -->
+                            <!-- <span class="image-desc"><img src="assets/images/landing/billetera.png"></span> -->
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section class="sum-up">
+        <div class="container-fluid">
+            <div class="container section-sum-up">
+                <h2 class="text-center">
+                    <strong>Miles de conductores&nbsp;<br class="not-desktop"> buscan&nbsp;<br class="only-desktop"> negocios como&nbsp;<br class="not-desktop"> el tuyo en Autominuto</strong>
+                    <!-- <br/>Aumenta tus ventas y generá nuevos clientes -->
+                </h2>
+                <div class="row">
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks margin-top-30">
+                            <p class="medium-title"><span>1.154</span></p>
+                            <p>comercios <br> registrados</p>
+                            <!-- <span class="image-desc"><img src="assets/images/landing/fotos.png"></span> -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks margin-top-30">
+                            <p class="medium-title"><span>3.678</span></p>
+                            <p>conductores <br> activos</p>
+                            <!-- <span class="image-desc"><img src="assets/images/landing/computadora.png"></span> -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="gray-blocks margin-top-30">
+                            <p class="medium-title"><span>$6.500</span></p>
+                            <p>promedio<br> por operación</p>
+                            <!-- <span class="image-desc"><img src="assets/images/landing/billetera.png"></span> -->
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-1 col-lg-1"></div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section class="sub-header">
+
+        <div class="background-image">
+            <div class="logo"></div>
+            <div class="container">
+                <p class="title"><span>¿Qué es Autominuto?</span></p>
+                <p class="description"><span>Tenemos la herramienta que le falta a tu negocio, dejá que nuevos conductores te encuentren en nuestra app y convertite en su nuevo profesional de confianza.</span></p>
+            </div>
+        </div>
+    </section>
+
+</div>

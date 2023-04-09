@@ -1,0 +1,33 @@
+<h1>Preguntas</h1>
+
+<comment-filter
+  change-filter="$ctrl.changeFilter"
+  sort-by-days="$ctrl.sortByDays"
+  is-profile="$ctrl.isProfile">
+</comment-filter>
+
+<div class="col-md-12 commerce-comment-list" ng-if="$ctrl.isProfile && !$ctrl.sendQuestion">
+  <user-question-comment
+    get-commerce="$ctrl.getDataCommerceTab()"
+    save-comment="$ctrl.saveQuestion">
+  </user-question-comment>
+</div>
+
+<div class="col-md-12 commerce-comment-list">
+
+  <user-comment ng-repeat="comment in $ctrl.comments | filter: $ctrl.filterComments"
+    data="comment"
+    reply-comment="$ctrl.replyComment"
+    get-commerce="$ctrl.getDataCommerceTab()"
+    is-profile = "$ctrl.isProfile"
+    save-comment="$ctrl.saveQuestion">
+  </user-comment>
+
+</div>
+
+<div class="row message-no-exists-items-dashboard"
+     ng-class="{'no-exists-items-dashboard': $ctrl.comments.length > 0  || $ctrl.firstLoadComments}">
+  No hay mensajes disponibles
+</div>
+
+<button class="button-comments-commerce" ng-click="$ctrl.loadMoreComments()" ng-show="$ctrl.totalPages > 1"><b>CARGAR M&Aacute;S MENSAJES</b></button>

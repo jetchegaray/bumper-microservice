@@ -1,0 +1,10 @@
+<div ng-repeat="option in $ctrl.component.options">
+  <div class="option-title">
+    {{option.name}}
+  </div>
+  <input
+    ng-model="option.value"
+    class="form-control option-element"
+    placeholder="">
+    <!-- ng-model="option.name" -->
+</div>

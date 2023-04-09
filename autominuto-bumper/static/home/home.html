@@ -1,0 +1,829 @@
+<html lang="es-ar">
+  <head>
+    <base href="/" />
+    <title>AUTOMINUTO: resolvé las necesidades de tu auto en minutos</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta
+      name="description"
+      content="En Autominuto conectamos conductores con comercios automotrices para resolver la contratación de
+        servicios y compra-venta de repuestos 🚗"
+    />
+
+    <meta name="author" content="" />
+    <meta name="fragment" content="!" />
+
+    <!-- facebook sharing -->
+    <meta property="fb:app_id" content="XXXXXXXXXXXX" />
+    <meta property="og:url" content="https://www.autominuto.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Autominuto" />
+    <meta
+      property="og:description"
+      content="Compará, Buscá y Ahorrá en todo lo que necesites para tu auto"
+    />
+    <meta
+      property="og:image"
+      content="http://www.autominuto.com/assets/images/autominuto_icon_black.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://www.autominuto.com/assets/images/autominuto_icon_black.png"
+    />
+
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="canonical" href="https://www.autominuto.com" />
+    <link
+      defer=""
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      defer=""
+      href="//fonts.googleapis.com/css?family=Open+Sans&amp;display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="https://connect.facebook.net/en_US/sdk.js?hash=e8e48b2bd435205718bc351b5f2dc901&amp;ua=modern_es6"
+      async=""
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async=""
+      src="https://connect.facebook.net/en_US/fbevents.js"
+    ></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/home/home-static.css" />
+
+    <script
+      async
+      data-id="42655"
+      src="https://cdn.widgetwhats.com/script.min.js"
+    ></script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "694928307583421");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=694928307583421&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- dependencies:js -->
+    <script src="assets/js/jquery-2.2.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/facebook.min.js"></script>
+    <style type="text/css"></style>
+    <!-- endinject -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-37534735-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "UA-37534735-1");
+    </script>
+    <script>
+      window.prerenderReady = true;
+    </script>
+    <!-- Hotjar Tracking Code for www.autominuto.com -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 1710368, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+    <script
+      async=""
+      src="https://static.hotjar.com/c/hotjar-1710368.js?sv=6"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="//cdn.widgetwhats.com/assets/css/style.min.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- uiView: -->
+    <ui-view>
+      <div class="nav-links top">
+        <div class="container">
+          <nav class="navbar navbar-fixed-top">
+            <div class="container">
+              <ul class="nav navbar-nav navbar-right only-desktop">
+                <li class="advantages-header">
+                  <a href="/registro-conductor">Soy conductor</a>
+                </li>
+                <li class="landing-header">
+                  <a href="/vendemas">Tengo un negocio</a>
+                </li>
+                <li class="landing-header">
+                  <a href="/registro-flota">Tengo una flota</a>
+                </li>
+                <li>
+                  <a href="/login" ng-click="$ctrl.goToLogin()">
+                    <span class="start-now">Iniciar Sesión</span>
+                  </a>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown not-desktop">
+                  <a
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-bars fa-2x"></i>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="/">
+                        <div class="icon"><span class="fa fa-home"></span></div>
+                        Inicio
+                      </a>
+                    </li>
+                    <li class="advantages-header">
+                      <a href="/registro-conductor">Soy conductor</a>
+                    </li>
+                    <li class="landing-header">
+                      <a href="/vendemas" ng-click="$ctrl.goToLanding()"
+                        >Tengo un negocio</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/login">
+                        <span class="icon"
+                          ><span class="fa fa-sign-in"></span
+                        ></span>
+                        Iniciar Sesión
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <div class="navbar-header">
+                <a class="only-desktop navbar-brand" href="/">
+                  <img
+                    class="autominuto-isologo"
+                    src="assets/images/nav-bar-white/logo_blue.svg"
+                    alt="logo azul"
+                    title="logo azul"
+                  />
+                </a>
+                <a class="not-desktop navbar-brand" href="/">
+                  <img
+                    src="assets/images/nav-bar-white/logo_a_mobile.svg"
+                    title="mobile logo"
+                    alt="mobile logo"
+                  />
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div id="home" class="home">
+        <section class="header">
+          <div class="background-home-image frame">
+            <div class="home-header-container">
+              <h1 class="title">
+                Autominuto te acerca presupuestos de
+                <div class="carousel">
+                  <div class="change_outer">
+                    <div class="change_inner">
+                      <div class="item">lubricentros</div>
+                      <div class="item">talleres mecánicos</div>
+                      <div class="item">gomerías</div>
+                      <div class="item">car detailings</div>
+                      <div class="item">lavaderos</div>
+                      <div class="item">casa de repuestos</div>
+                      <div class="item">lubricentros</div>
+                    </div>
+                  </div>
+                </div>
+                cercanos
+              </h1>
+              <h2 class="subtitle">
+                Elegí mejor comparando desde donde estés en 3 simples pasos
+              </h2>
+              <a class="home-button start-button" href="/cotizar/servicio"
+                >RECIBIR COTIZACIONES</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="home-how-container">
+            <div class="covid-banner">
+              <div class="covid-banner-container">
+                <div class="banner-info-container">
+                  <div class="covid-image-title-container">
+                    <img
+                      class="covid-image"
+                      src="assets/images/covid-19.svg"
+                      alt="covid-19"
+                    />
+                    <span class="title-mobile bold"
+                      >Atención - A raíz del COVID-19:</span
+                    >
+                  </div>
+                  <div class="info-container">
+                    <div class="first-info-container">
+                      <p>
+                        <span class="first-info-title bold"
+                          >Atención - A raíz del COVID-19:
+                        </span>
+                        Si bien se podrán realizar contrataciones de servicios
+                        con normalidad, los talleres mecánicos, lubricentros,
+                        gomerías y demas comerciantes automotores solo prestarán
+                        servicios a vehículos.
+                      </p>
+                    </div>
+                    <div class="tips-info-container">
+                      <div class="first-tip">
+                        <span class="bold">Sea paciente</span> ya que se
+                        requieren permisos especiales para la cirulación
+                      </div>
+                      <div>
+                        <span class="bold">Dale marcha a tu auto</span> cada 7 o
+                        10 días
+                      </div>
+                    </div>
+                  </div>
+                  <div class="view-more-container">
+                    <a
+                      class="view-more-btn"
+                      href="https://blog.autominuto.com/ayuda-a-talleres-mecanicos-y-gomerias-autominuto-no-cobra-comisiones-durante-la-cuarentena/"
+                      target="_blank"
+                      >LEER MÁS</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="title-section">¿Cómo funciona autominuto?</h2>
+            <div class="how-steps-container">
+              <div class="steps-explain-container">
+                <div class="linking-line"></div>
+                <div class="step-container">
+                  <div class="circle-container">
+                    <img
+                      class="circle-img"
+                      src="assets/images/home/lens.svg"
+                      alt="lupa"
+                    />
+                  </div>
+                  <div class="explain-text">
+                    <p>
+                      Elegí el tipo de necesidad o falla que puedas tener,
+                      contanos los datos de tu auto y dónde estás.
+                    </p>
+                  </div>
+                </div>
+                <div class="step-container">
+                  <div class="circle-container">
+                    <img
+                      class="circle-img"
+                      src="assets/images/home/gps.svg"
+                      alt="ubicaciónn"
+                    />
+                  </div>
+                  <div class="explain-text">
+                    <p>
+                      Autominuto mandará tu pedido a los talleres mecánicos y/o
+                      demás comercios automotores cercanos a vos.
+                    </p>
+                  </div>
+                </div>
+                <div class="step-container -last-item">
+                  <div class="circle-container">
+                    <img
+                      class="circle-img"
+                      src="assets/images/home/choose.svg"
+                      alt="elección"
+                    />
+                  </div>
+                  <div class="explain-text">
+                    <p>
+                      Te acercamos los presupuestos para que elijas el más
+                      económico o cercano.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="everyone-win-container">
+            <h2 class="title-section everyone-title">
+              Con autominuto ganan todos
+            </h2>
+            <div class="row">
+              <div class="col col-md-6 col-xs-12">
+                <div class="box-container -first">
+                  <div class="box-driver">
+                    <div class="box-title-container">
+                      <h2 class="box-title">Conductores</h2>
+                    </div>
+                    <div class="box-description-image-mobile">
+                      <p class="box-description">
+                        Autominuto te ayuda a que encuentres en tres simples
+                        pasos a tu nuevo taller de confianza.
+                        <strong
+                          >Contratar a través de Autominuto es seguro, ya que
+                          vas a tener una cobertura de seis meses de
+                          garantía.</strong
+                        >
+                        (Ley 24.240 de Defensa del Consumidor). Elegi mejor
+                        pagando lo justo.
+                      </p>
+                    </div>
+                    <a
+                      class="home-button box-start-button"
+                      href="/cotizar/servicio"
+                      >COMENZAR</a
+                    >
+                  </div>
+                  <div class="box-image-container">
+                    <img src="assets/images/home/driver.svg" alt="conductor" />
+                  </div>
+                </div>
+              </div>
+              <div class="col col-md-6 col-xs-12">
+                <div class="box-container">
+                  <div class="box-driver box-commerce">
+                    <div class="box-title-container">
+                      <h2 class="box-title">Comercios</h2>
+                    </div>
+                    <p class="box-description">
+                      Date a conocer a nuevos conductores que necesitan lo que
+                      vendés. Somos tu nuevo canal de ventas que podés gestionar
+                      en cualquier momento del día y desde cualquier lugar<br /><strong
+                        >Lo mejor de todo?<br />Los primeros 4 meses, no pagás
+                        comisión.</strong
+                      >
+                    </p>
+                    <a class="home-button box-start-button" href="/vendemas"
+                      >COMENZAR</a
+                    >
+                  </div>
+                  <div class="box-image-container">
+                    <img
+                      class="commerce-image"
+                      src="assets/images/home/Comercio-desktop-home.png"
+                      alt="taller"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="most-used">
+          <div class="container-fluid">
+            <div class="container section-most-used">
+              <h2>Los servicios más cotizados</h2>
+              <h3>
+                Compará precios en tiempo real y resolvé las necesidades de tu
+                auto en minutos
+              </h3>
+              <div class="row">
+                <div style="width: 100%">
+                  <div>
+                    <div class="most-used-home-container slider">
+                      <div class="most-used text-center">
+                        <a
+                          href="/cotizar/servicio/electricidad-cambio-bateria-automotor"
+                        >
+                          <img
+                            src="assets/images/home/baterias.svg"
+                            alt="compra y carga de baterías"
+                            title="compra y carga de baterías"
+                            class="center-block"
+                        /></a>
+                        <h4>Compra y cargass<br />de baterías</h4>
+                      </div>
+                      <div class="most-used text-center">
+                        <a
+                          href="/cotizar/servicio/lubricentro-cambio-aceite-filtro"
+                        >
+                          <img
+                            src="assets/images/home/aceite.svg"
+                            alt="cambio de aceite y filtro"
+                            title="cambio de aceite y filtro"
+                            class="center-block"
+                          />
+                        </a>
+                        <h4>Cambio de<br />aceite y filtro</h4>
+                      </div>
+                      <div class="most-used text-center">
+                        <a href="/cotizar/servicio/neumaticos-auto-camioneta">
+                          <img
+                            src="assets/images/home/neumaticos.svg"
+                            alt="alineación y balanceo"
+                            title="alineación y balanceo"
+                            class="center-block"
+                          />
+                        </a>
+                        <h4>Alineación y<br />balanceo</h4>
+                      </div>
+                      <div class="most-used text-center">
+                        <a href="/cotizar/servicio/taller-chequeo-general">
+                          <img
+                            src="assets/images/home/escaneo.svg"
+                            alt="escaneo vehicular integral"
+                            title="escaneo vehicular integral"
+                            class="center-block"
+                          />
+                        </a>
+                        <h4>Escaneo Vehicular<br />Integral</h4>
+                      </div>
+                      <div class="most-used text-center">
+                        <a href="/cotizar/servicio/polarizado-cristales-luneta">
+                          <img
+                            src="assets/images/home/polarizado.svg"
+                            alt="polarizado de cristales"
+                            title="polarizado de cristales"
+                            class="center-block"
+                          />
+                        </a>
+                        <h4>Polarizado de<br />cristales</h4>
+                      </div>
+                      <div class="most-used text-center">
+                        <a
+                          href="/cotizar/servicio/frenos-pastillas-discos-cambio"
+                        >
+                          <img
+                            src="assets/images/home/frenos.svg"
+                            alt="pastillas de freno"
+                            title="pastillas de freno"
+                            class="center-block"
+                          />
+                        </a>
+                        <h4>Pastillas de<br />frenos</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="most-searched">
+          <div class="container-fluid">
+            <div class="container section-most-searched">
+              <h2>
+                <strong>Los comercios más buscados</strong>
+              </h2>
+              <h3>Descubrí los comercios que tenemos en la red autominuto</h3>
+              <div class="row">
+                <a
+                  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 margin-top-30 most-searched-block talleres"
+                  title="Talleres"
+                  href="/busqueda/taller-chequeo-general"
+                >
+                  <div class="most-searched-description">
+                    <p class="medium-title"><span>Talleres</span></p>
+                    <p>
+                      más de 15&nbsp;<br class="only-mobile" />
+                      cerca tuyo
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 margin-top-30 most-searched-block lubricentros"
+                  title="Lubricentros"
+                  href="/busqueda/lubricentro-cambio-aceite-filtro"
+                >
+                  <div class="most-searched-description">
+                    <p class="medium-title"><span>Lubricentros</span></p>
+                    <p>
+                      más de 23&nbsp;<br class="only-mobile" />
+                      cerca tuyo
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="col-xs-12 col-sm-12 col-md-4 col-lg-4 margin-top-30 most-searched-block gomerias"
+                  title="Gomerias"
+                  href="/busqueda/neumaticos-auto-camioneta"
+                >
+                  <div class="most-searched-description">
+                    <p class="medium-title"><span>Gomerías</span></p>
+                    <p>más de 35 cerca tuyo</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="seo" class="seo">
+          <div class="seo-container">
+            <div class="seo-boxes-container">
+              <div class="">
+                <div class="seo-box-container">
+                  <div class="seo-box-image">
+                    <img
+                      class="seo-img"
+                      src="assets/images/home/seo-1.svg"
+                      alt="alineacion-balanceo"
+                    />
+                  </div>
+                  <div class="seo-box-text">
+                    <div class="seo-text-title">
+                      ¿Dónde hacer alineación y balanceo del auto?
+                    </div>
+                    <p>
+                      Lo más lógico sería hacerla en una gomería, dado que en
+                      todas ellas cuentan con las herramientas necesarias para
+                      realizar la alineación y balanceo de tu vehículo. Sin
+                      embargo, hay muchos lubricentros que también la hacen.
+                      Recordá que en Autominuto.com podés hacer un pedido de
+                      cotización a las gomerías cercanas a vos para dar con la
+                      mejor opción para tu bolsillo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="seo-box-container">
+                  <div class="seo-box-image">
+                    <img
+                      class="seo-img"
+                      src="assets/images/home/seo-2.svg"
+                      alt="vtv-frenos"
+                    />
+                  </div>
+                  <div class="seo-box-text">
+                    <div class="seo-text-title">
+                      ¿Qué revisar antes de salir a la ruta con tu auto?
+                    </div>
+                    <p>
+                      Tenes que hacer revisar el auto por un profesional:
+                      llevarlo al taller revisar el sistema de frenado,
+                      dirección, suspensión y luces; además chequeá los
+                      neumáticos. La VTV y los documentos tienen que estar al
+                      día. Los elementos de seguridad obligatorios son
+                      matafuegos vigente y balizas. El kit de primeros auxilios,
+                      crique y chaleco de seguridad son opcionales.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="seo-box-container">
+                  <div class="seo-box-image">
+                    <img
+                      class="seo-img"
+                      src="assets/images/home/seo-3.svg"
+                      alt="lubricentro-gomeria"
+                    />
+                  </div>
+                  <div class="seo-box-text">
+                    <div class="seo-text-title">
+                      ¿Cuáles son los documentos obligatorios para circular con
+                      tu vehículo?
+                    </div>
+                    <p>
+                      Documento Nacional de Identidad (DNI) de quien conduce.
+                      Licencia Nacional de Conducir. Cédula verde o cédula azul
+                      (en este último caso si no sos el titular del vehículo).
+                      Constancia de VTV o RTO (si tu auto la necesita)
+                      Comprobante de póliza de seguro vigente (no es necesario
+                      presentar la factura paga de la última cuota).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </ui-view>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row margin-50">
+          <div class="col-md-3 col-xs-12 footer_link footer_link_main">
+            <img
+              class="automin-isologo"
+              src="assets/images/isologo.svg"
+              href="/"
+              href="/"
+            />
+            <div class="redes-main">
+              <a
+                href="https://www.facebook.com/autominuto"
+                target="_blank"
+                rel="nofollow"
+              >
+                <button type="button" class="btn btn-default navbar-btn redes">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </button>
+              </a>
+              <a
+                href="https://twitter.com/autominuto"
+                target="_blank"
+                rel="nofollow"
+              >
+                <button type="button" class="btn btn-default navbar-btn redes">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </button>
+              </a>
+              <a
+                href="http://instagram.com/autominuto"
+                target="_blank"
+                rel="nofollow"
+              >
+                <button type="button" class="btn btn-default navbar-btn redes">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </button>
+              </a>
+              <a
+                href="https://www.pinterest.com/autominuto"
+                target="_blank"
+                rel="nofollow"
+              >
+                <button type="button" class="btn btn-default navbar-btn redes">
+                  <i class="fa fa-pinterest" aria-hidden="true"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-xs-12 footer_link">
+            <h5>Podemos ayudarte</h5>
+            <a href="/board/user/quotes/requested" title="Mi cuenta"
+              >Mi Cuenta</a
+            >
+            <a href="/cotizar/servicio" title="Cotizaciones"
+              >Comparar Cotizaciones</a
+            >
+            <a
+              href="/busqueda/scanneo-vehicular-computarizado"
+              title="Scanneo computarizado"
+              >Oportunidades</a
+            >
+            <a
+              href="/busqueda/scanneo-vehicular-computarizado"
+              title="Scanneo computarizado"
+              >Mi Barrio</a
+            >
+          </div>
+
+          <div class="col-md-3 col-xs-12 footer_link">
+            <h5>Gana dinero con nosotros</h5>
+            <a href="/vendemas" title="Vende mas" target="_blank"
+              >Vende en Autominuto</a
+            >
+            <a href="/vendemas" title="Digitaliza tu comercio" target="_blank"
+              >Vende tu servicios en Autominuto</a
+            >
+            <a href="/alta-comercio" title="Alta de comercio" target="_blank"
+              >Crea tu comercio automotor</a
+            >
+          </div>
+
+          <div class="col-md-3 col-xs-12 footer_link">
+            <h5>Preguntas Frecuentes</h5>
+            <a
+              href="https://blog.autominuto.com/ayuda-a-talleres-mecanicos-y-gomerias-autominuto-no-cobra-comisiones-durante-la-cuarentena/"
+              title="Covid-19"
+              target="_blank"
+              >Autominuto y COVID-19</a
+            >
+            <a href="/guias" title="guias y tutoriales">Guias y tutoriales</a>
+            <a
+              href="https://www.flaticon.com/authors/eucalyp"
+              title="Flaticon"
+              target="_blank"
+              >Iconos Eucalyp</a
+            >
+            <a href="mailto:info@autominuto.com">Escribinos</a>
+            <a
+              href="https://blog.autominuto.com/"
+              title="Blog autominuto"
+              target="_blank"
+              ><img src="assets/images/blog_autominuto.png" width="180px"
+            /></a>
+          </div>
+
+          <!-- Copyright -->
+          <div class="col-md-12 col-xs-12 text-center copyright">
+            <p>
+              <strong>Copiright @ Autominuto 2020</strong> |
+              <a href="/seguridad" title="Seguridad" target="_blank"
+                >Seguridad</a
+              >
+              |
+              <a
+                href="/terminos-condiciones"
+                title="Términos y Condiciones"
+                target="_blank"
+                >Términos y Condiciones</a
+              >
+              |
+              <a
+                href="/terminos-condiciones-profesionales"
+                title="Términos y Condiciones profesionales"
+                target="_blank"
+                >Términos y Condiciones para profesionales</a
+              >
+              |
+              <a
+                href="/politicas-privacidad"
+                title="Políticas de privacidad"
+                target="_blank"
+                >Políticas de privacidad</a
+              >
+            </p>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=io.ionic.starter.autominuto"
+              title="Autominuto app"
+              ><img
+                src="assets/images/google_play.png"
+                width="150px"
+                height="50px"
+            /></a>
+            <a
+              href="http://qr.afip.gob.ar/?qr=VMt0z4Ql4TGUt8mZMzlMGA"
+              target="_F960AFIPInfo"
+              ><img src="assets/images/dataweb.jpg" width="45px" height="52px"
+            /></a>
+            <img src="assets/images/pdp.png" width="130px" height="60px" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="fb-root" class="fb_reset">
+      <div style="position: absolute; top: -10000px; width: 0px; height: 0px">
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

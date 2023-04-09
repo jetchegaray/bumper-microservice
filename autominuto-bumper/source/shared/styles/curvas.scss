@@ -1,0 +1,101 @@
+/* Curvas Background */
+
+.block {
+    float: left;
+    overflow: hidden;
+    padding: 20px 0 120px 20px;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+}
+.curve-bottom-light-gray::after{
+    background-image: url("/assets/images/curve-top.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.block.curve-bottom::after {
+    background-image: url("/assets/images/curve-top.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.block2 {
+    float: left;
+    overflow: hidden;
+    padding: 20px 0 120px 20px;
+    position: relative;
+    width: 100%;
+    background-color: #f7f7f7;
+}
+
+.block2.curve-bottom::after {
+    background-image: url("/assets/images/curve-top2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.block3 {
+    float: left;
+    overflow: hidden;
+    padding: 20px 0 120px 20px;
+    position: relative;
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+.block3.curve-bottom::after {
+    background-image: url("/assets/images/curve-top3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.block4 {
+    float: left;
+    overflow: hidden;
+    padding: 20px 0 120px 20px;
+    position: relative;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.block4.curve-bottom::after {
+    background-image: url("/assets/images/curve-top4.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}

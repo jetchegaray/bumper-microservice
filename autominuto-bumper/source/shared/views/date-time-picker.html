@@ -1,0 +1,52 @@
+
+  <div class="datetime-picker -remove-gray-readonly margin-top-20" ng-repeat="datetime in $ctrl.datetimes">
+    <div style="color: #818788;"># {{ $index + 1}}</div>
+    <div class="margin-left-20 margin-right-20">
+      <div class="input-group">
+        <input
+          class="form-control border-right-no"
+          ng-model="date"
+          moment-picker="datetime.date"
+          format="DD-MM-YYYY"
+          min-view="month"
+          max-view="month"
+          min-date= "$ctrl.minDatetime"
+          validate="true"
+          placeholder="Elija una fecha"
+          readonly
+          required />
+        <div class="input-group-addon">
+          <a href=""><i class="fa fa-calendar color-blue" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="input-group">
+        <input
+          class="form-control border-right-no"
+          ng-model="datetime.parsedTime"
+          moment-picker="datetime.time"
+          format="HH:00"
+          min-view="day"
+          max-view="day"
+          show-header="false"
+          selectable="$ctrl.timeSelectable(date, type)"
+          placeholder="Elija una hora"
+          readonly
+          required />
+        <div class="input-group-addon">
+          <a href=""><span class="glyphicon glyphicon-time color-blue" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="remove-datetime">
+      <span class="glyphicon glyphicon-remove" ng-click="$ctrl.removeDatetime(datetime)" ng-show="$index != 0"></span>
+    </div>
+  </div>
+  <!-- Add datetime -->
+  <div class="margin-top-20">
+    <a href="" role="button" class="mas-auto" ng-click="$ctrl.addDatetime()" ng-show="$ctrl.datetimes.length < 3">
+      <img src="assets/images/icons/plus.svg" width="16" style="margin-right: 5px;" /> Añadir otra fecha
+    </a>
+  </div>
+

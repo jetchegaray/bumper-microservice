@@ -1,0 +1,64 @@
+<div class="action-buttons only-desktop">
+
+  <!-- STEP 1 && STEP FINAL -->
+  <div class="row" ng-if="$ctrl.isTabOpened('steps.one') || $ctrl.isTabOpened('steps.final')">
+    <div class="col-xs-6">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6" style="text-align: right;">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span ng-if="!$ctrl.isTabOpened('steps.final')">Siguiente</span>
+        <span ng-if="$ctrl.isTabOpened('steps.final')">Enviar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM STEP 2 -->  
+  <div class="row" ng-if="$ctrl.isTabOpened('steps.two')">
+    <div class="col-xs-6">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6" style="text-align: right;">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span>Siguiente</span>
+      </div>      
+      <!-- <button type="submit" form="form-step-2" class="continue" value="Submit">
+        Siguiente
+      </button> -->
+    </div>
+  </div>
+  
+  <!-- FORM STEP 3 -->  
+  <div class="row" ng-if="$ctrl.isTabOpened('steps.three')">
+    <div class="col-xs-6">
+      <div class="back" ng-click="$ctrl.back()">
+        <svg class="arrow-left" viewBox="0 0 11.797 23.595">
+          <path fill="rgba(0,0,0,0)" stroke="rgba(16,63,84,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" shape-rendering="auto" class="Trazado_265_Class" d="M 0 0 L 11.79744529724121 11.79744529724121 L 0 23.59493637084961">
+          </path>
+        </svg>
+        Atrás
+      </div>
+    </div>
+    <div class="col-xs-6" style="text-align: right;">
+      <div class="continue" ng-click="$ctrl.continue()">
+        <span>Siguiente</span>
+      </div>
+      <!-- <button type="submit" form="form-step-3" class="continue" value="Submit">
+        Siguiente
+      </button> -->
+    </div>
+  </div>
+
+</div>

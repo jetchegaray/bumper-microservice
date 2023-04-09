@@ -1,0 +1,10 @@
+<div class="option-title">
+  Más información
+</div>
+
+<div ng-repeat="option in $ctrl.component.options" class="option-element option-input">
+  <input type="checkbox" id="checkbox-{{$index}}" name="checkbox" value="$index" ng-model="option.selected"/>
+  <label for="checkbox-{{$index}}" class="label-input label-checkbox">
+    <span class="span-input">{{option.name}}</span>
+  </label>
+</div>

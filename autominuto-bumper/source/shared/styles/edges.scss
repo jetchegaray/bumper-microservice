@@ -1,0 +1,29 @@
+$px-large: 1200px;
+$px-medium: 991px;
+$px-medium-sm: 768px;
+$px-mobile: 400px;
+$px-mobile-sm: 375px;
+
+@media screen and (max-width: $px-medium) {
+    .only-desktop {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: $px-medium + 1) {
+    .not-desktop {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: $px-mobile + 1) {
+    .only-mobile {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: $px-mobile) {
+    .not-mobile {
+        display: none !important;
+    }
+}

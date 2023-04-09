@@ -1,0 +1,19 @@
+<h1>Preguntas</h1>
+
+<comment-user-filter
+  change-filter="$ctrl.changeFilter"
+  sort-by-days="$ctrl.sortByDays">
+</comment-user-filter>
+
+<div class="col-md-12 commerce-comment-list">
+  <user-dashboard-comment ng-repeat="comment in $ctrl.comments | filter: $ctrl.filterComments"
+    data="comment">
+  </user-dashboard-comment>
+</div>
+
+<div class="row message-no-exists-items-dashboard"
+     ng-class="{'no-exists-items-dashboard': $ctrl.comments.length > 0  || $ctrl.firstLoadComments}">
+  No hay mensajes disponibles
+</div>
+
+<button class="button-comments-commerce" ng-click="$ctrl.loadMoreComments()" ng-show="$ctrl.comments.length > 0"><b>CARGAR M&Aacute;S MENSAJES</b></button>

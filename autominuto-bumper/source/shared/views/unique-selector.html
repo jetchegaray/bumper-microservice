@@ -1,0 +1,32 @@
+<div class="unique-selector">
+    <ui-select ng-model="$ctrl.selectedData"
+               ng-click="$ctrl.onClick()"
+               ng-blur="$ctrl.onBlur()"
+               ng-disabled="$ctrl.disabled"
+               on-select="$ctrl.onSelect($item)"
+               ng-class="{ 'fixed-view': $ctrl.fixed }"
+               ng-required="$ctrl.required"
+               uis-open-close="$ctrl.onOpenClose(isOpen)"
+               theme="bootstrap"
+               limit="10"
+               focus-on="{{ $ctrl.focusOn }}"
+               unique-selector-open-on-focus
+    >
+      <ui-select-match allow-clear="false" placeholder="{{$ctrl.placeholder}}">
+        <span class="selected-label">{{$select.selected[$ctrl.searchAttribute]}}</span>
+      </ui-select-match>
+      <ui-select-choices repeat="data in $ctrl.dataFiltered | limitTo: 50"
+                         minimum-input-length="0" refresh-delay="0"
+                         refresh="$ctrl.filterData($select.search)"
+      >
+        <div ng-bind-html="data[$ctrl.searchAttribute] | highlight: $select.search"></div>
+      </ui-select-choices>
+    </ui-select>
+    <i class="button-clear glyphicon glyphicon-remove"
+       ng-click="$ctrl.clear()">
+    </i>
+</div>
+
+
+
+

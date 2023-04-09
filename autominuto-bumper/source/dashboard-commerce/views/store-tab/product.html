@@ -1,0 +1,22 @@
+<div class="col-md-4 producto-item selected">
+  <div class="producto-imagen">
+    <div class="overlay">
+      <div class="overlay-image">
+        <span class="margin-right-5" ng-click="$ctrl.deleteProduct($ctrl.product)">
+          <img src="assets/images/icons/trash.png">
+        </span>
+        <span class="pointer">
+          <img src="assets/images/icons/edit-4.png" ng-click="$ctrl.editProduct($ctrl.product)">
+        </span>
+      </div>
+    </div>
+    <div class="price">
+      <p>$<b> {{ $ctrl.product.price }} </b></p>
+    </div>
+    <div class="display-product">
+      <img ng-src="{{ $ctrl.product.mainImage}}"> 
+    </div>
+  </div>
+
+  <div class="producto-title name-image-product" style="width: 100%;"> {{ $ctrl.product.name }} </div>
+</div>

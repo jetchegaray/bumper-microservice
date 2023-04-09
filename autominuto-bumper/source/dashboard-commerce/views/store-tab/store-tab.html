@@ -1,0 +1,86 @@
+<h1>Tienda</h1>
+
+<div class="col-md-12  product-comerciante">
+  <div class="col-md-12 col-xs-12 col-sm-12 buttons-new-products">
+    <div class="container_button_phone button-carga-rapida">
+      <button ng-if="false" g-click="$ctrl.goToFastload()" class="tabStoreTourFastLoad">
+        <span>
+          <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+          Carga rápida
+        </span>
+      </button>
+    </div>
+    <div  class="container_button_phone button_nuevo_product_service">
+      <button ng-click="$ctrl.selectAddProduct()" class="tabStoreTourAddProduct">
+        <span>
+          <img src="assets/images/icons/add.png">
+          Carga un producto
+        </span>
+      </button>
+    </div>
+
+  </div>
+  <filter-store ng-show="$ctrl.showFiltersAndSearch"
+    filters="$ctrl.filters"
+    load-products-with-filter="$ctrl.loadProductsWithFilter"
+    remove-filter="$ctrl.removeFilter">
+  </filter-store>
+
+  <div class="col-md-9 col-xs-9" style="float: right">
+
+    <div class="hasCommerceAccount tabStoreTourHasCommerceAccount margin-top-50"  ng-if="$ctrl.associatedAccount == 'false'">
+      <!-- <div class="not-associated">¡ Querés Comenzar a Vender ? No cobramos comisiones por venta !</div> -->
+      <label ng-click="$ctrl.goToMercadoPago()" class="add-card radio">
+        <!-- <div class="associate-account">
+            <input type="radio"/>
+            <span class="associate-label">
+                Asociar cuenta
+            </span>
+        </div> -->
+        <img src="assets/images/icons/mercadopago-large.png" class="mp-logo image-mercadopago">
+        <div class="pay-description">
+            <h1>Cobrá usando los medios de pago que todos prefieren</h1>
+            <div class="pay-offer">
+                <h4 class="only-desktop">¡ Hacé click y activá tu cuenta de mercado pago AHORA !</h4>
+                <h4 class="not-desktop">¡ Hacé click y activá tu cuenta !</h4>
+            </div>
+        </div>
+      </label>
+    </div>
+
+    <span class="buscador" ng-show="$ctrl.showFiltersAndSearch">
+      <div>
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control" placeholder="Buscar servicios o autopartes"
+                ng-model="$ctrl.searched"  autocomplete="on"
+                       ng-keyup="$event.keyCode == 13 && $ctrl.search()"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button" ng-click="$ctrl.search()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+      </div>
+    </span>
+
+    <div class="products">
+       <div ng-show="$ctrl.rowsList.length == 0 && ($ctrl.paramsSearch.category !== undefined || $ctrl.paramsSearch.name.length > 0)" class="product-not-found">
+          <img src="assets/images/car-not-found.png" height="100px" width="150px">
+          <h5 class="text-center">El producto o servicio que buscas no existe o no logramos encontrarlo con ese nombre, proba con uno distinto o volvé a cargar <a style="cursor:pointer"  ng-click="$ctrl.searchNoName()">aquí</a></h5>
+        </div>
+      <row-product ng-repeat="row in $ctrl.rowsList"
+        products="row"
+        edit-product = "$ctrl.editProduct "
+        delete-product = "$ctrl.deleteProduct">
+      </row-product>
+
+      <pagination-complete ng-show="$ctrl.totalPages > 1"
+        load-page="$ctrl.loadPage"
+        total-pages="$ctrl.totalPages"
+        current-page="$ctrl.currentPage">
+      </pagination-complete>
+    </div>
+  </div>
+</div>

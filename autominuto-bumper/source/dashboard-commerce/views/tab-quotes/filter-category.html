@@ -1,0 +1,13 @@
+<div class="filter">
+  <ul class="nav nav-pills">
+    <li ng-repeat="category in $ctrl.categories"
+        ng-class="{'active': category.name === $ctrl.currentFilter}">
+        <a ng-click="$ctrl.changeFilter(category.name)">
+        {{ category.title }}
+        <span class="badge" ng-if="!!category.quantity">
+          {{ category.quantity || 0 }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>

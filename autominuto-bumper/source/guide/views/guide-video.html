@@ -1,0 +1,28 @@
+<user-inactive-banner></user-inactive-banner>
+<header-notification></header-notification>
+
+<div class="guides container">
+    <section class="container guide-video">
+        <div class="text bread-crumb"><a href=/guias>Guías y turoriales</a> > {{$ctrl.title}}</div>
+        
+        <h4 class="text title">{{$ctrl.title}}</h4>
+
+        <iframe class="video" width="1104px" height="621px" ng-src="{{$ctrl.trustAsResourceUrl($ctrl.video)}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class="text description">{{$ctrl.description}} <span ng-show="$ctrl.mercadopago"><a href="http://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer nofollow">{{$ctrl.mercadopago}}</a></span></div>
+    </section>
+
+    <div class="divider">
+        <h3 class="text title">También te recomendamos que veas...</h3>
+    </div>
+
+    <section class="container guide-video">
+        <a class="card" ng-repeat="(key, commerce) in $ctrl.commerceGuides" href="guias/{{key}}" ng-if="key !== $ctrl.guideType">
+            <div>
+                <img class="image" src="/assets/images/icons/{{key}}.svg">
+                <div class="text description-icon">{{commerce.title}}</div>
+            </div>  
+        </a>
+    </section>
+</div>
+<cookies-banner></cookies-banner>

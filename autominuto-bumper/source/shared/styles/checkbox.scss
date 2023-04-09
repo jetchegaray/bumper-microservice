@@ -1,0 +1,101 @@
+@import "../../shared/styles/colors";
+
+/* checkbox-switch checkbox-slider */
+
+/*
+USE with
+<label class="checkbox-switch">
+  <input type="checkbox" checked>
+  <span class="checkbox-slider round"></span>
+</label>
+*/
+
+label {
+  cursor: pointer;
+}
+
+.checkbox-switch {
+  position: relative;
+  display: inline-block;
+  width: 41px;
+  height: 22px;
+
+  input {display:none;}
+
+
+  .checkbox-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-intense-blue;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  /* Rounded checkbox-sliders */
+  .checkbox-slider.round {
+    border-radius: 34px;
+  }
+
+  .checkbox-slider.round:before {
+    border-radius: 50%;
+  }
+}
+
+.dual-checkbox{
+
+  span.checkbox-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  span.checkbox-title:first-child{
+    margin-right: 10px;
+  }
+  span.checkbox-title:last-child{
+    margin-left: 10px;
+  }
+
+  input:checked + .checkbox-slider {
+    background-color: #48c58d;
+  }
+
+  input:focus + .checkbox-slider {
+    box-shadow: 0 0 1px #48c58d;
+  }
+
+  input:checked + .checkbox-slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+  }
+}
+
+
+input:checked + .checkbox-slider {
+  background-color: #2196F3;
+}
+
+input:focus + .checkbox-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .checkbox-slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}

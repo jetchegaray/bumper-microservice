@@ -1,0 +1,250 @@
+#appointments-page{
+  .background-image-fixed {
+    background-image: url(/assets/images/add-commerce/fondo_optimizado_liviano.png);
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 80px;
+  }
+  .container {
+    width: 600px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-top: 60px;
+      margin-bottom: 0;
+    }
+  }
+  .appointment-container {
+    background-color: white;
+    padding: 20px;
+  }
+  .car-item-container {
+    .form-horizontal {
+      padding: 0 15px;
+    }
+  }
+  @keyframes fadein-elements
+  {
+    0%{opacity: 0}
+    100%{opacity:1}
+  }
+  .custom-transition{
+    opacity: 0;
+    animation-name: fadein-elements;
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+  }
+  .show-more{
+    background-color: #0095ff;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -55px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    i{
+      font-size: 2em;
+      line-height: 43px;
+      padding-left: 1px;
+    }
+  }
+  .show-more:hover{
+    background-color: #62baf9;
+  }
+
+  .selectDisable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  .servicios-populares {
+    .left-summary {
+      max-height: 320px;
+      height: 500px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+  }
+
+  .custom-recomendate {
+    box-shadow: 0 3px 7px -3px rgba(0,0,0,.38);
+  }
+
+  .custom-recomendate.active {
+    background: #5ebafb;
+    color: #fff;
+    cursor: pointer;
+  }
+  .custom-recomendate:hover {
+    background: #5ebafb;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  //this is to remove gray focus on service-type selector
+  .ui-select-container {
+    .ui-select-match {
+      &.btn-default-focus {
+        background-color: transparent;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  .has-error {
+    .ui-select-container {
+      .btn-default{
+        &:hover {
+          border-color: #a94442;
+        }
+      }
+    }
+  }
+  .form-group {
+     display: inline-block;
+     width: 100%;
+     margin: 0;
+
+     &.password {
+       position: relative;
+
+       .glyphicon.glyphicon-eye-open,
+       .glyphicon.glyphicon-eye-close {
+         position: absolute;
+         right: -1px;
+         top: 25px;
+         height: 34px;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-top-right-radius: 4px;
+         border-bottom-right-radius: 4px;
+       }
+
+       input {
+         width: calc(100% - 34px);
+         border-top-right-radius: 0;
+         border-bottom-right-radius: 0;
+       }
+
+       &.has-error {
+         .glyphicon.glyphicon-eye-open,
+         .glyphicon.glyphicon-eye-close {
+           border-color: #a94442;
+         }
+       }
+     }
+   }
+  .terminos {
+    text-align: center;
+    font-size: 11px;
+    font-family: 'Montserrat Light', sans-serif;
+    font-weight: 300;
+  }
+  .logo-container {
+    display: flex;
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+  .perfil-title-container {
+    padding-left: 20px;
+    @media (max-width: 767px) {
+      padding-left: 0;
+    }
+  }
+  .perfil-image {
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+      cursor: pointer;
+      border-radius: 150px;
+    }
+  }
+  .perfil-title {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    width: 62%;
+
+    @media (max-width: 767px) {
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .title-label {
+      font-size: 16px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+    div {
+      margin: 0 2px;
+      p {
+        font-weight: bold;
+        font-size: 1.2em;
+        @media (max-width: 767px) {
+          font-size: 14px;
+        }
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        color: #0f374b;
+
+        width: 260px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .stars {
+      display: flex;
+      margin-left: 10px;
+    }
+  }
+  .perfil-subtitle,
+  .perfil-link {
+    margin-bottom: 10px;
+
+    .commerce-address {
+      font-size: 12px;
+    }
+
+    >div {
+      >span {
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 10px;
+        }
+        p {
+          margin: 0;
+          font-weight: normal;
+          font-size: 14px;
+          @media (max-width: 767px) {
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+}

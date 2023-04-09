@@ -1,0 +1,82 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog section-commerce" styles="margin-top:10px !important;">
+    <div class="modal-content poppup-presupuesto-comercio">
+
+      <div class="center">
+        <div class="presupuesto-popup-container">
+          <form name="popupServiceForm" ng-submit="sendBudget()" novalidate>
+            <div class="recibido" style="text-align: right;">
+              <p>Recibido: {{ sent | strReplace:'-':' '}}</p>
+            </div>
+            <br />
+            <div class="user-information">
+              <p>Para: <strong>{{ $ctrl.userName }} de {{$ctrl.location}}</strong></p>
+              <p class="text-ellipsis">Marca: <strong>{{ modelCar.brandName }}</strong></p>
+              <p class="text-ellipsis">Modelo: <strong>{{ modelCar.subBrandName }}</strong> </p>
+              <p ng-show="modelCar.chasisNumber">Nro de Chasis:<strong>{{ modelCar.chasisNumber }}</strong> </p>
+              <p ng-show="false">Nro de Motor: <strong>{{ modelCar.chasisNumber }}</strong></p>
+            </div>
+            <div class="recibido sol-flex">
+              <p>Solicitó: <strong>{{ issue.name }}</strong><img ng-src="assets/images/categories/{{issue.image}}" style="width: 20px;height: 20px;"> <span></p>
+              <p>Detalles del pedido: <strong>{{issue.detailIssue}}</strong></span></p>
+              <p style="margin: 10px 0;" ng-if="explanations">
+                Comentario: <span style="font-style: italic;"><strong>"{{ explanations }}"</strong></span>
+              </p>
+            </div>
+            <div class="importe" novalidate>
+              <div ng-show="issue.quoteable">
+                <p>Importe a cobrar</p>
+                <span class="monto">
+                  <p ng-class="{'error-label': popupServiceForm.$submitted && popupServiceForm.cost.$invalid}">ARS ($)</p>
+                  <input type="number" name="cost" ng-model="cost" ng-required="issue.quoteable" style="padding: 10px;" min="1" max="999999.99" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required>
+                </span>
+                <span ng-messages="popupServiceForm.cost.$error" ng-show="popupServiceForm.$submitted && popupServiceForm.cost.$dirty" role="alert" class="errorMessage">
+                  <span ng-message="max" class="errorMessage">El monto es muy grande</span>
+                  <span ng-message="pattern" class="errorMessage">Máximo 2 decimales</span>
+                  <span ng-message="required" class="errorMessage">El precio es obligatorio</span>
+                  <span ng-message="min" class="errorMessage">El monto tiene que ser mayor a 1</span>
+                  <span ng-message-default class="errorMessage">formáto inválido</span>
+                </span>
+                <span>
+                  <p>Comentarios</p>
+                  <textarea ng-model="comments" style="resize: none;"></textarea>
+                </span>
+              </div>
+              <div class="margin-bottom-30">
+                <div ng-if="possibleAppointments.length > 0">
+                  <h4 style="color:#048cb4">Horarios solicitados por el usuario</h4>
+                  <div class="content-radio">
+                    <label class="radio" ng-repeat="appointment in possibleAppointments">
+                      <input type="radio" name="appointment" ng-model="appointmentSelected.date" ng-value="appointment.date" ng-click="$ctrl.cleanOthersAppointments()">
+                      <span style="font-weight: 400">Día <strong >{{appointment.date | limitTo: 5 : 0 | strReplace:'-':'/'}}</strong> a las <strong>{{appointment.date | limitTo: 5 : 11}}</strong> hs</span>
+                    </label>
+                    
+                    <label  class="radio" style="margin-bottom: 0">
+                      <input type="radio" name="appointment" ng-model="othersAppointments" ng-value="true" ng-click="$ctrl.cleanSelectedAppointments()">
+                      <span ng-if="possibleAppointments.length > 0" style="font-weight: 400" >ó agrega una nueva fecha</span>
+                    </label>
+                  </div>
+                </div>
+                <div ng-if="othersAppointments || possibleAppointments.length == 0"><p style="position: relative; top:10px;">Selecciona una fecha para el turno</p>
+                  <date-time-picker
+                    datetimes="datetimes">
+                  </date-time-picker>
+                </div>
+              </div>
+
+              <div class="submit-buttons" style="margin-top: 0px">
+                <button class="btn" ng-click="close(true)" data-dismiss="modal"
+                        ng-disabled="!$ctrl.isValidFormQuote() || !popupServiceForm.$valid">ENVIAR PRESUPUESTO</button>
+                <button class="btn" ng-click="close(false)" data-dismiss="modal"
+                        ng-disabled="loadingProduct"
+                        ng-style="loadingProduct && {'cursor': 'not-allowed', 'opacity': '.65'}">CANCELAR</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

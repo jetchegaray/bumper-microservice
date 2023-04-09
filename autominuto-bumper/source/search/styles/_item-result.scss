@@ -1,0 +1,362 @@
+@import "../../shared/styles/edges";
+@import "../../shared/styles/colors";
+
+.item-resultado {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  .sombra:hover{
+    background-color: #f1f1f1;
+  }
+  > div {
+    width: 100%;
+    display: flex;
+    margin: 5px 0;
+    background: $color-white;
+  }
+
+  h5 {
+    margin: 10px 5px 0 0;
+  }
+
+  h6 {
+    margin-top: 0;
+  }
+
+  .oficial {
+    width: 30px;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &.gold {
+      background-color: #f6bf0e;
+    }
+
+    &.silver {
+      background: #bebebe;
+    }
+
+    &.bronze {
+      background: #c57235;
+    }
+
+    &.default {
+      background: #bebebe;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: 1px) and (max-width: $px-medium) {
+      img {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      .vertical-bar-bottom, .vertical-bar-top {
+        display: none;
+      }
+    }
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .body {
+    width: calc(100% - 30px - 120px);
+
+    > .row {
+      width: 100%;
+      margin: 0;
+    }
+
+    .carousel-container {
+      width: calc(100% - 60px);
+      margin: 0 auto;
+
+      .productos {
+        width: 105px;
+        height: 130px;
+        border-radius: 5px;
+        position: relative;
+        margin: 0 5px;
+
+        .price {
+          position: absolute;
+          top: -10px;
+          right: 5px;
+          font-weight: bold;
+        }
+
+        img {
+          width: 70px;
+          margin-top: 15px;
+          margin-bottom: 5px;
+        }
+
+        .ubicacion {
+          width: 80%;
+          max-width: 130px;
+        }
+      }
+    }
+
+    .slick-arrow {
+      top: calc(50% - 14px);
+
+      img {
+        height: 30px!important;
+      }
+    }
+
+    .slick-prev {
+      left: -40px;
+    }
+
+    .slick-next {
+      right: -40px;
+    }
+  }
+
+  .precio-servicio {
+    text-align: right;
+  }
+
+  .description-container {
+    margin: 5px 0 10px 0;
+    font-family: 'Montserrat Light', sans-serif;
+    font-size: 13px;
+
+    .slick-track {
+      padding-top: 3px;
+    }
+
+    .row > div:nth-child(2) {
+      text-align: right;
+    }
+
+    .description p {
+      max-height: 85px;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    .group-items-button{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0;
+
+      .of-items.of-images{
+        min-width: 180px;
+        >div{
+          text-align: left;
+          margin-top: 3px;
+          span{
+            margin: 0 2px;
+            display: inline-block;
+            img{
+              max-width: 27px;
+              max-height: 27px;
+            }
+          }
+        }
+      }
+      .of-items{
+
+        button{
+          width: 130px;
+          margin-top: 20px;
+          margin-right: -5px;
+          float: right;
+        }
+      }
+      .button-more-cat{
+        width: 27px !important;
+        height: 27px !important;
+        border: 1px solid #858585;
+        padding: 0;
+        overflow: hidden;
+        margin: 0 0 0 3px !important;
+        color: #4e4e4e;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        line-height: 0;
+        background-color: #f0eded;
+        border-radius: 50%;
+      }
+    }
+
+  }
+
+  .stars {
+    top: 11px;
+    position: relative;
+    margin-left: 6px;
+  }
+
+  .stars i {
+    color: #f3c43c;
+    font-size: 12px;
+  }
+
+  .stars i.no {
+    color: #e4e4e4;
+  }
+
+  .centrado {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  .distance {
+    margin-top: 11px;
+    margin-right: 0;
+    font-size: 13px;
+  }
+
+  .working-time {
+    font-size: 12px;
+  }
+
+  .check-open {
+    position: relative;
+    top: -3px;
+  }
+
+  .commerce-name-result{
+    color: #6fb7d2;
+    font-weight: bold;
+  }
+
+}
+
+@media (min-width: 1px) and (max-width: $px-medium-sm) {
+  .item-resultado{
+    .body{
+      // width: 70% !important;
+      .carousel-container{
+        .slick-list{
+          // width: 115px;
+        }
+        .productos{
+          h5{
+            position: relative;
+            text-align: center;
+            right: 0;
+          }
+          img{
+            margin-top: 22px;
+          }
+          button{
+            width: 100%;
+            font-size: 11px;
+          }
+          .price {
+            position: absolute;
+            top: -12px;
+            right: 35px;
+            font-weight: bold;
+            img{
+              margin-top: 20px;
+              width: 55px;
+            }
+          }
+        }
+      }
+    }
+    .description-container {
+      .group-items-button {
+        .of-items.of-images {
+          > div {
+            span {
+              img {
+                max-width: 22px;
+                max-height: 22px;
+              }
+            }
+          }
+        }
+        .button-more-cat{
+          width: 22px !important;
+          height: 22px !important;
+          margin-right: 10px !important;
+        }
+      }
+    }
+    .centrado{
+      width: 100%;
+      margin-top: 15px;
+
+      .img-rounded-border{
+        width: 75px;
+        height: 75px;
+      }
+    }
+  }
+}
+@media (min-width: $px-mobile) and (max-width: $px-medium-sm){
+  .item-resultado {
+    .centrado{
+      .img-rounded-border{
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $px-mobile) {
+  // .oficial {
+  //   min-height: 20px;
+  // }
+}
+
+@media screen and (max-width: $px-medium) {
+
+  .item-resultado {
+
+    > div {
+      flex-direction: column;
+    }
+
+    .body {
+      width: 100%;
+    }
+
+    .oficial {
+      width: 100%;
+      min-height: 30px;
+    }
+
+    .description-container {
+
+      .row > div:nth-child(2) {
+        text-align: center;
+      }
+
+      .group-items-button .of-items button {
+        float: none;
+        display: inline-block;
+      }
+    }
+
+    .distance {
+      margin-right: 0;
+    }
+
+    .centrado{
+
+      .img-rounded-border{
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}

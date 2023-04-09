@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="77" viewBox="0 0 170 77">
+    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+        <ellipse cx="14.54" cy="72.49" stroke="#30C580" stroke-width="1.098" rx="1.987" ry="1.996"/>
+        <path stroke="#30C580" stroke-linecap="square" stroke-width="1.098" d="M15.272 56l2.246 2.252M17.518 56l-2.246 2.252"/>
+        <path stroke="#30C580" stroke-width="1.098" d="M0 66.398l1.987-1.995 1.988 1.995-1.988 1.996L0 66.398"/>
+        <ellipse cx="164.54" cy="22.49" stroke="#FFF" stroke-width="1.098" rx="1.987" ry="1.996"/>
+        <path stroke="#FFF" stroke-linecap="square" stroke-width="1.098" d="M165.272 6l2.246 2.252M167.518 6l-2.246 2.252"/>
+        <path stroke="#FFF" stroke-width="1.098" d="M150 16.398l1.987-1.995 1.988 1.995-1.988 1.996L150 16.398"/>
+        <circle cx="78.5" cy="35.5" r="35.5" fill="#FFF" stroke="#27B574" stroke-width="2"/>
+        <path fill="#30C580" stroke="#30C580" stroke-width="1.35" d="M93.957 32.337a.868.868 0 0 0-.693-.593l-9.671-1.393-4.352-8.867a.861.861 0 0 0-.77-.484.856.856 0 0 0-.77.49l-4.295 8.893-9.67 1.457a.869.869 0 0 0-.472 1.484l7.018 6.893-1.622 9.764a.864.864 0 0 0 .343.851.84.84 0 0 0 .904.065l8.634-4.637 8.66 4.585a.87.87 0 0 0 .394.097.87.87 0 0 0 .833-1.07l-1.673-9.706 6.973-6.932a.86.86 0 0 0 .23-.897zm-8.716 6.907a.868.868 0 0 0-.242.774l1.457 8.467-7.52-3.979a.86.86 0 0 0-.802 0l-7.495 4.024 1.406-8.48a.877.877 0 0 0-.249-.767l-6.082-5.985 8.392-1.264a.853.853 0 0 0 .643-.477l3.728-7.72 3.78 7.7a.875.875 0 0 0 .648.478l8.4 1.212-6.064 6.017z"/>
+        <rect width="13" height="13" x="80.5" y="41.5" fill="#30C580" stroke="#FFF" rx="6.5"/>
+        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M85 47.292l1.854 1.854L90 46"/>
+    </g>
+</svg>

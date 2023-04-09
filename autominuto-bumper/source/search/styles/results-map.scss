@@ -1,0 +1,71 @@
+
+.custom-marker {
+}
+
+.outstanding-mark{
+  width: 35px;
+  height: 35px;
+  background-color: red;
+}
+.outstanding-custom-mark{
+    //background-color: #5ebafb !important;
+    border-color: #5ebafb !important;
+    z-index: 2 !important;
+    /*-webkit-box-shadow: 0 0px 10px 2px #64cbf5;
+    -moz-box-shadow: 0 0px 10px 2px #64cbf5;
+    box-shadow: 0 0px 10px 2px #64cbf5;*/
+}
+
+
+/*.custom-marker.my-custom-marker img{
+  padding: 0px 2px 4px 2px;
+}*/
+.custom-marker.my-custom-marker img{
+  padding: 0;
+  border-radius: 100%;
+}
+
+.custom-marker.my-custom-marker {
+  font-size: 1.5em;
+  //padding: 4px;
+  background: #fff;
+  border: #7F7F7F solid 2px;
+  border-radius: 100%;
+  img {
+    z-index: 1;
+  }
+}
+
+.custom-marker.my-custom-marker:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 6px 6px 0;
+  border-color: #fff transparent;
+  display: block;
+  width: 0;
+  margin-left: -6px;
+  bottom: -5px;
+  left: 50%;
+}
+
+.custom-marker.my-custom-marker:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 7px 6px 0;
+  border-color: #7F7F7F transparent;
+  display: block;
+  width: 0;
+  margin-left: -6px;
+  bottom: -7px;
+  left: 50%;
+}
+
+.outstanding-custom-mark:after{
+  border-color: #fff transparent !important;
+} 
+
+.outstanding-custom-mark:before{
+  border-color: #5ebafb transparent !important;
+}

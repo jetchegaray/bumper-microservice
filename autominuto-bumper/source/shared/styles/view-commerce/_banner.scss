@@ -1,0 +1,41 @@
+
+.item-banner-visible {
+  visibility: visible;
+}
+
+.item-banner-invisible {
+  visibility: hidden;
+}
+
+.item-banner-removed {
+  display: none;
+}
+
+.item-banner-added {
+  display: inherit;
+}
+
+.background-left-none {
+  background-image: none !important;
+}
+
+.background-left-default {
+  background-image: url("/assets/images/icons/stripe-line.png");
+}
+
+.perfil-title .name-commerce {
+  width: 335px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+}
+
+.more_brands {
+  margin-left: 5px;
+  width: 35px;
+}

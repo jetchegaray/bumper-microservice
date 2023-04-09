@@ -1,0 +1,13 @@
+<div class="modal fade" style="top: 30px;">
+  <div class="modal-dialog"  >
+    <div class="modal-content" style="background: white; color:#253a4c">
+      <div class="modal-body">
+        <div style="display: flex; flex-flow: wrap; justify-content: space-between;">
+          <div ng-repeat="brand in brands | limitTo: (starting - brands.length)">
+            <img src="assets/images/brands/logo/{{brand.imageName}}" width="45" height="45" >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

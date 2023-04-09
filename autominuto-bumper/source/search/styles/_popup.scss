@@ -1,0 +1,141 @@
+.modal-content {
+  display: inline-block;
+  color: #000;
+}
+
+.modal-body {
+  background-color: #f7f7f7;
+}
+
+.modal-footer {
+  background-color: #f7f7f7;
+}
+
+.modal-header{
+  > div {
+    &:nth-child(1), &:nth-child(4) {
+      display: none;
+
+      @media (min-width: 992px) {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 1050px;
+    border-radius: 6px;
+  }
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+.padding-left-30 {
+  padding-left: 30px;
+}
+
+.padding-top-40 {
+  padding-top: 40px;
+}
+
+.padding-top-30 {
+  padding-top: 30px;
+}
+
+.border-footer {
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding-top: 0;
+  padding-bottom: 30px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #5c9abf;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #666;
+}
+
+.slider {
+  width: 100%;
+  margin: 0 auto;
+  height: 150px;
+}
+
+.slider.lubricantes.slick-initialized.slick-slider button img {
+  height: 30px !important;
+  margin-top: -30px;
+}
+
+.slider.lubricantes.slick-initialized.slick-slider button.slick-prev {
+  left: -30px !important;
+}
+
+.slider.lubricantes.slick-initialized.slick-slider button.slick-next img {
+  margin-left: 10px !important;
+}
+
+.slick-track {
+  padding-top: 0;
+}
+
+.slider.lubricantes .slick-track {
+  /*transform: none !important;*/
+}
+
+/* Mapa Busqueda */
+
+.border-filtro {
+  width: 100%;
+  margin: 0 0 10px 0;
+  float: left;
+  border-top: 2px solid lightgray;
+}
+
+label.small {
+  font-size: 12px;
+  font-family: 'Montserrat Light', sans-serif;
+}
+
+.checkbox-inline {
+  font-size: 12px;
+}
+
+/* ROUNDED ONE */
+
+.margin-left-17 {
+  margin-left: 17px !important;
+}
+
+.margin-left-0 {
+  margin-left: 0 !important;
+}
+

@@ -1,0 +1,591 @@
+
+banner-commerce {
+  .banner-container {
+    float: left;
+    width: 96.5%;
+    background-color: white;
+    padding: 20px 0;
+    border-bottom: thin solid #cccccc;
+    display: flex;
+    align-items: center;
+    &.gold{
+      background-image: url("/assets/images/icons/stripe-line.png");
+    }
+    &.silver{
+      background-image: url("/assets/images/icons/stripe-line-gray.png");
+    }
+    &.bronze{
+      background-image: url("/assets/images/icons/stripe-line-bronze.png");
+    }
+    &.default{
+      background-image: url("/assets/images/icons/stripe-line-default.png");
+    }
+    .col-xs-9 {
+      .banner-twitter {
+        padding: 4px 3px 3px 3px;
+        border-radius: 4px;
+        background: #1dcaff;
+        text-decoration: none;
+
+        i {
+          color: white;
+          font-size: 18px;
+        }
+      }
+
+      .banner-facebook {
+        padding: 4px 4px 3px 3px;
+        border-radius: 4px;
+        background: #3b5998;
+        text-decoration: none;
+        margin-right: 7px;
+
+        i {
+          color: white;
+          font-size: 18px;
+        }
+      }
+
+      .disabled-link {
+        pointer-events: none;
+        cursor: default;
+      }
+
+      .item-banner-visible {
+        visibility: visible;
+      }
+
+      .item-banner-invisible {
+        visibility: hidden;
+      }
+
+      padding: 0;
+      .stripe {
+        width: 50px;
+        height: 180px;
+        p{
+          &.gold {
+            background-color: #f6bf0e;
+          }
+
+          &.silver {
+            background: #bebebe;
+          }
+
+          &.bronze {
+            background: #c57235;
+          }
+
+          &.default {
+            background: #8b8b8b;
+          }
+        }
+
+      }
+      .logo-dm {
+        float: left;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin: 0 20px;
+        span {
+          border: 2px solid #002e5c;
+          border-radius: 112px;
+          padding: 30px;
+        }
+      }
+      .logo-dm.perfil-image img{
+          max-width: 200px;
+          max-height: 200px;
+          border: 5px solid;
+          cursor: pointer;
+          border-radius: 150px;
+          -webkit-border-radius: 150px;
+          -moz-border-radius: 150px;
+      }
+      .usuario-photo {
+        span {
+          padding: 0 !important;
+        }
+      }
+      span {
+
+        .perfil-title {
+          display: flex;
+          align-items: center;
+          margin: 20px;
+          width: 62%;
+
+          span {
+            display: flex;
+            align-items: center;
+          }
+          div {
+            margin: 0 2px;
+            p {
+              font-weight: bold;
+              font-size: 1.2em;
+              font-family: 'Montserrat', sans-serif;
+              margin: 0;
+              color: #0f374b;
+
+              width: 260px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+          .stars {
+            display: flex;
+            margin-left: 10px;
+          }
+        }
+        .perfil-subtitle,
+        .perfil-link {
+          margin-bottom: 10px;;
+          div {
+            span {
+              display: flex;
+              align-items: center;
+              img {
+                margin-right: 10px;
+              }
+              p {
+                margin: 0;
+              }
+              img {
+
+              }
+            }
+          }
+        }
+        .perfil-social {
+          display: flex;
+          align-items: center;
+          div {
+            span {
+              margin: 4px;
+            }
+          }
+          p {
+            margin-left: 10px;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .col-xs-3 {
+
+      .more_brands {
+        margin-left: 5px;
+        width: 35px;
+      }
+
+      .item-banner-removed {
+        display: none;
+      }
+
+      .item-banner-added {
+        display: inherit;
+      }
+
+      background-color: #fff;
+      padding: 0;
+      //display: flex;
+      display: block;
+      justify-content: center;
+      div {
+        align-self: center;
+        .date,
+        .number-1,
+        .number-2,
+        .car-brands,
+        .clock {
+          display: flex;
+          justify-content: flex-end;
+          margin: 12px;
+          align-items: center;
+          div {
+            display: flex;
+            align-items: center;
+            p {
+              margin: 0;
+              margin-left: 5px;
+            }
+          }
+          span {
+            display: flex;
+            .logo-car {
+              margin: 0 2px 0 10px;
+              position: relative;
+              .more {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 25;
+                background-image: url("/assets/images/icons/car-brand-transparency.png");
+                border-radius: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                b {
+                  font-size: 23px;
+                }
+              }
+            }
+          }
+          .test-drive {
+            width: 140px;
+            button {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              background-color: #253a4c;
+              border: none;
+              color: white;
+              padding: 10px 10px;
+              border-radius: 20px;
+            }
+          }
+          p {
+            margin: 0 5px;
+          }
+        }
+        .date {
+          margin-right: 5px;
+
+          a {
+            display: flex;
+
+            p {
+              font-size: 12px;
+              padding-top: 1px;
+            }
+          }
+          p {
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+        .number-1,
+        .number-2 {
+          color: #787b84;
+          div {
+            p {
+              font-size: 16px;
+            }
+          }
+          img{
+            max-width: 20px;
+          }
+        }
+      }
+
+      .button-banner-workingHours {
+        display: flex;
+        background: white;
+        border: 0px;
+
+        p {
+          font-size: 14px !important;
+          margin-top: 2px !important;
+        }
+      }
+
+      .container_button_phone {
+        text-align: right;
+        width: 100%;
+
+        button {
+          background: #6799cc;
+          background: linear-gradient(top, #6799cc 0%, #4e80b3 100%);
+          background: -moz-linear-gradient(top, #6799cc 0%, #4e80b3 100%);
+          background: -webkit-linear-gradient(top, #6799cc 0%, #4e80b3 100%);
+          background: -o-linear-gradient(top, #6799cc 0%, #4e80b3 100%);
+          color: white;
+          padding: 5px 20px;
+          border: none;
+          border-radius: 20px;
+          margin-right: 15px;
+        }
+      }
+
+      .container_button_phone button:hover {
+        background: linear-gradient(top, #81b3e6 0%, #6799cc 100%);
+        background: -moz-linear-gradient(top, #81b3e6 0%, #6799cc 100%);
+        background: -webkit-linear-gradient(top, #81b3e6 0%, #6799cc 100%);
+        background: -o-linear-gradient(top, #81b3e6 0%, #6799cc 100%);
+      }
+
+      .tooltip-brand {
+        text-align: center;
+        z-index: 1000;
+        width: 80px;
+        top: 120%;
+        left: -38%;
+        display: inline-table!important;
+        color: #fff;
+        background-color: #25a7fc;
+        font-size: 12px;
+        transition: opacity .8s;
+        padding: 7px;
+        border-radius: 6px;
+        box-shadow: 1px 1px 19px rgba(0,0,0,.5);
+        position: absolute;
+      }
+
+      .tooltip-brand:after {
+        left: 44%;
+        top: -40%;
+        bottom: 100%;
+        content: "";
+        position: absolute;
+        margin-left: -2%;
+        border-width: 7px;
+        border-style: solid;
+        border-color: transparent transparent #25a7fc transparent;
+      }
+
+    }
+  }
+
+  .background-left-gray {
+    background-image: url("/assets/images/icons/stripe-line-gray.png");
+  }
+
+  .background-left-default {
+    background-image: url("/assets/images/icons/stripe-line.png");
+  }
+
+}
+
+@media (max-width: 1300px) {
+  banner-commerce {
+    .banner-container .col-xs-9 span .perfil-title div p {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  banner-commerce {
+
+    .banner-container  .col-xs-9 span .perfil-title div p {
+      font-size: 1.2em;
+    }
+    .banner-container .col-xs-3 div .car-brands .test-drive button,
+    .banner-container .col-xs-9 span .perfil-social p,
+    .banner-container .col-xs-9 span .perfil-subtitle div span p,
+    .banner-container .col-xs-9 span .perfil-link div span p,
+    .banner-container .col-xs-3 div .date p,
+    .banner-container .col-xs-3 div .number-1 div p,
+    .banner-container .col-xs-3 div .number-2 div p {
+      font-size: 0.9em;
+    }
+    .banner-container .col-xs-9 {
+      width: 63%;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      margin: 8px 0;
+    }
+    .banner-container .col-xs-9 .logo-dm {
+      margin: 0 14px;
+    }
+    .banner-container .col-xs-9 .logo-dm span {
+      padding: 27px;
+    }
+    .banner-container > .col-xs-9 {
+      width: 73%;
+    }
+
+    .button-banner-workingHours p {
+      font-size: 12px !important;
+    }
+
+    .container_button_phone button {
+      font-size: 12px !important;
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  banner-commerce {
+    .banner-container .col-xs-3 div .car-brands {
+      position: relative;
+      top: 27px;
+    }
+
+    .banner-container .col-xs-3 div .car-brands .test-drive {
+      width: 115px;
+      font-size: 12px;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      width: 55%;
+      div p {
+        width: 130px;
+      }
+    }
+
+    .banner-container .col-xs-9 .logo-dm {
+      margin: 0 10px;
+
+      &.-no-margin-mobile {
+        margin: 0;
+      }
+    }
+    .banner-container .col-xs-9 span .perfil-title div p,
+    .banner-container .col-xs-3 div .date p,
+    .banner-container .col-xs-3 div .number-1 div p,
+    .banner-container .col-xs-3 div .number-2 div p {
+      font-size: 1em;
+    }
+    .banner-container .col-xs-9 span .perfil-subtitle div span p,
+    .banner-container .col-xs-9 span .perfil-link div span p,
+
+    .banner-container .col-xs-3 div .clock {
+      font-size: 0.8em;
+    }
+    .banner-container .col-xs-3 div .number-1 p {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 745px) {
+  banner-commerce {
+    .banner-container .col-xs-9 span .perfil-title {
+      width: 402px;
+    }
+
+    .banner-container .col-xs-3 {
+      width: 35%;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      display: block;
+    }
+    .banner-container .col-xs-9 span .perfil-title div {
+      margin: 1px 2px;
+    }
+    .banner-container .col-xs-3 div .date,
+    .banner-container .col-xs-3 div .number-1,
+    .banner-container .col-xs-3 div .number-2,
+    .banner-container .col-xs-3 div .car-brands,
+    .banner-container .col-xs-3 div .clock {
+      margin: 19px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  banner-commerce {
+    .banner-container {
+      display: block;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      width: 100%;
+
+      .stars {
+        width: 90px !important;
+      }
+
+    }
+
+    .banner-container .col-xs-9,
+    .banner-container .col-xs-3 {
+      width: 100%;
+    }
+    .banner-container .col-xs-9 .stripe {
+      display: none !important;
+    }
+    .banner-container {
+      background-image: none !important;
+    }
+
+    .banner-container .col-xs-3 div .date,
+    .banner-container .col-xs-3 div .number-1,
+    .banner-container .col-xs-3 div .number-2,
+    .banner-container .col-xs-3 div .car-brands,
+    .banner-container .col-xs-3 div .clock {
+      justify-content: center;
+      width: 100%;
+      margin: 13px 0;
+    }
+    .banner-container .col-xs-9 span .perfil-social {
+      float: left;
+      width: 100%;
+    }
+    .banner-container .col-xs-3 div {
+      float: left;
+      align-self: inherit;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      display: block;
+    }
+    .banner-container .col-xs-9 span .perfil-title span,
+    .banner-container .col-xs-9 span .perfil-title .stars {
+      display: flex;
+      float: left;
+      width: 100%;
+      margin: 0 0 10px;
+    }
+    .banner-container .col-xs-9 span .perfil-subtitle div,
+    .banner-container .col-xs-9 span .perfil-link div,
+    .banner-container .col-xs-9 span {
+      float: left;
+    }
+    .banner-container .col-xs-9 .logo-dm {
+      justify-content: center;
+      display: flex;
+      width: 100%;
+    }
+    .banner-container .col-xs-9 span,
+    .banner-container .col-xs-9 span .perfil-social,
+    .banner-container .col-xs-9 span .perfil-subtitle,
+    .banner-container .col-xs-9 span .perfil-link,
+    .banner-container .col-xs-9 span .perfil-title span,
+    .banner-container .col-xs-9 span .perfil-title .stars {
+      width: 100%;
+    }
+    .banner-container .col-xs-9 span .perfil-social,
+    .banner-container .col-xs-9 span .perfil-subtitle,
+    .banner-container .col-xs-9 span .perfil-link,
+    .banner-container .col-xs-9 span .perfil-title span,
+    .banner-container .col-xs-9 span .perfil-title .stars {
+      justify-content: center;
+      display: flex;
+    }
+    .banner-container .col-xs-9 span .perfil-title {
+      text-align: center;
+    }
+    .banner-container .col-xs-9 .logo-dm span {
+      width: auto;
+    }
+    .banner-container .col-xs-3 div .car-brands span {
+      float: left;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .banner-container .col-xs-3 div .car-brands .test-drive {
+      float: left;
+      text-align: center;
+      justify-content: center;
+      margin: 0 0 20px;
+      width: 100%;
+    }
+    .banner-container .col-xs-3 {
+      width: 100% !important;
+    }
+
+    .banner-container .col-xs-3 div .date,
+    .banner-container .col-xs-3 div .number-1,
+    .banner-container .col-xs-3 div .number-2,
+    .banner-container .col-xs-3 div .car-brands {
+      display: grid;
+    }
+
+    .container_button_phone {
+      text-align: center !important;
+    }
+  }
+}

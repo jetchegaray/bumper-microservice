@@ -1,0 +1,427 @@
+/* HIDE "Buscar cerca mío" ONLY WHEN IS PRESENT UNDER AN IFRAME */
+iframe {
+  .fast-search-home {
+    .flex-search-container{
+      .search-switch.search-field-small{
+        display: none;
+      }
+    }
+  }
+}
+
+.fast-search-home{
+  display: flex;
+  background-color: #fff;//#caa2a2;
+  color: #7a7a84;
+  border-radius: 18px;
+  // max-width: 925px;
+  padding: 20px;
+  align-items: center;
+  border: 2px solid #ccc;
+  margin: auto;
+
+  .flex-search-container{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .search-field{
+    padding: 0 15px;
+    max-width: 100%;
+  }
+  .search-field-big{
+    display: flex;
+    flex: 0.65;
+  }
+  .search-field-medium{
+    display: flex;
+    flex: 0.35;
+  }
+  .search-field-small{
+    display: flex;
+    flex: 0.3;
+  }
+  .search-field-full{
+    display: flex;
+    flex-basis: 100%;
+    padding-top: 10px;
+    @media (max-width: 991px) {
+      padding-top: 0;
+    }
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;    
+  }
+  .field{
+    flex: 1;
+    border-bottom: 2px solid #ccc;
+    top: 10px;
+    margin-left: 10px;
+    input{
+      height: 20px;
+      box-shadow: 0 0;
+      padding: 0;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      color: #5c9abf;
+    }
+  }
+
+  .lupa-container {
+    margin-top: 5px;
+  }
+
+  .ui-select-toggle {
+    padding-left: 0;
+  }
+  .ui-select-search,
+  .ui-select-search:focus {
+    padding-left: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+
+@media(max-width: 1024px){
+  .fast-search-home {
+    min-height: 280px;
+    flex-direction: column;
+    .flex-search-container{
+      width: 100%;
+      display: block;
+      flex-direction: column;
+      .search-field{
+        padding: 0;
+        flex-direction: column;
+        height: 50px;
+        margin: 5px 0;
+        >label {
+          padding-left: 10px;
+        }
+      }
+      .search-switch.search-field-small{
+        display: block;
+        justify-content: center;
+        flex: auto;
+        margin-top: 15px;
+        height: 35px;
+        .search-bar {
+          padding-left: 10px;
+        }
+      }
+    }
+    .search-field-full{
+      flex-basis: auto;
+      display: block;
+    }
+  }
+}
+
+#busqueda_avanzada{
+
+  .close{
+    float: none;
+    opacity: 1;
+    margin-top: 50px;
+  }
+
+  .modal-dialog{
+    width: 100%;
+    margin: 0;
+    color: #fff;
+  }
+
+  .modal-content{
+    min-height: 100vh;
+  }
+
+  .search-title{
+    font-size: 60px;
+    @media(max-width: 500px){ font-size: 45px; }
+  }
+
+  .search-bar-container{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .search-bar{
+    padding: 25px 20px;
+    color: #787a83;
+    background-color: #fff;
+    border-radius: 50px;
+
+    &.upper > div{
+      margin-bottom: 15px;
+      @media(min-width: 1000px){
+        display: flex;
+        margin: 0;
+        .field{
+          margin-left: 10px;
+          flex: 1;
+        }
+      }
+    }
+
+    &.lower{
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-top: 20px;
+    }
+  }
+
+  .field{
+    border-bottom: 2px solid #ccc;
+    top: 10px;
+
+    select, input{
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      color: #5c9abf;
+    }
+
+    input{
+      height: 20px;
+      box-shadow: 0 0;
+      padding: 0;
+    }
+
+    &.disabled{
+      border: 0;
+      input, select{
+        color: grey;
+      }
+    }
+  }
+
+  .map-results-label{
+    top: 0;
+    margin: 0;
+    width: 100%;
+    line-height: 200px;
+    position: absolute;
+    background: rgba(128, 128, 128, 0.5);
+    @media(max-width: 1000px){ font-size: 30px; }
+    @media(max-width: 700px){ font-size: 24px; }
+    @media(max-width: 650px){ font-size: 20px; }
+    @media(max-width: 550px){ font-size: 16px; }
+  }
+
+  .location-error{
+    font-size: 11px;
+    margin-left: 65px;
+  }
+
+  .busqueda-avanzada{
+    position: relative;
+    .categoria{
+      cursor: pointer;
+      >a:hover{
+        background-color: #f4f4f4;
+      }
+    }
+    .title-productos-servicios{
+      padding: 20px 25px;
+      line-height: 25px;
+      font-size: 21px;
+      font-weight: 400;
+      text-align: center;
+    }
+    .productos-servicios-placeholder{
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      width: 100%;
+    }
+    .close-selector{
+      position: absolute;
+      top: 15px;
+      right: 0;
+      color: grey;
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 767px){
+  #busqueda_avanzada{
+    h5{
+      padding: 0 30px;
+    }
+    .modal-body{
+      padding: 0 20px 20px 20px;
+      .container-fluid{
+        padding: 0 20px;
+        .advanced-search{
+          display: none;
+        }
+      }
+      .search-bar-container{
+        .search-switch{
+          padding: 0;
+        }
+        .search-userLocation, .search-officialCommerces {
+          float: none;
+          display: block;
+        }
+      }
+    }
+    button{
+      font-weight: 500;
+    }
+  }
+}
+
+// Place Google Places Autocomplete over bootstrap modal
+.pac-container {
+    z-index: 1051 !important;
+}
+
+@media (min-width: 768px) and (max-width: 990px){
+  .search-userLocation{
+    float: right;
+  }
+  .search-officialCommerces{
+    float: left;
+  }
+}
+@media (min-width:992px){
+  .search-userLocation{
+    margin-right: 5%;
+    float: right;
+  }
+}
+.lupa-container {
+  @media(max-width: 767px) {
+    margin-top: 25px;
+  }
+  @media(min-width: 1000px) {
+    margin-left: 15px;
+  }
+}
+
+.lupa-open,.btn.btn-default.lupa-open:disabled,
+.lupa-open:hover,
+.lupa-open:focus {
+    width: 45px;
+    height: 45px;
+    background-color: #5c9abf;
+    color: #fff;
+}
+
+select:focus,
+close:focus{
+  outline: transparent auto 0px !important;
+  outline-offset: 0px !important;
+}
+
+
+/* Switcher */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  margin-left: 10px;
+}
+
+.switch input {display:none;}
+
+.pasador {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pasador:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  top:-10px;
+}
+
+input:checked + .pasador {
+  background-color: #ccc;
+}
+
+input:focus + .pasador {
+  box-shadow: 0 0 1px #5c9abf;
+}
+
+input:checked + .pasador:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #5c9abf;
+}
+
+/* Rounded pasadores */
+
+.pasador.round {
+  border-radius: 34px;
+}
+
+.pasador.round:before {
+  border-radius: 50%;
+}
+
+li.categoria{
+  border-top: 1px solid lightgrey;
+}
+
+li.categoria a{
+  padding: 30px 15px;
+  font-size: 18px;
+  font-weight: bold;
+
+  @media(max-width: 1000px){
+    text-align: center;
+  }
+}
+
+.selecciones{
+  background-color: #fff;
+  min-height: 362px;
+}
+.selecciones h2{
+  padding-top: 120px;
+}
+
+.buscados h3{
+  padding: 40px 0;
+}
+
+.selecciones-grey{
+    background-color: #eee;
+    @media(min-width: 1000px){
+        min-height: 500px;
+    }
+}
+
+.selecciones-white{
+    background-color: white;
+    min-height: 500px;
+    @media(max-width: 1000px){
+        display: none;
+    }
+}
