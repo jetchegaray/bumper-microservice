@@ -1,4 +1,4 @@
-# Autominuto Frontend - SPA
+# Microservice for finding mechanics or spare parts shops near you with the best prices - SPA
 
 #### This are the steps required to set up your environment
 
